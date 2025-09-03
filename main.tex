@@ -1,0 +1,105 @@
+\documentclass[spanish,titlepage,table]{practicas}
+%\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage[spanish]{babel}
+\usepackage{hyperref}
+
+\directlua{tab = require("src/andpocalipse")}
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
+\definecolor{jacolor}{RGB}{200,40,0}\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+\definecolor{accolor}{HTML}{008080}\FXRegisterAuthor{ac}{anac}{\color{accolor}AC}
+\definecolor{cpcolor}{RGB}{0,200,40}\FXRegisterAuthor{cp}{ancp}{\color{cpcolor}CP}
+
+%\usepackage[mathlines]{lineno}  \linenumbers \setlength\linenumbersep{3pt}
+
+
+\decimalpoint
+\hypersetup{
+    colorlinks,
+    allcolors=blue!70!black
+}
+\def\ASPOR{\phantom{Asesorado por:}\hspace{.6em}}
+
+\institute{
+    Universidad de San Carlos de Guatemala\\[.5em]
+    Escuela de Ciencias Físicas y Matemáticas
+}
+\title{
+    {\LARGE Prácticas:}\\[0.5em]
+    Estudio sobre los regímenes de caoticidad e integrabilidad del modelo de Bose-Hubbard 
+}
+\course{Licenciatura en Física Aplicada}
+\author{Saúl Estuardo Nájera Allara}
+\id{202107506}
+\date{Septiembre de 2025}
+\professor{
+    M.Sc. José Alfredo de León (IF--UNAM),\\
+    \ASPOR Ing. Rodolfo Samayoa (ECFM--USAC)
+}
+
+\begin{document}
+
+\maketitle
+
+\section{Descripción general de la institución}\label{sec:institution}
+\subsection{Instituto de investigación de Ciencias Físicas y Matemáticas, USAC}
+El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la unidad de la Escuela de Ciencias Físicas y Matemáticas (ECFM) que promueve y realiza estudios avanzados en áreas científicas, fundamentales y aplicadas, de las ciencias físicas y matemáticas. El ICFM se proyecta como una plataforma regional de excelencia dedicada a la investigación y difusión del conocimiento en física y matemática. Las principales líneas de trabajo del ICFM son:
+\begin{itemize}
+    \item La investigación académica en ciencia básica y aplicada.
+    \item La promoción de la investigación en ciencia básica y aplicada en el ámbito universitario.
+    \item La difusión y divulgación del conocimiento generado por la investigación en ciencias físicas y matemáticas.
+    \item La actualización continua de programas académicos de ciencias físicas y matemáticas.
+\end{itemize}
+\section{Descripción del grupo de trabjo:}
+(Pendiente)
+\section{Descripción general del proyecto}\label{sec:description}
+El estudio de sistemas cuánticos y su comportamiento según las condiciones físicas a las que se haya sujeto 
+son de importancia tanto para el ámbito aplicado como para el teórico. Es de interés conocer los regímenes 
+en los cuales una sistema pueda exhibir una ergodicidad alta o un comportamiento fuertemente localizado para ciertos estados.
+La conjetura BGS (Bogigas-Gianoni-Schmit) establece que el espectro de un sistema invariante antes inversiones temporales 
+cuyo análogo clásico sean K sistemas presenta las mismas propiedades estadísiticas que las de uno de los 
+tres posibles ensambles de matrices aleatorias, GOE (Gaussian Ortogonal ensemble), GSU ( Gaussian Symplectic Ensemble),
+GUE ( Gaussian Unitary Ensemble). %Buscar cita
+ En vista de ello, la estadística espectral es una 
+herramienta apropiada para la caracterización de sistema cuánticos. \\
+Este trabajo consistirá en hacer un estudio espectral del sistema cuántico de Bose Hubbard (con condiciones de frontera abiertas), con el motivo de identificar bajo que condiciones 
+se presenta una estadística que refleje, según la conjetura BGS, las características del caos cuántico.\\
+En particular, se estudiará los cocientes entre los espaciamientos relativos de los valores propios del Hamiltoniano que describe al Bose Hubbard 
+y también un correlacionador, la divergencia KL, que permitirá inferir las regiones en las cuales la estadísitca del sistema 
+se asemeja a la estadística del ensamble GOE.
+\\
+El Hamiltoniano a trabajar tiene la siguiente forma:
+\[
+\hat{H}
+= \frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
++ \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1),
+\]
+\section{Objetivos}\label{sec:objetivos}
+\subsection{Objetivo general}
+Estudiar la estadísitica espectral del Hamiltoniano de Bose Hubbard para identificar bajo que condiciones 
+el sistema presenta una estadísitica  que coincide con la propuesta por el ensamble de matrices aleatorias GOE (Gaussian Ortogonal Ensamble)
+\subsection{Objetivos específicos}
+\begin{itemize}
+\item Estudiar el formalismo para el tratamiento de un Hamiltoniano bajo ciertas simetrías.
+\item Sectorizar el Hamiltoniano en sus sectores de simetría par e impar.
+\item Aprender el lenguaje de programación Wolfram Mathematica, sobre el cual se programará todo el trabajo.
+\item Programar la base de Fock que describe las configuraciones físicas del Bose Hubbard.
+\item Programar el hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
+\item Programar la sectorización del Hamiltoniano, bajo la simetría que existe con el operador reflexión.
+\item Estudiar acerca de las caracterizaciones espectrales que definen el caos cuántico.
+\item Implementar las herramientas estadísiticas.
+\item Estudiar las distintas configuraciones físicas (distintos valores de J y U) del Bose Hubbard y hacer estadística para cada caso.
+\item Identificar los regímenes en los cuales la estadísitica del sistema coincide con GOE.
+\end{itemize}
+\section{Justificación del Proyecto}
+Es de importancia tener una forma cuantitativa para describir sistemas cuánticos que exhiben 
+un comportamiento caótico, y ser capaz de identificar bajo que condiciones físicas se presenta 
+dicho comportamiento. En adición, es un tema de investigación reciente que tiene múltiples implicaciones 
+y campos posibles de investigación, por lo que es importante establecer una metodología óptima para el estudio posterior de otros sistemas análogos.
+Finalmente, en mi unidad académica, hay escaso conocimiento de estos temas de investigación, por lo que 
+es crucial informar e interesar a los miembros de la comunidad, con el fin de poder establecer 
+futuras investigaciones afines al estudio del caos cuántico.
+\section{Cronograma}
+(Pendiente)
+\end{document}
