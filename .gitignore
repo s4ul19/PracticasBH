@@ -1,0 +1,96 @@
+# LaTeX output files
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.nav
+*.snm
+*.vrb
+
+# Final PDF (optional - uncomment if you don't want to track PDFs)
+# *.pdf
+
+# Intermediate files
+*.dvi
+*.ps
+*.idx
+*.ilg
+*.ind
+*.brf
+*.bcf
+*.run.xml
+
+# Bibliography
+*.bbl
+*.blg
+
+# Glossaries
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+
+# Listings
+*.lol
+
+# MakeIndex
+*.mw
+
+# Package specific files
+*.auxlock
+*.end
+
+# Temporary files
+*~
+*.backup
+*.bak
+*.swp
+*.swo
+
+# Editor files
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+
+# Build directories (common patterns)
+build/
+_output/
+temp/
+tmp/
+
+# Specific to some LaTeX distributions
+*.pyg
+
+# Comment these out if you use these tools and want to track their files
+# *.bib       # if you want to track your bibliography source
+# *.tex       # if you want to track your source files (you probably do!)
+# *.cls       # document class files
+# *.sty       # style files
