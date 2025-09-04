@@ -4,7 +4,7 @@
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
 
-\directlua{tab = require("src/andpocalipse")}
+%\directlua{tab = require("src/andpocalipse")}
 
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 \definecolor{jacolor}{RGB}{200,40,0}\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
@@ -27,7 +27,8 @@
 }
 \title{
     {\LARGE Prácticas:}\\[0.5em]
-    Estudio sobre los regímenes de caoticidad e integrabilidad del modelo de Bose-Hubbard 
+    Estudio sobre los regímenes de caoticidad e integrabilidad del modelo de Bose-Hubbard \janote{Mucho texto, qué tal ``Caos cuántico en el modelo
+de Bose-Hubbard''?}
 }
 \course{Licenciatura en Física Aplicada}
 \author{Saúl Estuardo Nájera Allara}
@@ -51,23 +52,47 @@ El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la 
     \item La difusión y divulgación del conocimiento generado por la investigación en ciencias físicas y matemáticas.
     \item La actualización continua de programas académicos de ciencias físicas y matemáticas.
 \end{itemize}
-\section{Descripción del grupo de trabjo:}
-(Pendiente)
+
+%\section{Descripción del grupo de trabjo:}
+%(Pendiente)
+
 \section{Descripción general del proyecto}\label{sec:description}
-El estudio de sistemas cuánticos y su comportamiento según las condiciones físicas a las que se haya sujeto 
-son de importancia tanto para el ámbito aplicado como para el teórico. Es de interés conocer los regímenes 
-en los cuales una sistema pueda exhibir una ergodicidad alta o un comportamiento fuertemente localizado para ciertos estados.
-La conjetura BGS (Bogigas-Gianoni-Schmit) establece que el espectro de un sistema invariante antes inversiones temporales 
-cuyo análogo clásico sean K sistemas presenta las mismas propiedades estadísiticas que las de uno de los 
-tres posibles ensambles de matrices aleatorias, GOE (Gaussian Ortogonal ensemble), GSU ( Gaussian Symplectic Ensemble),
+\janote{Partí en párrafos esta sección, así como está no hay pausas y 
+estás hablando de un montón de cosas en un sólo gran párrafo. Es dificil de 
+seguir}
+
+El estudio de sistemas cuánticos y su comportamiento\janote{a qué te referís
+con ``su comportamiento''? Me suena un poco raro, no sé si fue la elección
+de palabra} según las condiciones físicas\janote{igual aquí, cómo qué 
+condiciones físicas?} a las que se haya sujeto 
+son de importancia tanto para el ámbito aplicado como para el teórico. 
+Es de interés conocer los regímenes 
+en los cuales una sistema pueda exhibir una ergodicidad alta o un comportamiento fuertemente localizado para ciertos estados\janote{por qué 
+es de interés? Si no vas a decir porqué, entonces cambiá la elección de 
+palabras de este enunciado}.
+La conjetura BGS (Bogigas-Gianoni-Schmit)\janote{Aquí, por ejemplo, hubo un 
+gran salto a hablar de lleno de la conjetura BGS, esto debería ser ya otro 
+párrafo} establece que el espectro de un sistema invariante antes inversiones temporales 
+cuyo análogo clásico sean K sistemas\janote{cabal deberías decir qué es un 
+K sistema} presenta las mismas propiedades estadísiticas que las de uno de los 
+tres posibles ensambles de matrices aleatorias, GOE (Gaussian Ortogonal ensemble), GSE (Gaussian Symplectic Ensemble),
 GUE ( Gaussian Unitary Ensemble). %Buscar cita
  En vista de ello, la estadística espectral es una 
-herramienta apropiada para la caracterización de sistema cuánticos. \\
+herramienta apropiada para la caracterización de sistema cuánticos. \janote{No
+usés $\backslash\backslash$ para hacer saltos de línea, sólo dejá una línea
+de espacio para hacer saltos de párrafo, así como lo cambié aquí. Cambialo
+vos en el resto del documento}
+
 Este trabajo consistirá en hacer un estudio espectral del sistema cuántico de Bose Hubbard (con condiciones de frontera abiertas), con el motivo de identificar bajo que condiciones 
-se presenta una estadística que refleje, según la conjetura BGS, las características del caos cuántico.\\
+se presenta una estadística que refleje, según la conjetura BGS, las características del caos cuántico. \janote{Me parece más natural hablar aquí del Hamiltoniano del BH y luego de la r y la KL divergence}\janote{aquí no sé porqué tenés salto 
+de línea, debería ser un mismo párrafo con lo siguiente}\\ 
 En particular, se estudiará los cocientes entre los espaciamientos relativos de los valores propios del Hamiltoniano que describe al Bose Hubbard 
-y también un correlacionador, la divergencia KL, que permitirá inferir las regiones en las cuales la estadísitca del sistema 
-se asemeja a la estadística del ensamble GOE.
+y también un correlacionador, la divergencia KL\janote{poné el nombre completo y KL como (KL)}, que permitirá inferir las regiones \janote{de parámetros} en las cuales la estadísitca del sistema 
+se asemeja a la estadística del ensamble GOE\janote{toca explicar porqué 
+la estadística debería parecerse a la de GOE y no a los otros ensambles}.
+\janote{falta poner las ecuaciones de la r y de la KL divergence. Por eso, 
+deberías agregar más contexto sobre de donde viene la r, hablar de la $P(r)$
+y entonces especificar qué mide la KL divergence}
 \\
 El Hamiltoniano a trabajar tiene la siguiente forma:
 \[
@@ -75,31 +100,50 @@ El Hamiltoniano a trabajar tiene la siguiente forma:
 = \frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
 + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1),
 \]
+\janote{explicá los detalles de este Hamiltoniano, qué es cada símbolo, etc}
+\janote{también da más contexto, que es un modelo de bosones y sitios... que sirve para modelar....}
 \section{Objetivos}\label{sec:objetivos}
 \subsection{Objetivo general}
-Estudiar la estadísitica espectral del Hamiltoniano de Bose Hubbard para identificar bajo que condiciones 
+Estudiar la estadísitica espectral del Hamiltoniano de Bose Hubbard para identificar bajo que condiciones\janote{no son condiciones, sino que queremos 
+caracterizar la región de parámetros} 
 el sistema presenta una estadísitica  que coincide con la propuesta por el ensamble de matrices aleatorias GOE (Gaussian Ortogonal Ensamble)
 \subsection{Objetivos específicos}
 \begin{itemize}
 \item Estudiar el formalismo para el tratamiento de un Hamiltoniano bajo ciertas simetrías.
 \item Sectorizar el Hamiltoniano en sus sectores de simetría par e impar.
+\janote{estos primeros dos objetivos podrían condensarse en uno: estudiar el 
+modelo de Bose-Hubbard y sus simetrías con condiciones de frontera abiertas.}
 \item Aprender el lenguaje de programación Wolfram Mathematica, sobre el cual se programará todo el trabajo.
 \item Programar la base de Fock que describe las configuraciones físicas del Bose Hubbard.
 \item Programar el hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
+\janote{Los últimos tres están bien resumidos por este objetivo}
 \item Programar la sectorización del Hamiltoniano, bajo la simetría que existe con el operador reflexión.
-\item Estudiar acerca de las caracterizaciones espectrales que definen el caos cuántico.
+\janote{este lo podés integrar al anterior, algo como ``Construir numéricamente
+el Hamiltoniano de BH en el espacio de Fock completo y en los sectores de
+simetría del operador de reflexión...''}
+\item Estudiar acerca de las caracterizaciones espectrales que definen el caos cuántico. \janote{aquí tenés que ser más específico: estudiar sobre la 
+distribución de probabilidad de los espaciamientos de niveles de matrices
+aleatorias}
 \item Implementar las herramientas estadísiticas.
 \item Estudiar las distintas configuraciones físicas (distintos valores de J y U) del Bose Hubbard y hacer estadística para cada caso.
 \item Identificar los regímenes en los cuales la estadísitica del sistema coincide con GOE.
+\janote{Estos últimos tres podrías juntarlos en uno sólo parecido a: 
+caracterizar el régimen caótico del modelo de BH utilizando el mean level
+spacing ratio y la KL divergence}
 \end{itemize}
 \section{Justificación del Proyecto}
-Es de importancia tener una forma cuantitativa para describir sistemas cuánticos que exhiben 
+Es de importancia\janote{por qué?} tener una forma cuantitativa para describir sistemas cuánticos que exhiben 
 un comportamiento caótico, y ser capaz de identificar bajo que condiciones físicas se presenta 
-dicho comportamiento. En adición, es un tema de investigación reciente que tiene múltiples implicaciones 
-y campos posibles de investigación, por lo que es importante establecer una metodología óptima para el estudio posterior de otros sistemas análogos.
+dicho comportamiento\janote{notá que sin decir porqué es importante, tu 
+enunciado no tiene sustancia}. En adición, es un tema de investigación reciente que tiene múltiples implicaciones \janote{cuáles?}
+y campos posibles de investigación\janote{cuáles?}, por lo que es importante establecer una metodología óptima para el estudio posterior de otros sistemas análogos \janote{sin especificar más, este enunciado también no está diciendo mucho}.
 Finalmente, en mi unidad académica, hay escaso conocimiento de estos temas de investigación, por lo que 
-es crucial informar e interesar a los miembros de la comunidad, con el fin de poder establecer 
-futuras investigaciones afines al estudio del caos cuántico.
+es crucial informar e interesar a los miembros de la comunidad\janote{pero vos no vas a hacer eso en el marco de tu proyecto de prácticas}, con el fin de poder establecer 
+futuras investigaciones afines al estudio del caos cuántico \janote{este 
+último enunciado lo podrías cambiar por lo que ya sabés de hacia dónde va 
+tu proyecto, argumentando que este es el primer paso de un proyecto más 
+grande en el que vas a investigar sobre el caos cuántico y el efecto de 
+mezclar cosas de los subespacios simétricos}.
 \section{Cronograma}
 (Pendiente)
 \end{document}
