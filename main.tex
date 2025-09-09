@@ -3,6 +3,7 @@
 \usepackage{parskip}
 \usepackage[spanish]{babel}
 \usepackage{hyperref}
+\usepackage{physics}
 
 %\directlua{tab = require("src/andpocalipse")}
 
@@ -44,7 +45,7 @@ de Bose-Hubbard''?}
 \maketitle
 
 \section{Descripción general de la institución}\label{sec:institution}
-\subsection{Instituto de investigación de Ciencias Físicas y Matemáticas, USAC}
+\subsection{Instituto de investigación de Ciencias Físicas y Matemáticas, USAC} 
 El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la unidad de la Escuela de Ciencias Físicas y Matemáticas (ECFM) que promueve y realiza estudios avanzados en áreas científicas, fundamentales y aplicadas, de las ciencias físicas y matemáticas. El ICFM se proyecta como una plataforma regional de excelencia dedicada a la investigación y difusión del conocimiento en física y matemática. Las principales líneas de trabajo del ICFM son:
 \begin{itemize}
     \item La investigación académica en ciencia básica y aplicada.
@@ -59,8 +60,9 @@ El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la 
 \\
 El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
 Se han distinguido dos tipos de propiedades: globales y locales.
-Respecto a las propiedades locales, se han estudiado fluctuaciones del espectro de energía, es decir, se han observado desviaciones de las distribuciones de niveles de energía respecto de un comportamiento promedio. \cite{Bohigas_1984}
-\newline
+Respecto a las propiedades locales, se han estudiado fluctuaciones del espectro de energía, es decir, se han observado desviaciones de las distribuciones de niveles de energía respecto de un comportamiento promedio~\cite{Bohigas_1984}.
+%\newline
+
 En un contexto clásico, el caos se define por la sensibilidad exponencial a las condiciones inicales 
 (las trayectorias en el espacio de fase divergen a medida que transcurre el tiempo). En un contexto cuántico, en vista del principio de incertidumbre, no es posible tener 
 trayectorias definidas y es mediante estadísiticas espectrales que se analiza la dinámica caótica del sistema.
@@ -69,7 +71,9 @@ el marco teórico de la teoría de matrices aleatorias (RMT) en varias áreas de
 tales como la física de materia condensada, física nuclear y física atómica.
 Las fluctuaciones contienen señales distintivas para la identificación de diferentes fases observadas 
 en sistemas físicos, por ejemplo para identificar límites entre integrabilidad o caoticidad en un sistema con análogo clásico,
-determinación de fases de metalicidad o insulación, fases localizadas o termalizadas de sistemas de muchos cuerpos, estudio de regímenes en espectros nucleares, entre otros. \cite{Tekur2020} \newline
+determinación de fases de metalicidad o insulación, fases localizadas o termalizadas de sistemas de muchos cuerpos, estudio de regímenes en espectros nucleares, entre otros. \cite{Tekur2020} 
+%\newline
+
 El presente consenso es que las fluctuaciones espectrales de sistemas cuánticos complejos presentan 
 una repulsión entre sus niveles de energía que están en concordancia con alguno de los ensambles de matrices 
 aleatorias, en los que se resaltan los ensambles GOE (Gaussian ortogonal ensamble), GUE (Gaussian unitary ensamble) y GSU (Gaussian simplectic ensamble).
@@ -99,23 +103,28 @@ En este trabajo, mediante una variación de la cantidad J/U, se buscará determi
 \newline 
 Para el diagnostico de las regiones de caos cuántico, se determinan las siguientes cantidades:
 \begin{itemize}
-    \item Mean level spacing ratio, <r>: Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y
+    \item Mean level spacing ratio, $\ev{r}$
+%<r>
+Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y
     $s_n=E_{n+1}-E_{n}$, se define la cantidad:
-    \[
-    r_n=\frac{min(s_n,s_{n-1})}{max(s_n,s_{n-1})}
-    \]
+%    \[
+		\begin{equation}
+			r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}
+		\end{equation}
+%    \]
     Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
     y por tanto es válido asumir la universalidad de RMT para en análisis.
     Se calculará para cada configuración de J/U todos los $r_n$, para posteriormente determinar el valor medio <r>.
-    Se espera que este valor medio sea un indicador de caos, ya que para el ensabamble GOE, dicho valor es de <r>=0.5307 \cite{Atas_2013}.
+    Se espera que este valor medio sea un indicador de caos, ya que para el ensabamble GOE, dicho valor es de <r>=0.5307\janote{Corregir} \cite{Atas_2013}.
     \item Divergencia (KL): Es una medida de diferencia entre dos distribuciones de probabilidad, en este caso, se comparará la distribucion de probabilidad de los $r_n$ 
     respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por \cite{Pausch2022}:
     \[
 KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx
 \]
+\janote{revisar notación KL, si es romano o no}
     En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
 \end{itemize}
-Se espera que <r> y la divergencia (KL) estén relacionadas, pues ambas son indicadores de caos cuántico. 
+Se espera que <r>\janote{corregir} y la divergencia (KL\janote{revisar}) estén relacionadas, pues ambas son indicadores de caos cuántico. 
 \newline
 
 
