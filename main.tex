@@ -57,11 +57,11 @@ El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la 
 %Seccion  actual de descripcion de trabajo
 \section{Descripción general del proyecto}\label{sec:description}
 \textbf{NEW ver.}
-\\
+
 El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
 Se han distinguido dos tipos de propiedades: globales y locales.
 Respecto a las propiedades locales, se han estudiado fluctuaciones del espectro de energía, es decir, se han observado desviaciones de las distribuciones de niveles de energía respecto de un comportamiento promedio~\cite{Bohigas_1984}.
-%\newline
+
 
 En un contexto clásico, el caos se define por la sensibilidad exponencial a las condiciones inicales 
 (las trayectorias en el espacio de fase divergen a medida que transcurre el tiempo). En un contexto cuántico, en vista del principio de incertidumbre, no es posible tener 
@@ -71,65 +71,70 @@ el marco teórico de la teoría de matrices aleatorias (RMT) en varias áreas de
 tales como la física de materia condensada, física nuclear y física atómica.
 Las fluctuaciones contienen señales distintivas para la identificación de diferentes fases observadas 
 en sistemas físicos, por ejemplo para identificar límites entre integrabilidad o caoticidad en un sistema con análogo clásico,
-determinación de fases de metalicidad o insulación, fases localizadas o termalizadas de sistemas de muchos cuerpos, estudio de regímenes en espectros nucleares, entre otros. \cite{Tekur2020} 
-%\newline
+determinación de fases de metalicidad o insulación, fases localizadas o termalizadas de sistemas de muchos cuerpos, estudio de regímenes en espectros nucleares, entre otros~\cite{Tekur2020}.
+
 
 El presente consenso es que las fluctuaciones espectrales de sistemas cuánticos complejos presentan 
 una repulsión entre sus niveles de energía que están en concordancia con alguno de los ensambles de matrices 
 aleatorias, en los que se resaltan los ensambles GOE (Gaussian ortogonal ensamble), GUE (Gaussian unitary ensamble) y GSU (Gaussian simplectic ensamble).
-\newline
+
+
 Para hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tarbor establece que 
 la estadística de los niveles de energía sigue una estadística de Poisson, mientras que para hamiltonianos 
 cuya contraparte clásica sea caótica, la conjetura BGS (Bogigas, Gianoni, Schmit) establece que la estadística de los niveles de energía es descrita 
-por alguno de los ensambles de RMT.\cite{Atas_2013}
+por alguno de los ensambles de RMT~\cite{Atas_2013}.
 Es de mencionar que la universalidad de las RMT para la descripción de los niveles de energía de sistemas físicos 
-es válida cuando la densidad media de los niveles de energía es igual a la unidad. \cite{Atas_2013}
-\newline
+es válida cuando la densidad media de los niveles de energía es igual a la unidad~\cite{Atas_2013}.
+
+
 Este trabajo consistirá en hacer un estudio espectral del hamiltoniano del modelo de Bose Hubbard 
 con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
 que coincide con la propuesta por el ensabamble Gaussiano Ortogonal (GOE). El modelo a trabajar es de la forma:
-\[
+\begin{equation}
 \hat{H}
 = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
 + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1),
-\]
+\end{equation}
 El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente 
-se han hecho realizaciones experimentales con átomos ultrafríos sobre un latice óptica y se ha podido observar la transición SF-MI (Superfluidity-Mott insulator) \cite{Zhang2010}. 
+se han hecho realizaciones experimentales con átomos ultrafríos sobre un latice óptica y se ha podido observar la transición SF-MI (Superfluidity-Mott insulator)~\cite{Zhang2010}. 
 El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones, y el hamiltoniano presentado describe dicha situación.
 Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
 El parámetro J es proporcional a la parte cinética del hamiltoniano y describe físicamente como los bosones "saltan" de un sitio a otro, el segundo parámetro es proporcional a la parte de interacción del hamiltoniano, describe 
-la interacción partícula a partícula y la fuerza de interacción siendo caracterizada por U \cite{Zhang2010}. 
+la interacción partícula a partícula y la fuerza de interacción siendo caracterizada por U~\cite{Zhang2010}. 
 En este trabajo, mediante una variación de la cantidad J/U, se buscará determinar las regiones de interés.
-\newline 
+
+
 Para el diagnostico de las regiones de caos cuántico, se determinan las siguientes cantidades:
 \begin{itemize}
-    \item Mean level spacing ratio, $\ev{r}$
-%<r>
+    \item Mean level spacing ratio, $\ev{r}$:
+
 Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y
     $s_n=E_{n+1}-E_{n}$, se define la cantidad:
-%    \[
+
 		\begin{equation}
 			r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}
 		\end{equation}
-%    \]
+
     Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
     y por tanto es válido asumir la universalidad de RMT para en análisis.
-    Se calculará para cada configuración de J/U todos los $r_n$, para posteriormente determinar el valor medio <r>.
-    Se espera que este valor medio sea un indicador de caos, ya que para el ensabamble GOE, dicho valor es de <r>=0.5307\janote{Corregir} \cite{Atas_2013}.
-    \item Divergencia (KL): Es una medida de diferencia entre dos distribuciones de probabilidad, en este caso, se comparará la distribucion de probabilidad de los $r_n$ 
-    respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por \cite{Pausch2022}:
-    \[
+    Se calculará para cada configuración de J/U todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
+    Se espera que este valor medio sea un indicador de caos, ya que para el ensabamble GOE, dicho valor es de $\ev{r}=0.5307$\janote{Corregir}~\cite{Atas_2013}.
+    \item Divergencia ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad, en este caso, se comparará la distribucion de probabilidad de los $r_n$ 
+    respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
+    \begin{equation}
 KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx
-\]
+    \end{equation}
 \janote{revisar notación KL, si es romano o no}
     En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
 \end{itemize}
-Se espera que <r>\janote{corregir} y la divergencia (KL\janote{revisar}) estén relacionadas, pues ambas son indicadores de caos cuántico. 
-\newline
+Se espera que $\ev{r}$\janote{corregir} y la divergencia ($KL$\janote{revisar}) estén relacionadas, pues ambas son indicadores de caos cuántico. 
+
 
 
 % Seccion pasada de Descripcion general
-\textbf{OLD ver.} \newline 
+\textbf{OLD ver.}
+
+
 \janote{Partí en párrafos esta sección, así como está no hay pausas y 
 estás hablando de un montón de cosas en un sólo gran párrafo. Es dificil de 
 seguir}
@@ -222,16 +227,17 @@ spacing ratio y la KL divergence}
 \end{itemize}
 \section{Justificación del Proyecto}
 \textbf{Sección actual de Just.Pro}
-\newline
+
+
 El estudio de caos cuántico ha sido investigado desde hace ya más de 40 años, sin embargo debido a la innovación tecnológica y el aumento en nuestra capacidad 
 computacional, se ha sido capaz de tener un estudio más robusto del tema. Este trabajo es un ejemplo de ello, ya que 
-se estará trabajando con matrices cuyas dimensiones son del orden de $10^{3}$ en adelante \cite{Zhang2010}, 
+se estará trabajando con matrices cuyas dimensiones son del orden de $10^{3}$ en adelante~\cite{Zhang2010}, 
 pudiendo tener la capacidad de diagonalizar dichas matrices y extraer la información relevante del sistema.
 Este trabajo cumple con dos objetivos, el primero es verificar que la teoría de RMT satisface en la descripción de la 
 estadística espectral en las regiones de caos cuántico y el segundo objetivo es que esta primera investigación es 
 un primer paso para una investigación más grande, que busca estudiar el caos cuántico y el efecto de mezclar la estadística 
-de distintos sectores de simetría. Esta investigación más grande buscará arrojar más luz acerca de la descipción de sistemas cuánticos y su conexión con la teoría de RMT
-\newline
+de distintos sectores de simetría. Esta investigación más grande buscará arrojar más luz acerca de la descipción de sistemas cuánticos y su conexión con la teoría de RMT.
+
 \textbf{Sección pasada de Just.Pro}
 Es de importancia\janote{por qué?} tener una forma cuantitativa para describir sistemas cuánticos que exhiben 
 un comportamiento caótico, y ser capaz de identificar bajo que condiciones físicas se presenta 
