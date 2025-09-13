@@ -30,8 +30,6 @@
     {\LARGE Prácticas:}\\[0.5em]
    Caos cuántico en el modelo de\\[0.4em]
 	 Bose-Hubbard 
-%\janote{Mucho texto, qué tal ``Caos cuántico en el modelo
-%de Bose-Hubbard''?}
 }
 \course{Licenciatura en Física Aplicada}
 \author{Saúl Estuardo Nájera Allara}
@@ -58,7 +56,88 @@ El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la 
 
 %Seccion  actual de descripcion de trabajo
 \section{Descripción general del proyecto}\label{sec:description}
-%\textbf{NEW ver.}
+\textbf{NEW ver.}
+
+El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
+Se han distinguido dos tipos de propiedades: globales y locales.
+Respecto a las propiedades locales, se han estudiado fluctuaciones del espectro de energía, es decir, se han observado desviaciones de las distribuciones de niveles de energía respecto de un comportamiento promedio~\cite{Bohigas_1984}.
+
+
+En un contexto clásico, el caos se define por la sensibilidad exponencial a las condiciones inicales 
+(las trayectorias en el espacio de fase divergen a medida que transcurre el tiempo) y por la característica de que cualquier distribución inicial de condiciones 
+iniciales se "mezcla" de tal manera que pierde toda información con el estado inicial, es decir, cualquier distribución inicial se dispersa hasta volverse indistinguible de la distribución de equilibrio, esto se conoce como mixing. En un contexto cuántico, en vista del principio de incertidumbre, no es posible tener 
+trayectorias definidas en el espacio de fase. Una de las formas para estudiar el caos cuántico es mediante la estadística espectral, es decir, estudiando el espectro de energía del hamiltoniano asociado al sistema.
+Las fluctuaciones espectrales de sistemas cuánticos complejos es analizada mediante 
+el marco teórico de la Teoría de Matrices Aleatorias (RMT) en varias áreas de la física, 
+tales como la física de materia condensada, física nuclear y física atómica.
+Las fluctuaciones contienen señales distintivas para la identificación de diferentes fases observadas 
+en sistemas físicos, por ejemplo para identificar límites entre integrabilidad o caoticidad en un sistema con análogo clásico,
+determinación de fases de metalicidad o insulación, fases localizadas o termalizadas de sistemas de muchos cuerpos, estudio de regímenes en espectros nucleares, entre otros~\cite{Tekur2020}
+El presente consenso es que las fluctuaciones espectrales de sistemas cuánticos complejos presentan 
+una repulsión entre sus niveles de energía que están en concordancia con alguno de los ensambles de matrices 
+aleatorias, en los que se resaltan los ensambles GOE (Gaussian Orthogonal Ensemble), GUE (Gaussian Unitary Ensemble) y GSU (Gaussian Simplectic Ensemble).
+El primero en usar la idea de RMTs fue Wigner, en los años 50, con el motivo de estudiar el espectro de núcleos atómicos pesados~\cite{Wigner1955}.
+Una de las observaciones que resaltan de su discusión es la observación de que los niveles de energía presentan una tendencia a repelerse unos a otros, 
+ello motivo en parte a el uso de RMTs para la descripción.
+
+
+Para hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tabor establece que 
+la estadística de los niveles de energía sigue una estadística de Poisson~\cite{BerryTabor1977}, mientras que para hamiltonianos 
+cuya contraparte clásica sea caótica, la conjetura BGS (Bogigas, Gianoni, Schmit) establece que la estadística de los niveles de energía es descrita 
+por alguno de los ensambles de RMT~\cite{Atas_2013}
+Es de mencionar que la universalidad de RMT para la descripción de los niveles de energía de sistemas físicos 
+es válida cuando la densidad media de los niveles de energía es igual a la unidad~\cite{Atas_2013}.
+
+
+Este trabajo consistirá en hacer un estudio espectral del hamiltoniano del modelo de Bose Hubbard 
+con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
+que coincide con la propuesta por el ensamble Gaussiano Ortogonal (GOE). El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente 
+se han hecho realizaciones experimentales con átomos ultrafríos sobre un latice óptica y se ha podido observar la transición SF-MI (Superfluidity-Mott insulator)~\cite{Zhang2010}. 
+El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones, y el hamiltoniano presentado describe dicha situación. El Hamiltoniano de este modelo es:
+\begin{equation}
+\hat{H}
+= -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
++ \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1).
+\end{equation}
+Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
+El parámetro J es proporcional a la parte cinética del hamiltoniano y describe físicamente como los bosones "saltan" de un sitio a otro, el segundo parámetro es proporcional a la parte de interacción del hamiltoniano, describe 
+la interacción partícula a partícula y la fuerza de interacción siendo caracterizada por U~\cite{Zhang2010}. 
+En este trabajo, mediante una variación de la cantidad $J/U$, se buscará determinar las regiones de interés.
+
+
+Para el diagnostico de las regiones de caos cuántico, se utilizarán las siguientes cantidades:
+\begin{itemize}
+    \item Mean level spacing ratio, $\ev{r}$:
+
+Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y el espaciamiento consecutivo de niveles de energía como 
+    $s_n=E_{n+1}-E_{n}$, se define la cantidad:
+		\begin{equation}
+			r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
+		\end{equation}
+    Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
+    y por tanto es válido asumir la universalidad de RMT para el análisis.
+    Se calculará para cada configuración de $J/U$ todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
+    Se espera que este valor medio sea un indicador de caos, ya que para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013}. Así mismo, si el sistema está 
+    en un regímen integrable, se espera un valor medio de $\ev{r}_{Poisson}=0.38629~\cite{Atas_2013}$.
+    \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad, en este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
+    respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
+    \begin{equation}
+KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx.
+    \end{equation}
+    En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
+\end{itemize}
+Tanto $\ev{r}$ como la divergencia $(KL)$ son indicadores permiten establecer una conexión entre las fluctuaciones espectrales de un sistema físico 
+con la universalidad predicha por RMT, y por tanto permiten establecer una conexión con la definción de caos cuántico adoptada en este trabajo.
+
+Por último, es importante tener presente la forma análitica de la distribución de los cocientes entre los espaciamientos de niveles del ensabamble GOE, el cual es de la forma~\cite{Atas_2013}:
+\begin{equation}
+    P_{GOE}(r)=\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}.
+\end{equation}
+Y para la distribución de espaciamiento de niveles de energía para un espectro integrable (Poisson) es de la forma~\cite{Tekur2020}:
+\begin{equation}
+    P_{Poisson}(r)=\frac{1}{(1+r)^{2}}
+\end{equation}
+\textbf{OLD ver.}
 
 El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
 Se han distinguido dos tipos de propiedades: globales y locales.
@@ -141,7 +220,6 @@ Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y
     \begin{equation}
 KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx
     \end{equation}
-%\janote{revisar notación KL, si es romano o no}
     En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
 \end{itemize}
 Se espera que $\ev{r}$ y la divergencia $KL$ estén relacionadas, pues ambas son indicadores de caos cuántico\janote{me gustaría que aquí volvieras a matizar 
@@ -150,66 +228,21 @@ fluctuaciones espectrales de un sistema física con la universidad que predice
 RMT, cosa que conectamos con la definición de caos que adoptaremos para 
 este trabajo. Algo así, con tus palabras}. 
 
-
-
-% Seccion pasada de Descripcion general
-%\textbf{OLD ver.}
-%
-%
-%\janote{Partí en párrafos esta sección, así como está no hay pausas y 
-%estás hablando de un montón de cosas en un sólo gran párrafo. Es dificil de 
-%seguir}
-%
-%El estudio de sistemas cuánticos y su comportamiento\janote{a qué te referís
-%con ``su comportamiento''? Me suena un poco raro, no sé si fue la elección
-%de palabra} según las condiciones físicas\janote{igual aquí, cómo qué 
-%condiciones físicas?} a las que se haya sujeto 
-%son de importancia tanto para el ámbito aplicado como para el teórico. 
-%Es de interés conocer los regímenes 
-%en los cuales una sistema pueda exhibir una ergodicidad alta o un comportamiento fuertemente localizado para ciertos estados\janote{por qué 
-%es de interés? Si no vas a decir porqué, entonces cambiá la elección de 
-%palabras de este enunciado}.
-%La conjetura BGS (Bogigas-Gianoni-Schmit)\janote{Aquí, por ejemplo, hubo un 
-%gran salto a hablar de lleno de la conjetura BGS, esto debería ser ya otro 
-%párrafo} establece que el espectro de un sistema invariante antes inversiones temporales 
-%cuyo análogo clásico sean K sistemas\janote{cabal deberías decir qué es un 
-%K sistema} presenta las mismas propiedades estadísiticas que las de uno de los 
-%tres posibles ensambles de matrices aleatorias, GOE (Gaussian Ortogonal ensemble), GSE (Gaussian Symplectic Ensemble),
-%GUE ( Gaussian Unitary Ensemble). %Buscar cita
-% En vista de ello, la estadística espectral es una 
-%herramienta apropiada para la caracterización de sistema cuánticos. \janote{No
-%usés $\backslash\backslash$ para hacer saltos de línea, sólo dejá una línea
-%de espacio para hacer saltos de párrafo, así como lo cambié aquí. Cambialo
-%vos en el resto del documento}
-%
-%Este trabajo consistirá en hacer un estudio espectral del sistema cuántico de Bose Hubbard (con condiciones de frontera abiertas), con el motivo de identificar bajo que condiciones 
-%se presenta una estadística que refleje, según la conjetura BGS, las características del caos cuántico. \janote{Me parece más natural hablar aquí del Hamiltoniano del BH y luego de la r y la KL divergence}\janote{aquí no sé porqué tenés salto 
-%de línea, debería ser un mismo párrafo con lo siguiente}\\ 
-%En particular, se estudiará los cocientes entre los espaciamientos relativos de los valores propios del Hamiltoniano que describe al Bose Hubbard 
-%y también un correlacionador, la divergencia KL\janote{poné el nombre completo y KL como (KL)}, que permitirá inferir las regiones \janote{de parámetros} en las cuales la estadísitca del sistema 
-%se asemeja a la estadística del ensamble GOE\janote{toca explicar porqué 
-%la estadística debería parecerse a la de GOE y no a los otros ensambles}.
-%\janote{falta poner las ecuaciones de la r y de la KL divergence. Por eso, 
-%deberías agregar más contexto sobre de donde viene la r, hablar de la $P(r)$
-%y entonces especificar qué mide la KL divergence}
-%\\
-%El Hamiltoniano a trabajar tiene la siguiente forma:
-%\[
-%\hat{H}
-%= \frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
-%+ \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1),
-%\]
-%\janote{explicá los detalles de este Hamiltoniano, qué es cada símbolo, etc}
-%\janote{también da más contexto, que es un modelo de bosones y sitios... que sirve para modelar....}
-
-
 %Seccion Actual de objetivos 
 \section{Objetivos}\label{sec:objetivos}
-\textbf{NEW ver.}
- \subsection{Objetivo general}
- Estudiar la estadística espectral del Hamiltoniano de Bose-Hubbard para identificar la región de paramétros sobre la cual 
+\subsection{Objetivo general}
+  Estudiar la estadística espectral del Hamiltoniano de Bose-Hubbard para identificar la región de paramétros sobre la cual 
  el sistema exhibe caos cuántico.
  \subsection{Objetivos específicos}
+ \textbf{NEW ver.}
+  \begin{itemize}
+    \item Estudiar el modelo de Bose-Hubbard e investigar su importancia en la física contemporánea.
+    \item Programar el hamiltoniano de Bose-Hubbard con condiciones de frontera abiertas, sus sectores de simetría bajo el operador reflexión y las herramientas estadísticas, en particular el mean level spacing ratio $\ev{r}$ y la divergencia ($KL$).
+    \item Estudiar acerca de los indicadores de caos propuestos y acerca de la distribuciones de espaciamientos de valores propios de los ensambles de matrices aleatorias, en particular, el ensabamble GOE.
+    \item Analizar distintas configuraciones del sistema variando $J/U$ con los indicadores de caos propuestos y con ello identificar las regiones de integrabilidad y caos del sistema.
+ \end{itemize}
+ 
+ \textbf{OLD ver.}
  \begin{itemize}
     \item Estudiar el formalismo para el tratamiento de un Hamiltoniano bajo ciertas simetrías.\janote{Yo prefiero que cambiés este objetivo por 
 ``Estudiar el modelo de Bose-Hubbard e investigar su importancia en la física
@@ -221,41 +254,19 @@ que necesitaste para entender las simetrías del Bose-Hubbard)}
     \item Estudiar acerca de los correlacionadores\janote{indicadores de caos} propuestos y acerca de la distribuciones de espaciamientos de valores propios de los ensambles de matrices aleatorias, en particular, el ensabamble GOE.
     \item Analizar distintas configuraciones del sistema variando J/U\janote{\$\$} con las herramientas estádisticas\janote{los indicadores de caos propuestos} y con ello identificar las regiones de integrabilidad y caos del sistema.
  \end{itemize}
-%Seccion pasada de Objetivos
-%\textbf{OLD ver.}
-%\subsection{Objetivo general}
-%Estudiar la estadística espectral del Hamiltoniano de Bose Hubbard para identificar bajo que condiciones\janote{no son condiciones, sino que queremos 
-%caracterizar la región de parámetros} 
-%el sistema presenta una estadísitica  que coincide con la propuesta por el ensamble de matrices aleatorias GOE (Gaussian Ortogonal Ensamble)
-%\subsection{Objetivos específicos}
-%\begin{itemize}
-%\item Estudiar el formalismo para el tratamiento de un Hamiltoniano bajo ciertas simetrías.
-%\item Sectorizar el Hamiltoniano en sus sectores de simetría par e impar.
-%\janote{estos primeros dos objetivos podrían condensarse en uno: estudiar el 
-%modelo de Bose-Hubbard y sus simetrías con condiciones de frontera abiertas.}
-%\item Aprender el lenguaje de programación Wolfram Mathematica, sobre el cual se programará todo el trabajo.
-%\item Programar la base de Fock que describe las configuraciones físicas del Bose Hubbard.
-%\item Programar el hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
-%\janote{Los últimos tres están bien resumidos por este objetivo}
-%\item Programar la sectorización del Hamiltoniano, bajo la simetría que existe con el operador reflexión.
-%\janote{este lo podés integrar al anterior, algo como ``Construir numéricamente
-%el Hamiltoniano de BH en el espacio de Fock completo y en los sectores de
-%simetría del operador de reflexión...''}
-%\item Estudiar acerca de las caracterizaciones espectrales que definen el caos cuántico. \janote{aquí tenés que ser más específico: estudiar sobre la 
-%distribución de probabilidad de los espaciamientos de niveles de matrices
-%aleatorias}
-%\item Implementar las herramientas estadísiticas.
-%\item Estudiar las distintas configuraciones físicas (distintos valores de J y U) del Bose Hubbard y hacer estadística para cada caso.
-%\item Identificar los regímenes en los cuales la estadísitica del sistema coincide con GOE.
-%\janote{Estos últimos tres podrías juntarlos en uno sólo parecido a: 
-%caracterizar el régimen caótico del modelo de BH utilizando el mean level
-%spacing ratio y la KL divergence}
-%\end{itemize}
 
 \section{Justificación del Proyecto}
 %\textbf{Sección actual de Just.Pro}
+\textbf{NEW ver.}
+El estudio de caos cuántico ha sido investigado desde hace ya más de 40 años, sin embargo debido a la innovación tecnológica y el aumento en nuestra capacidad 
+computacional, se ha sido capaz de tener un estudio más robusto del tema en los últimos años, notablemente ha habido un reavivamiento del estudio del caós cuántico 
+en sistemas de muchos cuerpos que no tienen contraparte clásica. Este trabajo es un ejemplo de ello, ya que se estará trabajando con 
+un sistema que no tiene análogo clásico y es un buen punto de partida para estudiar el caos cuántico desde el punto de vista de RMT.
+Este trabajo cumple con que esta primera investigación es 
+un primer paso para una investigación más grande, que busca estudiar el caos cuántico y el efecto de mezclar la estadística 
+de distintos sectores de simetría. Esta investigación más grande buscará arrojar más luz acerca de la descipción de sistemas cuánticos y su conexión con la teoría de RMT.
 
-
+\textbf{OLD ver.}
 El estudio de caos cuántico ha sido investigado desde hace ya más de 40 años, sin embargo debido a la innovación tecnológica y el aumento en nuestra capacidad 
 computacional, se ha sido capaz de tener un estudio más robusto del tema\janote{en los últimos años y también menciona que ha habido un reavivamiento del caos cuántico en sistemas de muchos cuerpos, sin contraparte clásica}. Este trabajo es un ejemplo de ello, ya que 
 se estará trabajando con matrices cuyas dimensiones son del orden de $10^{3}$ en adelante~\cite{Zhang2010}, 
@@ -269,20 +280,6 @@ estadística espectral en las regiones de caos cuántico y\janote{todo antes de 
 de que es el principio de otra cosa más grande} el segundo objetivo es que esta primera investigación es 
 un primer paso para una investigación más grande, que busca estudiar el caos cuántico y el efecto de mezclar la estadística 
 de distintos sectores de simetría. Esta investigación más grande buscará arrojar más luz acerca de la descipción de sistemas cuánticos y su conexión con la teoría de RMT.
-
-%\textbf{Sección pasada de Just.Pro}
-%Es de importancia\janote{por qué?} tener una forma cuantitativa para describir sistemas cuánticos que exhiben 
-%un comportamiento caótico, y ser capaz de identificar bajo que condiciones físicas se presenta 
-%dicho comportamiento\janote{notá que sin decir porqué es importante, tu 
-%enunciado no tiene sustancia}. En adición, es un tema de investigación reciente que tiene múltiples implicaciones \janote{cuáles?}
-%y campos posibles de investigación\janote{cuáles?}, por lo que es importante establecer una metodología óptima para el estudio posterior de otros sistemas análogos \janote{sin especificar más, este enunciado también no está diciendo mucho}.
-%Finalmente, en mi unidad académica, hay escaso conocimiento de estos temas de investigación, por lo que 
-%es crucial informar e interesar a los miembros de la comunidad\janote{pero vos no vas a hacer eso en el marco de tu proyecto de prácticas}, con el fin de poder establecer 
-%futuras investigaciones afines al estudio del caos cuántico \janote{este 
-%último enunciado lo podrías cambiar por lo que ya sabés de hacia dónde va 
-%tu proyecto, argumentando que este es el primer paso de un proyecto más 
-%grande en el que vas a investigar sobre el caos cuántico y el efecto de 
-%mezclar cosas de los subespacios simétricos}. 
 
 \section{Cronograma}
 (Pendiente)
