@@ -8,9 +8,12 @@
 %\directlua{tab = require("src/andpocalipse")}
 
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
-\definecolor{jacolor}{RGB}{200,40,0}\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
-\definecolor{accolor}{HTML}{008080}\FXRegisterAuthor{ac}{anac}{\color{accolor}AC}
-\definecolor{cpcolor}{RGB}{0,200,40}\FXRegisterAuthor{cp}{ancp}{\color{cpcolor}CP}
+% Comentarios de JA 
+\definecolor{jacolor}{RGB}{200,40,0}
+\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+% Comentarios de Saul
+\definecolor{scolor}{HTML}{008080}
+\FXRegisterAuthor{s}{asn}{\color{scolor}S}
 
 %\usepackage[mathlines]{lineno}  \linenumbers \setlength\linenumbersep{3pt}
 
@@ -56,6 +59,7 @@ El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la 
 
 %Seccion  actual de descripcion de trabajo
 \section{Descripción general del proyecto}\label{sec:description}
+\snote{Ejemplo de uso}
 \textbf{NEW ver.}
 
 El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
