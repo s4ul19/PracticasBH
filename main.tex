@@ -60,17 +60,27 @@ El Instituto de investigación de Ciencias Físicas y Matemáticas (ICFM) es la 
 %Seccion  actual de descripcion de trabajo
 \section{Descripción general del proyecto}\label{sec:description}
 \snote{Ejemplo de uso}
-\textbf{NEW ver.}
+\textbf{NEW ver.} \janote{Ahora que las correcciones fueron menores, me sirve
+más que revisar sobre la versión antigua, porque así como está ahora
+tengo que estar viendo en la versión antigua para ver 
+cuáles fueron las correcciones}
 
 El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
 Se han distinguido dos tipos de propiedades: globales y locales.
 Respecto a las propiedades locales, se han estudiado fluctuaciones del espectro de energía, es decir, se han observado desviaciones de las distribuciones de niveles de energía respecto de un comportamiento promedio~\cite{Bohigas_1984}.
 
 
-En un contexto clásico, el caos se define por la sensibilidad exponencial a las condiciones inicales 
+En un contexto clásico\janote{física clásica**, creo que es más preciso}, el caos se define por la sensibilidad exponencial a las condiciones inicales 
 (las trayectorias en el espacio de fase divergen a medida que transcurre el tiempo) y por la característica de que cualquier distribución inicial de condiciones 
-iniciales se "mezcla" de tal manera que pierde toda información con el estado inicial, es decir, cualquier distribución inicial se dispersa hasta volverse indistinguible de la distribución de equilibrio, esto se conoce como mixing. En un contexto cuántico, en vista del principio de incertidumbre, no es posible tener 
-trayectorias definidas en el espacio de fase. Una de las formas para estudiar el caos cuántico es mediante la estadística espectral, es decir, estudiando el espectro de energía del hamiltoniano asociado al sistema.
+iniciales se "mezcla" de tal manera que pierde toda información con el estado inicial, es decir, cualquier distribución inicial se dispersa hasta volverse indistinguible de la distribución de equilibrio, esto se conoce como mixing\janote{me gusta ya la información. Ahora sólo quiero que corrijás 
+redacción de acuerdo a lo siguiente: el enunciado está largo y es difícil de 
+leer. Partilo, quizás en dos, primero diciendo que el caos clásico requiere
+de dos cosas, punto, luego hablás de cada condición en enunciados separados, o
+algo así. El objetivo es que sea más fácil de leer}. En un contexto cuántico\janote{física cuántica**}, en vista del principio de incertidumbre, no es posible tener 
+trayectorias definidas en el espacio de fase. Una de las formas para estudiar el caos cuántico es mediante la estadística espectral, es decir, estudiando el espectro de energía del Hamiltoniano asociado al sistema.
+
+\janote{parto acá el párrafo en dos, porque me parece muy largo y denso dejar
+uno sólo y creí que hay más o menos dos ideas que se podían separar fácil aquí}
 Las fluctuaciones espectrales de sistemas cuánticos complejos es analizada mediante 
 el marco teórico de la Teoría de Matrices Aleatorias (RMT) en varias áreas de la física, 
 tales como la física de materia condensada, física nuclear y física atómica.
@@ -82,7 +92,8 @@ una repulsión entre sus niveles de energía que están en concordancia con algu
 aleatorias, en los que se resaltan los ensambles GOE (Gaussian Orthogonal Ensemble), GUE (Gaussian Unitary Ensemble) y GSU (Gaussian Simplectic Ensemble).
 El primero en usar la idea de RMTs fue Wigner, en los años 50, con el motivo de estudiar el espectro de núcleos atómicos pesados~\cite{Wigner1955}.
 Una de las observaciones que resaltan de su discusión es la observación de que los niveles de energía presentan una tendencia a repelerse unos a otros, 
-ello motivo en parte a el uso de RMTs para la descripción.
+ello motivo en parte a el uso de RMT para la descripción\janote{del Hamiltoniano
+de este tipo de sistemas}.
 
 
 Para hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tabor establece que 
@@ -95,14 +106,16 @@ es válida cuando la densidad media de los niveles de energía es igual a la uni
 
 Este trabajo consistirá en hacer un estudio espectral del hamiltoniano del modelo de Bose Hubbard 
 con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
-que coincide con la propuesta por el ensamble Gaussiano Ortogonal (GOE). El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente 
-se han hecho realizaciones experimentales con átomos ultrafríos sobre un latice óptica y se ha podido observar la transición SF-MI (Superfluidity-Mott insulator)~\cite{Zhang2010}. 
+que coincide con la propuesta por el ensamble Gaussiano Ortogonal (GOE). El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente, 
+se han hecho realizaciones experimentales con átomos ultrafríos sobre un red óptica y se ha podido observar la transición SF-MI (Superfluidity-Mott insulator\janote{mejor en español})~\cite{Zhang2010}. 
 El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones, y el hamiltoniano presentado describe dicha situación. El Hamiltoniano de este modelo es:
 \begin{equation}
 \hat{H}
 = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
 + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
+\janote{Ojo con que $J$ y $U$ en el texto deben estar dentro de \$\$, revisá
+y ponelos donde haga falta!}
 Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
 El parámetro J es proporcional a la parte cinética del hamiltoniano y describe físicamente como los bosones "saltan" de un sitio a otro, el segundo parámetro es proporcional a la parte de interacción del hamiltoniano, describe 
 la interacción partícula a partícula y la fuerza de interacción siendo caracterizada por U~\cite{Zhang2010}. 
@@ -123,14 +136,14 @@ Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y el e
     Se calculará para cada configuración de $J/U$ todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
     Se espera que este valor medio sea un indicador de caos, ya que para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013}. Así mismo, si el sistema está 
     en un regímen integrable, se espera un valor medio de $\ev{r}_{Poisson}=0.38629~\cite{Atas_2013}$.
-    \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad, en este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
+    \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad. En este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
     respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
     \begin{equation}
 KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx.
     \end{equation}
     En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
 \end{itemize}
-Tanto $\ev{r}$ como la divergencia $(KL)$ son indicadores permiten establecer una conexión entre las fluctuaciones espectrales de un sistema físico 
+Tanto $\ev{r}$ como la divergencia $KL$ son indicadores que permiten establecer una conexión entre las fluctuaciones espectrales de un sistema físico 
 con la universalidad predicha por RMT, y por tanto permiten establecer una conexión con la definción de caos cuántico adoptada en este trabajo.
 
 Por último, es importante tener presente la forma análitica de la distribución de los cocientes entre los espaciamientos de niveles del ensabamble GOE, el cual es de la forma~\cite{Atas_2013}:
@@ -141,96 +154,7 @@ Y para la distribución de espaciamiento de niveles de energía para un espectro
 \begin{equation}
     P_{Poisson}(r)=\frac{1}{(1+r)^{2}}
 \end{equation}
-\textbf{OLD ver.}
-
-El estudio estadístico del espectro de sistemas cuánticos es una herramienta de valiosa utilidad para el ámbito teórico, experimental y aplicado.
-Se han distinguido dos tipos de propiedades: globales y locales.
-Respecto a las propiedades locales, se han estudiado fluctuaciones del espectro de energía, es decir, se han observado desviaciones de las distribuciones de niveles de energía respecto de un comportamiento promedio~\cite{Bohigas_1984}.
-
-
-En un contexto clásico, el caos se define por la sensibilidad exponencial a las condiciones inicales 
-(las trayectorias en el espacio de fase divergen a medida que transcurre el tiempo)\janote{y el segundo ingrediente es mixing, buscalo si no lo conocés. Lo platicamos}. En un contexto cuántico, en vista del principio de incertidumbre, no es posible tener 
-trayectorias definidas y es mediante estadísticas espectrales que se analiza la dinámica caótica del sistema\janote{Prefiero que maticés la segunda parte del 
-enunciado. Parece que estás diciendo que el caos cuántico sólo se analiza desde
-estadística en el espectro, y aunque es nuestra enfoque, tenemos que 
-reconocer que existen otros (enfoque semiclásico). Un arreglo rápido podría
-ser algo como ``...y la estadística espectral es una forma de estudiar el 
-llamado caos cuántico.''}.
-Las fluctuaciones espectrales de sistemas cuánticos complejos es analizada mediante 
-el marco teórico de la Teoría de Matrices Aleatorias (RMT) en varias áreas de la física, 
-tales como la física de materia condensada, física nuclear y física atómica.
-Las fluctuaciones contienen señales distintivas para la identificación de diferentes fases observadas 
-en sistemas físicos, por ejemplo para identificar límites entre integrabilidad o caoticidad en un sistema con análogo clásico,
-determinación de fases de metalicidad o insulación, fases localizadas o termalizadas de sistemas de muchos cuerpos, estudio de regímenes en espectros nucleares, entre otros~\cite{Tekur2020}\janote{Por ser un anteproyecto no 
-es absolutamente necesario, pero sería bueno que agregués citas para respaldar
-cada una de las cosas que enumeraste en este enunciado. Decime si no entendés 
-a qué me refiero}.
-
-
-El presente consenso es que las fluctuaciones espectrales de sistemas cuánticos complejos presentan 
-una repulsión entre sus niveles de energía que están en concordancia con alguno de los ensambles de matrices 
-aleatorias, en los que se resaltan los ensambles GOE (Gaussian Orthogonal Ensemble), GUE (Gaussian unitary ensamble)\janote{ensAmble, corregí este y el que falta, también agregando las mayúsculas como dejé el primero} y GSU (Gaussian simplectic ensamble)
-\janote{Dos cosas: 1) no sirven los párrafos de un enunciado, integralo al 
-párrafo pasado u otra cosa que te parezca mejor. 2) estos ensambles son los que
-resaltan para describir los Hamiltonianos de los sistemas complejos, decilo. 
-Sería chilero que agregués el comentario de que Wigner fue el primero en usar
-esta idea en los 50's para el estudio de núcleos pesados, con su respectiva cita}.
-
-
-Para hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tabor establece que 
-la estadística de los niveles de energía sigue una estadística de Poisson\janote{cita al paper de Berry-Tabor, importantísimo!!!}, mientras que para hamiltonianos 
-cuya contraparte clásica sea caótica, la conjetura BGS (Bogigas, Gianoni, Schmit) establece que la estadística de los niveles de energía es descrita 
-por alguno de los ensambles de RMT~\cite{Atas_2013}\janote{por qué citaste aquí
-el artículo de las P(r) y no el del 84 de BGS??}.
-Es de mencionar que la universalidad de RMT para la descripción de los niveles de energía de sistemas físicos 
-es válida cuando la densidad media de los niveles de energía es igual a la unidad~\cite{Atas_2013}.
-
-
-Este trabajo consistirá en hacer un estudio espectral del hamiltoniano del modelo de Bose Hubbard 
-con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
-que coincide con la propuesta por el ensamble Gaussiano Ortogonal (GOE). El Hamiltoniano de este modelo es:
-\begin{equation}
-\hat{H}
-= -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
-+ \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1),
-\end{equation}
-El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente 
-se han hecho realizaciones experimentales con átomos ultrafríos sobre un latice óptica y se ha podido observar la transición SF-MI (Superfluidity-Mott insulator)~\cite{Zhang2010}. 
-El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones, y el hamiltoniano presentado describe dicha situación.
-\janote{Todo lo que va despúes hasta antes del último enunciado movelo para 
-justo despúes de la ecuación del Hamiltoniano}
-Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
-El parámetro J es proporcional a la parte cinética del hamiltoniano y describe físicamente como los bosones "saltan" de un sitio a otro, el segundo parámetro es proporcional a la parte de interacción del hamiltoniano, describe 
-la interacción partícula a partícula y la fuerza de interacción siendo caracterizada por U~\cite{Zhang2010}. 
-En este trabajo, mediante una variación de la cantidad J/U\janote{Ojo! esto entre \$\$}, se buscará determinar las regiones de interés.
-
-
-Para el diagnostico de las regiones de caos cuántico, se determinan\janote{utilizaremos** no determinar, suena extraño} las siguientes cantidades:
-\begin{itemize}
-    \item Mean level spacing ratio, $\ev{r}$:
-
-Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y
-    $s_n=E_{n+1}-E_{n}$ \janote{el espaciamiento consecutivo de niveles}, se define la cantidad:
-		\begin{equation}
-			r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}
-		\end{equation}
-\janote{Punto al terminar la ecuación si luego vas a comenzar otro enunciado!}
-    Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad\janote{en serio?? Quiero entender esto mejor}
-    y por tanto es válido asumir la universalidad de RMT para el análisis.
-    Se calculará para cada configuración de J/U\janote{\$\$} todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
-    Se espera que este valor medio sea un indicador de caos, ya que para el ensamble GOE, dicho valor es de $\ev{r}=0.5307$~\cite{Atas_2013} \janote{falta también decir el valor para Poisson}.
-    \item Divergencia \janote{poné el nombre de Kulblack no sé que aquí}($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad, en este caso, se comparará la distribucion de probabilidad de los $r_n$ \janote{de la ecuación tal, aprovechá que las tenes enumeradas}
-    respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
-    \begin{equation}
-KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx
-    \end{equation}
-    En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
-\end{itemize}
-Se espera que $\ev{r}$ y la divergencia $KL$ estén relacionadas, pues ambas son indicadores de caos cuántico\janote{me gustaría que aquí volvieras a matizar 
-diciendo que son indicadores que nos permiten revisar el acuerdo de las
-fluctuaciones espectrales de un sistema física con la universidad que predice 
-RMT, cosa que conectamos con la definición de caos que adoptaremos para 
-este trabajo. Algo así, con tus palabras}. 
+\janote{Esto integralo en el bullet point de la $\ev{r}$}
 
 %Seccion Actual de objetivos 
 \section{Objetivos}\label{sec:objetivos}
