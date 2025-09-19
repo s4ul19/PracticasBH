@@ -30,7 +30,7 @@
     Escuela de Ciencias Físicas y Matemáticas
 }
 \title{
-    {\LARGE Prácticas:}\\[0.5em]
+    {\LARGE Anteproyecto Prácticas Finales:}\\[0.5em]
    Caos cuántico en el modelo de\\[0.4em]
 	 Bose-Hubbard 
 }
@@ -81,17 +81,17 @@ una repulsión entre sus niveles de energía que están en concordancia con algu
 aleatorias, en los que se resaltan los ensambles GOE (Gaussian Orthogonal Ensemble), GUE (Gaussian Unitary Ensemble) y GSU (Gaussian Simplectic Ensemble).
 El primero en usar la idea de RMTs fue Wigner, en los años 50, con el motivo de estudiar el espectro de núcleos atómicos pesados~\cite{Wigner1955}.
 Una de las observaciones que resaltan de su discusión es la observación de que los niveles de energía presentan una tendencia a repelerse unos a otros, 
-ello motivo en parte a el uso de RMT para la descripción del hamiltoniano de este tipo de sistemas. 
+ello motivo en parte a el uso de RMT para la descripción del Hamiltoniano de este tipo de sistemas. 
 
-Para hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tabor establece que 
-la estadística de los niveles de energía sigue una estadística de Poisson~\cite{BerryTabor1977}, mientras que para hamiltonianos 
+Para Hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tabor establece que 
+la estadística de los niveles de energía sigue una estadística de Poisson~\cite{BerryTabor1977}, mientras que para Hamiltonianos 
 cuya contraparte clásica sea caótica, la conjetura BGS (Bogigas, Gianoni, Schmit) establece que la estadística de los niveles de energía es descrita 
 por alguno de los ensambles de RMT~\cite{Atas_2013}
 Es de mencionar que la universalidad de RMT para la descripción de los niveles de energía de sistemas físicos 
 es válida cuando la densidad media de los niveles de energía es igual a la unidad~\cite{Atas_2013}.
 
 
-Este trabajo consistirá en hacer un estudio espectral del hamiltoniano del modelo de Bose Hubbard 
+Este trabajo consistirá en hacer un estudio espectral del Hamiltoniano del modelo de Bose Hubbard 
 con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
 que coincide con la propuesta por el ensamble Gaussiano Ortogonal (GOE). El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente, 
 se han hecho realizaciones experimentales con átomos ultrafríos sobre un red óptica y se ha podido observar la transición SF-MI (Superfluidez-Aislante de Mott)~\cite{Zhang2010}. 
@@ -111,24 +111,26 @@ Para el diagnostico de las regiones de caos cuántico, se utilizarán las siguie
 \begin{itemize}
     \item Mean level spacing ratio, $\ev{r}$:
 
-Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y el espaciamiento consecutivo de niveles de energía como 
-    $s_n=E_{n+1}-E_{n}$, se define la cantidad:
-		\begin{equation}
-			r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
-		\end{equation}
-    Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
-    y por tanto es válido asumir la universalidad de RMT para el análisis.
-    Estudiando la distribución de probabilidad asociada a las r's, es posible determinar si la configuración está en un regímen integrable 
-    o caótico. Por lo que es importante tener presente la forma análitica de la distribución de probabilidad de los cocientes entre 
-    los espaciamientos de niveles del ensabamble GOE y de Poisson, mediante $\ev{r}$ es posible caracterizar cada 
-    regímen. En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} y para un regímen integrable un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
-    La distribución asociada a GOE es de la forma,($\Theta(r)$ es la función de Heaviside)~\cite{Atas_2013}:
-     \snote{Listo}\janote{ojo que ambas distribuciones de 
+Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano, y el espaciamiento consecutivo de niveles de energía como 
+$s_n=E_{n+1}-E_{n}$, se define la cantidad:
+\begin{equation}
+	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
+\end{equation}
+Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
+y por tanto es válido asumir la universalidad de RMT para el análisis\janote{no modificaste este enunciado. Toca quitar la primera parte, porque discutimos ayer que no es cierto}.
+Estudiando la distribución de probabilidad asociada a las $r$'s\janote{siempre que pongás variables matemáticas, asegurate que las pongás dentro de \$\$!! Borrá este comentario cuadno lo veás}, es posible determinar si la configuración está en un regímen integrable 
+o caótico. Por lo que es importante tener presente la forma análitica de la distribución de probabilidad de los cocientes entre 
+los espaciamientos de niveles del ensabamble GOE y de Poisson, mediante $\ev{r}$ es posible caracterizar cada 
+regímen\janote{este enunciado está mal redactado, volvelo a escribir. Empezás hablando de la PDF y despúes de la coma saltás a  hablar de la $\ev{r}$, son dos ideas que no estás conectando adecuadamente. Asegurate que se tu modificación haga una transición suave con el siguiente enunciado (o modficá acorde el enunciado siguiente también)}. En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} y para un regímen integrable\janote{la distribución de Poisson*} un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
+La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
+ \snote{Listo}\janote{ojo que ambas distribuciones de 
 las dos siguientes ecuaciones les hace falta una Heaviside multiplicando y 
 tal vez un factor, No recuerdo bien, porfa revisá bien Atas et al}:
 \begin{equation}
-    P_{GOE}(r)=2\Theta(1-r)\cdot(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}).
+ P_{GOE}(r)=2\Theta(1-r)\cdot \qty(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}),
 \end{equation}
+donde $\Theta(r)$ es la función de Heaviside.
+\janote{mirá cómo hice para que los paréntesis se vean bien. Cambialo así en la siguiente ecuación}
 Y para la distribución asociada a un espectro integrable (Poisson) es de la forma~\cite{Tekur2020}:
 \begin{equation}
     P_{Poisson}(r)=2\Theta(1-r)\cdot(\frac{1}{(1+r)^{2}})
@@ -142,17 +144,9 @@ KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) 
     \end{equation}
     En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
 \end{itemize}
-Tanto $\ev{r}$ como la divergencia $KL$ son indicadores que permiten establecer una conexión entre las fluctuaciones espectrales de un sistema físico 
+Tanto el valor promedio de los cocientes $\ev{r}$ como la divergencia $KL$ son indicadores que permiten establecer una conexión entre las fluctuaciones espectrales de un sistema físico 
 con la universalidad predicha por RMT, y por tanto permiten establecer una conexión con la definción de caos cuántico adoptada en este trabajo.
 
-\janote{Esto integralo en el bullet point de la $\ev{r}$}
-\snote{Sección trasaldada a donde está $\ev{r}$ }
-\janote{Quiero que hagás una integración maś suave, no sólo mover el texto. 
-De hecho, es más natural definir las $P(r)$ antes de decir los valores de 
-$\ev{r}$, porque podés mencionar que usando esas distribuciones uno puede 
-mostrar que el valor esperado son los numeritos tales.. }\snote{Trasladado suave hecho.}
-
-%Seccion Actual de objetivos 
 \section{Objetivos}\label{sec:objetivos}
 \subsection{Objetivo general}
   Estudiar la estadística espectral del Hamiltoniano de Bose-Hubbard para identificar la región de paramétros sobre la cual 
@@ -160,7 +154,7 @@ mostrar que el valor esperado son los numeritos tales.. }\snote{Trasladado suave
  \subsection{Objetivos específicos}
   \begin{itemize}
     \item Estudiar el modelo de Bose-Hubbard e investigar su importancia en la física contemporánea.
-    \item Estudiar acerca del mean level spacing ratio $\ev{r}$ y la divergencia $KL$. También investigar acerca de la distribuciones de los cocientes de  \snote{Listo.}\janote{los cocientes de} espaciamientos de valores propios de los ensambles de matrices aleatorias, en particular, el ensamble GOE.
+    \item Estudiar acerca del mean level spacing ratio $\ev{r}$ y la divergencia $KL$. También investigar acerca de la distribuciones de los cocientes de espaciamientos de valores propios de los ensambles de matrices aleatorias, en particular, el ensamble GOE.
     \item Programar el Hamiltoniano de Bose-Hubbard con condiciones de frontera abiertas, sus sectores de simetría bajo el operador reflexión y los dos indicadores de caos propuestos.
     \item Analizar distintas configuraciones del sistema variando $J/U$ con los indicadores de caos propuestos y con ello identificar las regiones de integrabilidad y caos del sistema.
  \end{itemize}
@@ -169,23 +163,24 @@ mostrar que el valor esperado son los numeritos tales.. }\snote{Trasladado suave
 El estudio de caos cuántico ha sido investigado desde hace ya más de 40 años, notablemente empezando con un estudio de sistemas cuánticos
 que tuviesen una contraparte clásica~\cite{Bohigas_1984}. Gracias a la innovación tecnológica y al aumento en la capacidad 
 computacional, se ha sido capaz de tener un estudio más robusto del tema,
-pudiendo estudiar con mayor facilidad sistemas de muchos cuerpos que no tienen contraparte clásica, algo que ha traido un reavivamiento en el estudio de caos cuántico.\snote{Agregué y quité cosas, me parece que está mejor estructurado}\janote{este enunciado partilo en dos, haciendo las modificaciones necesrias}. Este trabajo es un ejemplo de ello, ya que se estará trabajando con 
+pudiendo estudiar con mayor facilidad sistemas de muchos cuerpos que no tienen contraparte clásica, algo que ha traido un reavivamiento en el estudio de caos cuántico. Este trabajo es un ejemplo de ello, ya que se estará trabajando con 
 un sistema que no tiene análogo clásico y es un buen punto de partida para estudiar el caos cuántico desde el punto de vista de RMT.
 Este trabajo es un primer paso para una investigación más grande, que busca estudiar el caos cuántico y el efecto de mezclar la estadística 
 de distintos sectores de simetría. Esta investigación más grande buscará arrojar más luz acerca de la descipción de sistemas cuánticos y su conexión con la teoría de RMT.
 
 \section{Cronograma}
-A continuación, la lista de tarea a llevar a cabo a lo largo de la práctica:
+A continuación, la lista de tareas a llevar a cabo a lo largo de la práctica:
 \begin{itemize}
-    \item Tarea 1: Aprender y profundizar acerca de las simetrías en un hamiltoniano y su sectorización.
-    \item Tarea 2: Aprender lo básico acerca del lenguaje de programación Wolfram Mathematica.
-    \item Tarea 3: Programar la base de fock que describe las configuraciones físicas del modelo.
-    \item Tarea 4: Programar el hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
-    \item Tarea 5: Programar los sectores de simetría del hamiltoniano.
+    \item Tarea 1: Estudiar sobre de las simetrías en un Hamiltoniano y su sectorización\janote{su forma diagonal por bloques debido a la simetría*}.
+\janote{Agregá una tarea de estudiar sobre el modelo de Bose-Hubbard}
+    \item Tarea 2: Estudiar sobre el lenguaje de programación Wolfram Mathematica.
+    \item Tarea 3: Programar la base de Fock que describe las configuraciones físicas del modelo.
+    \item Tarea 4: Programar el Hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
+    \item Tarea 5: Programar los sectores de simetría del Hamiltoniano.
     \item Tarea 6: Programar las herramienta de diagnostico de caos cuántico. 
-    \item Tarea 7: Obtener los valores propios del hamiltoniano para distintos valores de $J/U$ y crear una base de datos con los mismos.
+    \item Tarea 7: Obtener los valores propios del Hamiltoniano para distintos valores de $J/U$ y crear una base de datos con los mismos.
     \item Tarea 8: Hacer la estadística respectiva para cada configuración calculada.
-    \item Tarea 9: Presentar los datos obtenidos de tal forma que sea clara la exposción de información de diagnostico.
+    \item Tarea 9: Presentar los datos obtenidos de tal forma que sea clara la exposción de información de diagnostico.\janote{Mejor cambiá esto por escribir el informe final}
 \end{itemize}
 \input{cronograma}
 \bibliographystyle{ieeetr}
