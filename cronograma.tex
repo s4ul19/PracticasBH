@@ -1,0 +1,29 @@
+\newcommand{\Pcolor}{\cellcolor[HTML]{C0C0C0}}%
+\def\ANDpocalipse{&&&&&&&&&&&&&&&&&&&&&&&&}
+%
+\begin{center}
+{
+\renewcommand{\arraystretch}{1.75}
+\begin{tabular}{|c|*{16}{c|}} \hline
+\textbf{Tareas} & \multicolumn{4}{c|}{\textbf{Mes 1}} & \multicolumn{4}{c|}{\textbf{Mes 2}} & \multicolumn{4}{c|}{\textbf{Mes 3}} & \multicolumn{4}{c|}{\textbf{Mes 4}} \\ \hline
+Tarea 1&\directlua{tab.ANDpocalipse({1,2})}\\
+\hline
+Tarea 2&\directlua{tab.ANDpocalipse({1,2,3,4})}\\
+\hline
+Tarea 3&\directlua{tab.ANDpocalipse({4,5})}\\
+\hline
+Tarea 4&\directlua{tab.ANDpocalipse({6,7})}\\
+\hline
+Tarea 5&\directlua{tab.ANDpocalipse({8,9})}\\
+\hline
+Tarea 6&\directlua{tab.ANDpocalipse({10})}\\
+\hline
+Tarea 7&\directlua{tab.ANDpocalipse({11,12})}\\
+\hline
+Tarea 8&\directlua{tab.ANDpocalipse({13,14})}\\
+\hline
+Tarea 9&\directlua{tab.ANDpocalipse({15,16})}\\
+\hline
+\end{tabular}%
+}
+\end{center}

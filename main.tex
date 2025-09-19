@@ -5,7 +5,7 @@
 \usepackage{hyperref}
 \usepackage{physics}
 
-%\directlua{tab = require("src/andpocalipse")}
+\directlua{tab = require("src/andpocalipse")}
 
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color}
 % Comentarios de JA 
@@ -95,7 +95,7 @@ Este trabajo consistirá en hacer un estudio espectral del hamiltoniano del mode
 con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
 que coincide con la propuesta por el ensamble Gaussiano Ortogonal (GOE). El modelo de Bose Hubbard es escogido por ser un buena primera aproximación a distintos sistemas físicos de interés presentes en la física de matería condensada y física atómica, notablemente, 
 se han hecho realizaciones experimentales con átomos ultrafríos sobre un red óptica y se ha podido observar la transición SF-MI (Superfluidez-Aislante de Mott)~\cite{Zhang2010}. 
-El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones, y el hamiltoniano presentado describe dicha situación. El Hamiltoniano de este modelo es:
+El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones. El Hamiltoniano de este modelo es:
 \begin{equation}
 \hat{H}
 = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
@@ -103,7 +103,7 @@ El modelo se puede emplear tanto para fermiones como para bosones. En este traba
 \end{equation}
 Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
 El parámetro $J$ describe la parte cinética del Hamiltoniano y dicta la probabilidad de que los bosones ``salten'' de un sitio a otro adyacente. El segundo parámetro $U$ describe la parte de interacción del Hamiltoniano, nos dice cómo  
-es la fuerza de interacción entre bosones en mismo sitio~\cite{Zhang2010}\janote{Hice modificaciones a estos dos últimos enunciados (era sólo uno antes). Comparalo con cómo lo tenías antes para entender los cambios y si te parece bien, sólo quitá este comentario}. 
+es la fuerza de interacción entre bosones en mismo sitio~\cite{Zhang2010}. 
 En este trabajo, mediante una variación de la cantidad $J/U$, se buscará determinar las regiones de integrabilidad y caos del sistema.
 
 
@@ -118,20 +118,23 @@ Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano, y el e
 		\end{equation}
     Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
     y por tanto es válido asumir la universalidad de RMT para el análisis.
-    Se calculará para cada configuración de $J/U$ todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
-    Se espera que este valor medio sea un indicador de caos, ya que para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013}. Así mismo, si el sistema está 
-    en un regímen integrable, se espera un valor medio de $\ev{r}_{Poisson}=0.38629~\cite{Atas_2013}$.
-   
-    Es importante tener presente la forma análitica de la distribución de los cocientes entre los espaciamientos de niveles del ensabamble GOE, el cual es de la forma~\cite{Atas_2013}\janote{ojo que ambas distribuciones de 
+    Estudiando la distribución de probabilidad asociada a las r's, es posible determinar si la configuración está en un regímen integrable 
+    o caótico. Por lo que es importante tener presente la forma análitica de la distribución de probabilidad de los cocientes entre 
+    los espaciamientos de niveles del ensabamble GOE y de Poisson, mediante $\ev{r}$ es posible caracterizar cada 
+    regímen. En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} y para un regímen integrable un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
+    La distribución asociada a GOE es de la forma,($\Theta(r)$ es la función de Heaviside)~\cite{Atas_2013}:
+     \snote{Listo}\janote{ojo que ambas distribuciones de 
 las dos siguientes ecuaciones les hace falta una Heaviside multiplicando y 
 tal vez un factor, No recuerdo bien, porfa revisá bien Atas et al}:
 \begin{equation}
-    P_{GOE}(r)=\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}.
+    P_{GOE}(r)=2\Theta(1-r)\cdot(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}).
 \end{equation}
-Y para la distribución de espaciamiento de niveles de energía para un espectro integrable (Poisson) es de la forma~\cite{Tekur2020}:
+Y para la distribución asociada a un espectro integrable (Poisson) es de la forma~\cite{Tekur2020}:
 \begin{equation}
-    P_{Poisson}(r)=\frac{1}{(1+r)^{2}}
+    P_{Poisson}(r)=2\Theta(1-r)\cdot(\frac{1}{(1+r)^{2}})
 \end{equation}
+    Se calculará para cada configuración de $J/U$ todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
+
     \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad. En este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
     respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
     \begin{equation}
@@ -147,7 +150,7 @@ con la universalidad predicha por RMT, y por tanto permiten establecer una conex
 \janote{Quiero que hagás una integración maś suave, no sólo mover el texto. 
 De hecho, es más natural definir las $P(r)$ antes de decir los valores de 
 $\ev{r}$, porque podés mencionar que usando esas distribuciones uno puede 
-mostrar que el valor esperado son los numeritos tales.. }
+mostrar que el valor esperado son los numeritos tales.. }\snote{Trasladado suave hecho.}
 
 %Seccion Actual de objetivos 
 \section{Objetivos}\label{sec:objetivos}
@@ -155,25 +158,36 @@ mostrar que el valor esperado son los numeritos tales.. }
   Estudiar la estadística espectral del Hamiltoniano de Bose-Hubbard para identificar la región de paramétros sobre la cual 
  el sistema exhibe caos cuántico.
  \subsection{Objetivos específicos}
- \textbf{NEW ver.}
   \begin{itemize}
     \item Estudiar el modelo de Bose-Hubbard e investigar su importancia en la física contemporánea.
-    \item Estudiar acerca del mean level spacing ratio $\ev{r}$ y la divergencia $KL$, asi acerca de la distribuciones de \janote{los cocientes de} espaciamientos de valores propios de los ensambles de matrices aleatorias, en particular, el ensamble GOE.
+    \item Estudiar acerca del mean level spacing ratio $\ev{r}$ y la divergencia $KL$. También investigar acerca de la distribuciones de los cocientes de  \snote{Listo.}\janote{los cocientes de} espaciamientos de valores propios de los ensambles de matrices aleatorias, en particular, el ensamble GOE.
     \item Programar el Hamiltoniano de Bose-Hubbard con condiciones de frontera abiertas, sus sectores de simetría bajo el operador reflexión y los dos indicadores de caos propuestos.
     \item Analizar distintas configuraciones del sistema variando $J/U$ con los indicadores de caos propuestos y con ello identificar las regiones de integrabilidad y caos del sistema.
  \end{itemize}
  
 \section{Justificación del Proyecto}
-El estudio de caos cuántico ha sido investigado desde hace ya más de 40 años, sin embargo debido a la innovación tecnológica y el aumento en nuestra capacidad 
-computacional, se ha sido capaz de tener un estudio más robusto del tema en los últimos años, notablemente ha habido un reavivamiento del estudio del caós cuántico 
-en sistemas de muchos cuerpos que no tienen contraparte clásica\janote{este enunciado partilo en dos, haciendo las modificaciones necesrias}. Este trabajo es un ejemplo de ello, ya que se estará trabajando con 
+El estudio de caos cuántico ha sido investigado desde hace ya más de 40 años, notablemente empezando con un estudio de sistemas cuánticos
+que tuviesen una contraparte clásica~\cite{Bohigas_1984}. Gracias a la innovación tecnológica y al aumento en la capacidad 
+computacional, se ha sido capaz de tener un estudio más robusto del tema,
+pudiendo estudiar con mayor facilidad sistemas de muchos cuerpos que no tienen contraparte clásica, algo que ha traido un reavivamiento en el estudio de caos cuántico.\snote{Agregué y quité cosas, me parece que está mejor estructurado}\janote{este enunciado partilo en dos, haciendo las modificaciones necesrias}. Este trabajo es un ejemplo de ello, ya que se estará trabajando con 
 un sistema que no tiene análogo clásico y es un buen punto de partida para estudiar el caos cuántico desde el punto de vista de RMT.
-Este trabajo cumple con que esta primera investigación es 
-un primer paso para una investigación más grande, que busca estudiar el caos cuántico y el efecto de mezclar la estadística 
+Este trabajo es un primer paso para una investigación más grande, que busca estudiar el caos cuántico y el efecto de mezclar la estadística 
 de distintos sectores de simetría. Esta investigación más grande buscará arrojar más luz acerca de la descipción de sistemas cuánticos y su conexión con la teoría de RMT.
 
 \section{Cronograma}
-(Pendiente)
+A continuación, la lista de tarea a llevar a cabo a lo largo de la práctica:
+\begin{itemize}
+    \item Tarea 1: Aprender y profundizar acerca de las simetrías en un hamiltoniano y su sectorización.
+    \item Tarea 2: Aprender lo básico acerca del lenguaje de programación Wolfram Mathematica.
+    \item Tarea 3: Programar la base de fock que describe las configuraciones físicas del modelo.
+    \item Tarea 4: Programar el hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
+    \item Tarea 5: Programar los sectores de simetría del hamiltoniano.
+    \item Tarea 6: Programar las herramienta de diagnostico de caos cuántico. 
+    \item Tarea 7: Obtener los valores propios del hamiltoniano para distintos valores de $J/U$ y crear una base de datos con los mismos.
+    \item Tarea 8: Hacer la estadística respectiva para cada configuración calculada.
+    \item Tarea 9: Presentar los datos obtenidos de tal forma que sea clara la exposción de información de diagnostico.
+\end{itemize}
+\input{cronograma}
 \bibliographystyle{ieeetr}
 \bibliography{references}
 \end{document}
