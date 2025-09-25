@@ -87,9 +87,6 @@ Para Hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjet
 la estadística de los niveles de energía sigue una estadística de Poisson~\cite{BerryTabor1977}, mientras que para Hamiltonianos 
 cuya contraparte clásica sea caótica, la conjetura BGS (Bogigas, Gianoni, Schmit) establece que la estadística de los niveles de energía es descrita 
 por alguno de los ensambles de RMT~\cite{Atas_2013}
-Es de mencionar que la universalidad de RMT para la descripción de los niveles de energía de sistemas físicos 
-es válida cuando la densidad media de los niveles de energía es igual a la unidad~\cite{Atas_2013}.
-
 
 Este trabajo consistirá en hacer un estudio espectral del Hamiltoniano del modelo de Bose Hubbard 
 con el objetivo de diagnosticar la región de parámetros en donde el sistema exhibe una estadística espectral 
@@ -112,31 +109,29 @@ Para el diagnostico de las regiones de caos cuántico, se utilizarán las siguie
     \item Mean level spacing ratio, $\ev{r}$:
 
 Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano, y el espaciamiento consecutivo de niveles de energía como 
-$s_n=E_{n+1}-E_{n}$, se define la cantidad:
+$s_n=E_{n+1}-E_{n}$, se define la cantida~\cite{Atas_2013}:
 \begin{equation}
 	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
 \end{equation}
-Esta cantidad cumple con la propiedad de que la densidad media de los niveles de energía es igual a la unidad
-y por tanto es válido asumir la universalidad de RMT para el análisis\janote{no modificaste este enunciado. Toca quitar la primera parte, porque discutimos ayer que no es cierto}.
-Estudiando la distribución de probabilidad asociada a las $r$'s\janote{siempre que pongás variables matemáticas, asegurate que las pongás dentro de \$\$!! Borrá este comentario cuadno lo veás}, es posible determinar si la configuración está en un regímen integrable 
+Esta cantidad permite observar la universalidad de RMT en los espectros de energía\snote{Listo.}\janote{no modificaste este enunciado. Toca quitar la primera parte, porque discutimos ayer que no es cierto}.
+Estudiando la distribución de probabilidad asociada a las $r$'s, es posible determinar si la configuración está en un regímen integrable 
 o caótico. Por lo que es importante tener presente la forma análitica de la distribución de probabilidad de los cocientes entre 
-los espaciamientos de niveles del ensabamble GOE y de Poisson, mediante $\ev{r}$ es posible caracterizar cada 
-regímen\janote{este enunciado está mal redactado, volvelo a escribir. Empezás hablando de la PDF y despúes de la coma saltás a  hablar de la $\ev{r}$, son dos ideas que no estás conectando adecuadamente. Asegurate que se tu modificación haga una transición suave con el siguiente enunciado (o modficá acorde el enunciado siguiente también)}. En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} y para un regímen integrable\janote{la distribución de Poisson*} un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
+los espaciamientos de niveles del ensabamble GOE y de Poisson.
 La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
- \snote{Listo}\janote{ojo que ambas distribuciones de 
-las dos siguientes ecuaciones les hace falta una Heaviside multiplicando y 
-tal vez un factor, No recuerdo bien, porfa revisá bien Atas et al}:
 \begin{equation}
  P_{GOE}(r)=2\Theta(1-r)\cdot \qty(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}),
 \end{equation}
 donde $\Theta(r)$ es la función de Heaviside.
-\janote{mirá cómo hice para que los paréntesis se vean bien. Cambialo así en la siguiente ecuación}
-Y para la distribución asociada a un espectro integrable (Poisson) es de la forma~\cite{Tekur2020}:
+\snote{Listo.}\janote{mirá cómo hice para que los paréntesis se vean bien. Cambialo así en la siguiente ecuación}
+Y para la distribución de Poisson es de la forma~\cite{Tekur2020}:
 \begin{equation}
-    P_{Poisson}(r)=2\Theta(1-r)\cdot(\frac{1}{(1+r)^{2}})
+    P_{Poisson}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}})
 \end{equation}
-    Se calculará para cada configuración de $J/U$ todos los $r_n$, para posteriormente determinar el valor medio $\ev{r}$.
-
+Con estas expresiónes es posible extraer un $\ev{r}$ característico de cada distribucion.
+En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} 
+y para la distribución de Poisson \janote{la distribución de Poisson*} un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
+Se calculará para cada configuración de $J/U$ todos los $r_n$, para posteriormente determinar el valor $\ev{r}$ del espectro del sistema.
+\snote{Mandé esto para acá para dejarlo a la vista.}\janote{este enunciado está mal redactado, volvelo a escribir. Empezás hablando de la PDF y despúes de la coma saltás a  hablar de la $\ev{r}$, son dos ideas que no estás conectando adecuadamente. Asegurate que se tu modificación haga una transición suave con el siguiente enunciado (o modficá acorde el enunciado siguiente también)}
     \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad. En este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
     respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
     \begin{equation}
@@ -171,16 +166,17 @@ de distintos sectores de simetría. Esta investigación más grande buscará arr
 \section{Cronograma}
 A continuación, la lista de tareas a llevar a cabo a lo largo de la práctica:
 \begin{itemize}
-    \item Tarea 1: Estudiar sobre de las simetrías en un Hamiltoniano y su sectorización\janote{su forma diagonal por bloques debido a la simetría*}.
-\janote{Agregá una tarea de estudiar sobre el modelo de Bose-Hubbard}
-    \item Tarea 2: Estudiar sobre el lenguaje de programación Wolfram Mathematica.
-    \item Tarea 3: Programar la base de Fock que describe las configuraciones físicas del modelo.
-    \item Tarea 4: Programar el Hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
-    \item Tarea 5: Programar los sectores de simetría del Hamiltoniano.
-    \item Tarea 6: Programar las herramienta de diagnostico de caos cuántico. 
-    \item Tarea 7: Obtener los valores propios del Hamiltoniano para distintos valores de $J/U$ y crear una base de datos con los mismos.
-    \item Tarea 8: Hacer la estadística respectiva para cada configuración calculada.
-    \item Tarea 9: Presentar los datos obtenidos de tal forma que sea clara la exposción de información de diagnostico.\janote{Mejor cambiá esto por escribir el informe final}
+    \item Tarea 1: Estudiar sobre de las simetrías en un Hamiltoniano y su forma diagonal por bloques de simetría\snote{Listo.}\janote{su forma diagonal por bloques debido a la simetría*}.
+    \item Tarea 2: Estudiar sobre el modelo de Bose Hubbard
+    \snote{Listo.}\janote{Agregá una tarea de estudiar sobre el modelo de Bose-Hubbard}
+    \item Tarea 3: Estudiar sobre el lenguaje de programación Wolfram Mathematica.
+    \item Tarea 4: Programar la base de Fock que describe las configuraciones físicas del modelo.
+    \item Tarea 5: Programar el Hamiltoniano de Bose Hubbard con condiciones de frontera abiertas.
+    \item Tarea 6: Programar los sectores de simetría del Hamiltoniano.
+    \item Tarea 7: Programar las herramienta de diagnostico de caos cuántico. 
+    \item Tarea 8: Obtener los valores propios del Hamiltoniano para distintos valores de $J/U$ y crear una base de datos con los mismos.
+    \item Tarea 9: Hacer la estadística respectiva para cada configuración calculada.
+    \item Tarea 10: Escribir el informe final.\snote{Listo.}\janote{Mejor cambiá esto por escribir el informe final}
 \end{itemize}
 \input{cronograma}
 \bibliographystyle{ieeetr}
