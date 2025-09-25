@@ -1,3 +1,5 @@
+.~lock.*.odt#
+
 # LaTeX output files
 *.aux
 *.bbl
