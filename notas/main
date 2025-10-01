@@ -1,0 +1,75 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\title{Survival probability}
+\begin{document}
+\maketitle
+
+The survival probability is defined as 
+\begin{equation}
+S_p(t)
+= 
+\abs{\braket{\psi_0}{\psi(t)}}^2,
+\end{equation}
+Consider that $H \ket{\phi_n} = E_n \ket{\phi_n}$, then the survival probability
+$S_p$ yields
+\begin{equation}
+S_p(t) 
+= 
+\abs{
+\sum_{k,l}
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i(E_k - E_l) t}
+}^2.
+\end{equation}
+Let us consider a symmetry of $H$ under an arbitrary operator $\Pi$ such 
+that $H = H_1 \oplus H_2$---for instance, you may consider $\Pi$ to be the 
+reflection operator. Then, we can relabel the energies $E_n$ such that 
+$\{E_n\}_{n=1}^p$ and $\{E_n\}_{n=p+1}^N$ are the spectra of $H_1$ and 
+$H_2$, respectively. $N$ denotes the dimension of $H$, $p$ the dimension of 
+$H_1$ and $N-p$ is the dimension of $H_2$. After this relabeling, $S_p(t)$
+takes the form:
+\begin{align}
+S_p(t) 
+&=
+\abs{
+\sum_{k,l = 1}^p
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i(E_k - E_l) t}
++
+\sum_{k,l = p+1}^N
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i(E_k - E_l) t}
+}^2 \\
+%
+&= 
+\abs{
+\sum_{k,l = 1}^p
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i(E_k - E_l) t}
+}^2 \\ 
+&\quad +
+\abs{
+\sum_{k,l = p+1}^N
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i(E_k - E_l) t}
+}^2 \\
+&\quad +
+2\Re{
+\sum_{k=1}^{p+1}\sum_{l = p+1}^N
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i(E_k - E_l) t}
+}.
+\end{align}
+The first two terms are recognized as the survival probability in the two
+symmetric subspaces. The third term God knows what the hell it is, but it 
+is the term explaining why the correlation whole survives (or not).
+\end{document}
