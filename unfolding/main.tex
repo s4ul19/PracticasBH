@@ -1,0 +1,145 @@
+\documentclass[10pt]{article}
+\usepackage{amsmath, amssymb, physics}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+
+\title{Why Unfolding is not necessary for ratio of consecutive level spacings}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+%\section{The Fundamental Problem: Non-Uniform Level Density}
+%
+%When we diagonalize a quantum Hamiltonian, we obtain eigenvalues $\{E_i\}$ 
+%with a non-constant density of states $\rho(E)$. The naive level spacing 
+%is defined as:
+%%
+%\begin{equation}
+%s_i = E_{i+1} - E_i
+%\end{equation}
+%%
+%The distribution of these raw spacings $P(s)$ reflects both:
+%\begin{itemize}
+%\item \textbf{Universal fluctuations}: Level repulsion, spectral rigidity
+%\item \textbf{System-specific density}: $\rho(E)$ varies with energy
+%\end{itemize}
+%
+%%Rewrite the following section to explain in more detail the unfolding procedure from the density of states
+%\section{Unfolding: Removing System-Specific Density}
+%
+%We separate the cumulative level count into smooth and fluctuating parts:
+%%
+%\begin{equation}
+%N(E) = \overline{N}(E) + N_{\text{fluc}}(E)
+%\end{equation}
+%%
+%where $\overline{N}(E)$ is the smooth cumulative density. Unfolded levels 
+%are defined as:
+%%
+%\begin{equation}
+%\epsilon_i = \overline{N}(E_i)
+%\end{equation}
+%%
+%The unfolded spacings become:
+%%
+%\begin{equation}
+%\tilde{s}_i = \epsilon_{i+1} - \epsilon_i
+%\end{equation}
+%%
+%Crucially, the \textbf{average} $\langle \tilde{s}_i \rangle = 1$ 
+%throughout the spectrum, allowing comparison with Wigner's surmise 
+%$P_{\text{Wigner}}(s)$ which assumes unit mean spacing.
+\section{Unfolding: Removing System-Specific Density}
+
+In quantum systems, the density of states often exhibits both a smooth 
+background and superimposed fluctuations. To analyze the underlying 
+statistical properties of the energy levels, it is essential to separate 
+these components. This process is known as unfolding. Let us discuss how 
+to perform the unfolding of a spectrum.
+
+We begin defining the cumulative level count function $N(E)$, also known as
+staircase function:
+\begin{equation}
+N(E) = \sum_i \Theta(E - E_i).
+\end{equation}
+One then needs to find a smooth function $\overline{N}(E)$ that approximates 
+$N(E)$, by using techniques such as polynomial fitting or spectral 
+averaging. The goal is to capture the average trend of energy levels 
+distribution, filtering out the individual deviations.
+Then, the unfolded levels, denoted as $\epsilon_i$, are 
+defined as:
+\begin{equation}
+\epsilon_i = \overline{N}(E_i)
+\end{equation}
+
+This transformation ensures that the unfolded levels have a uniform 
+average density. Consequently, the spacings between consecutive 
+unfolded levels, $\tilde{s}_i$, are given by:
+
+\begin{equation}
+\tilde{s}_i = \epsilon_{i+1} - \epsilon_i
+\end{equation}
+
+An important property of the unfolded spacings is that their average, 
+$\langle \tilde{s}_i \rangle$, is equal to 1 throughout the entire 
+spectrum. This normalization is absolutely necessary for the comparison of the 
+spacing distribution with the predictions of RMT.
+
+\section{The Ratio Statistics: Automatic Scale Invariance}
+
+Consider three consecutive levels: $E_{i-1}, E_i, E_{i+1}$. The ratio 
+of consecutive spacings is defined as:
+%
+\begin{equation}
+r_i = \frac{\min(s_i, s_{i-1})}{\max(s_i, s_{i-1})}
+\end{equation}
+%
+where $s_i = E_{i+1} - E_i$ are the level spacings. This definition, which 
+is not the only one, ensures $0 \leq r_i \leq 1$.
+Now let's examine what happens under the unfolding transformation.
+
+The unfolded spacings are:
+%
+\begin{align}
+\tilde{s}_i 
+&= 
+\overline{N}(E_{i+1}) - \overline{N}(E_i) 
+%\\
+%
+%&= 
+%\rho(E_{i+1}) \cdot s_i - \rho(E) \cdot s_{i-1}
+\end{align}
+%
+%\begin{equation}
+%\tilde{s}_{i-1} = \epsilon_i - \epsilon_{i-1} = \overline{N}(E_i) 
+%- \overline{N}(E_{i-1})
+%\end{equation}
+%
+For sufficiently localized triplets, the density of states should be 
+approximately constant we can approximate using the mean 
+value theorem:
+%
+\begin{equation}
+\tilde{s}_i \approx \rho(E_i) \cdot s_i, \quad 
+\tilde{s}_{i-1} \approx \rho(E_i) \cdot s_{i-1}
+\end{equation}
+%
+where $\rho(E) = \dv{\overline{N}}{E}$ is the local density of states.
+Now compute the ratio of unfolded spacings:
+%
+\begin{equation}
+\tilde{r}_i = \frac{\min(\tilde{s}_i, \tilde{s}_{i-1})}
+{\max(\tilde{s}_i, \tilde{s}_{i-1})}
+= \frac{\min(\rho(E_i)s_i, \rho(E_i)s_{i-1})}
+{\max(\rho(E_i)s_i, \rho(E_i)s_{i-1})}
+= \frac{\min(s_i, s_{i-1})}{\max(s_i, s_{i-1})} 
+= r_i
+\end{equation}
+%
+Therefore, we have proved that unfolding is not needed for computing the 
+ratio of consecutive level spacings, since ratios are ``invariant'' under 
+unfolding.
+
+\end{document}
