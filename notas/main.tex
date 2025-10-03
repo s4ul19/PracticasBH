@@ -68,25 +68,46 @@ The first two terms are recognized as the survival probability in the two
 symmetric subspaces. The third term God knows what the hell it is, but it 
 is the term explaining why the correlation whole survives (or not).
 
-%\begin{align}
-%S_p(t) 
-%&= 
-%\abs{
-%\sum_{k}
-%\abs{\braket{\psi_0}{\phi_k}}^2
-%\abs{\braket{\psi_0}{\phi_k}}^2
-%+
-%\sum_{k}
-%\abs{\braket{\psi_0}{\phi_k}}^2
-%\abs{\braket{\psi_0}{\phi_{k+1}}}^2
-%e^{-i(E_k - E_l) t}
-%}^2 \\
-%%
-%&=
-%+
-%\sum_{k}
-%\abs{\braket{\psi_0}{\phi_k}}^2
-%\abs{\braket{\psi_0}{\phi_{k+2}}}^2
-%e^{-i(E_k - E_l) t}
-%\end{align}
+Let us rewrite the survival probability as follows:
+\begin{align}
+S_p(t) 
+&= 
+\abs{
+\sum_{k}
+\abs{\braket{\psi_0}{\phi_k}}^2
+e^{-i E_k t}
+}^2 
+\\
+%
+&= 
+\sum_{k,l}
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_l}}^2
+e^{-i (E_k - E_l) t} \\
+%
+&= 
+\sum_{k=1}^N
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_k}}^2
++ 2\Re\Bigg[
+\sum_{k=1}^{N-1}
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_{k+1}}}^2
+e^{-i (E_k - E_{k+1}) t} 
+\nonumber \\
+%
+&\quad\, + 
+\sum_{k=1}^{N-2}
+\abs{\braket{\psi_0}{\phi_k}}^2
+\abs{\braket{\psi_0}{\phi_{k+2}}}^2
+e^{-i (E_k - E_{k+2}) t} 
++ \ldots
+\nonumber \\
+%
+&\quad\, + 
+\abs{\braket{\psi_0}{\phi_N}}^4
+e^{-i (E_1 - E_N) t} \Bigg].
+\end{align}
+In this form, it is explicit that the survival probability can be written
+as a sum of the contributions given by higher order spacings. 
 \end{document}
