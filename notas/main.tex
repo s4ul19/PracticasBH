@@ -19,10 +19,9 @@ $S_p$ yields
 S_p(t) 
 = 
 \abs{
-\sum_{k,l}
+\sum_{k}
 \abs{\braket{\psi_0}{\phi_k}}^2
-\abs{\braket{\psi_0}{\phi_l}}^2
-e^{-i(E_k - E_l) t}
+e^{-i E_k t}
 }^2.
 \end{equation}
 Let us consider a symmetry of $H$ under an arbitrary operator $\Pi$ such 
@@ -36,30 +35,26 @@ takes the form:
 S_p(t) 
 &=
 \abs{
-\sum_{k,l = 1}^p
+\sum_{k = 1}^p
 \abs{\braket{\psi_0}{\phi_k}}^2
-\abs{\braket{\psi_0}{\phi_l}}^2
-e^{-i(E_k - E_l) t}
+e^{-i E_k t}
 +
-\sum_{k,l = p+1}^N
-\abs{\braket{\psi_0}{\phi_k}}^2
+\sum_{l = p+1}^N
 \abs{\braket{\psi_0}{\phi_l}}^2
-e^{-i(E_k - E_l) t}
+e^{-i E_l t}
 }^2 \\
 %
 &= 
 \abs{
-\sum_{k,l = 1}^p
+\sum_{k = 1}^p
 \abs{\braket{\psi_0}{\phi_k}}^2
-\abs{\braket{\psi_0}{\phi_l}}^2
-e^{-i(E_k - E_l) t}
-}^2 \\ 
-&\quad +
+e^{-i E_k t}
+}^2 
++
 \abs{
-\sum_{k,l = p+1}^N
-\abs{\braket{\psi_0}{\phi_k}}^2
+\sum_{l = p+1}^N
 \abs{\braket{\psi_0}{\phi_l}}^2
-e^{-i(E_k - E_l) t}
+e^{-i E_l t}
 }^2 \\
 &\quad +
 2\Re{
@@ -72,4 +67,26 @@ e^{-i(E_k - E_l) t}
 The first two terms are recognized as the survival probability in the two
 symmetric subspaces. The third term God knows what the hell it is, but it 
 is the term explaining why the correlation whole survives (or not).
+
+%\begin{align}
+%S_p(t) 
+%&= 
+%\abs{
+%\sum_{k}
+%\abs{\braket{\psi_0}{\phi_k}}^2
+%\abs{\braket{\psi_0}{\phi_k}}^2
+%+
+%\sum_{k}
+%\abs{\braket{\psi_0}{\phi_k}}^2
+%\abs{\braket{\psi_0}{\phi_{k+1}}}^2
+%e^{-i(E_k - E_l) t}
+%}^2 \\
+%%
+%&=
+%+
+%\sum_{k}
+%\abs{\braket{\psi_0}{\phi_k}}^2
+%\abs{\braket{\psi_0}{\phi_{k+2}}}^2
+%e^{-i(E_k - E_l) t}
+%\end{align}
 \end{document}
