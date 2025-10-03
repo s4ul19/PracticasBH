@@ -1,12 +1,54 @@
 \documentclass[10pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{todonotes}
+\setuptodonotes{color=blue!25,tickmarkheight=1.5mm,size=\small}
+
 \usepackage[T1]{fontenc}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{physics}
+\usepackage[dvipsnames]{xcolor} %colors
+
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
+\definecolor{jacolor}{RGB}{200,40,0}
+\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=blue,      
+citecolor=blue,
+urlcolor=blue,
+pdftitle={},
+pdfauthor=author={},
+}
+
+\usepackage[
+backend=biber,
+style=phys,
+maxbibnames=5,
+biblabel=brackets,
+hyperref=true,
+arxiv=abs,
+eprint=true,
+url=false,
+doi=false
+]{biblatex}
+\AtEveryBibitem{%
+  \clearfield{note}%
+}
+\addbibresource{symmetries_and_chaos.bib} 
 \title{Survival probability}
 \begin{document}
 \maketitle
 
+\section{Question}
+Why is the correlation hole not affected by the precense of a high degree
+of symmetries in Ref.~\cite{delacruz_2020_quantum}?
+
+\section{Mostly ideas}
+\subsection{Survival probability in a system with the simplest symmetric structure}
 The survival probability is defined as 
 \begin{equation}
 S_p(t)
@@ -68,6 +110,7 @@ The first two terms are recognized as the survival probability in the two
 symmetric subspaces. The third term God knows what the hell it is, but it 
 is the term explaining why the correlation whole survives (or not).
 
+\subsection{Survival probability as function of level spacings}
 Let us rewrite the survival probability as follows:
 \begin{align}
 S_p(t) 
@@ -106,8 +149,134 @@ e^{-i (E_k - E_{k+2}) t}
 %
 &\quad\, + 
 \abs{\braket{\psi_0}{\phi_N}}^4
-e^{-i (E_1 - E_N) t} \Bigg].
+e^{-i (E_1 - E_N) t} \Bigg]. 
+\label{eq:Sp:spacings}
 \end{align}
 In this form, it is explicit that the survival probability can be written
-as a sum of the contributions given by higher order spacings. 
+as a sum of the contributions given by higher order spacings. From 
+Ref.~\cite{tekur_2020_symmetry} we learned not only that RMT's predictions
+can be verified even a non-desymmetrized system, but also that higher 
+order spacing ratios exhibit correlations that match RMT's predictions.
+Very recently, a work on the distribution of higher order spacings
+for the circular gaussian ensembles appeared on the 
+arXiv~\cite{rout_2025_higherorder} 
+\janote{I think these results we can use them to study
+the behavior of each term in Eq.~\eqref{eq:Sp:spacings}. My guess is that 
+the most relevant contributions to $S_p(t)$ come from the higher order 
+spacing correlations}.
+
+Let us consider two identical spectra $\{E^{(1)}_1, E^{(1)}_2, E^{(1)}_3\}$
+and $\{E^{(2)}_1, E^{(2)}_2, E^{(2)}_3\}$ (that is, $E^{(1)}_i = E^{(2)}_i$).
+The whole ordered spectrum will be 
+$\{E^{(1)}_1, E^{(2)}_1, E^{(1)}_2, E^{(2)}_2, E^{(1)}_3, E^{(2)}_3\}$.
+Then, compute the spacings:
+\begin{align}
+s^{(1)}_1 &= E^{(2)}_1 - E^{(1)}_1 = 0\\
+s^{(2)}_1 &= E^{(1)}_2 - E^{(1)}_1 \\
+s^{(3)}_1 &= E^{(2)}_2 - E^{(1)}_1 \\
+s^{(4)}_1 &= E^{(1)}_3 - E^{(1)}_1 \\
+s^{(5)}_1 &= E^{(2)}_3 - E^{(1)}_1 
+\end{align}
+The spacings of first order $s_n^{(1)}$ follow a Poissonian distribution, 
+possibly a zero-inflated Poisson distribution as half the spacings will 
+become zero. The second-order spacings become the first-order spacings 
+of both subspaces \janote{I think the PDF here will be the convolution of 
+two Wigner surmises}. The third-order spacings become a mix between first-
+and second-order spacings \janote{maybe the convolution of three Wigner surmises?}. The fourth-order spacings will become second-order spacings from
+both subspaces\janote{once again, the convolution of four Wigner surmises?}.
+The fifth-order spacings become a mix between second- and third-order 
+spacings\janote{you know the drill by now, the convolution of five Wigner 
+surmises?}
+
+\janote{I guess the convolution of many Wigner surmises should converge to
+something...? Hence, after some order the PDF should be almost the same.
+Something to ask Deepseek or chatGPT}
+
+\janote{If all of this is, at the very least, a good approximation, we still 
+have to take into account the coefficients $\abs{\braket{\psi_0}{\phi_i}}^2
+\abs{\braket{\psi_0}{\phi_{i+k}}}^2$.
+Therefore, we may consider the case where all coefficients are equal, case
+in which I'm almost sure the $S_p(t)$ becomes the spectral form factor. If it 
+is indeed the case we should expect a dip-ramp-plateau behavior, the ramp being 
+the hallmark of long-range correlations of a spectrum's chaotic system.
+}
+
+\appendix
+
+\section{Average of $\sum_k e^{-i s_k t}$ for Wigner-Surmise Spacings}
+
+We consider the nearest-neighbor spacings $s_k$ distributed according to the \textbf{Wigner surmise}:
+\[
+p(s) = \frac{\pi s}{2} e^{-\pi s^2 / 4}, \quad s \geq 0.
+\]
+
+We wish to compute:
+\[
+\left\langle \sum_k e^{-i s_k t} \right\rangle.
+\]
+
+\subsection*{Assumption}
+Assuming the spacings are independent and identically distributed (i.i.d.) with the Wigner surmise distribution:
+\[
+\left\langle \sum_k e^{-i s_k t} \right\rangle \approx (N-1) \left\langle e^{-i s t} \right\rangle.
+\]
+
+\subsection*{Characteristic Function}
+The characteristic function is:
+\[
+\phi(t) = \int_0^\infty e^{-i s t} \, p(s) \, \dd s = \int_0^\infty e^{-i s t} \cdot \frac{\pi s}{2} e^{-\pi s^2 / 4} \dd s.
+\]
+
+This integral evaluates to:
+\[
+\phi(t) = 1 - t e^{-t^2/\pi} \left( \mathrm{erfi}\left( \frac{t}{\sqrt{\pi}} \right) + i \right),
+\]
+where $\mathrm{erfi}(z) = \frac{2}{\sqrt{\pi}} \int_0^z e^{u^2} \dd u$ is the imaginary error function.
+
+\subsection*{Final Result}
+\[
+\boxed{\left\langle \sum_k e^{-i s_k t} \right\rangle \approx (N-1)\left[1 - t e^{-t^{2}/\pi}\left(\mathrm{erfi}\left(\frac{t}{\sqrt{\pi}}\right) + i\right)\right]}
+\]
+
+\subsection*{Remarks}
+\begin{itemize}
+    \item This result assumes i.i.d. spacings (a common approximation using the Wigner surmise)
+    \item In full RMT (GOE), spacings are not independent, but this captures key features
+    \item For $t = 0$: $\phi(0) = 1$ as expected
+    \item For small $t$: $\phi(t) \approx 1 - i t - \frac{2}{\pi} t^2 + \cdots$
+\end{itemize}
+
+\section{df}
+For a quantum system with Poissonian level statistics, the nearest-neighbor spacings $s_k$ are independent and identically distributed with the exponential distribution:
+\[
+p(s) = e^{-s}, \quad s \geq 0,
+\]
+where the mean spacing is normalized to unity.
+
+We wish to compute the average:
+\[
+\left\langle \sum_k e^{-i s_k t} \right\rangle.
+\]
+
+Assuming the spacings are independent, this becomes:
+\[
+\left\langle \sum_k e^{-i s_k t} \right\rangle = (N-1) \left\langle e^{-i s t} \right\rangle,
+\]
+where the characteristic function is:
+\[
+\phi(t) = \left\langle e^{-i s t} \right\rangle = \int_0^\infty e^{-i s t} e^{-s} \dd{s} = \int_0^\infty e^{-s(1 + i t)} \dd{s}.
+\]
+
+Evaluating this integral gives:
+\[
+\phi(t) = \frac{1}{1 + i t}.
+\]
+
+Therefore, the final result is:
+\[
+\boxed{\frac{N-1}{1+it}}
+\]
+
+
+\printbibliography
 \end{document}
