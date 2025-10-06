@@ -1,7 +1,14 @@
 \documentclass[10pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{todonotes}
-\setuptodonotes{color=blue!25,tickmarkheight=1.5mm,size=\small}
+%\setuptodonotes{inline,color=blue!25,tickmarkheight=25mm,size=\small}
+\setuptodonotes{
+  inline,
+  color=blue!25,           % Background color
+  backgroundcolor=blue!25, % Same as color (alternative name)
+  size=\small,            % \tiny, \scriptsize, \footnotesize, \small, \normalsize, etc.
+  tickmarkheight=10mm,     % Height of margin marker
+}
 
 \usepackage[T1]{fontenc}
 \usepackage{amssymb}
@@ -38,10 +45,23 @@ doi=false
 \AtEveryBibitem{\clearfield{note}}
 \AtEveryBibitem{\clearfield{pubstate}}  % Remove pubstate from all entries
 \addbibresource{symmetries_and_chaos.bib} 
+
+\newcommand{\eref}[1]{eq.~(\ref{#1})} 
+\newcommand{\sref}[1]{sec.~\ref{#1}}
+%\newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Eref}[1]{Eq.~(\ref{#1})} 
+\newcommand{\Sref}[1]{Sec.~\ref{#1}}
+\newcommand{\Appref}[1]{Appendix~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  
+\newcommand{\Tref}[1]{Table~\ref{#1}}
+
 \title{Survival probability}
+
 \begin{document}
 \maketitle
 \tableofcontents
+
+\listoftodos
 
 \pagebreak
 
@@ -203,8 +223,73 @@ is indeed the case we should expect a dip-ramp-plateau behavior, the ramp being
 the hallmark of long-range correlations of a spectrum's chaotic system.
 }
 
-\appendix
+\subsection{Spectral form factor (SFF)}
+The SFF can be decomposed into the following sums:
+\begin{align}
+\label{eq:sff}
+K(t) &= \frac{1}{N^2} \overline{\sum_{k,l} e^{-i (E_k - E_l) t}} \\
+&= 
+1
++ \frac{2}{N^2}\Re\Bigg[
+\overline{
+\sum_{k=1}^{N-1}
+e^{-i (E_{k+1} E_k) t} 
+} +
+\overline{
+\sum_{k=1}^{N-2}
+e^{-i (E_{k+2} - E_k) t} 
+}
++ \ldots +
+\overline{
+e^{-i (E_N - E_1) t} 
+}
+\Bigg].
+\label{eq:sff:spacings}
+\end{align}
+\todo{SN: As a sanity check, check numerically in the BH model that Eqs. \eqref{eq:sff} and \eqref{eq:sff:spacings} give the same SFF curve, computing separately term by term of \Eref{eq:sff:spacings}, and then adding them up}
 
+We try to move forward with the following approximation. We assume the spacings
+$s^{(1)}_k = E_{k+1} - E_k$ are independent and identically distributed 
+(i.i.d), thus:
+\begin{equation}\label{eq:sff:spacings1}
+\overline{
+\sum_{k=1}^{N-1}
+e^{-i (E_{k+1} E_k) t} 
+}
+\approx
+(N-1) \, \overline{e^{-i s^{(1)} t}} 
+= 
+\int_0^\infty
+e^{- i s t} P(s)
+\dd{s},
+%= 
+%\int_0^\infty
+%e^{- i s t} \cdot 
+%\frac{\pi s}{2} e^{-\pi s^2 / 4}
+%\dd{s}
+\end{equation}
+where $P(s)$ is either a Poisson or a Wigner-Dyson distribution, 
+depending on the case, 
+\begin{align}
+\label{eq:sff:spacings1:WDapprox}
+\int_0^\infty
+e^{- i s t} P_{\mathrm{WD}}(s)
+\dd{s}
+&=
+(N-1)\left[1 - t e^{-t^{2}/\pi}\left(\mathrm{erfi}\left(\frac{t}{\sqrt{\pi}}\right) + i\right)\right]
+\\
+%
+\label{eq:sff:spacings1:Papprox}
+\int_0^\infty
+e^{- i s t} P_{P}(s)
+\dd{s}
+&= 
+\frac{N-1}{1+it}.
+\end{align}
+\todo{SN: Check numerically if the left side of \Eref{eq:sff:spacings1} is well described by either \Eref{eq:sff:spacings1:WDapprox} when a single symmetric subspace is considered, and by \Eref{eq:sff:spacings1:Papprox} when the whole spectrum is considered (we have the intuition that the whole spectrum should exhibit Poisson statistics at first order spacings or ratios)}
+
+
+\appendix
 \section{Average of $\sum_k e^{-i s_k t}$ for Wigner-Surmise Spacings}
 
 We consider the nearest-neighbor spacings $s_k$ distributed according to the \textbf{Wigner surmise}:
