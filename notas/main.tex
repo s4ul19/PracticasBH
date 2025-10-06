@@ -35,9 +35,8 @@ eprint=true,
 url=false,
 doi=false
 ]{biblatex}
-\AtEveryBibitem{%
-  \clearfield{note}%
-}
+\AtEveryBibitem{\clearfield{note}}
+\AtEveryBibitem{\clearfield{pubstate}}  % Remove pubstate from all entries
 \addbibresource{symmetries_and_chaos.bib} 
 \title{Survival probability}
 \begin{document}
