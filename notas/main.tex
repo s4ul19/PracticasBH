@@ -25,7 +25,7 @@ pdfauthor=author={},
 }
 
 \usepackage[
-backend=biber,
+backend=bibtex,
 style=phys,
 maxbibnames=5,
 biblabel=brackets,
@@ -45,6 +45,7 @@ doi=false
 \tableofcontents
 
 \pagebreak
+
 \section{Question}
 Why is the correlation hole not affected by the precense of a high degree
 of symmetries in Ref.~\cite{delacruz_2020_quantum}?
@@ -279,6 +280,15 @@ Therefore, the final result is:
 \boxed{\frac{N-1}{1+it}}
 \]
 
+\section{A possibly useful integral}
+\begin{equation}
+\expval{e^{-ist}} =
+\frac{1}{2}
+e^{-\frac{1}{2} t \left(\sigma ^2 t+2 i\right)} 
+\qty[
+1 + \erf\qty(\frac{1 - i\sigma^2 t}{\sqrt{2}\sigma})
+]
+\end{equation}
 
 \printbibliography
 \end{document}
