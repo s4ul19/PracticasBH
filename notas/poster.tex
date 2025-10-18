@@ -2,21 +2,36 @@
 
 \section{Poster}
 \subsection{Main goal}
-The primary objective is to develop an intuitive understanding of the 
+The main goal is to develop an intuitive understanding of the 
 correlations associated with higher-order spacings in the Bose-Hubbard (BH) 
-model, specifically within the parameter regime characterized by the 
-transition from Poisson to Wigner-Dyson statistics suggested by the short-range 
+model, specifically within the interval for $J/U$ within which the BH model 
+is transitioning from Poisson to Wigner-Dyson 
+statistics as suggested by the short-range 
 correlation indicators we have previously examined, namely the mean level 
 spacing ratio $\ev{r}$ and the Kullback-Leibler (KL) divergence. 
-More precisely, I aim to test the hypothesis that long-range correlations emerge gradually, akin to the gradual breakdown of tori in classical chaotic systems as the chaotic parameter is increased.
+More precisely, we aim to test the hypothesis that long-range correlations emerge gradually, akin to the gradual breakdown of tori in classical chaotic systems as the chaotic parameter is increased.
 
-\subsection{What to do}
-Compare the mean spacing ratios of order $k$ of a GOE matrix (sufficiently big)
-with that obtained from the BH model. That is, plot $k$ in the horizontal
-axis, and $\ev{r^{(k)}}$ in the vertical axis. I would expect that if the 
-system is chaotic the curve of GOE and of that of the BH model are the same.
-But in the transition between integrable and chaotic, maybe we will observe 
-deviations from the GOE? 
+\subsection{To-do}
+\begin{itemize}
+\item Compute the mean spacing ratios of order $k$ for the BH model, 
+a sufficiently large matrix sampled from the GOE, and random i.i.d 
+uniformly sampled numbers (Poisson). For this, we want to test if the 
+mean level spacing ratio of order $k=1$ is that of Poisson statistics, but
+at higher orders it is near the values of GOE.
+\janote{It is not clear for me if there is a difference using the two 
+definitions of the ratios (the one that is between 0 and 1, and the 
+other one), so it is safer to explore both of them}
+
+\item To compute the KL divergence, we require the actual probability 
+distribution of higher-order spacings for the GOE. I do not recall 
+encountering this distribution in the literature; however, it may be 
+discussed in Ref.~\cite{rout_2025_higherorder}. So one task is to verify 
+this paper. Additionally, consider consulting chatGPT. If there 
+is indeed no known probability density function (PDF), we will need to 
+fit a PDF to the histogram of the data obtained by sampling a GOE matrix 
+and subsequently compute the KL 
+divergence with respect to the fitted PDF.
+\end{itemize} 
 
 %Compare numerically the statistics of higher-order spacings (and ratios if time 
 %allows it) of the BH model and matrices sampled from the GOE. 
