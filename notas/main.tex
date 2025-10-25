@@ -15,7 +15,7 @@
 \usepackage{amsthm}
 \usepackage{physics}
 \usepackage[dvipsnames]{xcolor} %colors
-
+\usepackage{float} % <- importante
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
 \definecolor{jacolor}{RGB}{200,40,0}
 \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
@@ -45,7 +45,7 @@ doi=false
 \AtEveryBibitem{\clearfield{note}}
 \AtEveryBibitem{\clearfield{pubstate}}  % Remove pubstate from all entries
 \addbibresource{symmetries_and_chaos.bib} 
-
+\graphicspath{{img/}}
 \newcommand{\eref}[1]{eq.~(\ref{#1})} 
 \newcommand{\sref}[1]{sec.~\ref{#1}}
 %\newcommand{\tref}[1]{table~\ref{#1}}
@@ -289,6 +289,18 @@ e^{- i s t} P_{P}(s)
 \todo{SN: Check numerically if the left side of \Eref{eq:sff:spacings1} is well described by either \Eref{eq:sff:spacings1:WDapprox} when a single symmetric subspace is considered, and by \Eref{eq:sff:spacings1:Papprox} when the whole spectrum is considered (we have the intuition that the whole spectrum should exhibit Poisson statistics at first order spacings or ratios)}
 \janote{In Ref.~\cite{engel_1998_higherorder} they study the distribution
 of higher order level spacings.}
+\subsection{Interesting things about SFF:}
+There is a direct need in averanging the SFF computed, here a comparison between two methods will be shown, based on the data 
+obtained from the BHH model. A time window averanging is performed on the data and a sector averanging aswell (averanging the SFF at each time with each symmetric sector of the hamiltonian).
+
+The conclusion is that in a general context, a time averanging is best by far in comparison to a sector averanging, mainly due to the 
+fact that a hamiltonian might only have 2 symmetric sectors. It is remarkable that applying both a sector averanging and a time window averangin proves to be the most precise approach.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{CompSectAndTime.pdf}
+    \caption{Comparison between using just time averanging and time averanging with sector averanging (red line is the GOE prediction).}
+    \label{fig:CompSectAndTime}
+\end{figure}
 
 \appendix
 \section{Average of $\sum_k e^{-i s_k t}$ for Wigner-Surmise Spacings}
