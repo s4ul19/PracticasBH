@@ -289,18 +289,58 @@ e^{- i s t} P_{P}(s)
 \todo{SN: Check numerically if the left side of \Eref{eq:sff:spacings1} is well described by either \Eref{eq:sff:spacings1:WDapprox} when a single symmetric subspace is considered, and by \Eref{eq:sff:spacings1:Papprox} when the whole spectrum is considered (we have the intuition that the whole spectrum should exhibit Poisson statistics at first order spacings or ratios)}
 \janote{In Ref.~\cite{engel_1998_higherorder} they study the distribution
 of higher order level spacings.}
-\subsection{Interesting things about SFF:}
+\subsection{Interesting things about SFF}
 There is a direct need in averanging the SFF computed, here a comparison between two methods will be shown, based on the data 
 obtained from the BHH model. A time window averanging is performed on the data and a sector averanging aswell (averanging the SFF at each time with each symmetric sector of the hamiltonian).
 
 The conclusion is that in a general context, a time averanging is best by far in comparison to a sector averanging, mainly due to the 
-fact that a hamiltonian might only have 2 symmetric sectors. It is remarkable that applying both a sector averanging and a time window averangin proves to be the most precise approach.
+fact that a hamiltonian might only have 2 symmetric sectors. It is remarkable that applying both a sector averanging and a time window averanging proves to be the most precise approach.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{CompSectAndTime.pdf}
     \caption{Comparison between using just time averanging and time averanging with sector averanging (red line is the GOE prediction).}
     \label{fig:CompSectAndTime}
 \end{figure}
+
+Using the GOE, numerical calculations have been performed in order to observe a characteristic behavior that is presented when SFF is considered.
+Two approaches where inspected. First, a high order matrix (dimension $\approx 3,000$) that belonged to GOE was generated, with this
+a SFF calculation was performed using time averanging.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{TAvergGOE.pdf}
+    \caption{GOE SFF behavior using time averanging and a GOE matrix of dimension 3000.}
+    \label{fig:TAvergGOE}
+\end{figure}
+Remarkably, using a different approach, where a list of GOE matrices was generated, then a sector averanging with a time averanging was performed,
+proving that applying both methodologies proves to be useful (valid only with a decent amount of statistics.)
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{SFFGOETS3.pdf}
+    \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 3}
+    \label{fig:SFFGOETS3}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{SFFGOETS7.pdf}
+    \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 7}
+    \label{fig:SFFGOETS7}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{SFFGOETS13.pdf}
+    \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 13}
+    \label{fig:SFFGOETS13}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{SFFGOETS.pdf}
+    \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 23}
+    \label{fig:SFFGOETS}
+\end{figure}
+
+
 
 \appendix
 \section{Average of $\sum_k e^{-i s_k t}$ for Wigner-Surmise Spacings}
