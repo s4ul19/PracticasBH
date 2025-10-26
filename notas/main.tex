@@ -289,6 +289,14 @@ e^{- i s t} P_{P}(s)
 \todo{SN: Check numerically if the left side of \Eref{eq:sff:spacings1} is well described by either \Eref{eq:sff:spacings1:WDapprox} when a single symmetric subspace is considered, and by \Eref{eq:sff:spacings1:Papprox} when the whole spectrum is considered (we have the intuition that the whole spectrum should exhibit Poisson statistics at first order spacings or ratios)}
 \janote{In Ref.~\cite{engel_1998_higherorder} they study the distribution
 of higher order level spacings.}
+
+A checking was performed for the proposition made in \Eref{eq:sff:spacings1:WDapprox}:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ApproxWDRe.pdf}
+    \caption{Comparing if the left side of \Eref{eq:sff:spacings1} is well described by \Eref{eq:sff:spacings1:WDapprox} when considering a single symmetric subspace. }
+    \label{fig:ApproxWDRe}
+\end{figure}
 \subsection{Interesting things about SFF}
 There is a direct need in averanging the SFF computed, here a comparison between two methods will be shown, based on the data 
 obtained from the BHH model. A time window averanging is performed on the data and a sector averanging aswell (averanging the SFF at each time with each symmetric sector of the hamiltonian).
@@ -337,12 +345,26 @@ proving that applying both methodologies proves to be useful (valid only with a 
     \centering
     \includegraphics[width=0.7\textwidth]{SFFGOETS.pdf}
     \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 23}
-    \label{fig:SFFGOETS}
+    \label{fig:SFFGOETS23}
 \end{figure}
 
 An observation: It is to be noted that using a high dimension GOE matrix proves to be the most direct way of approaching statistical results,
  an effort must be made on relying in a method that involves a list of low dimensional GOE matrices, due to the fact that 
  a high dimensional matrix might prove a difficutly considering the diagonalization that must be carried eventually.
+
+\section{Mean Spacings Ratio}
+Considering the mean spacing ratio of k order proves to be a useful quantity to observe short range correlation, long range correlations 
+are difficult to check, and numerical calculation have been performed in order to show that, as k grows, the mean spacing ratio 
+value of the GOE becomes indistinguishable from the Poisson prediction, therefore, it is obvious that, above certain k, there is 
+no way of distinguishing between GOE or Poisson statistics. The following figure shows the idea, numerical calculation where 
+performed for the GOE and for Poisson.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{KorderCurves.pdf}
+    \caption{Mean spacing ratio as k grows of several BHH hamiltonians with different $J/U$ values. }
+    \label{fig:KorderCurves}
+\end{figure}
 
 \appendix
 \section{Average of $\sum_k e^{-i s_k t}$ for Wigner-Surmise Spacings}
