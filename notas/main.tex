@@ -64,10 +64,51 @@ doi=false
 \listoftodos
 
 \pagebreak
-
+    
 \section{Question}
 Why is the correlation hole not affected by the precense of a high degree
 of symmetries in Ref.~\cite{delacruz_2020_quantum}?
+
+% Check
+\section{Relevant literature}
+In this section, I will list paper's I believe we should be aware of.
+These works either provide valuable insights for exploring our ideas or are significant contributions that merit citation in any future publication.
+\begin{itemize}
+\item Ref~\cite{martinez-azcona_2025_decomposing}: decomposition of 
+the spectral form factor into its contributions coming
+from $k$th order level spacings.
+
+\item Ref~\cite{shir_2025_surmise}: derivation of the distribution 
+$P^{(k)}(s)$ of $k$th order level spacings $s^{(k)} = E_{i+k} - E_i$.
+They numerically test  their analytical approximation 
+in the XXZ spin chain model with random fields (we have it available 
+in \verb|QMB.wl|). 
+Fig.~4(middle) makes an analysis very similar to that of 
+Figs.~\ref{fig:KorderCurves} and \ref{fig:KorderCurves88}.
+
+\item Ref.~\cite{rout_2025_higherorder}: exhaustive analysis of $k$th 
+order spacings in superposed spectra with comparison to spacing ratios,
+mostly for the COE and GOE ensembles, and also tested in phsyical systems:
+the intermediate map and the quantum kicked top (QKT)\footnote{We 
+don't have any numerics for the QKT, but Miguel does}.
+
+\item Ref.~\cite{tekur_2018_higherorder}: derivation of an analytical 
+approximation for the distribution of $k$th order spacing ratios. They
+present numerical evidence for the following approximation:
+\begin{equation}\label{eq:tekur_higherorder_ansatz}
+P^{(k)}(r, \beta) = P(r, \beta'), \quad \beta' = \frac{k(k+1)}{2}\beta 
++ (k-1),
+\end{equation}
+where $P(r, \beta')$ corresponds to the distribution found by Atas et 
+al.~\cite{atas_2013_distribution} and $\beta = 1,2,4$ correspond to the
+orthogonal, unitary and symplectic circular or Gaussian ensembles, 
+respectively. \janote{Important: for large $k$, I think the distribution 
+becomes Gaussian, as it was noted for the $k$th order 
+spacings~\cite{shir_2025_surmise}. Therefore, 
+\Eref{eq:tekur_higherorder_ansatz} should be used up until some $k$}
+
+\end{itemize}
+
 
 \section{Mostly ideas}
 \subsection{Survival probability in a system with the simplest symmetric structure}
@@ -360,10 +401,10 @@ no way of distinguishing between GOE or Poisson statistics. The following figure
 performed for the GOE and for Poisson.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{KorderCurves.pdf}
-    \caption{Mean spacing ratio as k grows of several BHH hamiltonians of dim 7,7 with different $J/U$ values. }
-    \label{fig:KorderCurves}
+\centering
+\includegraphics[width=1\textwidth]{KorderCurves.pdf}
+\caption{Mean spacing ratio as k grows of several BHH hamiltonians of dim 7,7 with different $J/U$ values. }
+\label{fig:KorderCurves}
 \end{figure}
 
 
