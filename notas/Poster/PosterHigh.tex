@@ -1,0 +1,175 @@
+% --- 1. PREÁMBULO ---
+\documentclass[final]{beamer} % 'final' para la versión de impresión
+
+% Carga un tema de Beamer. Puedes cambiarlo (ej: Berlin, Madrid, Boadilla)
+\usetheme{Madrid} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx} % Para incluir imágenes
+\usepackage{booktabs} % Para tablas más bonitas
+\usepackage{physics}
+% backend=biber es el motor moderno
+% style=numeric te da citas numéricas [1], [2]
+% sorting=none las ordena en el orden que las cites
+\usepackage[backend=biber, style=ieee, sorting=none]{biblatex}
+\addbibresource{referencesP.bib} % <-- Dile a LaTeX dónde está tu archivo .bib
+
+
+% --- 2. CONFIGURACIÓN DEL PÓSTER ---
+% Carga el paquete beamerposter
+% 'scale=1.4' hace la fuente base más grande y legible
+% 'size=a0' define el tamaño del papel (A0 es un estándar grande)
+% 'orientation=portrait' (vertical). Cambia a 'landscape' si lo quieres horizontal.
+\usepackage[size=a0, orientation=portrait, scale=1.4]{beamerposter}
+% --- EN TU PREÁMBULO ---
+\setbeamertemplate{caption}[numbered]
+\graphicspath{{img/}}
+% --- 3. INFORMACIÓN DEL PÓSTER (TÍTULO, AUTORES) ---
+\title[Correlación de espaciamientos a orden superior.]{Correlación de espaciamientos de niveles de energía de orden superior en el Modelo de Bose-Hubbard. }
+\author[S. Nájera]{Saúl Nájera Allara}
+
+\date{Noviembre 2025} % Fecha o nombre del congreso
+
+% --- 4. CUERPO DEL PÓSTER (UN SOLO FRAME) ---
+\begin{document}
+
+\begin{frame}{} % El frame principal (el póster completo)
+
+  % --- TÍTULO DEL PÓSTER ---
+  \maketitle 
+
+  % --- ENTORNO DE COLUMNAS ---
+  \begin{columns}[T, totalwidth=\textwidth] % 'T' alinea los bloques por arriba
+
+    % --- COLUMNA 1 (IZQUIERDA) ---
+    \begin{column}{.32\textwidth}
+      \begin{block}{Introducción}
+          Para Hamiltonianos cuánticos cuya contraparte clásica es integrable, la conjetura Berry-Tabor establece que la estadística de los niveles de energía sigue una de Poisson~\cite{BerryTabor1977}; mientras que para Hamiltonianos cuya contraparte clásica sea caótica, la conjetura BGS (Bogigas, Gianoni, Schmit) establece que esta se describe por alguno de los ensambles de la Teoría de Matrices Aleatorias (RMT)~\cite{Atas_2013}. El caos cuántico está, por tanto, intrínsecamente relacionado con la correlación entre los niveles de energía.
+          
+        \begin{itemize}
+          \item Para el estudio del espectro, se han empleado cantidades que dependen de correlaciones de corto y largo alcance, ya que los ensambles de RMT poseen propiedades estadísticas tanto locales como globales.
+          
+          \item Se escoge el modelo de Bose-Hubbard por ser una buena aproximación para diversos sistemas físicos (tanto fermiones como bosones). El Hamiltoniano para bosones es:
+            \begin{equation}
+            \hat{H}
+            = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
+            + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1).
+            \end{equation}
+            Los términos $\hat{a}_i^{\dagger}, \hat{a}_j$ son los operadores de creación y aniquilación, respectivamente, y $\hat{n}_i$ es el operador número.
+            El parámetro $J$ (cinético) dicta la probabilidad de que los bosones ``salten'' a sitios adyacentes. El parámetro $U$ (interacción) describe la fuerza de interacción entre bosones en el mismo sitio~\cite{Zhang2010}.   
+        \end{itemize}
+      \end{block}
+
+      \begin{block}{Indicador de Interés}
+       La cantidad considerada es la media del cociente de espaciamientos de niveles de energía a primeros vecinos.
+      Denotando por $E_n$ las energías ordenadas del espectro y el espaciamiento consecutivo como 
+      $s_n=E_{n+1}-E_{n}$, se define la cantidad~\cite{Atas_2013}:
+      \begin{equation}
+      r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
+      \end{equation}
+      En particular, para el ensamble GOE, dicho valor es $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} 
+      y para la distribución de Poisson es $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}.
+      
+      En este trabajo no se emplearon las representaciones analíticas para los espaciamientos de Poisson y GOE; los valores se obtuvieron numéricamente.
+
+      Se consideró una generalización a $k$-vecinos. Sea $s^{k}_n=E_{n+k}-E_{n}$, se define:
+       \begin{equation}
+      r^{k}_n=\frac{\min(s^{k}_n,s^{k}_{n-1})}{\max(s^{k}_n,s^{k}_{n-1})}.
+      \end{equation}
+    \end{block}
+      \begin{block}{Region de parámetros del Bose Hubbard.}
+        Un trabajo previo caracterizó las regiones de parámetros en las cuales el sistema es caótico, integrable o 'intermedio' (configuraciones en la transición caos-integrabilidad).
+        En vista de esto, se estudia el comportamiento de $\ev{r^{k}}$ para el Hamiltoniano de Bose-Hubbard considerando distintos valores de $J/U$.
+      
+        \begin{figure}
+          \includegraphics[width=\linewidth]{Map.pdf} % Reemplaza con tu imagen
+          \caption{Media del cociente de espaciamientos a primeros vecinos ($\ev{r}$, $k=1$) en función de $J/U$. Notar que para $J/U$ entre 0.6 y 9, el valor medio se aproxima al valor de GOE ($\ev{r}_{GOE} \approx 0.5307$).}
+        \end{figure}
+        
+      \end{block}
+    \end{column}
+
+    % --- COLUMNA 2 (CENTRO) ---
+   \begin{column}{.36\textwidth}
+      
+       \begin{block}{Metodología}
+
+El objetivo fue calcular $\ev{r^{k}}$ para una familia de matrices GOE, para una distribución de Poisson y para una serie de Hamiltonianos de Bose-Hubbard (con $J/U$ entre 0.06 y 1, la región de transición), para distintos valores de $k$.
+
+La metodología fue estándar: a partir del espectro de valores propios, se aplicó la definición de $r^{k}_n$ sobre la lista de valores y se obtuvo la media. El proceso se repitió sistemáticamente para distintos $k$.
+
+Vale la pena mencionar:
+
+\begin{itemize}
+
+\item Para el caso de GOE se consideró una matriz de dimensión $4000 \times 4000$, obteniendo valores cercanos a los de la literatura.
+
+\item Se consideraron configuraciones de Bose-Hubbard con 8 sitios y 8 partículas.
+
+\end{itemize}
+
+\end{block} 
+
+      \begin{block}{Resultados}
+        % Primera figura: CurveK.png y DataK.png
+        \begin{figure}
+          \centering % Asegura que estén centradas si no ocupan todo el ancho
+          \includegraphics[width=\linewidth]{Curves1.pdf} % Reduce el ancho al 90%
+          \\ % Salto de línea
+          % Puedes añadir un espacio vertical más explícito si quieres
+          % \vspace{3mm} 
+          \includegraphics[width=\linewidth]{Beautiful.pdf} % Reduce el ancho al 90%
+          \\
+          \includegraphics[width=0.8\linewidth]{DataK.png}
+          \caption{Eje vertical es la media del cociente de espaciamientos a k vecinos; Eje horizontal es el orden de correlación. Es notable que las curvas respectivas a las distintas configuraciones de J/U se desvían significativamente de las predicciones de GOE y Poisson. Segunda imagen muestra el comportamiento para correlaciones de orden cercano a la dimensión del hamiltoniano del sistema.}
+        \end{figure}
+        \vspace{30mm}
+        % Otro espacio entre figuras
+    
+
+        % Tercera figura: Desv2.pdf
+        \begin{figure}
+          \centering % Centra la imagen
+          \includegraphics[width=\linewidth]{Desv2.pdf} % Reduce al 85%
+          \caption{Para una familia de matrices de GOE de dimensión 250 y una distribución de Poisson, las curvas se intersecan para $k \approx 196$.} % Corregí "intersectan"
+        \end{figure}
+      \end{block}
+    \end{column}
+    % --- COLUMNA 3 (DERECHA) ---
+    \begin{column}{.30\textwidth}
+     
+      \begin{block}{Discusión}
+      \begin{itemize}
+       \item La existencia en la intersección de las curvas características de Poisson y GOE mostradas en la figura 3 son explicadas por la finitud en la dimensión de las matrices 
+       alteatorias empleadas, ya que al acercarse a las correlaciones cercanas a la dimensión de la matriz, la cantidad de valores para efectuar la 
+       estadística se reduce, ello explica porque el valor no se mantiene con la 'tendencia usual' observada para órdenes menores de correlación.
+       Es de esperar que para una matriz simétrica aleatoria de dimensión infinita este comportamiento no se observaría y $\ev{r^{k}}$ tiende a la unidad.
+       \item Los resultados mostrados en la figura 2 muestran una desviación respecto a ambas curvas características (GOE y Poisson) para todas las configuraciones de J/U consideradas,
+       en particular, a un mayor orden de correlaciones, la desviación es cada vez mayor y la intersección de las curvas de las configuraciones de BH con la curva de Poisson sucede para órdenes de correlación mucho menores que para órdenes donde sucede la intersección de las curva de GOE.
+       Esto sugiere que la estadística de la configuración escogida no es perfectamente descrita por la estadística de GOE, en vista de la desviación de las curvas de la figura 2.
+      
+       \item Notable que las curvas de configuración J/U cercana al regimen de caos, tardan más órdenes de correlación en intersectarse de la curva características de Poisson que las curvas de configuración J/U cercana al regimen integrable.
+       
+      \end{itemize}
+      \end{block}
+
+      \begin{block}{Conclusiones}
+        \begin{itemize}
+          \item Las desviaciones de la estadística de la configuraciones de J/U en regiones características de caos respecto a GOE son significativas a correlaciones de largo alcance, por lo que este tipo de indicador es sensible a tratamientos de órden superior.
+          \item La existencia de una intersección de las curvas respecto a la curva característica de Poisson mostradas en la figuras 2 y 3 es característica de la finitud de la matriz y se propone que para una matriz simétrica de dimensión infinita y para un sistema de dimensión infinita este decamiento no se presenta. Sin embargo no es concluyente que la existencia de la desviación de las curvas de las configuraciones de BH respecto a GOE esté ligada a la dimensinalidad de los sistemas a considerar.
+          \item Es concluyente que trabajar con una matriz de dimensión finita y considerar correlaciones de alcance igual o parecido a la dimensinalidad de la matriz resulta en una menor fiabilidad para la distinción entre la estadística de Poisson y de GOE. 
+        \end{itemize}
+      \end{block}
+
+      \begin{block}{Referencias}
+    \scriptsize % Aún puedes usar esto
+    \printbibliography % ¡Este comando hace toda la magia!
+  \end{block}
+      
+    \end{column}
+
+  \end{columns} % Fin del entorno de columnas
+\end{frame} % Fin del póster
+\end{document}
