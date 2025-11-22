@@ -63,7 +63,7 @@
       \end{block}
 
       \begin{block}{Indicador de Interés}
-       La cantidad considerada es la media del cociente de espaciamientos de niveles de energía a primeros vecinos.
+       La cantidad considerada es la media del cociente de espaciamientos de niveles de energía a k vecinos.
       Denotando por $E_n$ las energías ordenadas del espectro y el espaciamiento consecutivo como 
       $s_n=E_{n+1}-E_{n}$, se define la cantidad~\cite{Atas_2013}:
       \begin{equation}
@@ -85,7 +85,7 @@
       
         \begin{figure}
           \includegraphics[width=\linewidth]{Map.pdf} % Reemplaza con tu imagen
-          \caption{Media del cociente de espaciamientos a primeros vecinos ($\ev{r}$, $k=1$) en función de $J/U$. Notar que para $J/U$ entre 0.6 y 9, el valor medio se aproxima al valor de GOE ($\ev{r}_{GOE} \approx 0.5307$).}
+          \caption{Media del cociente de espaciamientos a primer vecino ($\ev{r}$, $k=1$) en función de $J/U$. Notar que para $J/U$ entre 0.6 y 9, el valor medio se aproxima al valor de GOE ($\ev{r}_{GOE} \approx 0.5307$).}
         \end{figure}
         
       \end{block}
@@ -125,7 +125,7 @@ Vale la pena mencionar:
           \includegraphics[width=0.8\linewidth]{DataK.png}
           \caption{Eje vertical es la media del cociente de espaciamientos a k vecinos; Eje horizontal es el orden de correlación. Es notable que las curvas respectivas a las distintas configuraciones de J/U se desvían significativamente de las predicciones de GOE y Poisson. Segunda imagen muestra el comportamiento para correlaciones de orden cercano a la dimensión del hamiltoniano del sistema.}
         \end{figure}
-        \vspace{30mm}
+        \vspace{10mm}
         % Otro espacio entre figuras
     
 
@@ -148,7 +148,7 @@ Vale la pena mencionar:
        Es de esperar que para una matriz simétrica aleatoria de dimensión infinita este comportamiento no se observaría y $\ev{r^{k}}$ tiende a la unidad.
        \item Los resultados mostrados en la figura 2 muestran una desviación respecto a ambas curvas características (GOE y Poisson) para todas las configuraciones de J/U consideradas,
        en particular, a un mayor orden de correlaciones, la desviación es cada vez mayor y la intersección de las curvas de las configuraciones de BH con la curva de Poisson sucede para órdenes de correlación mucho menores que para órdenes donde sucede la intersección de las curva de GOE.
-       Esto sugiere que la estadística de la configuración escogida no es perfectamente descrita por la estadística de GOE, en vista de la desviación de las curvas de la figura 2.
+       Esto sugiere que la estadística de las configuraciones escogidas no es perfectamente descrita por la estadística de GOE, en vista de la desviación de las curvas de la figura 2.
       
        \item Notable que las curvas de configuración J/U cercana al regimen de caos, tardan más órdenes de correlación en intersectarse de la curva características de Poisson que las curvas de configuración J/U cercana al regimen integrable.
        
@@ -157,9 +157,11 @@ Vale la pena mencionar:
 
       \begin{block}{Conclusiones}
         \begin{itemize}
-          \item Las desviaciones de la estadística de la configuraciones de J/U en regiones características de caos respecto a GOE son significativas a correlaciones de largo alcance, por lo que este tipo de indicador es sensible a tratamientos de órden superior.
+          \item Las desviaciones de la estadística de la configuraciones de J/U en regiones características de caos respecto a GOE son significativas a correlaciones de largo alcance y surge la pregunta de 
+          
+          ¿Existe un parámetro o parámetros J/U que minimicen esta desviación respecto a la curva característica de GOE?  
           \item La existencia de una intersección de las curvas respecto a la curva característica de Poisson mostradas en la figuras 2 y 3 es característica de la finitud de la matriz y se propone que para una matriz simétrica de dimensión infinita y para un sistema de dimensión infinita este decamiento no se presenta. Sin embargo no es concluyente que la existencia de la desviación de las curvas de las configuraciones de BH respecto a GOE esté ligada a la dimensinalidad de los sistemas a considerar.
-          \item Es concluyente que trabajar con una matriz de dimensión finita y considerar correlaciones de alcance igual o parecido a la dimensinalidad de la matriz resulta en una menor fiabilidad para la distinción entre la estadística de Poisson y de GOE. 
+          \item Es concluyente que trabajar con una matriz de dimensión finita y considerar correlaciones de alcance igual o parecido a la dimensionalidad de la matriz resulta en una menor fiabilidad para la distinción entre la estadística de Poisson y de GOE. 
         \end{itemize}
       \end{block}
 
