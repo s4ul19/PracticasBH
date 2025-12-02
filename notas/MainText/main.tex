@@ -394,12 +394,27 @@ An observation: It is to be noted that using a high dimension GOE matrix proves 
  a high dimensional matrix might prove a difficutly considering the diagonalization that must be carried eventually.
 
 \section{Mean Spacings Ratio}
+The following generalization was used:
+    \begin{equation}
+      r^{k}_n=\frac{\min(s^{k}_n,s^{k}_{n-1})}{\max(s^{k}_n,s^{k}_{n-1})}.
+      \end{equation}
+Employing only a first order corrleation yields a characteristic value of $\ev{r}_{GOE}=0.5307$
+     and $\ev{r}_{Poisson}=0.38629$.
+Employing several BH realizations, with different J/U values, a region of values was found to be in accordance, at least for fist order correlations, with the GOE.
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Map.pdf}
+\caption{Mean spacing ratio of first correlation of several BHH hamiltonians with differnt $J/U$ values. Notice that from 0.5 to 10, the mean value is similar to the GOE prediction. Using a BHH of 9 sites and 9 bosons. }
+\label{fig:Map}
+\end{figure}
+      
 Considering the mean spacing ratio of k order proves to be a useful quantity to observe short range correlation, long range correlations 
 are difficult to check, and numerical calculation have been performed in order to show that, as k grows, the mean spacing ratio 
-value of the GOE becomes indistinguishable from the Poisson prediction, therefore, it is obvious that, above certain k, there is 
+value of the GOE becomes indistinguishable from the Poisson prediction, therefore, it motivates to think that, above certain k, there is 
 no way of distinguishing between GOE or Poisson statistics. The following figure shows the idea, numerical calculation where 
 performed for the GOE and for Poisson.
 
+\textit{The following two figures show the behavior of $\ev{r^{k}_n}$ for small k of several BH realizations for differnt J/U ranging from 0.05 to 1 and the Poisson and GOE characteristic curves.}
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{KorderCurves.pdf}
@@ -414,8 +429,16 @@ performed for the GOE and for Poisson.
     \caption{Mean spacing ratio as k grows of several BHH hamiltonians of dim 8,8 with different $J/U$ values. }
     \label{fig:KorderCurves88}
 \end{figure}
-
+Notice 
 \appendix
+\section{Bose Hubbard Model for bosons:}
+ \begin{equation}
+            \hat{H}
+            = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
+            + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1).
+            \end{equation}
+        $\hat{a}_i^{\dagger}, \hat{a}_j$ are ladder operators and $\hat{n}_i=\hat{a}_i^{\dagger}\hat{a}_i$, J and U are related to the kinetics and interactions among the bosons, respectively.
+           
 \section{Average of $\sum_k e^{-i s_k t}$ for Wigner-Surmise Spacings}
 
 We consider the nearest-neighbor spacings $s_k$ distributed according to the \textbf{Wigner surmise}:

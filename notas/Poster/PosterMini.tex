@@ -1,0 +1,153 @@
+% --- 1. PREÁMBULO ---
+\documentclass[final]{beamer} 
+
+\usetheme{Madrid} 
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx} 
+\usepackage{booktabs} 
+\usepackage{physics}
+\usepackage[backend=biber, style=ieee, sorting=none]{biblatex}
+\addbibresource{referencesP.bib} 
+
+% --- 2. CONFIGURACIÓN DEL PÓSTER ---
+\usepackage[size=a0, orientation=portrait, scale=1.4]{beamerposter}
+\setbeamertemplate{caption}[numbered]
+\graphicspath{{img/}}
+
+% --- 3. INFORMACIÓN DEL PÓSTER ---
+\title[Correlación de espaciamientos]{Correlación de espaciamientos de niveles de energía de orden superior en el Modelo de Bose-Hubbard}
+\author[S. Nájera]{Saúl Nájera Allara}
+\date{Noviembre 2025}
+
+% --- 4. CUERPO DEL PÓSTER ---
+\begin{document}
+
+\begin{frame}{} 
+
+  \maketitle 
+
+  \begin{columns}[T, totalwidth=\textwidth] 
+
+    % --- COLUMNA 1 (IZQUIERDA) ---
+    \begin{column}{.32\textwidth}
+      \begin{block}{Introducción y Marco Teórico}
+          El caos cuántico esta relacionado con las correlaciones espectrales. Existen dos conjeturas fundamentales para sistemas cuánticos según su contraparte clásica:
+          
+        \begin{itemize}
+          \item \textbf{Integrable (Berry-Tabor):} Estadística de Poisson~\cite{BerryTabor1977}.
+          \item \textbf{Caótico (BGS):} Teoría de Matrices Aleatorias (RMT)~\cite{Atas_2013}.
+        \end{itemize}
+
+        \vspace{1cm}
+        
+        \textbf{Modelo de Bose-Hubbard (1D):}
+        Aproximación para sistemas de bosones en redes ópticas.
+            \begin{equation}
+            \hat{H}
+            = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
+            + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1)
+            \end{equation}
+        Donde $J$ es la constante de hopping (cinética) y $U$ la fuerza de interacción en el sitio~\cite{Zhang2010}.
+      \end{block}
+
+      \begin{block}{Indicador: Ratio de Espaciamientos $k$-ésimos}
+      Se generaliza el cociente de espaciamientos consecutivos para un orden $k$.
+      Sea $s^{k}_n=E_{n+k}-E_{n}$ el espaciamiento entre niveles separados por $k$ pasos:
+      
+       \begin{equation}
+      r^{k}_n=\frac{\min(s^{k}_n,s^{k}_{n-1})}{\max(s^{k}_n,s^{k}_{n-1})}
+      \end{equation}
+      
+      \textbf{Valores de referencia ($k=1$):}
+      \begin{itemize}
+          \item Poisson: $\ev{r} \approx 0.386$
+          \item GOE (RMT): $\ev{r} \approx 0.531$~\cite{Atas_2013}
+      \end{itemize}
+    \end{block}
+    
+      \begin{block}{Mapa de Fases}
+        Estudio de $\ev{r}$ en función de la razón $J/U$ para identificar la transición caos-integrabilidad.
+      
+        \begin{figure}
+          \includegraphics[width=\linewidth]{Map.pdf} 
+          \caption{Media $\ev{r}$ ($k=1$) vs $J/U$. La región $J/U \in [0.6, 9]$ se aproxima a la predicción de GOE.}
+        \end{figure}
+      \end{block}
+       \begin{block}{Metodología}
+        Se calculó numéricamente $\ev{r^{k}}$ variando el orden de correlación $k$.
+        
+        \textbf{Sistemas estudiados:}
+        \begin{itemize}
+            \item \textbf{Bose-Hubbard:} 8 sitios, 8 partículas. $J/U \in [0.06, 1]$ (Región de transición).
+            \item \textbf{Referencia RMT:} Matrices GOE de dim $4000 \times 4000$.
+            \item \textbf{Referencia Poisson:} Generada numéricamente.
+        \end{itemize}
+        \end{block} 
+
+    \end{column}
+
+    % --- COLUMNA 2 (CENTRO) ---
+   \begin{column}{.36\textwidth}
+      
+      
+      \begin{block}{Resultados}
+        \begin{figure}
+          \centering 
+          \includegraphics[width=0.95\linewidth]{Curves1.pdf} 
+          \\ \vspace{0.5cm}
+          \includegraphics[width=0.95\linewidth]{Beautiful.pdf} 
+          \\ \vspace{0.5cm}
+          \includegraphics[width=0.8\linewidth]{DataK.png}
+          \caption{Media del cociente de espaciamientos $\ev{r^k}$ vs orden $k$. Se observa una desviación significativa de las configuraciones $J/U$ respecto a las curvas universales (GOE/Poisson) a medida que aumenta $k$.}
+        \end{figure}
+        \vspace{1cm}
+
+        \begin{figure}
+          \centering 
+          \includegraphics[width=0.95\linewidth]{Desv2.pdf} 
+          \caption{Efecto de tamaño finito: Para matrices GOE (dim 250), la curva interseca a Poisson en $k \approx 196$.}
+        \end{figure}
+      \end{block}
+    \end{column}
+
+    % --- COLUMNA 3 (DERECHA) ---
+    \begin{column}{.30\textwidth}
+     
+      \begin{block}{Discusión}
+      \begin{itemize}
+       \item La existencia en la intersección de las curvas características de Poisson y GOE mostradas en la figura 3 son explicadas por la finitud en la dimensión de las matrices 
+       alteatorias empleadas, ya que al acercarse a las correlaciones cercanas a la dimensión de la matriz, la cantidad de valores para efectuar la 
+       estadística se reduce.
+       Es de esperar que para una matriz simétrica aleatoria de dimensión infinita este comportamiento no se observaría y $\ev{r^{k}}$ tiende a la unidad.
+       \item Los resultados mostrados en la figura 2 muestran una desviación respecto a ambas curvas características (GOE y Poisson) para todas las configuraciones de J/U consideradas,
+       en particular, a un mayor orden de correlaciones, la desviación es cada vez mayor y la intersección de las curvas de las configuraciones de BH con la curva de Poisson sucede para órdenes de correlación mucho menores que para órdenes donde sucede la intersección de las curva de GOE.
+       Esto sugiere que la estadística de las configuraciones escogidas no es perfectamente descrita por la estadística de GOE, en vista de la desviación de las curvas de la figura 2.
+      
+       \item Notable que las curvas de configuración J/U cercana al regimen de caos, tardan más órdenes de correlación en intersectarse de la curva características de Poisson que las curvas de configuración J/U cercana al regimen integrable.
+       
+      \end{itemize}
+      \end{block}
+
+
+      \begin{block}{Conclusiones}
+        \begin{itemize}
+          \item Las desviaciones de la estadística de la configuraciones de J/U en regiones características de caos respecto a GOE son significativas a correlaciones de largo alcance y surge la pregunta de 
+          
+          ¿Existe un parámetro o parámetros J/U que minimicen esta desviación respecto a la curva característica de GOE?  
+          \item La existencia de una intersección de las curvas respecto a la curva característica de Poisson mostradas en la figuras 2 y 3 es característica de la finitud de la matriz y se propone que para una matriz simétrica de dimensión infinita y para un sistema de dimensión infinita este decamiento no se presenta. Sin embargo no es concluyente que la existencia de la desviación de las curvas de las configuraciones de BH respecto a GOE esté ligada a la dimensinalidad de los sistemas a considerar.
+          \item Es concluyente que trabajar con una matriz de dimensión finita y considerar correlaciones de alcance igual o parecido a la dimensionalidad de la matriz resulta en una menor fiabilidad para la distinción entre la estadística de Poisson y de GOE. 
+        \end{itemize}
+      \end{block}
+      \begin{block}{Referencias}
+        \scriptsize 
+        \printbibliography 
+      \end{block}
+      
+    \end{column}
+
+  \end{columns} 
+\end{frame} 
+\end{document}

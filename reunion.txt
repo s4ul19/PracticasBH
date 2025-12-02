@@ -1,0 +1,34 @@
+24 Noviembre 2025
+Giovanna,
+Ale,
+Saul,
+Rodrigo.
+Resumen de puntos acordados y puntos para la siguiente reunión (Tareas, etc.)
+
+Destello previo , 98. Visto con misión BAT. Resolución de este destello menos fina usada que con Fermi.
+Estudio de curva de luz, y ajuste de modelos / fits. También estudió una evolución de parametros.
+Paper: https://iopscience.iop.org/article/10.1088/0004-637X/755/2/140/pdf
+ 
+*Es importante discriminar un buen fondo. Distribución Gaussiana.
+Otro paper: https://iopscience.iop.org/article/10.1088/0004-637X/755/2/127/pdf
+
+Datos se obtienen en : https://heasarc.gsfc.nasa.gov/FTP/fermi/data/gbm/bursts/
+Como decidir que GRB:
+    *Fluence/ T90 con el criterio de buscar el valor más grande. El erro no influye en la decisión de la muestra.
+
+Tareas:
+    1. Instalar GDT.
+    2. De la lista de datos del heasarc, seleccionar los grbs con la relación fluence/t90 más alta con un t90 < 100 de toda la lista.
+    3. Curvas de luz de los 5 seleccionados, Curvas de luz (Usando los rangos de energía NaI y BGO ambos los mas brillantes) 
+   
+   Para hacer las curvas.
+    NaI: 
+    Curva total -> 8 a 900 keV.
+    1 curva -> de 8 a 50 keV
+    2 curva -> 50 a 200 keV
+    3 curva -> 200 a 900 keV
+
+    BGO:
+    Solo se hara toda la banda de energía, desde el mínimo hasta el máximo.
+
+    Los tipos de datos CSPEC.
