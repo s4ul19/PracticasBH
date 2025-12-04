@@ -1,0 +1,163 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{todonotes}
+%\setuptodonotes{inline,color=blue!25,tickmarkheight=25mm,size=\small}
+\setuptodonotes{
+  inline,
+  color=blue!25,           % Background color
+  backgroundcolor=blue!25, % Same as color (alternative name)
+  size=\small,            % \tiny, \scriptsize, \footnotesize, \small, \normalsize, etc.
+  tickmarkheight=10mm,     % Height of margin marker
+}
+
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{physics}
+\usepackage[dvipsnames]{xcolor} %colors
+\usepackage{float} % <- importante
+\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
+\definecolor{jacolor}{RGB}{200,40,0}
+\FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+filecolor=blue,      
+citecolor=blue,
+urlcolor=blue,
+pdftitle={},
+pdfauthor=author={},
+}
+
+\usepackage[
+backend=bibtex,
+style=phys,
+maxbibnames=5,
+biblabel=brackets,
+hyperref=true,
+arxiv=abs,
+eprint=true,
+url=false,
+doi=false
+]{biblatex}
+\AtEveryBibitem{\clearfield{note}}
+\AtEveryBibitem{\clearfield{pubstate}}  % Remove pubstate from all entries
+\addbibresource{ref.bib} 
+\graphicspath{{img/}}
+\newcommand{\eref}[1]{eq.~(\ref{#1})} 
+\newcommand{\sref}[1]{sec.~\ref{#1}}
+%\newcommand{\tref}[1]{table~\ref{#1}}
+\newcommand{\Eref}[1]{Eq.~(\ref{#1})} 
+\newcommand{\Sref}[1]{Sec.~\ref{#1}}
+\newcommand{\Appref}[1]{Appendix~\ref{#1}}
+\newcommand{\Fref}[1]{Fig.~\ref{#1}}  
+\newcommand{\Tref}[1]{Table~\ref{#1}}
+\graphicspath{{img/}}
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    
+    {\huge\bfseries Informe de Práctica final: \par}
+    \vspace{0.5cm}
+    {\Large Caos cuántico en el modelo de Bose Hubbard. \par}
+    
+    \vspace{1.5cm}
+    
+    {\Large\textit{Saúl Nájera Allara} \par}
+    
+    \vspace{3cm}
+    
+    % Puedes incluir un logo aquí si quieres:
+    % \includegraphics[width=0.4\textwidth]{logo.png} 
+    
+    \vfill
+    
+    {\large Universidad de San Carlos de Guatemala, USAC. \par}
+    {\large Escuela de ciencias físicas y matemáticas, ECFM \par}
+    \vspace{0.5cm}
+\end{titlepage}
+\section{Introducción:}
+\section{Marco Teórico:}
+\begin{enumerate}
+    \item Bose Hubbard.
+    El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones. El Hamiltoniano de este modelo es:
+\begin{equation}
+\hat{H}
+= -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
++ \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1).
+\end{equation}
+Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
+El parámetro $J$ describe la parte cinética del Hamiltoniano y dicta la probabilidad de que los bosones ``salten'' de un sitio a otro adyacente. El segundo parámetro $U$ describe la parte de interacción del Hamiltoniano, nos dice cómo  
+es la fuerza de interacción entre bosones en mismo sitio~\cite{Zhang2010}. 
+    \item Mean spacing Ratio (\textit{hablar brevemente de el spacing ratio y el problema de unfolding.})
+Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano, y el espaciamiento consecutivo de niveles de energía como 
+$s_n=E_{n+1}-E_{n}$, se define la cantida~\cite{Atas_2013}:
+\begin{equation}
+	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
+\end{equation}
+Esta cantidad permite observar la universalidad de RMT en los espectros de energía.
+Estudiando la distribución de probabilidad asociada a las $r$'s, es posible determinar si la configuración está en un regímen integrable 
+o caótico. Es importante tener presente la forma análitica de la distribución de probabilidad de los cocientes entre 
+los espaciamientos de niveles del ensabamble GOE y de Poisson.
+La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
+\begin{equation}
+ P_{GOE}(r)=2\Theta(1-r)\cdot \qty(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}),
+\end{equation}
+donde $\Theta(r)$ es la función de Heaviside.
+Y la distribución de Poisson es de la forma~\cite{Tekur2020}:
+\begin{equation}
+    P_{Poisson}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}})
+\end{equation}
+Con estas expresiónes es posible extraer un $\ev{r}$ característico de cada distribucion.
+En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} 
+y para la distribución de Poisson  un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
+   \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad. En este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
+    respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
+    \begin{equation}
+KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx.
+    \end{equation}
+    En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
+\end{enumerate}
+\section{Resultados:}
+\textbf{Las resultados deben de ser recalculados \\ Mejorar las gráficas y probar n=m=10}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{KLAndMean.png}
+    \caption{Kl divergence y mean spacing de varias configuraciones J/U}
+    \label{fig:KLAndMean}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{KLSolo.png}
+    \caption{Kl divergence de varias configuraciones J/U}
+    \label{fig:KL}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{MapSolo.png}
+    \caption{Mean spacing de varias configuraciones J/U}
+    \label{fig:Mean}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{BHeigenDist.png}
+    \caption{Distribucion de eigenvalores de una configuracion (¿Cual?)}
+    \label{fig:Eigen}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{GOEexamplePs.png}
+    \caption{Spacing ratio de una configuracion (¿Cual?)}
+    \label{fig:Spacing}
+\end{figure}
+\section{Discusión de resultados:}
+\begin{enumerate}
+\item Discutir sobre la figura que compara KL y Mean spacing Ratio, es importante ese resultado, pues ambas cantidades en esencia estan calculando algo distinto. Hay cierta universalidad en el diagnóstico.
+
+\end{enumerate}
+\printbibliography
+
+\end{document}
