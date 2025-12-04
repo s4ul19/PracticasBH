@@ -410,26 +410,54 @@ Employing several BH realizations, with different J/U values, a region of values
       
 Considering the mean spacing ratio of k order proves to be a useful quantity to observe short range correlation, long range correlations 
 are difficult to check, and numerical calculation have been performed in order to show that, as k grows, the mean spacing ratio 
-value of the GOE becomes indistinguishable from the Poisson prediction, therefore, it motivates to think that, above certain k, there is 
+value of the GOE approaches the Poisson mean spacing ratio of k order, therefore, it motivates to think that, above certain k, there is 
 no way of distinguishing between GOE or Poisson statistics. The following figure shows the idea, numerical calculation where 
 performed for the GOE and for Poisson.
 
-\textit{The following two figures show the behavior of $\ev{r^{k}_n}$ for small k of several BH realizations for differnt J/U ranging from 0.05 to 1 and the Poisson and GOE characteristic curves.}
+Even though the mean spacing ratio of first order is unfolding independent, it does not guarantee that higher order ratios are not sensible to unfolding.
+Therefore, numerical calculation where performed to conclude that \textbf{the mean spacing ratio of k order for $k > 1$ is sensitive to unfolding and therefore is a necessary procedure when considering higher order correlations.}
+
+\textit{The following figures show the behavior of $\ev{r^{k}_n}$ for all k values ranging from k=1 to k=Total amount of eigenvalues of several BH realizations using differnt J/U. the Poisson and GOE characteristic curves are given as reference.}
+
+\newpage
+
+\textbf{Considering only J/U values located in the chaos region:}
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{KorderCurves.pdf}
-\caption{Mean spacing ratio as k grows of several BHH hamiltonians of dim 7,7 with different $J/U$ values. }
-\label{fig:KorderCurves}
+\includegraphics[width=1.1\textwidth]{BHMeanKChaosRegionLowK.pdf}
+\caption{Mean spacing ratio for low k of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in the chaos regime. }
+\label{fig:BHMeanKChaosRegionLowK}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{BHMeanKChaosRegionMiddleK.pdf}
+    \caption{Mean spacing ratio as k grows of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in the chaos regime. }
+    \label{fig:BHMeanKChaosRegionMiddleK}
 \end{figure}
 
+\newpage
+
+\textbf{Considering low J/U values located in the transition phase between chaos and integrability:}
+\begin{figure}[H]
+\centering
+\includegraphics[width=1.1\textwidth]{BHMeanKNearChaosAndPoissonRegionLowK.pdf}
+\caption{Mean spacing ratio for low k of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in transition phase. }
+\label{fig:BHMeanKNearChaosAndPoissonRegionLowK}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{BHMeanKNearChaosAndPoissonRegionMiddleK.pdf}
+    \caption{Mean spacing ratio for middle values of k of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in transition phase. }
+    \label{fig:BHMeanKNearChaosAndPoissonRegionMiddleK}
+\end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1.1\textwidth]{KorderCurves88.pdf}
-    \caption{Mean spacing ratio as k grows of several BHH hamiltonians of dim 8,8 with different $J/U$ values. }
-    \label{fig:KorderCurves88}
+    \includegraphics[width=1.1\textwidth]{BHMeanKNearChaosAndPoissonRegionHighK.pdf}
+    \caption{Mean spacing ratio for high values of k of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in transition phase. }
+    \label{fig:BHMeanKNearChaosAndPoissonRegionHighK}
 \end{figure}
-Notice 
+Notice how the resulting curves for configurations J/U lying in the transition region deviate from the Poisson characteristic curve as k grows. Implying that higher order correlations are not adequately described either by Poisson and GOE.
 \appendix
 \section{Bose Hubbard Model for bosons:}
  \begin{equation}
