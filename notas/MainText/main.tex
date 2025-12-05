@@ -1,14 +1,6 @@
+% Preamble{{{
 \documentclass[10pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{todonotes}
-%\setuptodonotes{inline,color=blue!25,tickmarkheight=25mm,size=\small}
-\setuptodonotes{
-  inline,
-  color=blue!25,           % Background color
-  backgroundcolor=blue!25, % Same as color (alternative name)
-  size=\small,            % \tiny, \scriptsize, \footnotesize, \small, \normalsize, etc.
-  tickmarkheight=10mm,     % Height of margin marker
-}
 
 \usepackage[T1]{fontenc}
 \usepackage{amssymb}
@@ -19,6 +11,20 @@
 \usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
 \definecolor{jacolor}{RGB}{200,40,0}
 \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
+
+\usepackage[inline]{showlabels}
+\renewcommand{\showlabelfont}{\scriptsize\color{gray!75}}
+\renewcommand{\showlabelrefline}{\hrule width 0pt height -1.8ex depth 0pt}
+
+\usepackage[spanish]{todonotes}
+%\setuptodonotes{inline,color=blue!25,tickmarkheight=25mm,size=\small}
+\setuptodonotes{
+  inline,
+%  color=orange!25,           % Background color
+  backgroundcolor=red!30, % Same as color (alternative name)
+  size=\small,            % \tiny, \scriptsize, \footnotesize, \small, \normalsize, etc.
+  tickmarkheight=10mm,     % Height of margin marker
+}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -56,12 +62,13 @@ doi=false
 \newcommand{\Tref}[1]{Table~\ref{#1}}
 
 \title{Survival probability}
-
+%}}}
 \begin{document}
 \maketitle
 \tableofcontents
 
 \listoftodos
+
 
 \pagebreak
     
@@ -287,7 +294,7 @@ e^{-i (E_N - E_1) t}
 \Bigg].
 \label{eq:sff:spacings}
 \end{align}
-\todo{SN: As a sanity check, check numerically in the BH model that Eqs. \eqref{eq:sff} and \eqref{eq:sff:spacings} give the same SFF curve, computing separately term by term of \Eref{eq:sff:spacings}, and then adding them up}
+%\todo{SN: As a sanity check, check numerically in the BH model that Eqs. \eqref{eq:sff} and \eqref{eq:sff:spacings} give the same SFF curve, computing separately term by term of \Eref{eq:sff:spacings}, and then adding them up}
 
 We try to move forward with the following approximation. We assume the spacings
 $s^{(1)}_k = E_{k+1} - E_k$ are independent and identically distributed 
@@ -327,7 +334,6 @@ e^{- i s t} P_{P}(s)
 &= 
 \frac{N-1}{1+it}.
 \end{align}
-\todo{SN: Check numerically if the left side of \Eref{eq:sff:spacings1} is well described by either \Eref{eq:sff:spacings1:WDapprox} when a single symmetric subspace is considered, and by \Eref{eq:sff:spacings1:Papprox} when the whole spectrum is considered (we have the intuition that the whole spectrum should exhibit Poisson statistics at first order spacings or ratios)}
 \janote{In Ref.~\cite{engel_1998_higherorder} they study the distribution
 of higher order level spacings.}
 
@@ -335,9 +341,13 @@ A checking was performed for the proposition made in \Eref{eq:sff:spacings1:WDap
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{ApproxWDRe.pdf}
-    \caption{Comparing if the left side of \Eref{eq:sff:spacings1} is well described by \Eref{eq:sff:spacings1:WDapprox} when considering a single symmetric subspace. }
+    \caption{Comparing if the left side of \Eref{eq:sff:spacings1} is well described by \Eref{eq:sff:spacings1:WDapprox} when considering a single symmetric subspace.}
     \label{fig:ApproxWDRe}
 \end{figure}
+\todo{Hacer la gráfica que compruebe/refute si se cumple la \Eref{eq:sff:spacings1:Papprox} al considerar (1) un subespacio en un régimen integrable y (2) considerando todo el espectro}
+
+\todo{Pensar si puede ser interesante seguir explorando este tipo de aproximaciones usando los resultados de la Ref.~\cite{shir_2025_surmise}}
+\janote{Yo creo que puede ser interesante porque sigue testeando si existe o no un ``breakdown'' de las correlaciones de largo alcance para algún orden $k$ de vecinos}
 \subsection{Interesting things about SFF}
 There is a direct need in averanging the SFF computed, here a comparison between two methods will be shown, based on the data 
 obtained from the BHH model. A time window averanging is performed on the data and a sector averanging aswell (averanging the SFF at each time with each symmetric sector of the hamiltonian).
