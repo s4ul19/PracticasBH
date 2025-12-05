@@ -65,13 +65,13 @@ doi=false
 %}}}
 \begin{document}
 \maketitle
-\tableofcontents
 
 \listoftodos
 
+\tableofcontents
 
 \pagebreak
-    
+
 \section{Question}
 Why is the correlation hole not affected by the precense of a high degree
 of symmetries in Ref.~\cite{delacruz_2020_quantum}?
@@ -181,6 +181,7 @@ symmetric subspaces. The third term God knows what the hell it is, but it
 is the term explaining why the correlation whole survives (or not).
 
 \subsection{Survival probability as function of level spacings}
+\todo{Leer esta sección para discutir con JA si vale la pena seguir explorando esta idea o darle muerte}
 Let us rewrite the survival probability as follows:
 \begin{align}
 S_p(t) 
@@ -372,10 +373,11 @@ a SFF calculation was performed using time averanging.
 \end{figure}
 Remarkably, using a different approach, where a list of GOE matrices was generated, then a sector averanging with a time averanging was performed,
 proving that applying both methodologies proves to be useful (valid only with a decent amount of statistics.)
+\todo{Responder por qué una matriz GOE grande es estadísticamente lo mismo a tomar muchas matrices GOE de dimensión pequeña}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{SFFGOETS3.pdf}
-    \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 3}
+    \caption{GOE SFF behavior using time averanging and sector averanging of a list of 4500 GOE matrices of dimension 3. \janote{Vimos que con matrices COE hasta con matrices de $2\times2$ se puede construir el SFF}}
     \label{fig:SFFGOETS3}
 \end{figure}
 \begin{figure}[H]
@@ -417,6 +419,7 @@ Employing several BH realizations, with different J/U values, a region of values
 \caption{Mean spacing ratio of first correlation of several BHH hamiltonians with differnt $J/U$ values. Notice that from 0.5 to 10, the mean value is similar to the GOE prediction. Using a BHH of 9 sites and 9 bosons. }
 \label{fig:Map}
 \end{figure}
+\todo{Responder a la siguiente pregunta: será que la gráfica para el promedio de cocientes de orden $k>1$ da cualitativamente lo mismo a la \Fref{fig:Map}? Obviamente, $k>1$ pero considerablemente más pequeño que la dimensión del subespacio}
       
 Considering the mean spacing ratio of k order proves to be a useful quantity to observe short range correlation, long range correlations 
 are difficult to check, and numerical calculation have been performed in order to show that, as k grows, the mean spacing ratio 
@@ -425,11 +428,16 @@ no way of distinguishing between GOE or Poisson statistics. The following figure
 performed for the GOE and for Poisson.
 
 Even though the mean spacing ratio of first order is unfolding independent, it does not guarantee that higher order ratios are not sensible to unfolding.
+\todo{Tarea para JA: explicación con ecuaciones de porqué este es el caso}
 Therefore, numerical calculation where performed to conclude that \textbf{the mean spacing ratio of k order for $k > 1$ is sensitive to unfolding and therefore is a necessary procedure when considering higher order correlations.}
 
 \textit{The following figures show the behavior of $\ev{r^{k}_n}$ for all k values ranging from k=1 to k=Total amount of eigenvalues of several BH realizations using differnt J/U. the Poisson and GOE characteristic curves are given as reference.}
 
-\newpage
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{SFF_k_GOE_matrices.pdf}
+\caption{5,000 samples of $k$ matrices of dimension 10 drawn from the GOE. \janote{Será que esto es genérico?}}
+\end{figure}
 
 \textbf{Considering only J/U values located in the chaos region:}
 \begin{figure}[H]
@@ -451,7 +459,7 @@ Therefore, numerical calculation where performed to conclude that \textbf{the me
 \begin{figure}[H]
 \centering
 \includegraphics[width=1.1\textwidth]{BHMeanKNearChaosAndPoissonRegionLowK.pdf}
-\caption{Mean spacing ratio for low k of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in transition phase. }
+\caption{Mean spacing ratio for low k of several BHH hamiltonians of dim 8,8 with different $J/U$ values located in transition phase. \janote{Será que si vemos el SFF parcial de las correlaciones de segundo orden para $J/U=0.1$ veríamos una curva que se ajusta más a la aproximación de WD o de Poisson propuesta en la \Eref{eq:sff:spacings1}?}}
 \label{fig:BHMeanKNearChaosAndPoissonRegionLowK}
 \end{figure}
 \begin{figure}[H]
@@ -561,7 +569,7 @@ e^{-\frac{1}{2} t \left(\sigma ^2 t+2 i\right)}
 ]
 \end{equation}
 
-\input{poster.tex}
+%\input{poster.tex}
 
 \printbibliography
 \end{document}

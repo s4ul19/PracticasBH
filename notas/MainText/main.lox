@@ -1,0 +1,13 @@
+\contentsline {fixme}{\color {fxnote}Important: for large $k$, I think the distribution becomes Gaussian, as it was noted for the $k$th order spacings~\blx@tocontentsinit {0}\cite {shir_2025_surmise}. Therefore, Eq.~(\ref {eq:tekur_higherorder_ansatz}) should be used up until some $k$}{3}{equation.2.1}%
+\contentsline {fixme}{\color {fxnote}I think these results we can use them to study the behavior of each term in Eq.~\eqref {eq:Sp:spacings}. My guess is that the most relevant contributions to $S_p(t)$ come from the higher order spacing correlations}{4}{equation.3.9}%
+\contentsline {fixme}{\color {fxnote}I think the PDF here will be the convolution of two Wigner surmises}{4}{equation.3.14}%
+\contentsline {fixme}{\color {fxnote}maybe the convolution of three Wigner surmises?}{4}{equation.3.14}%
+\contentsline {fixme}{\color {fxnote}once again, the convolution of four Wigner surmises?}{4}{equation.3.14}%
+\contentsline {fixme}{\color {fxnote}you know the drill by now, the convolution of five Wigner surmises?}{4}{equation.3.14}%
+\contentsline {fixme}{\color {fxnote}I guess the convolution of many Wigner surmises should converge to something...? Hence, after some order the PDF should be almost the same. Something to ask Deepseek or chatGPT}{4}{equation.3.14}%
+\contentsline {fixme}{\color {fxnote}If all of this is, at the very least, a good approximation, we still have to take into account the coefficients $\abs {\braket {\psi _0}{\phi _i}}^2 \abs {\braket {\psi _0}{\phi _{i+k}}}^2$. Therefore, we may consider the case where all coefficients are equal, case in which I'm almost sure the $S_p(t)$ becomes the spectral form factor. If it is indeed the case we should expect a dip-ramp-plateau behavior, the ramp being the hallmark of long-range correlations of a spectrum's chaotic system. }{4}{equation.3.14}%
+\contentsline {fixme}{\color {fxnote}In Ref.~\blx@tocontentsinit {0}\cite {engel_1998_higherorder} they study the distribution of higher order level spacings.}{5}{equation.3.19}%
+\contentsline {fixme}{\color {fxnote}Yo creo que puede ser interesante porque sigue testeando si existe o no un ``breakdown'' de las correlaciones de largo alcance para algún orden $k$ de vecinos}{5}{section*.6}%
+\contentsline {fixme}{\color {fxnote}Vimos que con matrices COE hasta con matrices de $2\times 2$ se puede construir el SFF}{7}{figure.4}%
+\contentsline {fixme}{\color {fxwarning}sdfas}{9}{section*.8}%
+\contentsline {fixme}{\color {fxnote}It is not clear for me if there is a difference using the two definitions of the ratios (the one that is between 0 and 1, and the other one), so it is safer to explore both of them}{14}{subsection.E.2}%
