@@ -351,7 +351,7 @@ A checking was performed for the proposition made in \Eref{eq:sff:spacings1:WDap
 
 \todo{Pensar si puede ser interesante seguir explorando este tipo de aproximaciones usando los resultados de la Ref.~\cite{shir_2025_surmise}}
 \janote{Yo creo que puede ser interesante porque sigue testeando si existe o no un ``breakdown'' de las correlaciones de largo alcance para algún orden $k$ de vecinos}
-\section{Interesting things about SFF}
+\subsection{Interesting things about SFF}
 There is a direct need in averanging the SFF computed, here a comparison between two methods will be shown, based on the data 
 obtained from the BHH model. A time window averanging is performed on the data and a sector averanging aswell (averanging the SFF at each time with each symmetric sector of the hamiltonian).
 
@@ -497,6 +497,31 @@ In particular, the following figure shows that some J/U values are linked with i
     \caption{SFF of periodic boundary conditions, for multiple J/U realizations. }
     \label{fig:SFFPeriodic}
 \end{figure}
+
+In order to explain the SFF of the periodic BH, based on the symmetries of the system, it was suggested that a duplicaded eigenvalue list of the GOE could match the SFF observed.
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{SFFGOEandPeriodicBH.pdf}
+    \caption{Several copies of the GOE spectrum where calculated, notice that a duplicated spectrum fits really well . }
+    \label{fig:SFFPeriodicAndGOE}
+ \end{figure}
+
+ The following hyopthesis is to be further considerated:
+ \textit{The spectrum of a hamiltonian that is to be regarded as chaotic, based on the symmetries of the
+ operator, could be emulated by a list of eigenvalues of an appropiate/s RMT ensemble/s, where for every sector 
+ an appropiate list of eigenvalues of a RMT sample is chosen, in accordance with the symmetry and dimension, and then the resulting list is the union of the sectors list.}
+ 
+ In order to test this hyopthesis, the open conditions Bose Hubbard model was considered.
+ It is well known that this operator has, besides time reversal, a parity symmetry, and therefore two sectors are considered.
+ Based on the symmetries, each sector is replicated by a GOE list of the appropiate dimension. 
+ The two eigenvalues list where joined and the resulting list was unfolded. The result was the following:
+ \begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{SFFCompositeGOEandOpenBH.pdf}
+    \caption{SFF of a composite GOE and open conditions Bose Hubbard (n=m=8) }
+    \label{fig:SFFOpenGOE}
+ \end{figure}
+ This result motivates to see if the periodic Bose Hubbard could be emulated by the same procedure.
 \appendix
 \section{Bose Hubbard Model for bosons:}
  \begin{equation}
