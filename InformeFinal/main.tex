@@ -87,8 +87,6 @@ Los tres ensambles clásicos son: Gaussiano ortogonal (GOE), Gaussiano unitario 
 Entonces, en un contexto cuántico, la potencial emergencia de caos para cierta región de parámetros de un hamiltoniano es determinada comparando la estadística de su espectro de valores propios respecto a alguno de los ensambles de RMT, además la existencia de una región caótica es validada con su persistencia a medida que el número de partículas incrementa~\cite{Pausch2022}.
 
 Este trabajo investiga un hamiltoniano de un sistema cerrado con la importante simetría ante inversión temporal, se identifica en que regiones existe caos cuántico basándose en dos indicadores estadísticos importantes en la literatura y se analiza como esta región de caos es afectada a medida que la dimensionalidad del espacio de Hilbert del sistema aumenta.
-
-
 \section{Marco Teórico:}
 \subsection{El modelo de Bose Hubbard}
     Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. Este modelo describe la dinámica de $N$ bosones sin spin en una latice de $L$ sitios dispuestos sobre un arreglo unidimensional. 
@@ -105,6 +103,14 @@ El operador reflexión introduce dos sectores de simetría, llamados el sector s
 si $H$ es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
 \begin{equation}
     H=H^{+}\oplus H^{-}
+\end{equation}
+La dimensión del espacio de Hilbert asociado a una configuración de $n$ partículas y $m$ sitios crece combinatóricamente bajo la relación~\cite{Zhang2010}:
+\begin{equation}
+D=\frac{(n+m-1)!}{n!(m-1)!}
+\end{equation}
+La base sobre la cual se representa el hamiltoniano es la base número de ocupación ${\ket{n_1,\dots,n_m}}$ la cual viene definida según~\cite{Zhang2010}
+\begin{equation}
+\hat{n}_i\ket{n_1,\dots,n_m}=n_i\ket{n_1,\dots,n_m}
 \end{equation}
 \subsection{Mean spacing Ratio}
 Los ensambles de matrices aleatorias poseen signaturas características de corto y largo alcance; mediante indicadores estadísticos es posible examinar estas propiedades espectrales. Una de las formas de caracterizar el caos cuántico es mediantes las signaturas de corto alcance en el espectro de energías del hamiltoniano~\cite{Pausch2022}.
@@ -143,7 +149,7 @@ La expresión viene dada por:
     \end{equation}
    De esta expresión se ve que si la distribución de el espectro de energías coincide o es cercana a GOE, entonces su $KL$ asociada es aproximadamente 0.
 \section{Resultados:}
-\textit{Para diferentes valores de $J/U$, dejando a $U=1$, se calcularon los respectivos hamiltonianos de Bose Hubbard. Para cada instancia creada se calculó su $\ev{r}$ y $KL$ asociados.}
+\textit{Para diferentes valores de $J/U$, dejando a $U=1$, se calcularon los respectivos hamiltonianos de Bose Hubbard y se obtuvieron los respectivos sectores simétrico y antisimétrico. Para cada el simétrico de cada instancia creada se calculó su $\ev{r}$ y $KL$ asociados.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{OpenBHMeanSpacing.png}
@@ -155,16 +161,21 @@ La expresión viene dada por:
     \includegraphics[width=1\textwidth]{OpenBHKL.png}
     \caption{Divergencia KL de la distribución cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard. Notar que existe una región de parámetros para la cual $KL$ es cercana a 0}
 \end{figure}
-
-
-
-
-
-
 \section{Discusión de resultados:}
-\begin{enumerate}
-\item Los indicadores estadísticos $\ev{r}$ y $KL$ 
-\end{enumerate}
+El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de 
+    $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística de los valores propios del sistema, en dicha región de parámetros, sigue la estadística del ensamble GOE.
+Así mismo el indicador estadístico de la divergencia Kullback Leibler muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros, 
+la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE.
+
+En ambos indicadores estadísticos es notable que a medida que crece el espacio de Hilbert, la misma región de parámetros identificada como caótica se sigue observando, lo cual es consistente con lo discutido en~\cite{Pausch2022}.
+También es observado que para ciertos valores de $J/U$ el sistema exhibe integrabilidad y se espera que para $J/U \rightarrow \infty$ ó $J/U \rightarrow 0$ el sistema tienda a integrabilidad.
+\section{Conclusiones}
+Los dos indicadores estadísticos presentados muestran que existe una región de parámetros para la cual el modelo de Bose Hubbard es caótico (según la conjetura BGS~\cite{Bohigas_1984}), además se verifica que a medida que la dimensionalidad del espacio de Hilbert incrementa, se sigue observando la región característica de caos.
+Es notable que ambos indicadores, que toman en cuenta únicamente las correalciones de corto alcance, permitan observar y caracterizar el caos cuántico, sin embargo es de mencionar que para ello es necesario obtener algún sector de simetría, proceso el cual presenta sus dificultades. 
+Es de interés hacerse la pregunta de si es \textit{suficiente} que se observe caos únicamente mediante correlaciones de corto alcance, sin tomar en cuenta las correlaciones de orden superior (espaciamientos de orden superior por ejemplo).
+Así mismo, es de interés estudiar a que región de parámetros tiende el sistema a medida que la dimensionalidad del espacio de Hilbert aumenta, pues surge la pregunta de si tiende asintóticamente a una región particular o si el tamaño de la región depende del tamaño del sistema.
+Una posible via a continuar este trabajo sería estudiar la dependencia de la región de parámetros que exhibe caos respecto a la dimensionalidad del espacio de Hilbert del sistema (que en el caso del modelo de bose hubbard, es equivalente a estudiar la dependencia respecto al número de sitios y número de partículas), además de 
+hacer un análisis que involucre indicadores estadísticos de largo alcance, ya que ello agregaría un análsis más robusto.
 \printbibliography
 
 \end{document}
