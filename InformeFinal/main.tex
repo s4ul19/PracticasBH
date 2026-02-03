@@ -80,84 +80,102 @@ doi=false
     \vspace{0.5cm}
 \end{titlepage}
 \section{Introducción:}
+El caos cuántico juega un papel central en la investigación de sistemas complejos de muchas partículas, por ejemplo para el estudio de los espaciamiento de los niveles de energía en los núcleos de átomos pesados~\cite{Wigner1955}.
+Por un lado el trabajo pionero de Berry y Tarbor establece que para hamiltonianos cuánticos cuya contraparte clásica es integrable, la estadística de los niveles de energía sigue una ley de Poisson~\cite{BerryTabor1977}, 
+por otro lado, el trabajo de Bohigas, Giannoni y Schmit establece que para sistemas cuánticos cuya contraparte clásica es caótica, la estadística de los niveles de energía sigue la estadística de alguno de los ensambles característicos de la teoría de matrices aleatorias~\cite{Bohigas_1984}.
+Los tres ensambles clásicos son: Gaussiano ortogonal (GOE), Gaussiano unitario (GUE), Gaussiano simpléctico (GSE), cada uno de ellos satisfacen ciertas simetías particulares~\cite{mehta2004random}.
+Entonces, en un contexto cuántico, la potencial emergencia de caos para cierta región de parámetros de un hamiltoniano es determinada comparando la estadística de su espectro de valores propios respecto a alguno de los ensambles de RMT, además la existencia de una región caótica es validada con su persistencia a medida que el número de partículas incrementa~\cite{Pausch2022}.
+
+Este trabajo investiga un hamiltoniano de un sistema cerrado con simetría ante inversión temporal (simetría característica que satisface el ensamble GOE~\cite{mehta2004random}), se identifica en que regiones existe caos cuántico basándose en dos indicadores estadísticos importantes en la literatura y se analiza como esta región de caos es afectada a medida que la dimensionalidad del espacio de Hilbert del sistema aumenta.
 \section{Marco Teórico:}
-\begin{enumerate}
-    \item Bose Hubbard.
-    El modelo se puede emplear tanto para fermiones como para bosones. En este trabajo se modelará para bosones. El Hamiltoniano de este modelo es:
+\subsection{El modelo de Bose Hubbard}
+    Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. Este modelo describe la dinámica de $N$ bosones sin spin en una latice de $L$ sitios dispuestos sobre un arreglo unidimensional. 
+    El hamiltoniano del sistema con $\hbar=1$, viene dado por~\cite{Zhang2010}:
 \begin{equation}
 \hat{H}
 = -\frac{J}{2} \sum_{\langle i,j\rangle} \!\left(\hat{a}_i^{\dagger}\hat{a}_j + \hat{a}_j^{\dagger}\hat{a}_i\right)
 + \frac{U}{2}\sum_{i}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
 Los términos $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación respectivamente y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio).
-El parámetro $J$ describe la parte cinética del Hamiltoniano y dicta la probabilidad de que los bosones ``salten'' de un sitio a otro adyacente. El segundo parámetro $U$ describe la parte de interacción del Hamiltoniano, nos dice cómo  
-es la fuerza de interacción entre bosones en mismo sitio~\cite{Zhang2010}. 
-    \item Mean spacing Ratio (\textit{hablar brevemente de el spacing ratio y el problema de unfolding.})
-Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano, y el espaciamiento consecutivo de niveles de energía como 
-$s_n=E_{n+1}-E_{n}$, se define la cantida~\cite{Atas_2013}:
+El primer término proporcional a $J$ es la parte cinética del hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término proporcional a $U$ describe la interacción entre las partículas en un mismo sitio, la intensidad de la misma viene regulada por $U$~\cite{Zhang2010}. 
+Este hamiltoniano tiene dos simetrías importantes, la simetría respecto a inversión temporal y la simetría respecto al operador reflexión~\cite{Zhang2010}.
+El operador reflexión introduce dos sectores de simetría, llamados el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
+si $H$ es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
+\begin{equation}
+    H=H^{+}\oplus H^{-}
+\end{equation}
+La dimensión del espacio de Hilbert asociado a una configuración de $n$ partículas y $m$ sitios crece combinatóricamente bajo la relación~\cite{Zhang2010}:
+\begin{equation}
+D=\frac{(n+m-1)!}{n!(m-1)!}
+\end{equation}
+La base sobre la cual se representa el hamiltoniano es la base número de ocupación ${\ket{n_1,\dots,n_m}}$ la cual viene definida según~\cite{Zhang2010}
+\begin{equation}
+\hat{n}_i\ket{n_1,\dots,n_m}=n_i\ket{n_1,\dots,n_m}
+\end{equation}
+\subsection{Mean spacing Ratio}
+Los ensambles de matrices aleatorias poseen signaturas características de corto y largo alcance; mediante indicadores estadísticos es posible examinar estas propiedades espectrales. Una de las formas de caracterizar el caos cuántico es mediantes las signaturas de corto alcance en el espectro de energías del hamiltoniano~\cite{Pausch2022}.
+Históricamente se ha empleado el indicador estadístico del espaciamiento de niveles a primer vecino~\cite{Bohigas_1984}\cite{BerryTabor1977}.
+Sin embargo en la práctica, la distribución de espaciamientos de niveles debe de ser computada despues de remover las características espectrales que dependen del sistema~(un proceso llamado \textit{unfolding})
+con el objeto de estudiar únicamente las propiedades estadísticas universales relativas al espectro~\cite{tekur2018higher}. 
+Estas dificultades pueden ser eludidas considerando la cantidad propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}, la cual no depende de la densidad local de estados y a consecuencia no requiere unfolding~\cite{tekur2018higher}.
+
+Denotando por $E_n$ las energía ordenadas del espectro del hamiltoniano y el espaciamiento consecutivo de niveles de energía como 
+$s_n=E_{n+1}-E_{n}$, se define la cantidad~\cite{oganesyan2007localization}:
 \begin{equation}
 	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
 \end{equation}
-Esta cantidad permite observar la universalidad de RMT en los espectros de energía.
-Estudiando la distribución de probabilidad asociada a las $r$'s, es posible determinar si la configuración está en un regímen integrable 
-o caótico. Es importante tener presente la forma análitica de la distribución de probabilidad de los cocientes entre 
-los espaciamientos de niveles del ensabamble GOE y de Poisson.
+Estudiando la distribución de probabilidad asociada a las $r$'s, es posible determinar si la configuración está en una configuración integrable 
+o caótico y es de tener presente la forma análitica de la distribución de probabilidad de $r$ del ensabamble GOE y de Poisson.
 La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
 \begin{equation}
- P_{GOE}(r)=2\Theta(1-r)\cdot \qty(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}),
+ P_{\text{GOE}}(r)=2\Theta(1-r)\cdot \qty(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}),
 \end{equation}
 donde $\Theta(r)$ es la función de Heaviside.
-Y la distribución de Poisson es de la forma~\cite{Tekur2020}:
+Y la distribución asociada a Poisson es de la forma~\cite{Atas_2013}:
 \begin{equation}
-    P_{Poisson}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}})
+    P_{\text{Poisson}}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}})
 \end{equation}
-Con estas expresiónes es posible extraer un $\ev{r}$ característico de cada distribucion.
-En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{GOE}=0.5307$~\cite{Atas_2013} 
-y para la distribución de Poisson  un valor de $\ev{r}_{Poisson}=0.38629$~\cite{Atas_2013}. 
-   \item Divergencia de Kullback-Leibler ($KL$): Es una medida de diferencia entre dos distribuciones de probabilidad. En este caso, se comparará la distribucion de probabilidad de los $r_n$ de la ecuación (2)
-    respecto a la distribucion de probabilidad de la misma cantidad según el ensamble GOE. Viene dada por~\cite{Pausch2022}:
+Con estas expresiones es posible extraer un $\ev{r}$ característico de cada distribución.
+En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013} 
+y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$~\cite{Atas_2013}. 
+
+\subsection{Divergencia de Kullback-Leibler}
+Conocida también como entropía relativa, es una medida que cuantifica cuánto se aleja una 
+distribución de probabilidad $P$ de una distribución de referencia $Q$~\cite{kullback1951information}.
+Para este trabajo, la distribución de referencia es la del ensabamble GOE.
+La expresión viene dada por:
     \begin{equation}
-KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{GOE}(x)} \right) \, dx.
+    KL(P,P_{GOE}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{\text{GOE}}(x)} \right) \, dx.
     \end{equation}
-    En esencia, es una medida de que tanto se aleja la distribución del sistema respecto a la distribución de GOE.   
-\end{enumerate}
+   De esta expresión se ve que si la distribución de el espectro de energías coincide o es cercana a GOE, entonces su $KL$ asociada es aproximadamente 0.
 \section{Resultados:}
-\textbf{Las resultados deben de ser recalculados \\ Mejorar las gráficas y probar n=m=10}
+\textit{Para diferentes valores de $J/U$, dejando a $U=1$, se calcularon los respectivos hamiltonianos de Bose Hubbard y se obtuvieron los respectivos sectores simétrico y antisimétrico. Para cada el simétrico de cada instancia creada se calculó su $\ev{r}$ y $KL$ asociados.}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{KLAndMean.png}
-    \caption{Kl divergence y mean spacing de varias configuraciones J/U}
-    \label{fig:KLAndMean}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{KLSolo.png}
-    \caption{Kl divergence de varias configuraciones J/U}
-    \label{fig:KL}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{MapSolo.png}
-    \caption{Mean spacing de varias configuraciones J/U}
+    \includegraphics[width=1\textwidth]{OpenBHMeanSpacing.png}
+    \caption{Media del cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard. Notar que existe una región de parámetros para la cual la $\ev{r}$ del sistema es cercana a la de GOE}
     \label{fig:Mean}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{BHeigenDist.png}
-    \caption{Distribucion de eigenvalores de una configuracion (¿Cual?)}
-    \label{fig:Eigen}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{GOEexamplePs.png}
-    \caption{Spacing ratio de una configuracion (¿Cual?)}
-    \label{fig:Spacing}
+    \includegraphics[width=1\textwidth]{OpenBHKL.png}
+    \caption{Divergencia KL de la distribución cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard. Notar que existe una región de parámetros para la cual $KL$ es cercana a 0}
 \end{figure}
 \section{Discusión de resultados:}
-\begin{enumerate}
-\item Discutir sobre la figura que compara KL y Mean spacing Ratio, es importante ese resultado, pues ambas cantidades en esencia estan calculando algo distinto. Hay cierta universalidad en el diagnóstico.
+El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de 
+    $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística de los valores propios del sistema, en dicha región de parámetros, sigue la estadística del ensamble GOE.
+Así mismo el indicador estadístico de la divergencia Kullback Leibler muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros, 
+la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE.
 
-\end{enumerate}
+En ambos indicadores estadísticos es notable que a medida que crece el espacio de Hilbert, la misma región de parámetros identificada como caótica se sigue observando, lo cual es consistente con lo discutido en~\cite{Pausch2022}.
+También es observado que para ciertos valores de $J/U$ el sistema exhibe integrabilidad y se espera que para $J/U \rightarrow \infty$ ó $J/U \rightarrow 0$ el sistema tienda a integrabilidad.
+\section{Conclusiones}
+Los dos indicadores estadísticos presentados muestran que existe una región de parámetros para la cual el modelo de Bose Hubbard es caótico (según la conjetura BGS~\cite{Bohigas_1984}), además se verifica que a medida que la dimensionalidad del espacio de Hilbert incrementa, se sigue observando la región característica de caos.
+Es notable que ambos indicadores, que toman en cuenta únicamente las correalciones de corto alcance, permitan observar y caracterizar el caos cuántico, sin embargo es de mencionar que para ello es necesario obtener algún sector de simetría, proceso el cual presenta sus dificultades. 
+Es de interés hacerse la pregunta de si es \textit{suficiente} que se observe caos únicamente mediante correlaciones de corto alcance, sin tomar en cuenta las correlaciones de orden superior (espaciamientos de orden superior por ejemplo).
+Así mismo, es de interés estudiar a que región de parámetros tiende el sistema a medida que la dimensionalidad del espacio de Hilbert aumenta, pues surge la pregunta de si tiende asintóticamente a una región particular o si el tamaño de la región depende del tamaño del sistema.
+Una posible via a continuar este trabajo sería estudiar la dependencia de la región de parámetros que exhibe caos respecto a la dimensionalidad del espacio de Hilbert del sistema (que en el caso del modelo de bose hubbard, es equivalente a estudiar la dependencia respecto al número de sitios y número de partículas), además de 
+hacer un análisis que involucre indicadores estadísticos de largo alcance, ya que ello agregaría un análsis más robusto.
 \printbibliography
 
 \end{document}
