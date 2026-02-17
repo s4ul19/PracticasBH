@@ -59,6 +59,11 @@ doi=false
 \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
 \FXRegisterAuthor{sn}{asa}{\color{OliveGreen}Saul}
 %}
+
+\usepackage{ulem}
+\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+\setlength{\linenumbersep}{5pt} % Valor por defecto es 10pt, reduce a tu preferencia
+\linenumbers\relax % Commence numbering lines
 %}}}
 \begin{document}
 \begin{titlepage}
@@ -72,6 +77,7 @@ doi=false
     \vspace{1.5cm}
     
     {\Large\textit{Saúl Nájera Allara} \par}
+    {\janote{Agregué aquí mi nombre. Borrá este comentario cuando lo veás }\Large\textit{Asesor: M.Sc. José Alfredo de León} \par}
     
     \vspace{3cm}
     
@@ -93,21 +99,45 @@ Entonces, en un contexto cuántico, la potencial emergencia de caos para cierta 
 Este trabajo investiga un hamiltoniano de un sistema cerrado con simetría ante inversión temporal (simetría característica que satisface el ensamble GOE~\cite{mehta2004random}), se identifica en que regiones existe caos cuántico basándose en dos indicadores estadísticos importantes en la literatura y se analiza como esta región de caos es afectada a medida que la dimensionalidad del espacio de Hilbert del sistema aumenta.
 \section{Marco Teórico}
 \subsection{El modelo de Bose Hubbard}
-Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. Este modelo describe la dinámica de $N$ bosones sin espín\snnote{listo.}\janote{espín*, cambialo aquí y en el resto de ocurrencias en este documento} en una cadena \snnote{ Listo.}\janote{cambiá la palabra latice (es lattice) por su traducción al expañol y no usés anglicismos} de $L$ sitios dispuestos sobre un arreglo unidimensional. 
-El hamiltoniano\snnote{Los dejé en minúscula en vista del comentario de Mariana.}\janote{\textbf{H}amiltoniano, con mayúscula. Arreglalo aquí y en el resto de ocurrencias de esta palabra en el documento} del sistema con $\hbar=1$, viene dado por~\cite{Zhang2010}:
+Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. Este modelo describe la dinámica de $N$ bosones sin espín
+%\snnote{listo.}\janote{espín*, cambialo aquí y en el resto de ocurrencias en este documento} 
+en una cadena 
+%\snnote{ Listo.}\janote{cambiá la palabra latice (es lattice) por su traducción al expañol y no usés anglicismos} 
+de $L$ sitios dispuestos sobre un arreglo unidimensional. 
+El hamiltoniano
+%\snnote{Los dejé en minúscula en vista del comentario de Mariana.}\janote{\textbf{H}amiltoniano, con mayúscula. Arreglalo aquí y en el resto de ocurrencias de esta palabra en el documento} 
+del sistema con $\hbar=1$, viene dado por~\cite{Zhang2010}:
 \begin{equation}\label{eq:H:BH}
 \hat{H}
 = -J \sum_{i=1}^{L} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right)
 + \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
-Los operadores \snnote{listo.}\janote{son operadores} $\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores creación y aniquilación,\janote{,} respectivamente,\janote{,}\janote{Notá las comas. Las dejo como comentario para que veás como se usan y lo tomés en cuenta para el futuro} y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio $i$).
+\linelabel{l3}
+Los operadores 
+%\snnote{listo.}\janote{son operadores} 
+$\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores de creación y aniquilación,
+%\janote{,} 
+respectivamente,
+%\janote{,}\janote{Notá las comas. Las dejo como comentario para que veás como se usan y lo tomés en cuenta para el futuro} 
+y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio $i$).
+%
+%\snnote{Agregué el resto debajo de la sección donde se habla acerca de J y U.}\janote{Agregá/modificá este primer enunciado para incluir cómo actúan los operadores de creación, aniquilación y número sobre los estados de Fock. Además incluí la relación de conmutación de los operadores de creación y aniquilación}. \janote{Falta explicar qué significa la notación $\ev{i,j}$ de la Eq.~\eqref{eq:H:BH}}
+%
+El primer término, 
+%\janote{,}
+proporcional a $J$,
+%\janote{,} 
+es la parte cinética del Hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término,
+%\janote{,} 
+proporcional a $U$,
+%\janote{,} 
+describe la interacción entre las partículas en un mismo sitio~\cite{Zhang2010}.
+%\snnote{Decidí quitar por completo eso, en efecto, era redundante.}\janote{La redacción de este enunciado está rara, suena redundante que ``proporcional a $U$'' y ``viene regulada por $U$''. \textit{regulada} no es una buena elección de palabra, quizás mejor \textit{modulada}}. 
 
-\snnote{Agregué el resto debajo de la sección donde se habla acerca de J y U.}\janote{Agregá/modificá este primer enunciado para incluir cómo actúan los operadores de creación, aniquilación y número sobre los estados de Fock. Además incluí la relación de conmutación de los operadores de creación y aniquilación}. \janote{Falta explicar qué significa la notación $\ev{i,j}$ de la Eq.~\eqref{eq:H:BH}}
-
-El primer término, \janote{,}proporcional a $J$,\janote{,} es la parte cinética del Hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término,\janote{,} proporcional a $U$,\janote{,} describe la interacción entre las partículas en un mismo sitio~\cite{Zhang2010}.\snnote{Decidí quitar por completo eso, en efecto, era redundante.}\janote{La redacción de este enunciado está rara, suena redundante que ``proporcional a $U$'' y ``viene regulada por $U$''. \textit{regulada} no es una buena elección de palabra, quizás mejor \textit{modulada}}. 
-
-La base sobre la cual se representa el hamiltoniano es la base de número de ocupación (o base de \textit{Fock}),$\{{\ket{n_1,\dots,n_L}}\}$, donde $n_m$ es el número de sitios en el m-ésimo sitio.
-\snnote{Se cambió de lugar}\janote{Este último enunciado debería irse para arriba, a donde sugerí lo de la definición matemática del operador número}
+\janote{El texto entre las líneas \lineref{l1} y \lineref{l2} sólo son enunciados sueltos y están desconectados del resto del texto. Los tenés que incluir y amarrar con el resto del marco teórico. Una forma de hacerlo sería integrar estos enunciados al enunciado de la línea \lineref{l3}. Pero pensalo y decidí qué hacer}\\
+\linelabel{l1} 
+La base sobre la cual se representa el hamiltoniano es la base de \janote{\sout{número de}} ocupación (o base de \textit{Fock})\janote{no es \textit{la} base, sólo \textit{una} base. Cambialo}, $\{{\ket{n_1,\dots,n_L}}\}$, donde $n_m$ es el número de sitios en el m-ésimo sitio\janote{m tiene que ir entre \$\$}.
+%\snnote{Se cambió de lugar}\janote{Este último enunciado debería irse para arriba, a donde sugerí lo de la definición matemática del operador número}
 
 La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\cite{Zhang2010}:
 \begin{equation}
@@ -119,30 +149,50 @@ También es de utilidad la relación~\cite{Zhang2010}:
 \begin{equation}
 a_{i}^{\dagger}a_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_L}.
 \end{equation}
-Este hamiltoniano tiene dos simetrías importantes,la primera simetría es debida a que la dinámica del sistema es la misma independientemente de la orientación del tiempo, sea que avance o que retroceda y la segunda simetría es debida a que la dinámica del sistema es invariante ante una reflexión de la cadena alrededor de su centro, es decir, daría lo mismo ver el sistema a través del reflejo de un espejo perpendicular a la red y situado en uno de sus vértices que verlo directamente. 
+\janote{faltan los gorritos a los operadores}
+\linelabel{l2}
+
+Este hamiltoniano tiene dos simetrías importantes, la primera simetría es debida a que la dinámica del sistema es la misma independientemente de la orientación del tiempo, sea que avance o que retroceda y la segunda simetría es debida a que la dinámica del sistema es invariante ante una reflexión de la cadena alrededor de su centro, es decir, daría lo mismo ver el sistema a través del reflejo de un espejo perpendicular a la red y situado en uno de sus vértices que verlo directamente. 
+\janote{F: 1) estás poniendo al mismo nivel ambas simetrías y conceptualmente son simetrías de diferente tipo. Mientras la simetría respecto al operador de reflexión tiene una cantidad conservada (la paridad), la TRS no tiene cantidades conservadas asociadas. 2) te falta mencionar la simetría que da lugar a la conservación del número de bosones. Te toca reescribir todo lo que sigue porque tenés que separar conceptualmente las simetrías}
 \snnote{Traté de describir las simetrías con intuiciones físicas.}\janote{Redactá mejor este enunciado. Como es un enunciado introductorio, no le dice nada al lector que tenga una simetría respecto a un operador que se llama reflexión. Introducilo sin cosas técnicas, tipo tiene reflexión respecto una operación que refleja espacialmente la cadena respecto al centro, algo así} 
 Matemáticamente, se define el operador reflexión, $\hat{R}$, según su acción sobre la base de \textit{Fock}, la cual está dada por la relación~\cite{delacruz2020quantum}:
 \begin{equation}
 \hat{R}\ket{n_1,n_2,\cdots,n_L}=\ket{n_L,n_{L-1},\cdots,n_1}.
 \end{equation}
-El operador reflexión\snnote{Listo.}\janote{Definí matemáticamente al operador reflexión} introduce dos sectores de simetría, el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
+El operador reflexión
+%\snnote{Listo.}\janote{Definí matemáticamente al operador reflexión} 
+introduce dos sectores de simetría, el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
 si $H$ es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
 \begin{equation}
     H=H^{+}\oplus H^{-}.
 \end{equation}
 Una de las consecuencias de la simetría ante inversión temporal es que la matriz del hamiltoniano es simétrica ($\hat{H}=\hat{H}^{T}$) y sus elementos son números reales.
-\snnote{listo}\janote{Te falta un punto en la ecuación, al final.}\snnote{Agregado.}\janote{No hablaste nada de la simetría de inversión temporal.. falta}
-La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios\janote{Aquí cambiaste la notación de sitios. Empezaste llamandole $L$ y ahora es $m$, cuál va a ser? Sé consistente con la notación} crece combinatóricamente bajo la relación~\cite{Zhang2010}:
+%\snnote{listo}\janote{Te falta un punto en la ecuación, al final.}\snnote{Agregado.}\janote{No hablaste nada de la simetría de inversión temporal.. falta}
+La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios
+%\janote{Aquí cambiaste la notación de sitios. Empezaste llamandole $L$ y ahora es $m$, cuál va a ser? Sé consistente con la notación} 
+crece combinatóricamente bajo la relación~\cite{Zhang2010}:
 \begin{equation}
 D=\frac{(n+m-1)!}{n!(m-1)!}.
-\end{equation}\janote{el punto}
+\end{equation}
+%\janote{el punto}
+\janote{Incosistencia en la notación: debería ser $N$ y $L$, no $n$ y $m$, respectivamente}
+
+\janote{Agregá un párrafo para discutir la relevancia experimental de este modelo}
 
 \subsection{Mean spacing Ratio}
-Los ensambles de matrices aleatorias poseen propiedades estadísticas universales en su espectro de valores propios\snnote{Cambiado.}\janote{signaturas en qué? entre los elementos de matriz? en el espectro?}y es mediante indicadores estadísticos que es posible examinar estas propiedades espectrales.
-Según la conjetura BGS, estudiando la correspondencia de la estadística de niveles de energía del hamiltoniano con algún ensabamble de RMT es posible determinar la existencia de caos cuántico y gracias a la conjetura de Berry-Tarbor es posible determinar si un sistema es integrable analizando si el espectro de energías sigue una ley de Poisson.
-El tipo de ensamble de RMT a comparar se escoge según las simetrías que satisface el hamiltoniano del sistema y para el presente trabajo, dicha simetría es la de inversión temporal, por lo que el ensabamble de RMT que se usará para analizar la estadística espectral de hamiltoniano será el GOE.
-\snnote{Espero que con esto agregado sea un buen puente.}\janote{Aquí hiciste un gran salto en el que de la nada empezaste a hablar de caos. De alguna forma te toca modificar toda esta parte para hacer un puente conceptual en el que hablés de la noción de caos cuántico, para ir del BH y hablar del mean spacing ratio}.
-Históricamente,\janote{,} se ha empleado el indicador estadístico del espaciamiento de niveles a primeros vecinos\snnote{listo.}\janote{primeos vecinos*}~\cite{Bohigas_1984}\cite{BerryTabor1977}.
+\janote{El primer párrafo de esta sección contiene, por lo menos, dos ideas: la noción de caos cuántico y el espaciamiento de niveles. Separalo y agregá lo que sea necesario si algún párrafo queda escueto (posiblemente, el segundo)}
+
+Los ensambles de matrices aleatorias poseen propiedades estadísticas universales en su espectro de valores propios,
+%\snnote{Cambiado.}\janote{signaturas en qué? entre los elementos de matriz? en el espectro?}
+y es mediante indicadores estadísticos que es posible examinar estas propiedades espectrales.
+Según la conjetura BGS, estudiando la correspondencia de la estadística de niveles de energía del hamiltoniano con algún ensabamble de RMT es posible determinar la existencia de caos cuántico y gracias a la conjetura de Berry-Tarbor es posible determinar si un sistema es integrable analizando si el espectro de energías sigue una ley de Poisson
+\janote{mala redacción de este enunciado, reescribilo. Admite que se vuelvan dos enunciados distintos. También faltan citas}.
+El tipo de ensamble de RMT a comparar se escoge\janote{No \textit{se escoge}, más bien está determinado por las simetrías como la TRS} según las simetrías que satisface el hamiltoniano del sistema y para el presente trabajo, dicha simetría es la de inversión temporal, por lo que el ensabamble de RMT que se usará para analizar la estadística espectral de hamiltoniano será el GOE.
+%\snnote{Espero que con esto agregado sea un buen puente.}\janote{Aquí hiciste un gran salto en el que de la nada empezaste a hablar de caos. De alguna forma te toca modificar toda esta parte para hacer un puente conceptual en el que hablés de la noción de caos cuántico, para ir del BH y hablar del mean spacing ratio}.
+Históricamente,
+%\janote{,} 
+se ha empleado el indicador estadístico del espaciamiento de niveles a primeros vecinos~\cite{Bohigas_1984}\cite{BerryTabor1977}\janote{El formato apropiado para citar más de una referencia es \cite{Bohigas_1984,BerryTabor1977}, cambialo}. 
+%\snnote{listo.}\janote{primeos vecinos*}~\cite{Bohigas_1984}\cite{BerryTabor1977}.
 \begin{equation}
     s_n=E_{n+1}-E_n.
 \end{equation}
@@ -150,17 +200,24 @@ Siendo $\{ E_n\}$ el espectro de valores propios ordenados. Para el ensamble de 
 \begin{equation}
 P(s) = \frac{\pi}{2} s \exp\left(-\frac{\pi}{4} s^2\right).
 \end{equation}
-Sin embargo,\janote{,} en la práctica, la distribución de espaciamientos de niveles debe de ser computada despues de remover las características espectrales que dependen del sistema~(un proceso llamado \textit{unfolding}),\janote{,}
-con el objeto de estudiar únicamente las propiedades estadísticas universales relativas al espectro~\cite{tekur2018higher}. \janote{Siento que toda esta primera parte está contada de forma muy básica. Te hace falta definir con ecuaciones los espacimientos}
+\janote{Acá dejá respirar lo que acabas de contar, agregá uno o dos enunciados para contar qué es lo importante del Wigner surmise, repulsión de niveles contra el level clustering de sistemas con estadística de Poisson. O sea, el sistema tiene correlaciones en su espectro cuando es caótico... bla bla}
+Sin embargo,
+%\janote{,} 
+en la práctica, la distribución de espaciamientos de niveles debe de ser computada despues de remover las características espectrales que dependen del sistema~(un proceso llamado \textit{unfolding}),
+%\janote{,}
+con el objeto de estudiar únicamente las propiedades estadísticas universales relativas al espectro~\cite{tekur2018higher}. 
+%\janote{Siento que toda esta primera parte está contada de forma muy básica. Te hace falta definir con ecuaciones los espacimientos}
 Estas dificultades pueden ser eludidas considerando la cantidad propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}, la cual no depende de la densidad local de estados y a consecuencia no requiere unfolding~\cite{tekur2018higher}.
 
+\janote{El primer enunciado de cada párrafo debería funcionar como un enunciado introductorio que contenga la idea principal de lo que se trata el párrafo. A este párrafo le hace falta ese enunciado, agregalo}
 Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano y el espaciamiento consecutivo de niveles de energía como 
-$s_n=E_{n+1}-E_{n}$, se define la cantidad~\cite{oganesyan2007localization}:
+$s_n=E_{n+1}-E_{n}$\janote{Esto ya lo definiste, hacé referencia a tu ecuación arriba}, se define la cantidad~\cite{oganesyan2007localization} \janote{por aquí introducí la $r$ como los \textit{cocientes de espaciamientos de niveles}}:
 \begin{equation}\label{eq:r}
 	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
 \end{equation}
-Estudiando la distribución de probabilidad asociada a las $r$'s, es posible determinar si la configuración está en una configuración integrable 
-o caótico y es de tener presente la forma análitica de la distribución de probabilidad de $r$ del ensabamble GOE y de Poisson.\snnote{Se ha agregado más información.}\janote{Otra razón por la que falta el punte conceptual del principio: aquí ya estás asumiendo que caos es RMT, pero no lo has dicho}.
+Estudiando la distribución de probabilidad asociada a las \janote{\sout{$r$'s} cocientes de espaciemientos. Corregilo en todo el documento}, es posible determinar si la configuración está en una configuración integrable 
+o caótica y es de tener presente la forma análitica de la distribución de probabilidad de $r$ del ensabamble GOE y de Poisson.
+%\snnote{Se ha agregado más información.}\janote{Otra razón por la que falta el punte conceptual del principio: aquí ya estás asumiendo que caos es RMT, pero no lo has dicho}.
 La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
 \begin{equation}
     \label{eq:goe}
@@ -172,25 +229,23 @@ Y la distribución asociada a Poisson es de la forma~\cite{Atas_2013}:
     \label{eq:poi}
     P_{\text{Poisson}}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}}).
 \end{equation}
-Con estas expresiones es posible extraer un $\ev{r}$ característico de cada distribución, es decir, obtenemos el primer momento de la distribución de probabilidad de las $r$'s.
+Con estas expresiones es posible extraer un \janote{valor promedio} $\ev{r}$ característico de cada distribución, es decir, obtenemos el primer momento de la distribución de probabilidad de las $r$'s.
 En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013} 
 y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$~\cite{Atas_2013}. 
-Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para GOE una repulsión de los valores propios mientras que para poisson se observa que la probabilidad de tener dos valores propios iguales es no nula.
-
-\snnote{Ha sido modificado.}\janote{Me parece que en esta sección hace falta comparar y contrastar las diferencias de las distribuciones, cuáles son esas \textit{signaturas} que tanto mencionaste, pero nunca dijiste cuáles eran...}
+Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para GOE una repulsión de los valores propios mientras que para poisson se observa que la \janote{densidad de} probabilidad de tener dos valores propios iguales es no nula. \janote{El último enunciado está desconectado del resto del párrafo. Movelo a inmediatamente después de la \eqref{eq:poi}. El resto de discusión que está antes arreglalo para volverlo un sólo párrafo.}
 
 \subsection{Divergencia de Kullback-Leibler}
-\snnote{He agregado más cosas.}\janote{Esta sección está muy escueta. Debería quedar claro con esta sección porqué queremos ver la KL divergence además de la r}\janote{Además, también nos interesa ver resultados de la KL de la distribución numérica con la distribución de Poisson}
+\janote{F, sigue muy escueta. Comenzás directamente con la definición; hacé una introducción para motivar el uso de la KL divergence}\snnote{He agregado más cosas.}\janote{Esta sección está muy escueta. Debería quedar claro con esta sección porqué queremos ver la KL divergence además de la r}\janote{Además, también nos interesa ver resultados de la KL de la distribución numérica con la distribución de Poisson}
 Conocida también como entropía relativa, es una medida que cuantifica cuánto se aleja una 
 distribución de probabilidad $P$ de una distribución de referencia $Q$~\cite{kullback1951information}.
 La expresión general viene dada por:
     \begin{equation}
     KL(P,P_{Q}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{\text{Q}}(x)} \right) \, dx.
     \end{equation}
-En este trabajo considera la distribución de probabilidad de las $r$'s dadas según \eqref{eq:r} y se compara con las expresiones analíticas dadas según \eqref{eq:poi} y \eqref{eq:goe}.
+En este trabajo considera la distribución de probabilidad de las \janote{\sout{$r$'s} cocientes de espaciamientos} dadas según \janote{la ecuación~}\eqref{eq:r}\janote{Corregilo en el restol documento} y se compara con las expresiones analíticas dadas según \eqref{eq:poi} y \eqref{eq:goe}.
 A diferencia del indicador $\ev{r}$, que analiza únicamente el primer momento de la distribución, la divergencia $KL$ compara las dos distribuciones de probabilidad punto a punto, este detalle es importante puesto que,
- limitándose a solo estudiar el primer momento de la distribución podría ser insuficiente, en vista de que existen distribuciones de probabilidad \textit{distintas} que pueden tener el mismo primer momento.
- En cierta forma, la entropía relativa es un indicador más robusto que $\ev{r}$ y para este trabajo se decidió usar ambos.
+ limitándose a solo estudiar el primer momento de la distribución podría ser insuficiente, en vista de que existen distribuciones de probabilidad \textit{distintas} que pueden tener el mismo primer momento. \janote{Agregá un ejemlo de dos distribuciones en donde suceda esto. Investiga con gemini}
+ En cierta forma\janote{especificá en qué forma o cambiá el wording}, la entropía relativa es un indicador más robusto que $\ev{r}$ y para este trabajo se decidió usar ambos.
 \section{Resultados:}
 \textit{Para diferentes valores de $J/U$, dejando a $U=1$, se calcularon los respectivos hamiltonianos de Bose Hubbard y se obtuvieron los respectivos sectores simétrico y antisimétrico. Para cada el simétrico de cada instancia creada se calculó su $\ev{r}$ y $KL$ asociados.}
 \subsection{Para el sector simétrico}
