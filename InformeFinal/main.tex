@@ -91,6 +91,8 @@ doi=false
     \vspace{0.5cm}
 \end{titlepage}
 \section{Introducción}
+\janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
+
 El caos cuántico juega un papel central en la investigación de sistemas complejos de muchas partículas, por ejemplo para el estudio de los espaciamiento de los niveles de energía en los núcleos de átomos pesados~\cite{Wigner1955}.
 Por un lado el trabajo pionero de Berry y Tarbor establece que para hamiltonianos cuánticos cuya contraparte clásica es integrable, la estadística de los niveles de energía sigue una ley de Poisson~\cite{BerryTabor1977}, 
 por otro lado, el trabajo de Bohigas, Giannoni y Schmit establece que para sistemas cuánticos cuya contraparte clásica es caótica, la estadística de los niveles de energía sigue la estadística de alguno de los ensambles de la teoría de matrices aleatorias~\cite{Bohigas_1984}.
@@ -235,6 +237,7 @@ y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0
 Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para GOE una repulsión de los valores propios mientras que para poisson se observa que la \janote{densidad de} probabilidad de tener dos valores propios iguales es no nula. \janote{El último enunciado está desconectado del resto del párrafo. Movelo a inmediatamente después de la \eqref{eq:poi}. El resto de discusión que está antes arreglalo para volverlo un sólo párrafo.}
 
 \subsection{Divergencia de Kullback-Leibler}
+\label{sec:kl_divergence}
 \janote{F, sigue muy escueta. Comenzás directamente con la definición; hacé una introducción para motivar el uso de la KL divergence}\snnote{He agregado más cosas.}\janote{Esta sección está muy escueta. Debería quedar claro con esta sección porqué queremos ver la KL divergence además de la r}\janote{Además, también nos interesa ver resultados de la KL de la distribución numérica con la distribución de Poisson}
 Conocida también como entropía relativa, es una medida que cuantifica cuánto se aleja una 
 distribución de probabilidad $P$ de una distribución de referencia $Q$~\cite{kullback1951information}.
@@ -247,7 +250,12 @@ A diferencia del indicador $\ev{r}$, que analiza únicamente el primer momento d
  limitándose a solo estudiar el primer momento de la distribución podría ser insuficiente, en vista de que existen distribuciones de probabilidad \textit{distintas} que pueden tener el mismo primer momento. \janote{Agregá un ejemlo de dos distribuciones en donde suceda esto. Investiga con gemini}
  En cierta forma\janote{especificá en qué forma o cambiá el wording}, la entropía relativa es un indicador más robusto que $\ev{r}$ y para este trabajo se decidió usar ambos.
 \section{Resultados:}
+\janote{No tiene sentido tener una sección de resultados y otra de discusión de resultados. Fusioná ambas en una sóla sección de resultados}
+
 \textit{Para diferentes valores de $J/U$, dejando a $U=1$, se calcularon los respectivos hamiltonianos de Bose Hubbard y se obtuvieron los respectivos sectores simétrico y antisimétrico. Para cada el simétrico de cada instancia creada se calculó su $\ev{r}$ y $KL$ asociados.}
+\janote{El último enunciado está mal redactado, arreglalo}
+\janote{Por qué está esto en cursiva?}
+
 \subsection{Para el sector simétrico}
 \begin{figure}[H]
     \centering
@@ -262,19 +270,18 @@ A diferencia del indicador $\ev{r}$, que analiza únicamente el primer momento d
     Los colores claros hacen referencia a la $KL$ tomando como distribución de referencia a GOE mientras que los colores oscuros hacen referencia a la KL tomando como distribución de referencia a Poisson.}
 \end{figure}
 \section{Discusión de resultados:}
-El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de 
-    $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística del cociente del espaciamiento de los niveles de energía, en esa región de parámetros, sigue la estadística del ensamble GOE.
-Asimismo el indicador estadístico de la divergencia Kullback Leibler muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros, 
-la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE. Además, se observa una transición a integrabilidad tanto para valores de $J/U$ que tienden a 0 como a $\infty$, sin embargo, la estadía en integrabilidad no presiste a medida que $J/U$ tiende a 0 a $\infty$.
-Para justificar porque no se persiste en Poisson a medida que $J/U \rightarrow 0$, note que el término proporcional a $U$ pasa a ser cada vez más significativo, es decir, eventualmente el sistema tiende a depender solo de $U$,
-a consecuencia los estados propios del hamiltonoiano son la base Fock, la energía de cada configuración viene dada por la distribución de bosones en cada sitio,
- y por tanto la distribución de probabiliad del cociente de espaciamientos de niveles de energía no necesariamente es uniforme. Similarmente sucede cuando $J/U \rightarrow \infty$, el término proporcional a $J$ domina, la función de onda del sistema debe anularese en los bordes por las condiciones de frontera, por lo que los estados propios pueden ser pensados como ondas estacionarias situadas en los extermos de la cadena de longitud $L$
- y la distribución de los nivels de energía no necesariamente es uniforme.
-  Sin embargo, es importante notar que \textit{existen} valores de $J/U$ para los cuales se aproxima suficientemente bien a Poisson y dicha correspondencia parece persistir para intervalos de $J/U$ cada vez mayores a medida que el tamaño de la cadena aumenta.
+El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística del cociente del espaciamiento de los niveles de energía, en esa región de parámetros, sigue la estadística del ensamble GOE\janote{Mal. Si este es el enunciado que cuenta de qué se va a tratar el resto del párrafo, significa que estás orientando la discusión a la caracterización del caos, pero tu objetivo es caracterizar \textbf{la transición} caos-regularidad}.
+Asimismo el indicador estadístico de la divergencia Kullback Leibler\janote{Kullback-Leibler} muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros\janote{Esto es algo que no se puede entender de tu marco teórico, porque no está explicado en la Sec.~\ref{sec:kl_divergence}. Agregalo}, la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE\janote{En este punto sería bueno expandir y dejar respirar. Sugiero que agregués una(s) figura(s) con la distribución númerica de la $P(r)$ para algunos valores en ese intervalo caótico y así convencer al lector de este punto que estás diciendo que es lo que dice tu gráfica de la KL divergence}. Además, se observa una transición a integrabilidad tanto para valores de $J/U$ que tienden a 0 como a $\infty$, sin embargo, la estadía en integrabilidad no presiste a medida que $J/U$ tiende a 0 a $\infty$\janote{``..a medida que $J/U$ tiende a 0 a $\infty$'' Mala redacción, corregí}.
+Para justificar porque no se persiste en Poisson\janote{Esto ya es otra idea, hacelo otro párrafo} a medida que $J/U \rightarrow 0$, note que el término proporcional a $U$ pasa a ser cada vez más significativo, es decir, eventualmente el sistema tiende a depender solo de $U$,
+a consecuencia los estados propios del hamiltonoiano son la base \janote{de} Fock, la energía de cada configuración viene dada por la distribución de bosones en cada sitio, y por tanto la distribución de probabiliad del cociente de espaciamientos de niveles de energía no necesariamente es uniforme\janote{No dijiste nada, por qué la distribución de los cocientes no es uniforme? Explicalo.} \janote{Enunciado extremadamente largo, con más de una idea. Partilo}. Similarmente sucede cuando $J/U \rightarrow \infty$, el término proporcional a $J$ domina, la función de onda del sistema debe anularese en los bordes por las condiciones de frontera\janote{??? Esto suena a que está, cuando menos, mal formulado, pero más importante aún: no veo porqué es relevante}, por lo que los estados propios pueden ser pensados como ondas estacionarias situadas en los extermos de la cadena de longitud $L$
+ y la distribución de los nivels de energía no necesariamente es uniforme \janote{Tenés varios typos. Pasalo por el check spelling}. \janote{Toca que discutamos los límites. Las explicaciones son insuficientes} Sin embargo, es importante notar que \textit{existen} valores de $J/U$ para los cuales se aproxima suficientemente bien a Poisson y dicha correspondencia parece persistir para intervalos de $J/U$ cada vez mayores a medida que el tamaño de la cadena aumenta \janote{Otra idea que ya no tiene nada que ver con lo que venía antes en el párrafo. Debería ser otro párrafo}.
 
-En ambos indicadores estadísticos es notable que a medida que crece el espacio de Hilbert, la misma región de parámetros identificada como caótica se sigue observando, lo cual es consistente con lo discutido en~\cite{Pausch2022}.
+\janote{Este párrafo igual admite que expandás, la idea es valiosa pero está escueto}
+En ambos indicadores estadísticos es notable que a medida que crece el espacio de Hilbert, la misma región de parámetros identificada como caótica se sigue observando, lo cual es consistente con lo discutido en\janote{ la Ref.}~\cite{Pausch2022}.
 También es observado que para ciertos valores de $J/U$ el sistema exhibe integrabilidad y se espera que para $J/U \rightarrow \infty$ ó $J/U \rightarrow 0$ el sistema tienda a integrabilidad.
 \section{Conclusiones}
+\janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
+
 Los dos indicadores estadísticos presentados muestran que existe una región de parámetros para la cual el modelo de Bose Hubbard es caótico (según la conjetura BGS~\cite{Bohigas_1984}), además se verifica que a medida que la dimensionalidad del espacio de Hilbert incrementa, se sigue observando la región característica de caos.
 Es notable que ambos indicadores, que toman en cuenta únicamente las correalciones de corto alcance, permitan observar y caracterizar el caos cuántico, sin embargo es de mencionar que para ello es necesario obtener algún sector de simetría, proceso el cual presenta sus dificultades. 
 Es de interés hacerse la pregunta de si es \textit{suficiente} que se observe caos únicamente mediante correlaciones de corto alcance, sin tomar en cuenta las correlaciones de orden superior (espaciamientos de orden superior por ejemplo).
