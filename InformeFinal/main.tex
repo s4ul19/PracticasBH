@@ -10,7 +10,7 @@
   size=\small,            % \tiny, \scriptsize, \footnotesize, \small, \normalsize, etc.
   tickmarkheight=10mm,     % Height of margin marker
 }
-
+\usepackage{subcaption}
 \usepackage[T1]{fontenc}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -77,7 +77,7 @@ doi=false
     \vspace{1.5cm}
     
     {\Large\textit{Saúl Nájera Allara} \par}
-    {\janote{Agregué aquí mi nombre. Borrá este comentario cuando lo veás }\Large\textit{Asesor: M.Sc. José Alfredo de León} \par}
+    {\Large\textit{Asesor: M.Sc. José Alfredo de León} \par}
     
     \vspace{3cm}
     
@@ -93,15 +93,21 @@ doi=false
 \section{Introducción}
 \janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
 
-El caos cuántico juega un papel central en la investigación de sistemas complejos de muchas partículas, por ejemplo para el estudio de los espaciamiento de los niveles de energía en los núcleos de átomos pesados~\cite{Wigner1955}.
-Por un lado el trabajo pionero de Berry y Tarbor establece que para hamiltonianos cuánticos cuya contraparte clásica es integrable, la estadística de los niveles de energía sigue una ley de Poisson~\cite{BerryTabor1977}, 
-por otro lado, el trabajo de Bohigas, Giannoni y Schmit establece que para sistemas cuánticos cuya contraparte clásica es caótica, la estadística de los niveles de energía sigue la estadística de alguno de los ensambles de la teoría de matrices aleatorias~\cite{Bohigas_1984}.
-Los tres ensambles clásicos son: Gaussiano ortogonal (GOE), Gaussiano unitario (GUE), Gaussiano simpléctico (GSE). Cada uno de ellos satisface ciertas simetías particulares~\cite{mehta2004random}.
-Entonces, en un contexto cuántico, la potencial emergencia de caos para cierta región de parámetros de un hamiltoniano puede ser determinada comparando la estadística de su espectro de valores propios respecto a alguno de los ensambles de RMT, además la existencia de una región caótica es validada con su persistencia a medida que el número de partículas incrementa~\cite{Pausch2022}.
-Este trabajo investiga un hamiltoniano de un sistema cerrado con simetría ante inversión temporal (simetría característica que satisface el ensamble GOE~\cite{mehta2004random}), se identifica en que regiones existe caos cuántico basándose en dos indicadores estadísticos importantes en la literatura y se analiza como esta región de caos es afectada a medida que la dimensionalidad del espacio de Hilbert del sistema aumenta.
+El estudio del caos cuántico en sistemas de muchos cuerpos es un área de investigación que sido retomada en estos últimos años en vista de una mayor capacidad computacional a disposición,
+ dicho estudi es importante para comprender fenómenos como la termalización y la localización en sistemas cuánticos aislados~\cite{Zhang2010}. 
+ Las firmas del caos cuántico se buscan en las propiedades estadísticas del espectro de energías del sistema hamiltoniano a considerar.
+
+Según la conjetura de Bohigas-Giannoni-Schmit (BGS), las fluctuaciones espectrales de un sistema cuántico cuyo análogo clásico es caótico exhiben repulsión de niveles y sus propiedades estadísticas coinciden con las predicciones de la Teoría de Matrices Aleatorias (RMT)~\cite{Bohigas_1984}. Por el contrario, los sistemas integrables presentan espectros incorrelacionados que siguen una estadística de Poisson, permitiendo la agrupación de niveles o level clustering~\cite{BerryTabor1977}.
+
+El modelo de Bose-Hubbard unidimensional es un sistema útil en este contexto.
+ Además de su relevancia teórica para describir bosones sin espín en una red, este modelo es de interés experimental debido a su realización mediante átomos ultrafríos confinados en redes ópticas~\cite{Jaksch1998,greiner2002quantum}. Al modular la profundidad de estas redes, es posible controlar el balance entre la energía cinética (tunelaje) y la energía de interacción de las partículas, permitiendo explorar distintas fases dinámicas~\cite{Jaksch1998,greiner2002quantum}.
+
+El presente trabajo tiene como objetivo caracterizar la transición entre los regímenes de integrabilidad y caos cuántico en el modelo de Bose-Hubbard con condiciones de frontera abiertas.
+ Asimismo, para realizar una comparación rigurosa de las distribuciones empíricas frente a las predicciones teóricas de los ensambles ortogonales gaussianos (GOE) y de Poisson, se implementa dos indicadores estadísticos utilizados en la literatura.
+
 \section{Marco Teórico}
 \subsection{El modelo de Bose Hubbard}
-Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. Este modelo describe la dinámica de $N$ bosones sin espín
+Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. El modelo describe la dinámica de $N$ bosones sin espín
 %\snnote{listo.}\janote{espín*, cambialo aquí y en el resto de ocurrencias en este documento} 
 en una cadena 
 %\snnote{ Listo.}\janote{cambiá la palabra latice (es lattice) por su traducción al expañol y no usés anglicismos} 
@@ -111,7 +117,7 @@ El hamiltoniano
 del sistema con $\hbar=1$, viene dado por~\cite{Zhang2010}:
 \begin{equation}\label{eq:H:BH}
 \hat{H}
-= -J \sum_{i=1}^{L} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right)
+= -J \sum_{i=1}^{L-1} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right)
 + \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
 \linelabel{l3}
@@ -129,35 +135,50 @@ El primer término,
 %\janote{,}
 proporcional a $J$,
 %\janote{,} 
-es la parte cinética del Hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término,
+es la parte cinética del hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término,
 %\janote{,} 
 proporcional a $U$,
 %\janote{,} 
 describe la interacción entre las partículas en un mismo sitio~\cite{Zhang2010}.
-%\snnote{Decidí quitar por completo eso, en efecto, era redundante.}\janote{La redacción de este enunciado está rara, suena redundante que ``proporcional a $U$'' y ``viene regulada por $U$''. \textit{regulada} no es una buena elección de palabra, quizás mejor \textit{modulada}}. 
-
-\janote{El texto entre las líneas \lineref{l1} y \lineref{l2} sólo son enunciados sueltos y están desconectados del resto del texto. Los tenés que incluir y amarrar con el resto del marco teórico. Una forma de hacerlo sería integrar estos enunciados al enunciado de la línea \lineref{l3}. Pero pensalo y decidí qué hacer}\\
-\linelabel{l1} 
-La base sobre la cual se representa el hamiltoniano es la base de \janote{\sout{número de}} ocupación (o base de \textit{Fock})\janote{no es \textit{la} base, sólo \textit{una} base. Cambialo}, $\{{\ket{n_1,\dots,n_L}}\}$, donde $n_m$ es el número de sitios en el m-ésimo sitio\janote{m tiene que ir entre \$\$}.
-%\snnote{Se cambió de lugar}\janote{Este último enunciado debería irse para arriba, a donde sugerí lo de la definición matemática del operador número}
-
+Para representar la matriz de este hamiltoniano se escoge una base de ocupación (o base de \textit{Fock}), etiquetando los elementos de la base mediante kets de la forma  $\{{\ket{n_1,\dots,n_L}}\}$, siendo cada $n_i$ el número de partículas en el $i$-ésimo sitio.
 La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\cite{Zhang2010}:
 \begin{equation}
+\label{eq:num}
 \hat{n}_i\ket{n_1,\dots,n_L}=n_i\ket{n_1,\dots,n_L}.
 \end{equation}
 y se tiene la restricción de que $\sum_{i=1}^{L}n_i=N$.
-
-También es de utilidad la relación~\cite{Zhang2010}:
+Para el cómputo de la matriz de $\hat{H}$ es de utilidad la siguiente relación~\cite{Zhang2010}:
 \begin{equation}
-a_{i}^{\dagger}a_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_L}.
+\hat{a}_{i}^{\dagger}\hat{a}_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_i+1,\cdots,n_j-1,\cdots,n_L}.
 \end{equation}
-\janote{faltan los gorritos a los operadores}
+%\snnote{Decidí quitar por completo eso, en efecto, era redundante.}\janote{La redacción de este enunciado está rara, suena redundante que ``proporcional a $U$'' y ``viene regulada por $U$''. \textit{regulada} no es una buena elección de palabra, quizás mejor \textit{modulada}}. 
+
+\snnote{listo.}\janote{El texto entre las líneas \lineref{l1} y \lineref{l2} sólo son enunciados sueltos y están desconectados del resto del texto. Los tenés que incluir y amarrar con el resto del marco teórico. Una forma de hacerlo sería integrar estos enunciados al enunciado de la línea \lineref{l3}. Pero pensalo y decidí qué hacer}\\
+\linelabel{l1} 
+%La base sobre la cual se representa el hamiltoniano es la base de \janote{\sout{número de}} ocupación (o base de \textit{Fock})\janote{no es \textit{la} base, sólo \textit{una} base. Cambialo}, $\{{\ket{n_1,\dots,n_L}}\}$, donde $n_m$ es el número de sitios en el $m$-ésimo sitio.\snnote{listo}\janote{m tiene que ir entre \$\$}
+%\snnote{Se cambió de lugar}\janote{Este último enunciado debería irse para arriba, a donde sugerí lo de la definición matemática del operador número}
+
+%La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\cite{Zhang2010}:
+%\begin{equation}
+%\hat{n}_i\ket{n_1,\dots,n_L}=n_i\ket{n_1,\dots,n_L}.
+%\end{equation}
+%y se tiene la restricción de que $\sum_{i=1}^{L}n_i=N$.
+
+%También es de utilidad la relación~\cite{Zhang2010}:
+%\begin{equation}
+%a_{i}^{\dagger}a_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_L}.
+%\end{equation}
+\snnote{listo.}\janote{faltan los gorritos a los operadores}
 \linelabel{l2}
 
-Este hamiltoniano tiene dos simetrías importantes, la primera simetría es debida a que la dinámica del sistema es la misma independientemente de la orientación del tiempo, sea que avance o que retroceda y la segunda simetría es debida a que la dinámica del sistema es invariante ante una reflexión de la cadena alrededor de su centro, es decir, daría lo mismo ver el sistema a través del reflejo de un espejo perpendicular a la red y situado en uno de sus vértices que verlo directamente. 
-\janote{F: 1) estás poniendo al mismo nivel ambas simetrías y conceptualmente son simetrías de diferente tipo. Mientras la simetría respecto al operador de reflexión tiene una cantidad conservada (la paridad), la TRS no tiene cantidades conservadas asociadas. 2) te falta mencionar la simetría que da lugar a la conservación del número de bosones. Te toca reescribir todo lo que sigue porque tenés que separar conceptualmente las simetrías}
+Este hamiltoniano presenta un conjunto de simetrías importantes, de las cuales se distinguen las simetrías que dan lugar a cantidades conservadas y están representadas por operadores unitarios de aquellas que no cuentan con cantidades conservadas y están representadas por operadores antiunitarios.
+Por un lado, el sistema cuenta con dos simetrías unitarias con cantidades conservadas asociadas; la primera una simetría de fase global aplicada a los operadores de creación y aniquilación, es responsable de la conservación del número total de bosones en el sistema~\cite{Zhang2010} y la segunda es una simetría de reflexión espacial, donde la dinámica de la red es invariante ante una reflexión de la cadena alrededor de su centro, la cantidad conservada asociada es la paridad y permite clasificar los estados del sistema en pares e impares~\cite{Zhang2010}.
+Por otro lado, el sistema cuenta con una simetría antiunitaria, la invarianza ante inversión temporal (TRS), la dinámica es invariante a la orientación del tiempo, no tiene cantidad conservada, sin embargo esta simetría fuerza a que la matriz del hamiltoniano sea simétrica y con entradas reales.
+%Este hamiltoniano cuenta con varias simetrías; la de reversión temporal (time-reversal invariance) simetría es debida a que la dinámica del sistema es la misma independientemente de la orientación del tiempo, sea que avance o que retroceda y la segunda simetría es debida a que la dinámica del sistema es invariante ante una reflexión de la cadena alrededor de su centro, es decir, daría lo mismo ver el sistema a través del reflejo de un espejo perpendicular a la red y situado en uno de sus vértices que verlo directamente. 
+\snnote{He reescrito esta sección.}\janote{F: 1) estás poniendo al mismo nivel ambas simetrías y conceptualmente son simetrías de diferente tipo. Mientras la simetría respecto al operador de reflexión tiene una cantidad conservada (la paridad), la TRS no tiene cantidades conservadas asociadas. 2) te falta mencionar la simetría que da lugar a la conservación del número de bosones. Te toca reescribir todo lo que sigue porque tenés que separar conceptualmente las simetrías}
 \snnote{Traté de describir las simetrías con intuiciones físicas.}\janote{Redactá mejor este enunciado. Como es un enunciado introductorio, no le dice nada al lector que tenga una simetría respecto a un operador que se llama reflexión. Introducilo sin cosas técnicas, tipo tiene reflexión respecto una operación que refleja espacialmente la cadena respecto al centro, algo así} 
-Matemáticamente, se define el operador reflexión, $\hat{R}$, según su acción sobre la base de \textit{Fock}, la cual está dada por la relación~\cite{delacruz2020quantum}:
+
+Matemáticamente, se define el operador reflexión espacial, $\hat{R}$, según su acción sobre la base de \textit{Fock}, la cual está dada por la relación~\cite{delacruz2020quantum}:
 \begin{equation}
 \hat{R}\ket{n_1,n_2,\cdots,n_L}=\ket{n_L,n_{L-1},\cdots,n_1}.
 \end{equation}
@@ -168,57 +189,67 @@ si $H$ es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,
 \begin{equation}
     H=H^{+}\oplus H^{-}.
 \end{equation}
-Una de las consecuencias de la simetría ante inversión temporal es que la matriz del hamiltoniano es simétrica ($\hat{H}=\hat{H}^{T}$) y sus elementos son números reales.
 %\snnote{listo}\janote{Te falta un punto en la ecuación, al final.}\snnote{Agregado.}\janote{No hablaste nada de la simetría de inversión temporal.. falta}
 La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios
 %\janote{Aquí cambiaste la notación de sitios. Empezaste llamandole $L$ y ahora es $m$, cuál va a ser? Sé consistente con la notación} 
 crece combinatóricamente bajo la relación~\cite{Zhang2010}:
 \begin{equation}
-D=\frac{(n+m-1)!}{n!(m-1)!}.
+D=\frac{(N+L-1)!}{ N!(L-1)!}.
 \end{equation}
 %\janote{el punto}
-\janote{Incosistencia en la notación: debería ser $N$ y $L$, no $n$ y $m$, respectivamente}
-
-\janote{Agregá un párrafo para discutir la relevancia experimental de este modelo}
+\snnote{Arreglado.}\janote{Incosistencia en la notación: debería ser $N$ y $L$, no $n$ y $m$, respectivamente}
+El modelo de Bose Hubbard es una de las descripciones más simple de un conjunto de bosones sin espín en una red~\cite{delacruz2020quantum} y fue el primer modelo en ser realizado experimentalmente
+mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{greiner2002quantum,Jaksch1998}, en donde se fue capaz de modular el cociente $\frac{U}{J}$ aumentando la intensidad del láseres de la red óptica~\cite{greiner2002quantum,Jaksch1998},
+ y pudo ser vista una transición de fase cuántica entre una fase de superfluidez (deslocalización de átomos) y una fase de aislante de Mott ( átomos localizdos en un sitio dado)~\cite{greiner2002quantum}, 
 
 \subsection{Mean spacing Ratio}
-\janote{El primer párrafo de esta sección contiene, por lo menos, dos ideas: la noción de caos cuántico y el espaciamiento de niveles. Separalo y agregá lo que sea necesario si algún párrafo queda escueto (posiblemente, el segundo)}
+\snnote{Listo.}\janote{El primer párrafo de esta sección contiene, por lo menos, dos ideas: la noción de caos cuántico y el espaciamiento de niveles. Separalo y agregá lo que sea necesario si algún párrafo queda escueto (posiblemente, el segundo)}
 
-Los ensambles de matrices aleatorias poseen propiedades estadísticas universales en su espectro de valores propios,
-%\snnote{Cambiado.}\janote{signaturas en qué? entre los elementos de matriz? en el espectro?}
-y es mediante indicadores estadísticos que es posible examinar estas propiedades espectrales.
-Según la conjetura BGS, estudiando la correspondencia de la estadística de niveles de energía del hamiltoniano con algún ensabamble de RMT es posible determinar la existencia de caos cuántico y gracias a la conjetura de Berry-Tarbor es posible determinar si un sistema es integrable analizando si el espectro de energías sigue una ley de Poisson
-\janote{mala redacción de este enunciado, reescribilo. Admite que se vuelvan dos enunciados distintos. También faltan citas}.
-El tipo de ensamble de RMT a comparar se escoge\janote{No \textit{se escoge}, más bien está determinado por las simetrías como la TRS} según las simetrías que satisface el hamiltoniano del sistema y para el presente trabajo, dicha simetría es la de inversión temporal, por lo que el ensabamble de RMT que se usará para analizar la estadística espectral de hamiltoniano será el GOE.
-%\snnote{Espero que con esto agregado sea un buen puente.}\janote{Aquí hiciste un gran salto en el que de la nada empezaste a hablar de caos. De alguna forma te toca modificar toda esta parte para hacer un puente conceptual en el que hablés de la noción de caos cuántico, para ir del BH y hablar del mean spacing ratio}.
-Históricamente,
-%\janote{,} 
-se ha empleado el indicador estadístico del espaciamiento de niveles a primeros vecinos~\cite{Bohigas_1984}\cite{BerryTabor1977}\janote{El formato apropiado para citar más de una referencia es \cite{Bohigas_1984,BerryTabor1977}, cambialo}. 
-%\snnote{listo.}\janote{primeos vecinos*}~\cite{Bohigas_1984}\cite{BerryTabor1977}.
+La noción de caos cuántico puede ser identificada a través de las fluctuaciones espectrales del espectro de energías del hamiltoniano y sus propiedades estadísticas. 
+Según la conjetura de Berry-Tabor~\cite{BerryTabor1977}, si el sistema clásico subyacente es integrable,
+ las fluctuaciones de los niveles de energía de su contraparte cuántica se comportan como variables aleatorias no correlacionadas, siguiendo una distribución estadística de Poisson. 
+ Por otro lado, la conjetura de Bohigas-Giannoni-Schmit (BGS)~\cite{Bohigas_1984} establece que el espectro de energías de los sistemas cuánticos caóticos exhibe repulsión entre los niveles de energía y sus propiedades estadísticas universales coinciden con las de alguno de los ensambles de la teoría de matrices aleatorias (RMT).
+ Para el presente trabajo, el sistema conserva la simetría de inversión temporal (TRS), por lo que la estadística espectral del sistema, de estar en un régimen caótico, estaría descrita por el ensamble ortogonal gaussiano (GOE)~\cite{mehta2004random}.
+
+Para estudiar las propiedades espectrales del sistema, son empleados indicadores estadísticos.
+ Históricamente, uno de los indicadores más utilizados para este propósito ha sido la distribución del espaciamiento de niveles a primeros vecinos~\cite{BerryTabor1977, Bohigas_1984,Wigner1955}.
+  A partir del espectro de valores propios ordenados $\{ E_n \}$, el espaciamiento se define como:
 \begin{equation}
-    s_n=E_{n+1}-E_n.
+    s_n = E_{n+1} - E_n.
+    \label{eq:spacings}
 \end{equation}
-Siendo $\{ E_n\}$ el espectro de valores propios ordenados. Para el ensamble de RMT, el gaussiano ortogonal, la predicción analítica de Wigner~\cite{Wigner1955} acerca de la distribución de probabilidad de los espaciamientos de nivel del GOE ha sido de especial interés:
+En el contexto del ensamble GOE, que describe el régimen caótico del sistema de el trabajo presente, la predicción analítica de Wigner~\cite{Wigner1955} ha sido de especial interés. Wigner propuso que la distribución de probabilidad de los espaciamientos normalizados se aproxima a:
 \begin{equation}
-P(s) = \frac{\pi}{2} s \exp\left(-\frac{\pi}{4} s^2\right).
+    P(s) = \frac{\pi}{2} s \exp\left(-\frac{\pi}{4} s^2\right).
 \end{equation}
+Esta distribución ilustra la repulsión de niveles ($P(s) \to 0$ cuando $s \to 0$).
+
+\snnote{Lo he reescrito.}\janote{mala redacción de este enunciado, reescribilo. Admite que se vuelvan dos enunciados distintos. También faltan citas}.
+
 \janote{Acá dejá respirar lo que acabas de contar, agregá uno o dos enunciados para contar qué es lo importante del Wigner surmise, repulsión de niveles contra el level clustering de sistemas con estadística de Poisson. O sea, el sistema tiene correlaciones en su espectro cuando es caótico... bla bla}
-Sin embargo,
-%\janote{,} 
-en la práctica, la distribución de espaciamientos de niveles debe de ser computada despues de remover las características espectrales que dependen del sistema~(un proceso llamado \textit{unfolding}),
-%\janote{,}
-con el objeto de estudiar únicamente las propiedades estadísticas universales relativas al espectro~\cite{tekur2018higher}. 
-%\janote{Siento que toda esta primera parte está contada de forma muy básica. Te hace falta definir con ecuaciones los espacimientos}
-Estas dificultades pueden ser eludidas considerando la cantidad propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}, la cual no depende de la densidad local de estados y a consecuencia no requiere unfolding~\cite{tekur2018higher}.
-
 \janote{El primer enunciado de cada párrafo debería funcionar como un enunciado introductorio que contenga la idea principal de lo que se trata el párrafo. A este párrafo le hace falta ese enunciado, agregalo}
-Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano y el espaciamiento consecutivo de niveles de energía como 
-$s_n=E_{n+1}-E_{n}$\janote{Esto ya lo definiste, hacé referencia a tu ecuación arriba}, se define la cantidad~\cite{oganesyan2007localization} \janote{por aquí introducí la $r$ como los \textit{cocientes de espaciamientos de niveles}}:
+%Sin embargo,
+%en la práctica, la distribución de espaciamientos de niveles debe de ser computada despues de remover las características espectrales que dependen del sistema~(un proceso llamado \textit{unfolding}),
+%con el objeto de estudiar únicamente las propiedades estadísticas universales relativas al espectro~\cite{tekur2018higher}. 
+%Estas dificultades pueden ser eludidas considerando la cantidad propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}, la cual no depende de la densidad local de estados y a consecuencia no requiere unfolding~\cite{tekur2018higher}.
+
+La importancia física de la distribución de Wigner es que pone en manifiesto la repulsión de niveles de energía, la probabilidad de encontrar dos niveles de energía degenerados o muy cercanos es nula ($P(s) \to 0$ cuando $s \to 0$). 
+Esto puede interpretarse como una existencia de correlaciones en el espectro.
+ Por otro lado, para un sistema integrable, los niveles de energía están incorrelacionados y no se repelen, sino que tienden a agruparse (\textit{level clustering}) dando lugar a una distribución estadística de Poisson~\cite{mehta2004random}.
+
+En la práctica, comparar directamente los espaciamientos $s_n$  con las distribuciones teóricas presenta dificultades debido a que
+ la densidad local de estados varía a lo largo del espectro de energía de manera dependiente de las características del sistema.
+  Por lo que la distribución de espaciamientos debe de ser computada después de remover las características espectrales que dependen específicamente del sistema mediante un procedimiento llamado \textit{unfolding}~\cite{tekur2018higher}.
+   Dado que el \textit{unfolding} presenta un problema en sí, estas dificultades pueden ser eludidas considerando una cantidad estadística alternativa propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}. 
+   Este indicador es la tasa de espaciamientos a primeros vecinos, la cual es adimensional, no depende de la densidad local de estados y, en consecuencia, no requiere \textit{unfolding}~\cite{tekur2018higher,oganesyan2007localization}.
+
+Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano y el espaciamiento consecutivo de niveles de energía según \eqref{eq:spacings}\snnote{listo}\janote{Esto ya lo definiste, hacé referencia a tu ecuación arriba},
+ se define el cociente de espacimiento de niveles~\cite{oganesyan2007localization}, $r_n$ \snnote{listo.}\janote{por aquí introducí la $r$ como los \textit{cocientes de espaciamientos de niveles}}:
 \begin{equation}\label{eq:r}
 	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
 \end{equation}
-Estudiando la distribución de probabilidad asociada a las \janote{\sout{$r$'s} cocientes de espaciemientos. Corregilo en todo el documento}, es posible determinar si la configuración está en una configuración integrable 
-o caótica y es de tener presente la forma análitica de la distribución de probabilidad de $r$ del ensabamble GOE y de Poisson.
+Estudiando la distribución de probabilidad asociada a los cocientes de espaciamiento de nivel \snnote{okay.}\janote{\sout{$r$'s} cocientes de espaciemientos. Corregilo en todo el documento}, es posible determinar si el sistema está en una configuración integrable 
+o caótica y es de tener presente la forma análitica de la distribución de probabilidad de los cocientes de espaciamiento de niveles del ensabamble GOE y de Poisson.
 %\snnote{Se ha agregado más información.}\janote{Otra razón por la que falta el punte conceptual del principio: aquí ya estás asumiendo que caos es RMT, pero no lo has dicho}.
 La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
 \begin{equation}
@@ -231,63 +262,180 @@ Y la distribución asociada a Poisson es de la forma~\cite{Atas_2013}:
     \label{eq:poi}
     P_{\text{Poisson}}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}}).
 \end{equation}
-Con estas expresiones es posible extraer un \janote{valor promedio} $\ev{r}$ característico de cada distribución, es decir, obtenemos el primer momento de la distribución de probabilidad de las $r$'s.
+Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para GOE una repulsión de los valores propios mientras que para poisson se observa que la densidad de  \snnote{listo.}\janote{densidad de} probabilidad de tener dos valores propios iguales es no nula. 
+Con estas expresiones es posible extraer un valor promedio\snnote{listo}\janote{valor promedio}, $\ev{r}$, para cada distribución, es decir, se obtiene el primer momento de la distribución de probabilidad de los cocientes de espaciamientos.
 En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013} 
 y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$~\cite{Atas_2013}. 
-Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para GOE una repulsión de los valores propios mientras que para poisson se observa que la \janote{densidad de} probabilidad de tener dos valores propios iguales es no nula. \janote{El último enunciado está desconectado del resto del párrafo. Movelo a inmediatamente después de la \eqref{eq:poi}. El resto de discusión que está antes arreglalo para volverlo un sólo párrafo.}
 
+\snnote{Ha sido movido.}\janote{El último enunciado está desconectado del resto del párrafo. Movelo a inmediatamente después de la~\eqref{eq:poi}. El resto de discusión que está antes arreglalo para volverlo un sólo párrafo.}
 \subsection{Divergencia de Kullback-Leibler}
 \label{sec:kl_divergence}
-\janote{F, sigue muy escueta. Comenzás directamente con la definición; hacé una introducción para motivar el uso de la KL divergence}\snnote{He agregado más cosas.}\janote{Esta sección está muy escueta. Debería quedar claro con esta sección porqué queremos ver la KL divergence además de la r}\janote{Además, también nos interesa ver resultados de la KL de la distribución numérica con la distribución de Poisson}
-Conocida también como entropía relativa, es una medida que cuantifica cuánto se aleja una 
-distribución de probabilidad $P$ de una distribución de referencia $Q$~\cite{kullback1951information}.
-La expresión general viene dada por:
-    \begin{equation}
-    KL(P,P_{Q}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{\text{Q}}(x)} \right) \, dx.
-    \end{equation}
-En este trabajo considera la distribución de probabilidad de las \janote{\sout{$r$'s} cocientes de espaciamientos} dadas según \janote{la ecuación~}\eqref{eq:r}\janote{Corregilo en el restol documento} y se compara con las expresiones analíticas dadas según \eqref{eq:poi} y \eqref{eq:goe}.
-A diferencia del indicador $\ev{r}$, que analiza únicamente el primer momento de la distribución, la divergencia $KL$ compara las dos distribuciones de probabilidad punto a punto, este detalle es importante puesto que,
- limitándose a solo estudiar el primer momento de la distribución podría ser insuficiente, en vista de que existen distribuciones de probabilidad \textit{distintas} que pueden tener el mismo primer momento. \janote{Agregá un ejemlo de dos distribuciones en donde suceda esto. Investiga con gemini}
- En cierta forma\janote{especificá en qué forma o cambiá el wording}, la entropía relativa es un indicador más robusto que $\ev{r}$ y para este trabajo se decidió usar ambos.
-\section{Resultados:}
-\janote{No tiene sentido tener una sección de resultados y otra de discusión de resultados. Fusioná ambas en una sóla sección de resultados}
+\snnote{Espero este mejor ahora.}\janote{F, sigue muy escueta. Comenzás directamente con la definición; hacé una introducción para motivar el uso de la KL divergence}\snnote{He agregado más cosas.}\janote{Esta sección está muy escueta. Debería quedar claro con esta sección porqué queremos ver la KL divergence además de la r}\janote{Además, también nos interesa ver resultados de la KL de la distribución numérica con la distribución de Poisson}
+\janote{Agregá un ejemlo de dos distribuciones en donde suceda esto. Investiga con gemini}
+%Conocida también como entropía relativa, es una medida que cuantifica cuánto se aleja una 
+%distribución de probabilidad $P$ de una distribución de referencia $Q$~\cite{kullback1951information}.
+%La expresión general viene dada por:
+ %   \begin{equation}
+  %  KL(P,P_{Q}) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{P_{\text{Q}}(x)} \right) \, dx.
+   % \end{equation}
+%En este trabajo considera la distribución de probabilidad de las \janote{\sout{$r$'s} cocientes de espaciamientos} dadas según \janote{la ecuación~}\eqref{eq:r}\janote{Corregilo en el restol documento} y se compara con las expresiones analíticas dadas según \eqref{eq:poi} y \eqref{eq:goe}.
+%A diferencia del indicador $\ev{r}$, que analiza únicamente el primer momento de la distribución, la divergencia $KL$ compara las dos distribuciones de probabilidad punto a punto, este detalle es importante puesto que,
+ %limitándose a solo estudiar el primer momento de la distribución podría ser insuficiente, en vista de que existen distribuciones de probabilidad \textit{distintas} que pueden tener el mismo primer momento. 
+ %En cierta forma\janote{especificá en qué forma o cambiá el wording}, la entropía relativa es un indicador más robusto que $\ev{r}$ y para este trabajo se decidió usar ambos.
 
-\textit{Para diferentes valores de $J/U$, dejando a $U=1$, se calcularon los respectivos hamiltonianos de Bose Hubbard y se obtuvieron los respectivos sectores simétrico y antisimétrico. Para cada el simétrico de cada instancia creada se calculó su $\ev{r}$ y $KL$ asociados.}
-\janote{El último enunciado está mal redactado, arreglalo}
-\janote{Por qué está esto en cursiva?}
+
+ Aunque el valor esperado $\langle r \rangle$ proporciona una forma de estudiar el espectro de energías, reducir toda la estadística espectral a estudiar únicamente el primer momento de la distribución implica una pérdida de información. 
+ Emplear únicamente este primer momento es insuficiente, puesto que existen familias enteras de distribuciones de probabilidad distintas que comparten la misma media. 
+ Por ejemplo, una distribución normal estándar $\mathcal{N}(0, 1)$ y una distribución bimodal compuesta por dos deltas de Dirac simétricas en $\pm 1$, dadas por $\frac{1}{2}\delta(x-1) + \frac{1}{2}\delta(x+1)$, ambas poseen un valor esperado de cero, a pesar de describir estadísticas diferentes.
+  Por lo tanto, para afirmar con rigor el tipo de estadística que sigue el espectro, es necesario emplear indicadores adicionales al $\langle r \rangle$.
+
+Para cuantificar la similitud entre el espectro del sistema y los modelos teóricos, se considera la divergencia de Kullback-Leibler (KL)~\cite{kullback1951information}.
+ Conocida también como entropía relativa, es una medida asimétrica que cuantifica cuánta información se pierde cuando una distribución de referencia $Q$ se utiliza para aproximar una distribución de probabilidad empírica $P$. Su expresión general para variables continuas en el intervalo de interés viene dada por:
+\begin{equation}
+    D_{\text{KL}}(P \parallel Q) = \int_{0}^{1} P(x) \, \ln \left( \frac{P(x)}{Q(x)} \right) \, dx.
+    \label{eq:kl_divergence}
+\end{equation}
+
+En el contexto de este trabajo, $P(x)$ representa la distribución de probabilidad numérica de los cocientes de espaciamientos obtenida a partir de la ecuación~\eqref{eq:r}. 
+Para para poder identificar las transiciones entre regímenes dinámicos, es posible evaluar la divergencia KL comparando la distribución empírica no solo con la expresión analítica del GOE, dada en la ecuación~\eqref{eq:goe}, sino también con la distribución de Poisson correspondiente a sistemas integrables, dada por la ecuación~\eqref{eq:poi}. 
+
+A diferencia de $\langle r \rangle$, la divergencia KL compara las distribuciones de probabilidad punto a punto constituyendo un indicador estadístico robusto para analizar el espectro de energías.
+Finalmente, de la definición dada según~\eqref{eq:kl_divergence} se espera que, para distribuciones que se aproximan suficientemente bien a la distribución de referencia, el valor de la KL es cercana a 0.
+\section{Resultados:}
+\snnote{Se han fusionado}\janote{No tiene sentido tener una sección de resultados y otra de discusión de resultados. Fusioná ambas en una sóla sección de resultados}
+Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano según~\eqref{eq:H:BH}, fijando $U=1$ y variando $J$.
+Para cada sector, de cada instancia $J/U$, se determina la media del cociente de espaciamientos según~\eqref{eq:r}
+ y la divergencia KL según~\eqref{eq:kl_divergence} tomando \eqref{eq:goe} y \eqref{eq:poi} como distribuciones de probabiliad de referencia para GOE y Poisson respectivamente.
+\snnote{arreglado.}\janote{El último enunciado está mal redactado, arreglalo}
 
 \subsection{Para el sector simétrico}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{OpenBHMeanSpacing.pdf}
-    \caption{Media del cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard. Notar que existe una región de parámetros para la cual la $\ev{r}$ del sistema es cercana a la de GOE y una región de parámetros que es cercana a Poisson.}
+    \includegraphics[width=1\textwidth]{MeanSpacingBH.pdf} 
+    \caption{Media del cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard.
+    Las lineas punteadas grises marcan el valor de $\ev{r}_{\text{GOE}}=0.5307$ y la lineas punteadas anaranjadas el valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$ }
     \label{fig:Mean}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{OpenBHKLSym.pdf}
-    \caption{Divergencia KL de la distribución cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard.
-    Los colores claros hacen referencia a la $KL$ tomando como distribución de referencia a GOE mientras que los colores oscuros hacen referencia a la KL tomando como distribución de referencia a Poisson.}
+    \includegraphics[width=1\textwidth]{KLGOEBH.pdf}
+    \caption{Divergencia KL de la distribución cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard respecto a la distribución de referencia de GOE.}
+    \label{fig:KLGOE}
 \end{figure}
-\section{Discusión de resultados:}
-El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística del cociente del espaciamiento de los niveles de energía, en esa región de parámetros, sigue la estadística del ensamble GOE\janote{Mal. Si este es el enunciado que cuenta de qué se va a tratar el resto del párrafo, significa que estás orientando la discusión a la caracterización del caos, pero tu objetivo es caracterizar \textbf{la transición} caos-regularidad}.
-Asimismo el indicador estadístico de la divergencia Kullback Leibler\janote{Kullback-Leibler} muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros\janote{Esto es algo que no se puede entender de tu marco teórico, porque no está explicado en la Sec.~\ref{sec:kl_divergence}. Agregalo}, la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE\janote{En este punto sería bueno expandir y dejar respirar. Sugiero que agregués una(s) figura(s) con la distribución númerica de la $P(r)$ para algunos valores en ese intervalo caótico y así convencer al lector de este punto que estás diciendo que es lo que dice tu gráfica de la KL divergence}. Además, se observa una transición a integrabilidad tanto para valores de $J/U$ que tienden a 0 como a $\infty$, sin embargo, la estadía en integrabilidad no presiste a medida que $J/U$ tiende a 0 a $\infty$\janote{``..a medida que $J/U$ tiende a 0 a $\infty$'' Mala redacción, corregí}.
-Para justificar porque no se persiste en Poisson\janote{Esto ya es otra idea, hacelo otro párrafo} a medida que $J/U \rightarrow 0$, note que el término proporcional a $U$ pasa a ser cada vez más significativo, es decir, eventualmente el sistema tiende a depender solo de $U$,
-a consecuencia los estados propios del hamiltonoiano son la base \janote{de} Fock, la energía de cada configuración viene dada por la distribución de bosones en cada sitio, y por tanto la distribución de probabiliad del cociente de espaciamientos de niveles de energía no necesariamente es uniforme\janote{No dijiste nada, por qué la distribución de los cocientes no es uniforme? Explicalo.} \janote{Enunciado extremadamente largo, con más de una idea. Partilo}. Similarmente sucede cuando $J/U \rightarrow \infty$, el término proporcional a $J$ domina, la función de onda del sistema debe anularese en los bordes por las condiciones de frontera\janote{??? Esto suena a que está, cuando menos, mal formulado, pero más importante aún: no veo porqué es relevante}, por lo que los estados propios pueden ser pensados como ondas estacionarias situadas en los extermos de la cadena de longitud $L$
- y la distribución de los nivels de energía no necesariamente es uniforme \janote{Tenés varios typos. Pasalo por el check spelling}. \janote{Toca que discutamos los límites. Las explicaciones son insuficientes} Sin embargo, es importante notar que \textit{existen} valores de $J/U$ para los cuales se aproxima suficientemente bien a Poisson y dicha correspondencia parece persistir para intervalos de $J/U$ cada vez mayores a medida que el tamaño de la cadena aumenta \janote{Otra idea que ya no tiene nada que ver con lo que venía antes en el párrafo. Debería ser otro párrafo}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{KLPoiBH.pdf}
+    \caption{Divergencia KL de la distribución cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard respecto a la distribución de referencia de Poisson.}
+    \label{fig:KLPoi}
+\end{figure}
+\snnote{Se ha reescrito completamente esta sección.}
 
-\janote{Este párrafo igual admite que expandás, la idea es valiosa pero está escueto}
-En ambos indicadores estadísticos es notable que a medida que crece el espacio de Hilbert, la misma región de parámetros identificada como caótica se sigue observando, lo cual es consistente con lo discutido en\janote{ la Ref.}~\cite{Pausch2022}.
-También es observado que para ciertos valores de $J/U$ el sistema exhibe integrabilidad y se espera que para $J/U \rightarrow \infty$ ó $J/U \rightarrow 0$ el sistema tienda a integrabilidad.
+Mediante el indicador estadístico $\ev{r}$ es posible ver que, para todos los tamaños de la red, una región de valores pequeños de $J/U$ donde el sistema tiene un valor medio cercano a $\ev{r}_{\text{Poisson}}$,
+una región posterior donde el valor medio es cercano a $\ev{r}_{\text{GOE}}$ y finalmente, una región posterior a las dos primeras donde el sistema regresa a tener un valor medio cercano a $\ev{r}_{\text{Poisson}}$.
+El sistema transiciona, a medida que se modula el cociente $J/U$ en el rango de $[0,120]$,
+ entre una fase donde el sistema exhibe integrabilidad según Berry-Tarbor y una fase donde el sistema, según BGS, exhibe caós cuántico.
+
+ Además es visto que en \ref{fig:KLGOE} el sistema, para una región similar de valores de $J/U$ vista en \ref{fig:Mean},
+ la distribución de probabilidad de el cociente de espaciamientos es aproximada suficientemente bien por la distribución de el ensabamble GOE.
+ Asimismo, en base a \ref{fig:KLPoi}, para regiones similares de $J/U$ vistas en \ref{fig:Mean}, la distribución de probabilidad es aproximada suficientemente bien por una distribución de números aleatorios uniformemente distribuidos (Poisson).
+ Para reforzar estas observaciones, escogiendo el sector simétrico y una red de 10 sitios 10 partículas se muestra para valores de $J/U$, uno en cada región de interés, 
+ su estadística espectral dada por~\eqref{eq:r}. (Ver figura~\ref{fig:Examples}).
+
+ Es importante hacer notar que, pese a que el sistema tanto para valores de $J/U$ pequeños como grandes, transiciona a un régimen integrable,
+es notable que el sistema no persista en mostrar una correspondencia con una estadística de Poisson a medida que $J/U \rightarrow \infty$ y $J/U \rightarrow 0$.
+Para explicar esto es necesario estudiar los dos casos límites.
+\begin{itemize}
+    \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar \eqref{eq:H:BH} cuando $J=0$ y $U\neq0$.
+Por lo que, el hamiltoniano en este caso es:
+\begin{equation}\label{eq:H:BHInt}
+\hat{H}
+= \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
+\end{equation}
+En vista de \eqref{eq:num} es evidente que la base de \textit{Fock} es eigenbase del hamiltoniano~\eqref{eq:H:BHInt}, ya que
+\begin{equation}
+\frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1)\ket{n_1,\cdots,n_L}=\frac{U}{2}\sum_{i=1}^{L}n_i(n_i - 1)\ket{n_1,\cdots,n_L}.
+\end{equation}
+Por lo que los eigenvalores del hamiltoniano, sin importar el tamaño del sistema, no están uniformemente distribuidos y por tanto su estadística no es indistinguible de una estadística de números aleatorios distribuidos uniformemente (Poisson).
+
+    \item Cuando $J/U \rightarrow \infty$: Este caso es equivalente a estudiar \eqref{eq:H:BH} cuando $U=0$ y $J\neq 0$.
+El hamiltoniano en este caso es:
+\begin{equation}\label{eq:H:BHKin}
+\hat{H}
+= -J \sum_{i=1}^{L-1} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right).
+\end{equation}
+En este caso los eigenvectores de este hamilotniano no pueden ser estados localizados. Proponiendo que los eigenvectores son de la forma 
+\begin{equation}
+    \ket{\phi}=\sum_{i=1}^{L}\phi_i \hat{a_i}^{\dagger}\ket{0,0,\cdots,0}
+\end{equation}
+Se puede mostar que, pedir que $\hat{H}\ket{\phi}=E\ket{\phi}$ implica que las amplitudes $\phi_i$ deben de satisfacer la relación de recurrencia:
+\begin{equation}
+    -J(\phi_{i-1}+\phi_{i+1})=E\phi_i
+    \label{eq:rec}
+\end{equation}
+Donde $\phi_0=\phi_{L+1}=0$.
+
+Tomando como ansatz la solución $\phi_j= A \sin(\beta \cdot j )$, se deduce que:
+\begin{equation*}
+\beta=\beta_m=\frac{m\pi}{L+1}
+\end{equation*} 
+\begin{equation*}
+     A=A_m=\frac{1}{\sqrt{\sum_{i=1}^{L}\sin^{2}(\beta_m\cdot j)}}
+\end{equation*}
+Con lo cual, llevando esto a \eqref{eq:rec} se deduce que los niveles de energía están dados según:
+\begin{equation}
+    E_m=-2J A_m\cos(\beta_m)
+\end{equation}
+Este resultado justifica que los eigenvalores del sistema cuando $U=0$ no son estadísticamente indistinguibles de una estadística de números aleatorios uniformemente distribuidos y por tanto la estadística del sistema no es exactamente de Poisson.
+\end{itemize}
+\begin{figure}[H]
+     \centering
+     % Fila superior
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{PsLowJU.pdf}
+         \caption{$J/U \approx 0.01$}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{PsMidJU.pdf}
+         \caption{$J/U \approx 2$}
+     \end{subfigure}
+     
+     \vspace{0.5cm} % Espacio vertical entre filas
+     
+     % Fila inferior centrada
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{PsHighJU.pdf}
+         \caption{$J/U \approx 120$}
+     \end{subfigure}
+     \caption{Distribución de cociente de espaciamientos para distintos valores de $J/U$ para el sector simétrico del hamiltoniano de Bose Hubbard de una red de 10 sitios, 10 partículas.}
+          \label{fig:Examples}
+    \end{figure}
+%El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística del cociente del espaciamiento de los niveles de energía, en esa región de parámetros, sigue la estadística del ensamble GOE\janote{Mal. Si este es el enunciado que cuenta de qué se va a tratar el resto del párrafo, significa que estás orientando la discusión a la caracterización del caos, pero tu objetivo es caracterizar \textbf{la transición} caos-regularidad}.
+%Asimismo el indicador estadístico de la divergencia Kullback Leibler\janote{Kullback-Leibler} muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros\janote{Esto es algo que no se puede entender de tu marco teórico, porque no está explicado en la Sec.~\ref{sec:kl_divergence}. Agregalo}, la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE\janote{En este punto sería bueno expandir y dejar respirar. Sugiero que agregués una(s) figura(s) con la distribución númerica de la $P(r)$ para algunos valores en ese intervalo caótico y así convencer al lector de este punto que estás diciendo que es lo que dice tu gráfica de la KL divergence}. Además, se observa una transición a integrabilidad tanto para valores de $J/U$ que tienden a 0 como a $\infty$, sin embargo, la estadía en integrabilidad no presiste a medida que $J/U$ tiende a 0 a $\infty$\janote{``..a medida que $J/U$ tiende a 0 a $\infty$'' Mala redacción, corregí}.
+%Para justificar porque no se persiste en Poisson\janote{Esto ya es otra idea, hacelo otro párrafo} a medida que $J/U \rightarrow 0$, note que el término proporcional a $U$ pasa a ser cada vez más significativo, es decir, eventualmente el sistema tiende a depender solo de $U$,
+%a consecuencia los estados propios del hamiltonoiano son la base \janote{de} Fock, la energía de cada configuración viene dada por la distribución de bosones en cada sitio, y por tanto la distribución de probabiliad del cociente de espaciamientos de niveles de energía no necesariamente es uniforme\janote{No dijiste nada, por qué la distribución de los cocientes no es uniforme? Explicalo.} \janote{Enunciado extremadamente largo, con más de una idea. Partilo}. Similarmente sucede cuando $J/U \rightarrow \infty$, el término proporcional a $J$ domina, la función de onda del sistema debe anularese en los bordes por las condiciones de frontera\janote{??? Esto suena a que está, cuando menos, mal formulado, pero más importante aún: no veo porqué es relevante}, por lo que los estados propios pueden ser pensados como ondas estacionarias situadas en los extermos de la cadena de longitud $L$
+% y la distribución de los nivels de energía no necesariamente es uniforme \janote{Tenés varios typos. Pasalo por el check spelling}. \janote{Toca que discutamos los límites. Las explicaciones son insuficientes} Sin embargo, es importante notar que \textit{existen} valores de $J/U$ para los cuales se aproxima suficientemente bien a Poisson y dicha correspondencia parece persistir para intervalos de $J/U$ cada vez mayores a medida que el tamaño de la cadena aumenta \janote{Otra idea que ya no tiene nada que ver con lo que venía antes en el párrafo. Debería ser otro párrafo}.
+
+%\janote{Este párrafo igual admite que expandás, la idea es valiosa pero está escueto}
+%En ambos indicadores estadísticos es notable que a medida que crece el espacio de Hilbert, la misma región de parámetros identificada como caótica se sigue observando, lo cual es consistente con lo discutido en\janote{ la Ref.}~\cite{Pausch2022}.
+%También es observado que para ciertos valores de $J/U$ el sistema exhibe integrabilidad y se espera que para $J/U \rightarrow \infty$ ó $J/U \rightarrow 0$ el sistema tienda a integrabilidad.
 \section{Conclusiones}
 \janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
 
-Los dos indicadores estadísticos presentados muestran que existe una región de parámetros para la cual el modelo de Bose Hubbard es caótico (según la conjetura BGS~\cite{Bohigas_1984}), además se verifica que a medida que la dimensionalidad del espacio de Hilbert incrementa, se sigue observando la región característica de caos.
-Es notable que ambos indicadores, que toman en cuenta únicamente las correalciones de corto alcance, permitan observar y caracterizar el caos cuántico, sin embargo es de mencionar que para ello es necesario obtener algún sector de simetría, proceso el cual presenta sus dificultades. 
-Es de interés hacerse la pregunta de si es \textit{suficiente} que se observe caos únicamente mediante correlaciones de corto alcance, sin tomar en cuenta las correlaciones de orden superior (espaciamientos de orden superior por ejemplo).
-Así mismo, es de interés estudiar a que región de parámetros tiende el sistema a medida que la dimensionalidad del espacio de Hilbert aumenta, pues surge la pregunta de si tiende asintóticamente a una región particular o si el tamaño de la región depende del tamaño del sistema.
-Una posible via a continuar este trabajo sería estudiar la dependencia de la región de parámetros que exhibe caos respecto a la dimensionalidad del espacio de Hilbert del sistema (que en el caso del modelo de bose hubbard, es equivalente a estudiar la dependencia respecto al número de sitios y número de partículas), además de 
-hacer un análisis que involucre indicadores estadísticos de largo alcance, ya que ello agregaría un análsis más robusto.
-\printbibliography
+Mediante los indicadores estadísticos propuestos, \eqref{eq:r} y \eqref{eq:kl_divergence}, es posible observar que el modelo de Bose Hubbard con condiciones de frontera abiertas
+transiciona entre una fase de integrabilidad y una fase caótica a medida que se modula el cociente $J/U$. La región de parámetros para la cual el sistema es 
+cuánticamente caótico se satura en un intervalo definido a medida que el tamaño de la red y el número de partículas aumentan, por lo que se esperaría que en el límite de una red infinita con infinitas partículas,
+ la región de parámetros donde se observa caos cuántico sea un intervalo finito y no es concluyente que tal sea el caso si se consideran configuraciones donde el número de párticulas no es el mismo que el número de sitios.
+ La transición de integrabilidad a caos no es una transición abrupta, sino que es una transición suave, como es visto en  la figura~\ref{fig:Mean}, además de las figuras \ref{fig:KLGOE} y \ref{fig:KLPoi},
+ es concluyente que la correspondencia con las estadísiticas de referencia (GOE y Poisson) es cada vez mejor a medida que el tamaño de la red incrementa
+  y no es claro como es afectada dicha correspondencia a medida que se deje fijo el número de partículas y se aumente el tamaño de la red o viceversa.
+Es de hacer énfasis en el detalle que, para llevar a cabo este análisis espectral, fue necesario estudiar un sector de simetría del hamilotniano, puesto que el
+análisis espectral realizado es sensible a las degeneraciones en el espectro de energías. Esta dificultad puede ser eludida si se emplean otro tipo de indicadores estadísticos, que a diferencia de \eqref{eq:spacings} que es un indicador de correlaciones locales, tomen en cuenta correlaciones de órden superior, como se sugiere en~\cite{delacruz2020quantum}.
+Un trabajo futuro en esta líneas de investigación es estudiar a mayor detalle las regiones de parámetros $J/U$ donde se exhibe integrabilidad y caos a medida que se varía el número de partículas y el número de sitios a considerar, además de estudiar estas regiones para un límite termodinámico del sistema.
+Es de interés clarifcar este último punto en vista de las limitaciones experimentales que existen a la hora de escalar el tamaño del arreglo experimental y resultaría útil tener un conocimiento de una región efectiva que exhiba ya sea integrabilidad o caoticidad.
 
+\printbibliography
 \end{document}
