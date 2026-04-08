@@ -206,8 +206,6 @@ mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{greine
  y pudo ser vista una transición de fase cuántica entre una fase de superfluidez (deslocalización de átomos) y una fase de aislante de Mott ( átomos localizdos en un sitio dado)~\cite{greiner2002quantum}.
 
 \subsection{Mean spacing Ratio}
-\snnote{Listo.}\janote{El primer párrafo de esta sección contiene, por lo menos, dos ideas: la noción de caos cuántico y el espaciamiento de niveles. Separalo y agregá lo que sea necesario si algún párrafo queda escueto (posiblemente, el segundo)}
-
 La noción de caos cuántico puede ser identificada a través de las fluctuaciones espectrales del espectro de energías del hamiltoniano y sus propiedades estadísticas. 
 Según la conjetura de Berry-Tabor~\cite{BerryTabor1977}, si el sistema clásico subyacente es integrable,
  las fluctuaciones de los niveles de energía de su contraparte cuántica se comportan como variables aleatorias no correlacionadas \janote{hasta aquí termina la conjetura. Lo que sigue es específico de la $P(s)$ y considero que como hasta aquí estás hablando de generalidades, mejor quitalo}, siguiendo una distribución estadística de Poisson. 
@@ -221,47 +219,60 @@ Para estudiar las propiedades espectrales del sistema, son empleados \janote{dis
     s_n = E_{n+1} - E_n.
     \label{eq:spacings}
 \end{equation}
-En el contexto del ensamble\janote{Para el} GOE, que describe el régimen caótico del sistema de el trabajo presente, la predicción analítica de Wigner~\cite{Wigner1955} ha sido de especial interés\janote{creo que no decís nada al final}. Wigner propuso que la distribución de probabilidad de los espaciamientos normalizados se aproxima a:
+\sout{En el contexto del ensamble}\janote{Para el} GOE, que describe el régimen caótico del sistema de el trabajo presente, \sout{la predicción analítica de Wigner~\cite{Wigner1955} ha sido de especial interés.}\janote{no decís nada realmente y funciona con esto que ya tenés:} Wigner propuso que la distribución de probabilidad de los espaciamientos normalizados se aproxima a:
 \begin{equation}
     P(s) = \frac{\pi}{2} s \exp\left(-\frac{\pi}{4} s^2\right).
 \end{equation}
 Esta distribución ilustra la repulsión de niveles ($P(s) \to 0$ cuando $s \to 0$).
 
-La importancia física de la distribución de Wigner es que pone en manifiesto la repulsión de niveles de energía, la probabilidad de encontrar dos niveles de energía degenerados o muy cercanos es nula ($P(s) \to 0$ cuando $s \to 0$). 
-Esto puede interpretarse como una existencia de correlaciones en el espectro.
+La \sout{importancia física de la} distribución de Wigner \sout{es que} pone en manifiesto la repulsión de niveles de energía, la probabilidad de encontrar dos niveles de energía degenerados o muy cercanos es nula ($P(s) \to 0$ cuando $s \to 0$). 
+Esto \sout{puede interpretarse como una existencia}\janote{no es interpretación, \textit{es una muestra de la existencia de correlaciones}} de correlaciones en el espectro.
 Por otro lado, para un sistema integrable, los niveles de energía están incorrelacionados y no se repelen, sino que tienden a agruparse (\textit{level clustering}) dando lugar a una distribución estadística de Poisson~\cite{mehta2004random}. \janote{Esto debería ser parte del párrafo anterior, modulo no repetir el primer enunciado de acá (yo quitaría el último enunciado del párrafo anterior)}
 
 En la práctica, comparar directamente los espaciamientos $s_n$  con las distribuciones teóricas presenta dificultades debido a que
  la densidad local de estados varía a lo largo del espectro de energía de manera dependiente de las características del sistema.
 Por lo que la distribución de espaciamientos debe de ser computada después de remover las características espectrales que dependen específicamente del sistema mediante un procedimiento llamado \textit{unfolding}~\cite{tekur2018higher}.
 Dado que el \textit{unfolding} presenta un problema en sí, estas dificultades pueden ser eludidas considerando una cantidad estadística alternativa propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}. 
-Este indicador es la tasa de espaciamientos a primeros vecinos, la cual es adimensional, no depende de la densidad local de estados y, en consecuencia, no requiere \textit{unfolding}~\cite{tekur2018higher,oganesyan2007localization}.
+Este indicador es \sout{la tasa}\janote{el cociente} de espaciamientos a primeros vecinos, la cual es adimensional, no depende de la densidad local de estados y, en consecuencia, no requiere \textit{unfolding}~\cite{tekur2018higher,oganesyan2007localization}.
 
-Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano y el espaciamiento consecutivo de niveles de energía según \eqref{eq:spacings}\snnote{listo}\janote{Esto ya lo definiste, hacé referencia a tu ecuación arriba},
- se define el cociente de espacimiento de niveles~\cite{oganesyan2007localization}, $r_n$ \snnote{listo.}\janote{por aquí introducí la $r$ como los \textit{cocientes de espaciamientos de niveles}}:
+\janote{---Inicia propuesta---}
+
+En la práctica, comparar directamente los espaciamientos $s_n$  con las distribuciones teóricas presenta dificultades debido a que
+la densidad local de estados varía a lo largo del espectro de energía de manera dependiente de las características del sistema.
+Por lo que la distribución de espaciamientos debe de ser computada después de remover las características espectrales que dependen específicamente del sistema mediante un procedimiento llamado \textit{unfolding}~\cite{tekur2018higher}.
+Dado que el \textit{unfolding} presenta un problema en sí, estas dificultades pueden ser eludidas considerando una cantidad estadística alternativa propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}. 
+Este indicador es \sout{la tasa}\janote{el cociente} de espaciamientos a primeros vecinos:
+\begin{equation}\label{eq:r}
+  r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
+\end{equation}
+Esta es una cantidad adimensional, no depende de la densidad local de estados y, en consecuencia, no requiere \textit{unfolding}~\cite{tekur2018higher,oganesyan2007localization}.
+
+\janote{---Termina propuesta---}
+
+Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano y el espaciamiento consecutivo de niveles de energía según \eqref{eq:spacings},
+se define el cociente de espacimiento de niveles~\cite{oganesyan2007localization}, $r_n$:
 \begin{equation}\label{eq:r}
 	r_n=\frac{\min(s_n,s_{n-1})}{\max(s_n,s_{n-1})}.
 \end{equation}
-Estudiando la distribución de probabilidad asociada a los cocientes de espaciamiento de nivel \snnote{okay.}\janote{\sout{$r$'s} cocientes de espaciemientos. Corregilo en todo el documento}, es posible determinar si el sistema está en una configuración integrable 
-o caótica y es de tener presente la forma análitica de la distribución de probabilidad de los cocientes de espaciamiento de niveles del ensabamble GOE y de Poisson.
-%\snnote{Se ha agregado más información.}\janote{Otra razón por la que falta el punte conceptual del principio: aquí ya estás asumiendo que caos es RMT, pero no lo has dicho}.
-La distribución asociada a GOE es de la forma~\cite{Atas_2013}:
+\janote{Esto debería ir en el párrafo anterior y desde el siguiente enunciado debería empezar un nuevo párrafo. Te dejo la propuesta de cómo quedaría el párrafo anterior arriba. Si te parece, borra este primer enunciado.}
+Estudiando la distribución de probabilidad asociada a los cocientes de espaciamiento de niveles es posible determinar si el sistema está en una configuración integrable 
+o caótica \sout{y es de tener presente la forma análitica de la distribución de probabilidad de los cocientes de espaciamiento de niveles del ensabamble GOE y de Poisson.}\janote{no decís nada, el enunciado se puede quedar sin lo tachado}
+La distribución \sout{asociada a}\janote{que predice el} GOE es\sout{ de la forma}~\cite{Atas_2013}:
 \begin{equation}
     \label{eq:goe}
  P_{\text{GOE}}(r)=2\Theta(1-r)\cdot \qty(\frac{27}{8}\frac{r+r^{2}}{(1+r+r^{2})^{5/2}}).
 \end{equation}
-donde $\Theta(r)$ es la función de Heaviside.
-Y la distribución asociada a Poisson es de la forma~\cite{Atas_2013}:
+donde $\Theta(r)$ es la función Heaviside.
+La distribución \sout{asociada a} \janote{de} Poisson \janote{para niveles de energía sin correlaciones} es \sout{de la forma}~\cite{Atas_2013}:
 \begin{equation}
     \label{eq:poi}
     P_{\text{Poisson}}(r)=2\Theta(1-r)\cdot\qty(\frac{1}{(1+r)^{2}}).
 \end{equation}
-Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para GOE una repulsión de los valores propios mientras que para poisson se observa que la densidad de  \snnote{listo.}\janote{densidad de} probabilidad de tener dos valores propios iguales es no nula. 
-Con estas expresiones es posible extraer un valor promedio\snnote{listo}\janote{valor promedio}, $\ev{r}$, para cada distribución, es decir, se obtiene el primer momento de la distribución de probabilidad de los cocientes de espaciamientos.
+Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para \janote{el} GOE una repulsión de los valores propios mientras que para Poisson se observa que la densidad de probabilidad de tener dos valores propios iguales es no nula. 
+Con estas expresiones es posible extraer un valor promedio, $\ev{r}$, para cada distribución\sout{, es decir, se obtiene el primer momento de la distribución}\janote{estás diciendo lo mismo} de probabilidad de los cocientes de espaciamientos.
 En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013} 
-y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$~\cite{Atas_2013}. 
+y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$~\cite{Atas_2013}\janote{me parece que aquí ya no van las citas. Ya citaste arriba para las distribuciones y estos numéritos se pueden extraer de ahí.}. 
 
-\snnote{Ha sido movido.}\janote{El último enunciado está desconectado del resto del párrafo. Movelo a inmediatamente después de la~\eqref{eq:poi}. El resto de discusión que está antes arreglalo para volverlo un sólo párrafo.}
 \subsection{Divergencia de Kullback-Leibler}
 \label{sec:kl_divergence}
 \snnote{Espero este mejor ahora.}\janote{F, sigue muy escueta. Comenzás directamente con la definición; hacé una introducción para motivar el uso de la KL divergence}\snnote{He agregado más cosas.}\janote{Esta sección está muy escueta. Debería quedar claro con esta sección porqué queremos ver la KL divergence además de la r}\janote{Además, también nos interesa ver resultados de la KL de la distribución numérica con la distribución de Poisson}
