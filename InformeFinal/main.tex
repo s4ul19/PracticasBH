@@ -106,7 +106,7 @@ El presente trabajo tiene como objetivo caracterizar la transición entre los re
  Asimismo, para realizar una comparación rigurosa de las distribuciones empíricas frente a las predicciones teóricas de los ensambles ortogonales gaussianos (GOE) y de Poisson, se implementa dos indicadores estadísticos utilizados en la literatura.
 
 \section{Marco Teórico}
-\subsection{El modelo de Bose Hubbard}
+\subsection{El modelo de Bose Hubbard}\label{sec:BH}
 
 \begin{itemize}
   \item Hamiltoniano de BH
@@ -192,8 +192,8 @@ Matemáticamente, se define el operador reflexión espacial, $\hat{R}$, según s
 \end{equation}
 El operador reflexión introduce dos sectores de simetría, el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
 si $H$\janote{ya usaste $H$ para denotar al Hamiltonano, mejor $\mathcal{H}$ para denotar ahora a los espacios de Hilbert} es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
-\begin{equation}
-    H=H^{+}\oplus H^{-}.
+\begin{equation}\label{eq:sectors:BH}
+  H=H^{+}\oplus H^{-}.
 \end{equation}
 \janote{Siguiendo mi comentario anterior, aquí también debería de cambiar la notación del espacio de Hilber total y de los subespacios simétricos}
 La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios crece combinatóricamente bajo la relación~\cite{Zhang2010} \janote{Este enunciado también se siente que no es parte del párrafo}:
@@ -205,7 +205,7 @@ El modelo de Bose Hubbard es una de las descripciones más simple de un conjunto
 mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{greiner2002quantum,Jaksch1998}, en donde se fue capaz de modular el cociente $\frac{U}{J}$ aumentando la intensidad del láseres de la red óptica~\cite{greiner2002quantum,Jaksch1998},
  y pudo ser vista una transición de fase cuántica entre una fase de superfluidez (deslocalización de átomos) y una fase de aislante de Mott ( átomos localizdos en un sitio dado)~\cite{greiner2002quantum}.
 
-\subsection{Mean spacing Ratio}
+\subsection{Mean spacing Ratio}\label{sec:mean:r}
 La noción de caos cuántico puede ser identificada a través de las fluctuaciones espectrales del espectro de energías del hamiltoniano y sus propiedades estadísticas. 
 Según la conjetura de Berry-Tabor~\cite{BerryTabor1977}, si el sistema clásico subyacente es integrable,
  las fluctuaciones de los niveles de energía de su contraparte cuántica se comportan como variables aleatorias no correlacionadas \janote{hasta aquí termina la conjetura. Lo que sigue es específico de la $P(s)$ y considero que como hasta aquí estás hablando de generalidades, mejor quitalo}, siguiendo una distribución estadística de Poisson. 
@@ -306,14 +306,16 @@ En el contexto de este trabajo, $P(x)$ representa la distribución de probabilid
 Para para poder identificar las transiciones entre regímenes dinámicos, es posible evaluar la divergencia KL comparando la distribución empírica \sout{no solo}\janote{están de más estas palabritas} con la expresión analítica del GOE, dada en la ecuación~\eqref{eq:goe}, \sout{sino} y también con la distribución de Poisson correspondiente a sistemas integrables, dada por la ecuación~\eqref{eq:poi}. A diferencia de $\langle r \rangle$, la divergencia KL compara las distribuciones de probabilidad punto a punto, constituyendo un indicador estadístico robusto para analizar el espectro de energías\janote{de nuevo, no es el espectro específicamente, sino la $P(r)$}.
 
 \janote{---Termina propuesta---}
-\section{Resultados:}
-\snnote{Se han fusionado}\janote{No tiene sentido tener una sección de resultados y otra de discusión de resultados. Fusioná ambas en una sóla sección de resultados}
-Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano según~\eqref{eq:H:BH}, fijando $U=1$ y variando $J$.
-Para cada sector, de cada instancia $J/U$, se determina la media del cociente de espaciamientos según~\eqref{eq:r}
- y la divergencia KL según~\eqref{eq:kl_divergence} tomando \eqref{eq:goe} y \eqref{eq:poi} como distribuciones de probabiliad de referencia para GOE y Poisson respectivamente.
-\snnote{arreglado.}\janote{El último enunciado está mal redactado, arreglalo}
+\section{Resultados}
+\janote{Falta un primer enunciado que diga globalmente de qué van los resultados, como este:}
+
+\janote{En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos del modelo de Bose Hubbard (c.f. Sec.~\ref{sec:BH}) utilizando la media del cociente de espacimientos (c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL (c.f. Sec.~\ref{sec:kl_divergence}) entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por el GOE y de Poisson.}
+Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico \janote{[c.f. ec.~\eqref{eq:sectors:BH}]} del hamiltoniano según~\eqref{eq:H:BH}, fijando $U=1$ y variando $J$.
+Para cada sector, de cada instancia $J/U$, se determina\janote{Aquí estás usando el tiempo presente y en el enunciado anterior el pasado, cuál va a ser? Cambialo en todos lados para ser consistente con el tiempo verbal} la media del cociente de espaciamientos según~\eqref{eq:r}
+ y la divergencia KL según~\eqref{eq:kl_divergence} tomando \eqref{eq:goe} y \eqref{eq:poi} como distribuciones de probabiliad de referencia para GOE y Poisson, respectivamente. 
 
 \subsection{Para el sector simétrico}
+\janote{Cambio lo dicho con los títulos de las subsecciones. Más bien, no tiene sentido tener subsecciones sólo para mostrar las figuras. Quitá las subsecciones y que todo sea una sóla sección}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{MeanSpacingBH.pdf} 
@@ -354,22 +356,19 @@ Para cada sector, de cada instancia $J/U$, se determina la media del cociente de
     \caption{Divergencia KL de la distribución cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard respecto a la distribución de referencia de Poisson.}
     \label{fig:KLPoiAnti}
 \end{figure}
-\newpage
-\snnote{Se ha reescrito completamente esta sección.}
+%\newpage
+\janote{para qué el newpage (en el Tex)? Lo quité}
 
-Mediante el indicador estadístico $\ev{r}$ es posible ver que, para todos los tamaños de la red, una región de valores pequeños de $J/U$ donde el sistema tiene un valor medio cercano a $\ev{r}_{\text{Poisson}}$,
-una región posterior donde el valor medio es cercano a $\ev{r}_{\text{GOE}}$ y finalmente, una región posterior a las dos primeras donde el sistema regresa a tener un valor medio cercano a $\ev{r}_{\text{Poisson}}$.
-El sistema transiciona, a medida que se modula el cociente $J/U$ en el rango de $[0,120]$,
- entre una fase donde el sistema exhibe integrabilidad según Berry-Tarbor y una fase donde el sistema, según BGS, exhibe caós cuántico.
+Mediante el indicador estadístico $\ev{r}$ es posible ver que, para todos los tamaños de la red, una región de valores pequeños\janote{Sé preciso, no digas ``valores pequeños'', decí el intervalo según lo que se ve en la figura} de $J/U$ donde el sistema tiene un valor medio cercano a $\ev{r}_{\text{Poisson}}$,
+una región posterior\janote{mismo comentario de antes} donde el valor medio es cercano a $\ev{r}_{\text{GOE}}$ y finalmente, una región posterior\janote{mismo comentario de antes} a las dos primeras donde el sistema regresa a tener un valor medio cercano a $\ev{r}_{\text{Poisson}}$\janote{Es falso lo que estás diciendo. En la Fig.~\ref{fig:Mean} para $J/U<0.01$ yo veo que para todos los tamaños de sistema el valor es menor al de Poisson. También después de la región caótica sólo veo que $N=L=9$ tiene el valor de Poisson en un intervalo $60\lesssim J/U \lesssim 80$ y para todos los demás tamaños de sistema sólo cortan en algún punto. Así mismo, estás obviando por completo las regiones de transición, estás diciendo que la figura muestra integrabilidad, caos, integrabilidad, pero eso no se ve}. El sistema transiciona, a medida que se modula el cociente $J/U$ en el rango de $[0,120]$, entre una fase donde el sistema exhibe integrabilidad según Berry-Tarbor y una fase donde el sistema, según BGS, exhibe caós cuántico \janote{No estás diciendo nada profundamente diferente de lo que ya dijiste en el enunciado anterior. Aquí funcionaría empezar el enunciado diciendo algo como ``\textit{Es decir, juzgando únicamente con la media de los cocientes de espaciamientos se diría que el sistema es caótico en tal intervalo e integrable en tal intervalo}''}.
 
- Además es visto que en \ref{fig:KLGOE} el sistema, para una región similar de valores de $J/U$ vista en \ref{fig:Mean},
- la distribución de probabilidad de el cociente de espaciamientos es aproximada suficientemente bien por la distribución de el ensabamble GOE.
- Asimismo, en base a \ref{fig:KLPoi}, para regiones similares de $J/U$ vistas en \ref{fig:Mean}, la distribución de probabilidad es aproximada suficientemente bien por una distribución de números aleatorios uniformemente distribuidos (Poisson).
+ Además, es visto que en \janote{la Fig.~}\ref{fig:KLGOE} el sistema, para una región similar\janote{otra vez estás siendo impreciso y subjetivo. Este tipo de afirmaciones no sirven} de valores de $J/U$ vista en \janote{la Fig.~}\ref{fig:Mean}, la distribución de probabilidad de el cociente de espaciamientos es aproximada suficientemente bien por la distribución de el ensabamble GOE \janote{tenés typos en este enunciado y la redacción es mala, es dificil de leer. Intentá leerlo en voz alta siguiendo las comas que pusiste. Pasalo por gemini}.
+ Así mismo, en base a \janote{la Fig.~}\ref{fig:KLPoi}\janote{Corregí los de las figuras en todos lados donde las referenciés}, para regiones similares de $J/U$ vistas en \ref{fig:Mean}, la distribución de probabilidad es aproximada suficientemente bien por una distribución de números aleatorios uniformemente distribuidos (Poisson).
  Para reforzar estas observaciones, escogiendo el sector simétrico y una red de 10 sitios 10 partículas se muestra para valores de $J/U$, uno en cada región de interés, 
- su estadística espectral dada por~\eqref{eq:r}. (Ver figura~\ref{fig:Examples}).
+ su estadística espectral dada por~\eqref{eq:r}. (Ver figura~\ref{fig:Examples}). \janote{Qué estás queriendo decir con este párrafo? No entiendo el punto principal}
 
  Es importante hacer notar que, pese a que el sistema tanto para valores de $J/U$ pequeños como grandes, transiciona a un régimen integrable,
-es notable que el sistema no persista en mostrar una correspondencia con una estadística de Poisson a medida que $J/U \rightarrow \infty$ y $J/U \rightarrow 0$.
+es notable que el sistema no persista en mostrar una correspondencia con una estadística de Poisson a medida que $J/U \rightarrow \infty$ y $J/U \rightarrow 0$ \janote{La redacción es confusa. Dijiste en tu marco teórico que integrabilidad $=$ Poisson, pero aquí decís que el sistema es integrable, pero que igual no muestra Poisson... ¿? O sea, el sistema sí es integrable, pero hasta aquí no has discutido los límites y por eso el lector no debería saber que son integrables. Por otro lado, aquí estás contradiciendo lo que dijiste antes de que integrabilidad-caos-integrabilidad. De nuevo, es tu narrativa la que se está contradiciendo, creo que en la cabeza sí tenés claro todo esto}.
 Para explicar esto es necesario estudiar los dos casos límites.
 \begin{itemize}
     \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar \eqref{eq:H:BH} cuando $J=0$ y $U\neq0$.
@@ -378,11 +377,11 @@ Por lo que, el hamiltoniano en este caso es:
 \hat{H}
 = \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
-En vista de \eqref{eq:num} es evidente que la base de \textit{Fock} es eigenbase del hamiltoniano~\eqref{eq:H:BHInt}, ya que
+En vista de \janote{la ec.~}\eqref{eq:num}\janote{agregá esto en todos lados donde referenciés ecuaciones} es evidente que la base de \textit{Fock} es eigenbase del hamiltoniano~\eqref{eq:H:BHInt}, ya que
 \begin{equation}
 \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1)\ket{n_1,\cdots,n_L}=\frac{U}{2}\sum_{i=1}^{L}n_i(n_i - 1)\ket{n_1,\cdots,n_L}.
 \end{equation}
-Por lo que los eigenvalores del hamiltoniano, sin importar el tamaño del sistema, no están uniformemente distribuidos y por tanto su estadística no es indistinguible de una estadística de números aleatorios distribuidos uniformemente (Poisson).
+Por lo que los eigenvalores del hamiltoniano, sin importar el tamaño del sistema, no están uniformemente distribuidos y por tanto su estadística no es indistinguible de una estadística de números aleatorios distribuidos uniformemente (Poisson). \janote{Pero el sistema es integrable o no? Falta agregar eso, por qué es integrable?}
 
     \item Cuando $J/U \rightarrow \infty$: Este caso es equivalente a estudiar \eqref{eq:H:BH} cuando $U=0$ y $J\neq 0$.
 El hamiltoniano en este caso es:
