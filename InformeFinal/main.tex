@@ -107,6 +107,37 @@ El presente trabajo tiene como objetivo caracterizar la transición entre los re
 
 \section{Marco Teórico}
 \subsection{El modelo de Bose Hubbard}
+
+\begin{itemize}
+  \item Hamiltoniano de BH
+  \item Operador de reflexión
+  \item TRS
+  \item Base de Fock y operadores de creacción y aniquilación
+  \item Dimensión del espacio de Hilbert
+  \item Para qué es útil el modelo de Bose Hubbard, redes de atomos fríos etc
+  \item \sout{Estado de superfluidez}
+  \item \sout{Cómo crear la base lexicográfica de la base de Fock}
+\end{itemize}
+
+\begin{ajanote}{}
+\begin{itemize}
+\item Introducción: Para qué es útil el modelo de Bose Hubbard, redes de atomos fríos etc, setup experimental
+\item Modelo matemático
+\begin{itemize}
+  \item Hamiltoninano de BH
+  \begin{itemize}
+    \item Base de Fock y operadores de creacción y aniquilación
+    \item Dimensión del espacio de Hilbert
+  \end{itemize}
+  \item Simetrías del BH
+  \begin{itemize}
+    \item Operador de reflexión
+    \item TRS
+  \end{itemize}
+\end{itemize}
+\end{itemize}
+\end{ajanote}
+
 Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. El modelo describe la dinámica de $N$ bosones sin espín
 %\snnote{listo.}\janote{espín*, cambialo aquí y en el resto de ocurrencias en este documento} 
 en una cadena 
@@ -123,7 +154,7 @@ del sistema con $\hbar=1$, viene dado por~\cite{Zhang2010}:
 \linelabel{l3}
 Los operadores 
 %\snnote{listo.}\janote{son operadores} 
-$\hat{a}_i^{\dagger},\hat{a}_j$ son los operadores de creación y aniquilación,
+$\hat{a}_i^{\dagger}$ \janote{y} $\hat{a}_i$ son los operadores de creación y aniquilación,
 %\janote{,} 
 respectivamente,
 %\janote{,}\janote{Notá las comas. Las dejo como comentario para que veás como se usan y lo tomés en cuenta para el futuro} 
@@ -131,16 +162,11 @@ y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el siti
 %
 %\snnote{Agregué el resto debajo de la sección donde se habla acerca de J y U.}\janote{Agregá/modificá este primer enunciado para incluir cómo actúan los operadores de creación, aniquilación y número sobre los estados de Fock. Además incluí la relación de conmutación de los operadores de creación y aniquilación}. \janote{Falta explicar qué significa la notación $\ev{i,j}$ de la Eq.~\eqref{eq:H:BH}}
 %
-El primer término, 
-%\janote{,}
-proporcional a $J$,
-%\janote{,} 
-es la parte cinética del hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término,
-%\janote{,} 
-proporcional a $U$,
-%\janote{,} 
-describe la interacción entre las partículas en un mismo sitio~\cite{Zhang2010}.
-Para representar la matriz de este hamiltoniano se escoge una base de ocupación (o base de \textit{Fock}), etiquetando los elementos de la base mediante kets de la forma  $\{{\ket{n_1,\dots,n_L}}\}$, siendo cada $n_i$ el número de partículas en el $i$-ésimo sitio.
+El primer término, proporcional a $J$, es la parte cinética del hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término, proporcional a $U$, describe la interacción entre las partículas en un mismo sitio~\cite{Zhang2010}.
+\linelabel{line:para:representar}Para representar la matriz de este hamiltoniano se escoge
+\janote{Tu redacción sugiere que \textit{se escoge} porque \textit{se debe escoger}, pero no es así, sólo es una base conveniente porque el término de potencial es diagonal en esa base. Modificá la redacción} 
+una base de ocupación (o base de \textit{Fock}\janote{sacalo de cursiva}), etiquetando los elementos de la base mediante kets de la forma  $\{{\ket{n_1,\dots,n_L}}\}$, siendo cada $n_i$ el número de partículas en el $i$-ésimo sitio 
+\janote{Este enunciado como un todo suena extraño; tenés que modificar toda la redacción. Suena como una lista: ``Para representar la matriz se escoge una base de ocupación... etiquetando los elementos de la base...'', como que falta algo que conecte las dos cosas que estás diciendo o que las separés en dos enunciados individuales}.
 La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\cite{Zhang2010}:
 \begin{equation}
 \label{eq:num}
@@ -148,56 +174,33 @@ La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\c
 \end{equation}
 y se tiene la restricción de que $\sum_{i=1}^{L}n_i=N$.
 Para el cómputo de la matriz de $\hat{H}$ es de utilidad la siguiente relación~\cite{Zhang2010}:
-\begin{equation}
+\begin{equation}\label{eq:creation:and:anhilation}
 \hat{a}_{i}^{\dagger}\hat{a}_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_i+1,\cdots,n_j-1,\cdots,n_L}.
 \end{equation}
-%\snnote{Decidí quitar por completo eso, en efecto, era redundante.}\janote{La redacción de este enunciado está rara, suena redundante que ``proporcional a $U$'' y ``viene regulada por $U$''. \textit{regulada} no es una buena elección de palabra, quizás mejor \textit{modulada}}. 
+\janote{Definí individualmente la acción de $\hat a^\dagger_i$ y $\hat a_i$, y después la acción de $\hat n_i$. Esto es más natural que como lo tenés porque $\hat n_i = \hat a^\dagger_i \hat a_i$. De la ecuación \eqref{eq:creation:and:anhilation} no es claro cómo actúan individualmente el operador de creación y aniquilación.}
 
-\snnote{listo.}\janote{El texto entre las líneas \lineref{l1} y \lineref{l2} sólo son enunciados sueltos y están desconectados del resto del texto. Los tenés que incluir y amarrar con el resto del marco teórico. Una forma de hacerlo sería integrar estos enunciados al enunciado de la línea \lineref{l3}. Pero pensalo y decidí qué hacer}\\
-\linelabel{l1} 
-%La base sobre la cual se representa el hamiltoniano es la base de \janote{\sout{número de}} ocupación (o base de \textit{Fock})\janote{no es \textit{la} base, sólo \textit{una} base. Cambialo}, $\{{\ket{n_1,\dots,n_L}}\}$, donde $n_m$ es el número de sitios en el $m$-ésimo sitio.\snnote{listo}\janote{m tiene que ir entre \$\$}
-%\snnote{Se cambió de lugar}\janote{Este último enunciado debería irse para arriba, a donde sugerí lo de la definición matemática del operador número}
+\janote{Pedagógicamente, me parecería más claro que la parte del párrafo que comienza en el enunciado que comienza en la línea \lineref{line:para:representar} se pase para la primera parte, después del primer enunciado, y el Hamiltoniano se introduzca hasta después. Habría que modificar la redacción para hacer este cambio. Lo hablamos}
 
-%La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\cite{Zhang2010}:
-%\begin{equation}
-%\hat{n}_i\ket{n_1,\dots,n_L}=n_i\ket{n_1,\dots,n_L}.
-%\end{equation}
-%y se tiene la restricción de que $\sum_{i=1}^{L}n_i=N$.
+Este hamiltoniano presenta un conjunto de simetrías importantes, de las cuales se distinguen las simetrías que dan lugar a cantidades conservadas y están representadas por operadores unitarios de aquellas que no cuentan con cantidades conservadas y están representadas por operadores antiunitarios \janote{Las ideas de este primer enunciado me parecen las correctas, pero la redacción podría mejorar. Pasalo por gemini para que te ayude a mejorarla. Incluso, creo que podrían ser dos o tres enunciados para facilitar la lectura, ya que está muy largo}.
+Por un lado, el sistema cuenta con dos simetrías unitarias con cantidades conservadas asociadas; la primera una simetría de fase global aplicada a los operadores de creación y aniquilación, es responsable de la conservación del número total de bosones en el sistema~\cite{Zhang2010} y la segunda es una simetría de reflexión espacial, donde la dinámica de la red es invariante ante una reflexión de la cadena alrededor de su centro, la cantidad conservada asociada es \janote{conocida como} la paridad y permite clasificar los estados\janote{todos los estados? son sólo los eigenestados de $H$. Si es claro para vos, sólo aplicá la corrección y borrá mi comentario. Si no, decime y lo hablamos} del sistema en pares e impares~\cite{Zhang2010}.
+Por otro lado, el sistema cuenta con una simetría antiunitaria, la invarianza ante inversión temporal (TRS), la dinámica es invariante a la orientación del tiempo, no tiene cantidad conservada, sin embargo esta simetría fuerza a que la matriz del hamiltoniano sea simétrica y con entradas reales\janote{Lo mismo que con el primer enunciado de este párrafo: las ideas son correctas, pero tu redacción admite mejorarla}.
 
-%También es de utilidad la relación~\cite{Zhang2010}:
-%\begin{equation}
-%a_{i}^{\dagger}a_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_L}.
-%\end{equation}
-\snnote{listo.}\janote{faltan los gorritos a los operadores}
-\linelabel{l2}
-
-Este hamiltoniano presenta un conjunto de simetrías importantes, de las cuales se distinguen las simetrías que dan lugar a cantidades conservadas y están representadas por operadores unitarios de aquellas que no cuentan con cantidades conservadas y están representadas por operadores antiunitarios.
-Por un lado, el sistema cuenta con dos simetrías unitarias con cantidades conservadas asociadas; la primera una simetría de fase global aplicada a los operadores de creación y aniquilación, es responsable de la conservación del número total de bosones en el sistema~\cite{Zhang2010} y la segunda es una simetría de reflexión espacial, donde la dinámica de la red es invariante ante una reflexión de la cadena alrededor de su centro, la cantidad conservada asociada es la paridad y permite clasificar los estados del sistema en pares e impares~\cite{Zhang2010}.
-Por otro lado, el sistema cuenta con una simetría antiunitaria, la invarianza ante inversión temporal (TRS), la dinámica es invariante a la orientación del tiempo, no tiene cantidad conservada, sin embargo esta simetría fuerza a que la matriz del hamiltoniano sea simétrica y con entradas reales.
-%Este hamiltoniano cuenta con varias simetrías; la de reversión temporal (time-reversal invariance) simetría es debida a que la dinámica del sistema es la misma independientemente de la orientación del tiempo, sea que avance o que retroceda y la segunda simetría es debida a que la dinámica del sistema es invariante ante una reflexión de la cadena alrededor de su centro, es decir, daría lo mismo ver el sistema a través del reflejo de un espejo perpendicular a la red y situado en uno de sus vértices que verlo directamente. 
-\snnote{He reescrito esta sección.}\janote{F: 1) estás poniendo al mismo nivel ambas simetrías y conceptualmente son simetrías de diferente tipo. Mientras la simetría respecto al operador de reflexión tiene una cantidad conservada (la paridad), la TRS no tiene cantidades conservadas asociadas. 2) te falta mencionar la simetría que da lugar a la conservación del número de bosones. Te toca reescribir todo lo que sigue porque tenés que separar conceptualmente las simetrías}
-\snnote{Traté de describir las simetrías con intuiciones físicas.}\janote{Redactá mejor este enunciado. Como es un enunciado introductorio, no le dice nada al lector que tenga una simetría respecto a un operador que se llama reflexión. Introducilo sin cosas técnicas, tipo tiene reflexión respecto una operación que refleja espacialmente la cadena respecto al centro, algo así} 
-
-Matemáticamente, se define el operador reflexión espacial, $\hat{R}$, según su acción sobre la base de \textit{Fock}, la cual está dada por la relación~\cite{delacruz2020quantum}:
+\janote{Ahora este párrafo quedo suelto.. jaja mejor lo hablamos y te enseño la técnica de hacer un esqueleto para tener clara la estructura general}
+Matemáticamente, se define el operador reflexión espacial, $\hat{R}$, según su acción sobre la base de Fock, la cual está dada por la relación~\cite{delacruz2020quantum}:
 \begin{equation}
 \hat{R}\ket{n_1,n_2,\cdots,n_L}=\ket{n_L,n_{L-1},\cdots,n_1}.
 \end{equation}
-El operador reflexión
-%\snnote{Listo.}\janote{Definí matemáticamente al operador reflexión} 
-introduce dos sectores de simetría, el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
-si $H$ es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
+El operador reflexión introduce dos sectores de simetría, el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
+si $H$\janote{ya usaste $H$ para denotar al Hamiltonano, mejor $\mathcal{H}$ para denotar ahora a los espacios de Hilbert} es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
 \begin{equation}
     H=H^{+}\oplus H^{-}.
 \end{equation}
-%\snnote{listo}\janote{Te falta un punto en la ecuación, al final.}\snnote{Agregado.}\janote{No hablaste nada de la simetría de inversión temporal.. falta}
-La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios
-%\janote{Aquí cambiaste la notación de sitios. Empezaste llamandole $L$ y ahora es $m$, cuál va a ser? Sé consistente con la notación} 
-crece combinatóricamente bajo la relación~\cite{Zhang2010}:
+\janote{Siguiendo mi comentario anterior, aquí también debería de cambiar la notación del espacio de Hilber total y de los subespacios simétricos}
+La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios crece combinatóricamente bajo la relación~\cite{Zhang2010} \janote{Este enunciado también se siente que no es parte del párrafo}:
 \begin{equation}
 D=\frac{(N+L-1)!}{ N!(L-1)!}.
 \end{equation}
-%\janote{el punto}
-\snnote{Arreglado.}\janote{Incosistencia en la notación: debería ser $N$ y $L$, no $n$ y $m$, respectivamente}
+\janote{Esto ya es otro párrafo y me da la impresión que quedaría mejor como una introducción al principio de esta sección}
 El modelo de Bose Hubbard es una de las descripciones más simple de un conjunto de bosones sin espín en una red~\cite{delacruz2020quantum} y fue el primer modelo en ser realizado experimentalmente
 mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{greiner2002quantum,Jaksch1998}, en donde se fue capaz de modular el cociente $\frac{U}{J}$ aumentando la intensidad del láseres de la red óptica~\cite{greiner2002quantum,Jaksch1998},
  y pudo ser vista una transición de fase cuántica entre una fase de superfluidez (deslocalización de átomos) y una fase de aislante de Mott ( átomos localizdos en un sitio dado)~\cite{greiner2002quantum}.
@@ -207,41 +210,32 @@ mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{greine
 
 La noción de caos cuántico puede ser identificada a través de las fluctuaciones espectrales del espectro de energías del hamiltoniano y sus propiedades estadísticas. 
 Según la conjetura de Berry-Tabor~\cite{BerryTabor1977}, si el sistema clásico subyacente es integrable,
- las fluctuaciones de los niveles de energía de su contraparte cuántica se comportan como variables aleatorias no correlacionadas, siguiendo una distribución estadística de Poisson. 
+ las fluctuaciones de los niveles de energía de su contraparte cuántica se comportan como variables aleatorias no correlacionadas \janote{hasta aquí termina la conjetura. Lo que sigue es específico de la $P(s)$ y considero que como hasta aquí estás hablando de generalidades, mejor quitalo}, siguiendo una distribución estadística de Poisson. 
  Por otro lado, la conjetura de Bohigas-Giannoni-Schmit (BGS)~\cite{Bohigas_1984} establece que el espectro de energías de los sistemas cuánticos caóticos exhibe repulsión entre los niveles de energía y sus propiedades estadísticas universales coinciden con las de alguno de los ensambles de la teoría de matrices aleatorias (RMT).
  Para el presente trabajo, el sistema conserva la simetría de inversión temporal (TRS), por lo que la estadística espectral del sistema, de estar en un régimen caótico, estaría descrita por el ensamble ortogonal gaussiano (GOE)~\cite{mehta2004random}.
 
-Para estudiar las propiedades espectrales del sistema, son empleados indicadores estadísticos.
+Para estudiar las propiedades espectrales del sistema, son empleados \janote{distintos} indicadores estadísticos.
  Históricamente, uno de los indicadores más utilizados para este propósito ha sido la distribución del espaciamiento de niveles a primeros vecinos~\cite{BerryTabor1977, Bohigas_1984,Wigner1955}.
-  A partir del espectro de valores propios ordenados $\{ E_n \}$, el espaciamiento se define como:
+  A partir del espectro de valores propios ordenados \janote{en forma ascendente }$\{ E_n \}$, el espaciamiento \janote{entre primeros vecinos} se define\janote{me suena raro decir que \textit{se define}, porque es directo} como:
 \begin{equation}
     s_n = E_{n+1} - E_n.
     \label{eq:spacings}
 \end{equation}
-En el contexto del ensamble GOE, que describe el régimen caótico del sistema de el trabajo presente, la predicción analítica de Wigner~\cite{Wigner1955} ha sido de especial interés. Wigner propuso que la distribución de probabilidad de los espaciamientos normalizados se aproxima a:
+En el contexto del ensamble\janote{Para el} GOE, que describe el régimen caótico del sistema de el trabajo presente, la predicción analítica de Wigner~\cite{Wigner1955} ha sido de especial interés\janote{creo que no decís nada al final}. Wigner propuso que la distribución de probabilidad de los espaciamientos normalizados se aproxima a:
 \begin{equation}
     P(s) = \frac{\pi}{2} s \exp\left(-\frac{\pi}{4} s^2\right).
 \end{equation}
 Esta distribución ilustra la repulsión de niveles ($P(s) \to 0$ cuando $s \to 0$).
 
-\snnote{Lo he reescrito.}\janote{mala redacción de este enunciado, reescribilo. Admite que se vuelvan dos enunciados distintos. También faltan citas}.
-
-\janote{Acá dejá respirar lo que acabas de contar, agregá uno o dos enunciados para contar qué es lo importante del Wigner surmise, repulsión de niveles contra el level clustering de sistemas con estadística de Poisson. O sea, el sistema tiene correlaciones en su espectro cuando es caótico... bla bla}
-\janote{El primer enunciado de cada párrafo debería funcionar como un enunciado introductorio que contenga la idea principal de lo que se trata el párrafo. A este párrafo le hace falta ese enunciado, agregalo}
-%Sin embargo,
-%en la práctica, la distribución de espaciamientos de niveles debe de ser computada despues de remover las características espectrales que dependen del sistema~(un proceso llamado \textit{unfolding}),
-%con el objeto de estudiar únicamente las propiedades estadísticas universales relativas al espectro~\cite{tekur2018higher}. 
-%Estas dificultades pueden ser eludidas considerando la cantidad propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}, la cual no depende de la densidad local de estados y a consecuencia no requiere unfolding~\cite{tekur2018higher}.
-
 La importancia física de la distribución de Wigner es que pone en manifiesto la repulsión de niveles de energía, la probabilidad de encontrar dos niveles de energía degenerados o muy cercanos es nula ($P(s) \to 0$ cuando $s \to 0$). 
 Esto puede interpretarse como una existencia de correlaciones en el espectro.
- Por otro lado, para un sistema integrable, los niveles de energía están incorrelacionados y no se repelen, sino que tienden a agruparse (\textit{level clustering}) dando lugar a una distribución estadística de Poisson~\cite{mehta2004random}.
+Por otro lado, para un sistema integrable, los niveles de energía están incorrelacionados y no se repelen, sino que tienden a agruparse (\textit{level clustering}) dando lugar a una distribución estadística de Poisson~\cite{mehta2004random}. \janote{Esto debería ser parte del párrafo anterior, modulo no repetir el primer enunciado de acá (yo quitaría el último enunciado del párrafo anterior)}
 
 En la práctica, comparar directamente los espaciamientos $s_n$  con las distribuciones teóricas presenta dificultades debido a que
  la densidad local de estados varía a lo largo del espectro de energía de manera dependiente de las características del sistema.
-  Por lo que la distribución de espaciamientos debe de ser computada después de remover las características espectrales que dependen específicamente del sistema mediante un procedimiento llamado \textit{unfolding}~\cite{tekur2018higher}.
-   Dado que el \textit{unfolding} presenta un problema en sí, estas dificultades pueden ser eludidas considerando una cantidad estadística alternativa propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}. 
-   Este indicador es la tasa de espaciamientos a primeros vecinos, la cual es adimensional, no depende de la densidad local de estados y, en consecuencia, no requiere \textit{unfolding}~\cite{tekur2018higher,oganesyan2007localization}.
+Por lo que la distribución de espaciamientos debe de ser computada después de remover las características espectrales que dependen específicamente del sistema mediante un procedimiento llamado \textit{unfolding}~\cite{tekur2018higher}.
+Dado que el \textit{unfolding} presenta un problema en sí, estas dificultades pueden ser eludidas considerando una cantidad estadística alternativa propuesta originalmente por Oganesyan y Huse~\cite{oganesyan2007localization}. 
+Este indicador es la tasa de espaciamientos a primeros vecinos, la cual es adimensional, no depende de la densidad local de estados y, en consecuencia, no requiere \textit{unfolding}~\cite{tekur2018higher,oganesyan2007localization}.
 
 Denotando por $E_n$ las energía ordenadas del espectro del Hamiltoniano y el espaciamiento consecutivo de niveles de energía según \eqref{eq:spacings}\snnote{listo}\janote{Esto ya lo definiste, hacé referencia a tu ecuación arriba},
  se define el cociente de espacimiento de niveles~\cite{oganesyan2007localization}, $r_n$ \snnote{listo.}\janote{por aquí introducí la $r$ como los \textit{cocientes de espaciamientos de niveles}}:
