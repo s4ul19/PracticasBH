@@ -64,6 +64,8 @@ doi=false
 \usepackage[mathlines]{lineno}% Enable numbering of text and display math
 \setlength{\linenumbersep}{5pt} % Valor por defecto es 10pt, reduce a tu preferencia
 \linenumbers\relax % Commence numbering lines
+
+\usepackage{tikz}
 %}}}
 \begin{document}
 \begin{titlepage}
@@ -318,8 +320,30 @@ Para cada sector, de cada instancia $J/U$, se determina\janote{Aquí estás usan
 \janote{Cambio lo dicho con los títulos de las subsecciones. Más bien, no tiene sentido tener subsecciones sólo para mostrar las figuras. Quitá las subsecciones y que todo sea una sóla sección}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=1\textwidth]{./img/KL_Sym.pdf}
-  \caption{\janote{nueva figura}}
+  \begin{tikzpicture}
+    % 1. Colocamos las imágenes dentro de un nodo base
+    \node[anchor=south west, inner sep=0] (mifigura) at (0,0) {
+      \begin{tabular}{c}
+        \includegraphics[width=0.991\textwidth]{./img/KL_Sym.pdf}\hspace{1mm} \\
+        \includegraphics[width=\textwidth]{MeanSpacingBH.pdf}
+      \end{tabular}
+    };
+    
+    % 2. Creamos un sistema de coordenadas relativo (de 0 a 1) sobre el nodo
+    \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
+      \node[anchor=west, black] at (0mm,192mm) {(a)};
+      \node[anchor=west, black] at (0mm,98mm) {(b)};
+      
+      % TEXTO ARBITRARIO: 
+      % (0,0) es la esquina inferior izquierda, (1,1) la superior derecha.
+      % El texto usará el tamaño de fuente default del documento.
+      \node[anchor=west, black] at (0.178, 0.025) {\color{red}0.001};
+      \node[anchor=west, black] at (0.127, 0.039) {\color{red}0.001};
+      \node[anchor=west, black] at (90mm,3mm) {\color{red}$J/U$};
+    \end{scope}
+  \end{tikzpicture}
+  
+  \caption{\janote{nueva figura. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}}
   \label{fig:KLPoi}
 \end{figure}
 \begin{figure}[H]
