@@ -343,7 +343,7 @@ Para cada sector, de cada instancia $J/U$, se determina\janote{Aquí estás usan
     \end{scope}
   \end{tikzpicture}
   
-  \caption{\janote{nueva figura. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}}
+  \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}}
   \label{fig:KLPoi}
 \end{figure}
 \begin{figure}[H]
@@ -371,7 +371,7 @@ Para cada sector, de cada instancia $J/U$, se determina\janote{Aquí estás usan
     \centering
     \includegraphics[width=1\textwidth]{MeanSpacingBHAnti.pdf} 
     \caption{Media del cociente de espaciamiento de niveles de energía de distintas configuraciones $J/U$ del hamilotniano de Bose Hubbard.
-    Las lineas punteadas grises marcan el valor de $\ev{r}_{\text{GOE}}=0.5307$ y la lineas punteadas anaranjadas el valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$ }
+    Las lineas punteadas grises marcan el valor de $\ev{r}_{\text{GOE}}=0.5307$ y la lineas punteadas anaranjadas el valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$\janote{en esta gráfica estás perdiendo un montón de espacio vertical. Modificala para que el rango en el eje vertical sea el mismo de la Fig.~\ref{fig:Mean}}}
     \label{fig:MeanAnti}
 \end{figure}
 \begin{figure}[H]
@@ -423,6 +423,7 @@ En este caso los eigenvectores de este hamilotniano no pueden ser estados locali
 \begin{equation}
     \ket{\phi}=\sum_{i=1}^{L}\phi_i \hat{a_i}^{\dagger}\ket{0,0,\cdots,0}
 \end{equation}
+\janote{Este sólo es un eigenvector, no?}
 Se puede mostar que, pedir que $\hat{H}\ket{\phi}=E\ket{\phi}$ implica que las amplitudes $\phi_i$ deben de satisfacer la relación de recurrencia:
 \begin{equation}
     -J(\phi_{i-1}+\phi_{i+1})=E\phi_i
@@ -438,37 +439,40 @@ Tomando como ansatz la solución $\phi_j= A \sin(\beta \cdot j )$, se deduce que
      A=A_m=\frac{1}{\sqrt{\sum_{i=1}^{L}\sin^{2}(\beta_m\cdot j)}}
 \end{equation*}
 Con lo cual, llevando esto a \eqref{eq:rec} se deduce que los niveles de energía están dados según:
-\begin{equation}
-    E_m=-2J A_m\cos(\beta_m)
+\begin{equation}\label{eq:resultado}
+  E_m=-2J A_m\cos(\beta_m)
 \end{equation}
-Este resultado justifica que los eigenvalores del sistema cuando $U=0$ no son estadísticamente indistinguibles de una estadística de números aleatorios uniformemente distribuidos y por tanto la estadística del sistema no es exactamente de Poisson.
+\janote{Y aquí ya hay un índice $m$ que etiqueta más de un eigenvalor, pero de dónde salió? En las ecuaciones anteriores a esta lo agregaste sin justificación y no me parece obvio de dónde sale}\janote{Si entiendo bien, igual $m$ va de 1 a $L$, y el resto de eigenvalores??}
+Este resultado justifica que los eigenvalores del sistema cuando $U=0$ no son estadísticamente indistinguibles de una estadística de números aleatorios uniformemente distribuidos\janote{por qué la ecuación \eqref{eq:resultado} justifica esto?} y por tanto la estadística del sistema no es exactamente de Poisson.
 \end{itemize}
 \begin{figure}[H]
+  \centering
+  % Fila superior
+  \begin{subfigure}[b]{0.48\textwidth}
      \centering
-     % Fila superior
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{PsLowJU.pdf}
-         \caption{$J/U \approx 0.01$}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{PsMidJU.pdf}
-         \caption{$J/U \approx 2$}
-     \end{subfigure}
-     
-     \vspace{0.5cm} % Espacio vertical entre filas
-     
-     % Fila inferior centrada
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{PsHighJU.pdf}
-         \caption{$J/U \approx 120$}
-     \end{subfigure}
-     \caption{Distribución de cociente de espaciamientos para distintos valores de $J/U$ para el sector simétrico del hamiltoniano de Bose Hubbard de una red de 10 sitios, 10 partículas.}
-          \label{fig:Examples}
-    \end{figure}
+     \includegraphics[width=\textwidth]{PsLowJU.pdf}
+     \caption{$J/U \approx 0.01$}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+     \centering
+     \includegraphics[width=\textwidth]{PsMidJU.pdf}
+     \caption{$J/U \approx 2$}
+  \end{subfigure}
+  
+  \vspace{0.5cm} % Espacio vertical entre filas
+  
+  % Fila inferior centrada
+  \begin{subfigure}[b]{0.48\textwidth}
+     \centering
+     \includegraphics[width=\textwidth]{PsHighJU.pdf}
+     \caption{$J/U \approx 120$}
+  \end{subfigure}
+  \caption{Distribución de cociente de espaciamientos para distintos valores de $J/U$ para el sector simétrico del hamiltoniano de Bose Hubbard de una red de 10 sitios, 10 partículas. 	
+  \janote{1) El tamaño de la fuente está muy chiquito en las 3 gráficas, 2) Está muy escueta la referencia que hacés dentro del texto a esta figura. Tenés que incorporar mejor la referencia a estas gráficas dentro de la historia qu estás contando en esta sección. 3) Incluí cómo se ve la $P(r)$ en donde no se ve Poisson ni Wigner-Dyson para algún $J/U<0.01$ y para alguno en el que trancisiona entre Poisson y Wigner Dyson. El primero, lo podés mencionar con uno de los límites analíticos y el segundo cuando hablés de la transición }
+  }
+\label{fig:Examples}
+\end{figure}
 %El indicador estadístico $\ev{r}$ muestra que para la región de parámetros $J/U \in [0.5,10]$ se obtiene un valor aproximadamente de $\ev{r}_{\text{GOE}}=0.5307$~\cite{Atas_2013}, lo cual indica que la estadística del cociente del espaciamiento de los niveles de energía, en esa región de parámetros, sigue la estadística del ensamble GOE\janote{Mal. Si este es el enunciado que cuenta de qué se va a tratar el resto del párrafo, significa que estás orientando la discusión a la caracterización del caos, pero tu objetivo es caracterizar \textbf{la transición} caos-regularidad}.
 %Asimismo el indicador estadístico de la divergencia Kullback Leibler\janote{Kullback-Leibler} muestra que para la misma región $J/U \in [0.5,10]$, el valor del indicador es cercano a 0, lo cual implica que para dicha región de parámetros\janote{Esto es algo que no se puede entender de tu marco teórico, porque no está explicado en la Sec.~\ref{sec:kl_divergence}. Agregalo}, la distribución de probabilidad de los cocientes del espaciamiento de niveles no se aleja significativamente de la distribución asociada al ensamble GOE\janote{En este punto sería bueno expandir y dejar respirar. Sugiero que agregués una(s) figura(s) con la distribución númerica de la $P(r)$ para algunos valores en ese intervalo caótico y así convencer al lector de este punto que estás diciendo que es lo que dice tu gráfica de la KL divergence}. Además, se observa una transición a integrabilidad tanto para valores de $J/U$ que tienden a 0 como a $\infty$, sin embargo, la estadía en integrabilidad no presiste a medida que $J/U$ tiende a 0 a $\infty$\janote{``..a medida que $J/U$ tiende a 0 a $\infty$'' Mala redacción, corregí}.
 %Para justificar porque no se persiste en Poisson\janote{Esto ya es otra idea, hacelo otro párrafo} a medida que $J/U \rightarrow 0$, note que el término proporcional a $U$ pasa a ser cada vez más significativo, es decir, eventualmente el sistema tiende a depender solo de $U$,
