@@ -52,9 +52,9 @@ doi=false
 \newcommand{\Fref}[1]{Fig.~\ref{#1}}  
 \newcommand{\Tref}[1]{Table~\ref{#1}}
 \graphicspath{{img/}}
-
+%draft / final
 % Fixme package{
-\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
+\usepackage[final,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
 \definecolor{jacolor}{RGB}{200,40,0}
 \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
 \FXRegisterAuthor{sn}{asa}{\color{OliveGreen}Saul}
@@ -110,16 +110,16 @@ El presente trabajo tiene como objetivo caracterizar la transición entre los re
 \section{Marco Teórico}
 \subsection{El modelo de Bose Hubbard}\label{sec:BH}
 
-\begin{itemize}
-  \item Hamiltoniano de BH
-  \item Operador de reflexión
-  \item TRS
-  \item Base de Fock y operadores de creacción y aniquilación
-  \item Dimensión del espacio de Hilbert
-  \item Para qué es útil el modelo de Bose Hubbard, redes de atomos fríos etc
-  \item \sout{Estado de superfluidez}
-  \item \sout{Cómo crear la base lexicográfica de la base de Fock}
-\end{itemize}
+%\begin{itemize}
+ % \item Hamiltoniano de BH
+  %\item Operador de reflexión
+  %\item TRS
+  %\item Base de Fock y operadores de creacción y aniquilación
+  %\item Dimensión del espacio de Hilbert
+  %\item Para qué es útil el modelo de Bose Hubbard, redes de atomos fríos etc
+  %\item \sout{Estado de superfluidez}
+  %\item \sout{Cómo crear la base lexicográfica de la base de Fock}
+%\end{itemize}
 
 \begin{ajanote}{}
 \begin{itemize}
@@ -140,72 +140,73 @@ El presente trabajo tiene como objetivo caracterizar la transición entre los re
 \end{itemize}
 \end{ajanote}
 
-Este trabajo considera el modelo de Bose Hubbard con condiciones de frontera abiertas. El modelo describe la dinámica de $N$ bosones sin espín
-%\snnote{listo.}\janote{espín*, cambialo aquí y en el resto de ocurrencias en este documento} 
-en una cadena 
-%\snnote{ Listo.}\janote{cambiá la palabra latice (es lattice) por su traducción al expañol y no usés anglicismos} 
-de $L$ sitios dispuestos sobre un arreglo unidimensional. 
-El hamiltoniano
-%\snnote{Los dejé en minúscula en vista del comentario de Mariana.}\janote{\textbf{H}amiltoniano, con mayúscula. Arreglalo aquí y en el resto de ocurrencias de esta palabra en el documento} 
-del sistema con $\hbar=1$, viene dado por~\cite{Zhang2010}:
+\snnote{Se ha reescrito ese enunciado, lo mandé antes de hablar del hamiltoniano en sí.}\janote{Este enunciado como un todo suena extraño; tenés que modificar toda la redacción. Suena como una lista: ``Para representar la matriz se escoge una base de ocupación... etiquetando los elementos de la base...'', como que falta algo que conecte las dos cosas que estás diciendo o que las separés en dos enunciados individuales}.
+
+\snnote{Se han definido individualmente, omitiendo la acción del producto de los creación / aniquilación.}\janote{Definí individualmente la acción de $\hat a^\dagger_i$ y $\hat a_i$, y después la acción de $\hat n_i$. Esto es más natural que como lo tenés porque $\hat n_i = \hat a^\dagger_i \hat a_i$. De la ecuación \eqref{eq:creation:and:anhilation} no es claro cómo actúan individualmente el operador de creación y aniquilación.}
+
+\snnote{He mandado al inicio la sección, seguida de generalidaes de matemáticas y luego el hamiltoniano.}\janote{Pedagógicamente, me parecería más claro que la parte del párrafo que comienza en el enunciado que comienza en la línea \lineref{line:para:representar} se pase para la primera parte, después del primer enunciado, y el Hamiltoniano se introduzca hasta después. Habría que modificar la redacción para hacer este cambio. Lo hablamos}
+
+El modelo de Bose-Hubbard es una de las descripciones más simples de un conjunto de bosones sin espín en una red~\cite{delacruz2020quantum}. 
+Históricamente, fue el primer modelo en ser realizado experimentalmente mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{Jaksch1998, greiner2002quantum}, 
+en donde al modular el cociente $U/J$ mediante el aumento de la intensidad de los láseres de la red, se logró observar una transición de fase cuántica entre un estado superfluido (donde los átomos están deslocalizados)
+ y un estado aislante de Mott (donde los átomos se localizan en sitios específicos)~\cite{greiner2002quantum}.
+
+El presente trabajo considera este modelo con condiciones de frontera abiertas, describiendo la dinámica de $N$ bosones sin espín en una red unidimensional de $L$ sitios. 
+Para representar algebraicamente el sistema, resulta conveniente utilizar la base de ocupación o base de Fock. 
+Los elementos de esta base se etiquetan mediante los kets $\ket{n_1,n_2,\dots,n_L}$, donde $n_i$ indica el número de partículas en el $i$-ésimo sitio,
+ sujetos a la restricción de que $\sum_{i=1}^{L} n_i = N$.
+
+Sobre esta base actúan los operadores de creación $\hat{a}_i^\dagger$ y aniquilación $\hat{a}_i$, 
+los cuales satisfacen la relación de conmutación canónica $[\hat{a}_i, \hat{a}_j^\dagger] = \delta_{ij}$.
+ Su acción individual sobre los estados de Fock está dada por:
+\begin{equation}
+    \hat{a}_i^\dagger \ket{\dots, n_i, \dots} = \sqrt{n_i + 1} \ket{\dots, n_i + 1, \dots}, \quad
+    \hat{a}_i \ket{\dots, n_i, \dots} = \sqrt{n_i} \ket{\dots, n_i - 1, \dots}.
+\end{equation}
+A partir de estos se define el operador número $\hat{n}_i = \hat{a}_i^\dagger \hat{a}_i$, 
+cuya acción extrae la cantidad de bosones presentes en el sitio $i$~\cite{Zhang2010}:
+\begin{equation}\label{eq:num}
+    \hat{n}_i\ket{n_1,\dots,n_L} = n_i\ket{n_1,\dots,n_L}.
+\end{equation}
+La dimensión $D$ del espacio de Hilbert total, denotado como $\mathcal{H}$, 
+asociado a una configuración de $N$ partículas en $L$ sitios, crece combinatóricamente según la relación~\cite{Zhang2010}:
+\begin{equation}
+    D = \frac{(N+L-1)!}{N!(L-1)!}.
+\end{equation}
+
+El hamiltoniano del sistema, tomando $\hbar=1$, se expresa como~\cite{Zhang2010}:
 \begin{equation}\label{eq:H:BH}
-\hat{H}
-= -J \sum_{i=1}^{L-1} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right)
-+ \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
+    \hat{H} = -J \sum_{i=1}^{L-1} \left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right) + \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
-\linelabel{l3}
-Los operadores 
-%\snnote{listo.}\janote{son operadores} 
-$\hat{a}_i^{\dagger}$ \janote{y} $\hat{a}_i$ son los operadores de creación y aniquilación,
-%\janote{,} 
-respectivamente,
-%\janote{,}\janote{Notá las comas. Las dejo como comentario para que veás como se usan y lo tomés en cuenta para el futuro} 
-y $\hat{n}_i$ es el operador número (cuenta el número de particulas en el sitio $i$).
-%
-%\snnote{Agregué el resto debajo de la sección donde se habla acerca de J y U.}\janote{Agregá/modificá este primer enunciado para incluir cómo actúan los operadores de creación, aniquilación y número sobre los estados de Fock. Además incluí la relación de conmutación de los operadores de creación y aniquilación}. \janote{Falta explicar qué significa la notación $\ev{i,j}$ de la Eq.~\eqref{eq:H:BH}}
-%
-El primer término, proporcional a $J$, es la parte cinética del hamiltoniano y describe el tunelaje de las partículas entre sitios adyacentes~\cite{Zhang2010}. El segundo término, proporcional a $U$, describe la interacción entre las partículas en un mismo sitio~\cite{Zhang2010}.
-\linelabel{line:para:representar}Para representar la matriz de este hamiltoniano se escoge
-\janote{Tu redacción sugiere que \textit{se escoge} porque \textit{se debe escoger}, pero no es así, sólo es una base conveniente porque el término de potencial es diagonal en esa base. Modificá la redacción} 
-una base de ocupación (o base de \textit{Fock}\janote{sacalo de cursiva}), etiquetando los elementos de la base mediante kets de la forma  $\{{\ket{n_1,\dots,n_L}}\}$, siendo cada $n_i$ el número de partículas en el $i$-ésimo sitio 
-\janote{Este enunciado como un todo suena extraño; tenés que modificar toda la redacción. Suena como una lista: ``Para representar la matriz se escoge una base de ocupación... etiquetando los elementos de la base...'', como que falta algo que conecte las dos cosas que estás diciendo o que las separés en dos enunciados individuales}.
-La acción de los operadores $\hat{n}_i$ sobre la base de Fock está dada por~\cite{Zhang2010}:
+El primer término, proporcional a $J$, representa la energía cinética y describe el tunelaje a primeros vecinos de las partículas entre sitios adyacentes de la red. El segundo término, proporcional a $U$, describe la energía potencial de interacción repulsiva entre partículas que ocupan un mismo sitio~\cite{Zhang2010}.
+
+\snnote{Aca modifique para encajar la sección del operador R y mejorar la redacción.}
+
+Este hamiltoniano posee un conjunto de simetrías que determinan las propiedades de su espectro. 
+Se distinguen simetrías unitarias, que dan lugar a cantidades conservadas, y simetrías antiunitarias. 
+\snnote{Se ha reescrito.}\janote{Las ideas de este primer enunciado me parecen las correctas, pero la redacción podría mejorar. Pasalo por gemini para que te ayude a mejorarla. Incluso, creo que podrían ser dos o tres enunciados para facilitar la lectura, ya que está muy largo}.
+
+Entre las simetrías unitarias, el sistema cuenta con una simetría de fase global asociada a la conservación del número total de bosones $N$.
+ Adicionalmente, posee una simetría de reflexión espacial, representada por el operador unitario $\hat{R}$,
+  el cual invierte el orden de la red~\cite{delacruz2020quantum}:
 \begin{equation}
-\label{eq:num}
-\hat{n}_i\ket{n_1,\dots,n_L}=n_i\ket{n_1,\dots,n_L}.
+    \hat{R} \ket{n_1,n_2,\dots,n_L} = \ket{n_L,n_{L-1},\dots,n_1}.
 \end{equation}
-y se tiene la restricción de que $\sum_{i=1}^{L}n_i=N$.
-Para el cómputo de la matriz de $\hat{H}$ es de utilidad la siguiente relación~\cite{Zhang2010}:
-\begin{equation}\label{eq:creation:and:anhilation}
-\hat{a}_{i}^{\dagger}\hat{a}_{j}\ket{n_1,n_2,\cdots,n_L}=\sqrt{(n_{i}+1)n_j}\ket{n_1,\cdots,n_i+1,\cdots,n_j-1,\cdots,n_L}.
-\end{equation}
-\janote{Definí individualmente la acción de $\hat a^\dagger_i$ y $\hat a_i$, y después la acción de $\hat n_i$. Esto es más natural que como lo tenés porque $\hat n_i = \hat a^\dagger_i \hat a_i$. De la ecuación \eqref{eq:creation:and:anhilation} no es claro cómo actúan individualmente el operador de creación y aniquilación.}
-
-\janote{Pedagógicamente, me parecería más claro que la parte del párrafo que comienza en el enunciado que comienza en la línea \lineref{line:para:representar} se pase para la primera parte, después del primer enunciado, y el Hamiltoniano se introduzca hasta después. Habría que modificar la redacción para hacer este cambio. Lo hablamos}
-
-Este hamiltoniano presenta un conjunto de simetrías importantes, de las cuales se distinguen las simetrías que dan lugar a cantidades conservadas y están representadas por operadores unitarios de aquellas que no cuentan con cantidades conservadas y están representadas por operadores antiunitarios \janote{Las ideas de este primer enunciado me parecen las correctas, pero la redacción podría mejorar. Pasalo por gemini para que te ayude a mejorarla. Incluso, creo que podrían ser dos o tres enunciados para facilitar la lectura, ya que está muy largo}.
-Por un lado, el sistema cuenta con dos simetrías unitarias con cantidades conservadas asociadas; la primera una simetría de fase global aplicada a los operadores de creación y aniquilación, es responsable de la conservación del número total de bosones en el sistema~\cite{Zhang2010} y la segunda es una simetría de reflexión espacial, donde la dinámica de la red es invariante ante una reflexión de la cadena alrededor de su centro, la cantidad conservada asociada es \janote{conocida como} la paridad y permite clasificar los estados\janote{todos los estados? son sólo los eigenestados de $H$. Si es claro para vos, sólo aplicá la corrección y borrá mi comentario. Si no, decime y lo hablamos} del sistema en pares e impares~\cite{Zhang2010}.
-Por otro lado, el sistema cuenta con una simetría antiunitaria, la invarianza ante inversión temporal (TRS), la dinámica es invariante a la orientación del tiempo, no tiene cantidad conservada, sin embargo esta simetría fuerza a que la matriz del hamiltoniano sea simétrica y con entradas reales\janote{Lo mismo que con el primer enunciado de este párrafo: las ideas son correctas, pero tu redacción admite mejorarla}.
-
-\janote{Ahora este párrafo quedo suelto.. jaja mejor lo hablamos y te enseño la técnica de hacer un esqueleto para tener clara la estructura general}
-Matemáticamente, se define el operador reflexión espacial, $\hat{R}$, según su acción sobre la base de Fock, la cual está dada por la relación~\cite{delacruz2020quantum}:
-\begin{equation}
-\hat{R}\ket{n_1,n_2,\cdots,n_L}=\ket{n_L,n_{L-1},\cdots,n_1}.
-\end{equation}
-El operador reflexión introduce dos sectores de simetría, el sector simétrico (par) y el sector antisimétrico (impar). Dichos subespacios satisfacen que, 
-si $H$\janote{ya usaste $H$ para denotar al Hamiltonano, mejor $\mathcal{H}$ para denotar ahora a los espacios de Hilbert} es el espacio de Hilbert generado por la base de eigenestados y $H^{+},\,H^{-}$ los subespacios simétricos y antisimétricos respectivamente~\cite{Pausch2022}, entonces:
+La cantidad conservada asociada a esta simetría es conocida como la paridad, la cual permite clasificar los eigenestados de $\hat{H}$ en pares e impares~\cite{Zhang2010}. En consecuencia, el espacio de Hilbert se descompone en la suma directa de un subespacio simétrico $\mathcal{H}^{+}$ y uno antisimétrico $\mathcal{H}^{-}$~\cite{Pausch2022}:
 \begin{equation}\label{eq:sectors:BH}
-  H=H^{+}\oplus H^{-}.
+    \mathcal{H} = \mathcal{H}^{+} \oplus \mathcal{H}^{-}.
 \end{equation}
-\janote{Siguiendo mi comentario anterior, aquí también debería de cambiar la notación del espacio de Hilber total y de los subespacios simétricos}
-La dimensión del espacio de Hilbert asociado a una configuración de $N$ partículas y $L$ sitios crece combinatóricamente bajo la relación~\cite{Zhang2010} \janote{Este enunciado también se siente que no es parte del párrafo}:
-\begin{equation}
-D=\frac{(N+L-1)!}{ N!(L-1)!}.
-\end{equation}
-\janote{Esto ya es otro párrafo y me da la impresión que quedaría mejor como una introducción al principio de esta sección}
-El modelo de Bose Hubbard es una de las descripciones más simple de un conjunto de bosones sin espín en una red~\cite{delacruz2020quantum} y fue el primer modelo en ser realizado experimentalmente
-mediante el uso de átomos ultrafríos confinados en redes ópticas~\cite{greiner2002quantum,Jaksch1998}, en donde se fue capaz de modular el cociente $\frac{U}{J}$ aumentando la intensidad del láseres de la red óptica~\cite{greiner2002quantum,Jaksch1998},
- y pudo ser vista una transición de fase cuántica entre una fase de superfluidez (deslocalización de átomos) y una fase de aislante de Mott ( átomos localizdos en un sitio dado)~\cite{greiner2002quantum}.
+Por otro lado, el sistema conserva la invarianza ante inversión temporal (TRS), una simetría antiunitaria.
+ Aunque no posee una cantidad conservada asociada que fuerce al una descomposición del espacio de Hilbert, esta simetría impone que la matriz del hamiltoniano sea simétrica y con entradas puramente reales.
+\snnote{se reescribió}\janote{Lo mismo que con el primer enunciado de este párrafo: las ideas son correctas, pero tu redacción admite mejorarla}.
+
+\snnote{Se movio esa parte del operador R para que encaje}\janote{Ahora este párrafo quedo suelto.. jaja mejor lo hablamos y te enseño la técnica de hacer un esqueleto para tener clara la estructura general}
+
+\snnote{Se movió esta parte de la dimensión a otro lado.}\janote{Este enunciado también se siente que no es parte del párrafo}
+
+\snnote{Se hizo la modificación de notación}\janote{Siguiendo mi comentario anterior, aquí también debería de cambiar la notación del espacio de Hilber total y de los subespacios simétricos}
+
+\snnote{se movió ese parrafo al principio de la sección.}\janote{Esto ya es otro párrafo y me da la impresión que quedaría mejor como una introducción al principio de esta sección}
 
 \subsection{Mean spacing Ratio}\label{sec:mean:r}
 La noción de caos cuántico puede ser identificada a través de las fluctuaciones espectrales del espectro de energías del hamiltoniano y sus propiedades estadísticas. 
