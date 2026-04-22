@@ -54,7 +54,7 @@ doi=false
 \graphicspath{{img/}}
 %draft / final
 % Fixme package{
-\usepackage[draft,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
+\usepackage[final,inline,nomargin]{fixme} \fxsetup{theme=color} % Comments
 \definecolor{jacolor}{RGB}{200,40,0}
 \FXRegisterAuthor{ja}{aja}{\color{jacolor}JA}
 \FXRegisterAuthor{sn}{asa}{\color{OliveGreen}Saul}
@@ -304,10 +304,7 @@ Para cada sector, de cada instancia $J/U$, se determinó\janote{Aquí estás usa
     \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
       \node[anchor=west, black] at (0mm,192mm) {(a)};
       \node[anchor=west, black] at (0mm,98mm) {(b)};
-      
-      \node[anchor=west, black] at (0.178, 0.025) {\color{red}0.001};
-      \node[anchor=west, black] at (0.127, 0.039) {\color{red}0.001};
-      \node[anchor=west, black] at (90mm,3mm) {\color{red}$J/U$};
+    
     \end{scope}
   \end{tikzpicture}
   \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\snnote{Listo.} \janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
@@ -329,9 +326,6 @@ Para cada sector, de cada instancia $J/U$, se determinó\janote{Aquí estás usa
       \node[anchor=west, black] at (0mm,192mm) {(a)};
       \node[anchor=west, black] at (0mm,98mm) {(b)};
       
-      \node[anchor=west, black] at (0.178, 0.025) {\color{red}0.001};
-      \node[anchor=west, black] at (0.127, 0.039) {\color{red}0.001};
-      \node[anchor=west, black] at (90mm,3mm) {\color{red}$J/U$};
     \end{scope}
   \end{tikzpicture}
   \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\snnote{Listo.} \janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
@@ -364,7 +358,7 @@ Para ilustrar estas observaciones,
 Es importante notar una sutileza en los límites asintóticos: 
 \janote{La redacción es confusa. Dijiste en tu marco teórico que integrabilidad $=$ Poisson, pero aquí decís que el sistema es integrable, pero que igual no muestra Poisson... ¿? O sea, el sistema sí es integrable, pero hasta aquí no has discutido los límites... De nuevo, es tu narrativa la que se está contradiciendo, creo que en la cabeza sí tenés claro todo esto}
 \snnote{Lo traté de reescribir mejor.}
- aunque el sistema transiciona a un régimen analíticamente integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia perfecta con la estadística de Poisson. 
+ aunque el sistema transiciona a un régimen analíticamente integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia aproximada con la estadística de Poisson. 
  Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
 
 \begin{itemize}
@@ -376,7 +370,10 @@ En vista de \janote{la ec.~}\snnote{Listo.}\eqref{eq:num}\janote{agregá esto en
 \begin{equation}
 \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1)\ket{n_1,\cdots,n_L}=\frac{U}{2}\sum_{i=1}^{L}n_i(n_i - 1)\ket{n_1,\cdots,n_L}.
 \end{equation}
-\janote{Pero el sistema es integrable o no? Falta agregar eso, por qué es integrable?}\snnote{Listo.} Este límite es estrictamente integrable dado que los operadores de número $\hat{n}_i$ constituyen un conjunto completo de observables que conmutan con $\hat{H}$. Sin embargo, dado que los eigenvalores son múltiplos enteros del parámetro de interacción $U$, el espectro presenta degeneraciones masivas y no está distribuido de manera uniforme. Por tanto, su estadística local difiere significativamente de la de variables aleatorias independientes requeridas para reproducir exactamente la distribución de Poisson.
+\janote{Pero el sistema es integrable o no? Falta agregar eso, por qué es integrable?}\snnote{Listo.} Este límite es estrictamente integrable dado que los operadores de número $\hat{n}_i$
+constituyen un conjunto completo de observables que conmutan con $\hat{H}$. 
+Sin embargo, dado que los eigenvalores son múltiplos enteros del parámetro de interacción $U$, el espectro presenta degeneraciones y no está distribuido de manera uniforme. 
+Por tanto, su estadística local difiere significativamente de la de variables aleatorias independientes requeridas para reproducir exactamente la distribución de Poisson.
 
     \item Cuando $J/U \rightarrow \infty$: Este caso equivale a estudiar la ec.~\eqref{eq:H:BH} cuando $U=0$ y $J\neq 0$. El hamiltoniano se reduce al término cinético:
 \begin{equation}\label{eq:H:BHKin}
@@ -403,7 +400,8 @@ Con lo cual, llevando esto a la ec.~\eqref{eq:rec}, se deduce que los niveles de
   E_m=-2J \cos(\beta_m)
 \end{equation}
 \janote{Y aquí ya hay un índice $m$ que etiqueta más de un eigenvalor, pero de dónde salió? En las ecuaciones anteriores a esta lo agregaste sin justificación y no me parece obvio de dónde sale}\snnote{Se introdujo como el número cuántico del cuasimomento discreto.} \janote{Si entiendo bien, igual $m$ va de 1 a $L$, y el resto de eigenvalores??}\snnote{Aparecen según se varíe el cuasimomento $m$.}
-donde el índice $m = 1, \dots, L$ etiqueta los modos normales del sistema (cuasimomentos discretizados). Las energías totales del sistema de muchos cuerpos consisten simplemente en la suma de las energías de estos niveles ocupados. \janote{por qué la ecuación \eqref{eq:resultado} justifica esto?}\snnote{Listo. Se agregó la explicación física explícita.} Debido a que el espectro total se construye como combinaciones aditivas de los valores dictados por la dispersión del coseno de la ec.~\eqref{eq:resultado}, el espectro resultante es altamente estructurado y fuertemente correlacionado, careciendo del carácter estocástico e incorrelacionado necesario para manifestar una distribución de Poisson pura.
+donde el índice $m = 1, \dots, L$ etiqueta los modos normales del sistema (cuasimomentos discretizados). 
+En vista de la ecuación \eqref{eq:resultado}, se ve que el espectro resultante no sigue una distribución una distribución de variables aleatorias independientes.
 \end{itemize}
 
 \begin{figure}[H]
