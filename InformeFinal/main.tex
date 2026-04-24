@@ -280,10 +280,10 @@ la divergencia KL compara las distribuciones de probabilidad punto a punto, cons
 
 \section{Resultados}
 \janote{Falta un primer enunciado que diga globalmente de qué van los resultados, como este:}
-\janote{En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos del modelo de Bose Hubbard (c.f. Sec.~\ref{sec:BH}) utilizando la media del cociente de espacimientos (c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL (c.f. Sec.~\ref{sec:kl_divergence}) entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por el GOE y de Poisson.}\snnote{Listo. Se integró el texto propuesto.}
-En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos del modelo de Bose Hubbard (c.f. Sec.~\ref{sec:BH}) utilizando la media del cociente de espacimientos (c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL (c.f. Sec.~\ref{sec:kl_divergence}) entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por el GOE y de Poisson.
+\janote{En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos del modelo de Bose Hubbard con condiciones de frontera abiertas~(c.f. Sec.~\ref{sec:BH}) utilizando la media del cociente de espacimientos~(c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL (c.f. Sec.~\ref{sec:kl_divergence}) entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por el GOE y de Poisson.}\snnote{Listo. Se integró el texto propuesto.}
+En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos del modelo de Bose Hubbard con condiciones de frontera abiertas~(c.f. Sec.~\ref{sec:BH}) utilizando la media del cociente de espacimientos~(c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL~(c.f. Sec.~\ref{sec:kl_divergence}) entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por GOE y Poisson.
 
-Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano según la ec.~\eqref{eq:H:BH}, fijando $U=1$ y variando $J$.
+Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano, fijando $U=1$ y variando $J$.
 Para cada sector, de cada instancia $J/U$, se determinó\janote{Aquí estás usando el tiempo presente y en el enunciado anterior el pasado, cuál va a ser? Cambialo en todos lados para ser consistente con el tiempo verbal}\snnote{Listo. Se unificó al tiempo pasado.} la media del cociente de espaciamientos según la ec.~\eqref{eq:r}
  y la divergencia KL según la ec.~\eqref{eq:kl_divergence} tomando la ec.~\eqref{eq:goe} y la ec.~\eqref{eq:poi} como distribuciones de probabilidad de referencia para GOE y Poisson, respectivamente.
 
@@ -332,23 +332,17 @@ Para cada sector, de cada instancia $J/U$, se determinó\janote{Aquí estás usa
   [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
   \label{fig:BHAnti}
 \end{figure}
-k
-Mediante el indicador estadístico $\ev{r}$ ilustrado en la Fig.~\ref{fig:BHSym}, es posible observar el comportamiento espectral en función del cociente $J/U$.
+Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.4, 10]$, independientemente del tamaño del sistema 
+y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$,
+; $J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$; $J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$; $J/U \in [0.008, 0.01]$ y $J/U \in [105,110]$ para $N=L=10$.
+
+Las figuras \ref{fig:BHSym} y \ref{fig:BHAnti} muestran que, visto desde el indicador $\ev{r}$, el sistema transiciona entre ambos regimenes estadísticos de una manera suave, sin embargo la permanencia en un regímen integrable no persiste a medida que $J/U$ tiende tanto a $0$ como a $\infty$.
+
  \janote{Sé preciso, no digas ``valores pequeños'', decí el intervalo según lo que se ve en la figura}\snnote{Listo. Se estructuró indicando intervalos explícitos.} 
  \janote{mismo comentario de antes}\snnote{Listo.} 
  \janote{Es falso lo que estás diciendo. En la Fig.~\ref{fig:Mean} para $J/U<0.01$ yo veo que para todos los tamaños de sistema el valor es menor al de Poisson... Así mismo, estás obviando por completo las regiones de transición...}\snnote{Listo. Se reescribió reflejando transición.}
  \janote{No estás diciendo nada profundamente diferente de lo que ya dijiste en el enunciado anterior. Aquí funcionaría empezar el enunciado diciendo algo como ``\textit{Es decir, juzgando únicamente con la media de los cocientes de espaciamientos se diría que el sistema es caótico en tal intervalo e integrable en tal intervalo}''}\snnote{Listo.} 
- Es decir, juzgando únicamente con la media de los cocientes de espaciamientos, el sistema es caótico en el intervalo $J/U \in [0.4, 10]$ independientemente del tamaño del sistema, 
- (donde $\ev{r} \approx \ev{r}_{\text{GOE}}$) e integrable en intervalos distintos según el tamaño del sistema ($J/U \in [0.03, 0.09]$ para un tamaño de $N=L=7$ y $J/U \in [0.007, 0.01]$ para los tamaños de $N=L=,8,9,10$ )
- Entre los intervalos de región caótica e integrabilidad es observable una transición entre ambos regímenes.
-
-Además, se corrobora en las Figs.~\janote{la Fig.~}\snnote{Listo.}\ref{fig:BHSym} y \ref{fig:BHAnti} que para el intervalo caótico \janote{otra vez estás siendo impreciso y subjetivo.
- Este tipo de afirmaciones no sirven}\snnote{Listo. Se hace referencia al intervalo propuesto.} 
- \janote{tenés typos en este enunciado y la redacción es mala, es dificil de leer. Intentá leerlo en voz alta siguiendo las comas que pusiste. Pasalo por gemini}\snnote{Listo, se arregló. } 
- $J/U \in [0.4, 10]$, la distribución de probabilidad del cociente de espaciamientos es aproximada por la distribución del ensamble GOE. 
- Asimismo, en base a KL mostrada en las Figs.~
- \janote{la Fig.~}\snnote{Listo.}\ref{fig:BHSym} y \ref{fig:BHAnti}\janote{Corregí los de las figuras en todos lados donde las referenciés}\snnote{Listo.}
- , para las regiones de integrabilidad comentadas, la distribución empírica converge hacia la distribución de Poisson.
+ Asimismo, en base al indicador estadístico de la divergencia KL, 
 
 Para ilustrar estas observaciones, 
 \janote{Qué estás queriendo decir con este párrafo? No entiendo el punto principal}\snnote{Listo. Se aclaró que es un ejemplo visual de las distribuciones en puntos representativos.}
