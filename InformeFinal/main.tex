@@ -358,23 +358,21 @@ que sugieren las figuras Fig.~\ref{fig:BHSym} y \ref{fig:BHAnti}, se ve una corr
  \janote{Es falso lo que estás diciendo. En la Fig.~\ref{fig:Mean} para $J/U<0.01$ yo veo que para todos los tamaños de sistema el valor es menor al de Poisson... Así mismo, estás obviando por completo las regiones de transición...}\snnote{Listo. Se reescribió reflejando transición.}
  \janote{No estás diciendo nada profundamente diferente de lo que ya dijiste en el enunciado anterior. Aquí funcionaría empezar el enunciado diciendo algo como ``\textit{Es decir, juzgando únicamente con la media de los cocientes de espaciamientos se diría que el sistema es caótico en tal intervalo e integrable en tal intervalo}''}\snnote{Listo.} 
 \janote{Qué estás queriendo decir con este párrafo? No entiendo el punto principal}
-Es importante notar una sutileza en los límites asintóticos: 
 \janote{La redacción es confusa. Dijiste en tu marco teórico que integrabilidad $=$ Poisson, pero aquí decís que el sistema es integrable, pero que igual no muestra Poisson... ¿? O sea, el sistema sí es integrable, pero hasta aquí no has discutido los límites... De nuevo, es tu narrativa la que se está contradiciendo, creo que en la cabeza sí tenés claro todo esto}
 \snnote{Lo traté de reescribir mejor.}
- aunque el sistema transiciona a un régimen analíticamente integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia aproximada con la estadística de Poisson. 
+ Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia aproximada con la estadística de Poisson. 
  Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
-
 \begin{itemize}
-    \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar la ec.~\eqref{eq:H:BH} cuando $J=0$ y $U\neq0$. El hamiltoniano resulta:
+    \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar la ec.~\eqref{eq:H:BH} cuando $J=0$ y $U\neq0$ y físicamente corresponde a una situación en donde no existe tunelaje entre sitios adyacentes, los bosones están confinados en su sitio inicial. El hamiltoniano resultante es:
 \begin{equation}\label{eq:H:BHInt}
 \hat{H} = \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
-En vista de \janote{la ec.~}\snnote{Listo.}\eqref{eq:num}\janote{agregá esto en todos lados donde referenciés ecuaciones}\snnote{Listo.}, es evidente que la base de Fock es eigenbase del hamiltoniano en la ec.~\eqref{eq:H:BHInt}, cumpliendo:
+En vista de \janote{la ec.~}\snnote{Listo.}\eqref{eq:num}\janote{agregá esto en todos lados donde referenciés ecuaciones}\snnote{Listo.}, la base de Fock es eigenbase del hamiltoniano en la ec.~\eqref{eq:H:BHInt}, cumpliendo:
 \begin{equation}
 \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1)\ket{n_1,\cdots,n_L}=\frac{U}{2}\sum_{i=1}^{L}n_i(n_i - 1)\ket{n_1,\cdots,n_L}.
 \end{equation}
 \janote{Pero el sistema es integrable o no? Falta agregar eso, por qué es integrable?}\snnote{Listo.} Este límite es estrictamente integrable dado que los operadores de número $\hat{n}_i$
-constituyen un conjunto completo de observables que conmutan con $\hat{H}$. 
+constituyen un conjunto completo de observables que conmutan con $\hat{H}$, por tanto hay tantas cantidades conservadas como número de sitios. 
 Sin embargo, dado que los eigenvalores son múltiplos enteros del parámetro de interacción $U$, el espectro presenta degeneraciones y no está distribuido de manera uniforme. 
 Por tanto, su estadística local difiere significativamente de la de variables aleatorias independientes requeridas para reproducir exactamente la distribución de Poisson.
 
@@ -398,13 +396,14 @@ donde $\phi_0=\phi_{L+1}=0$. Tomando como ansatz la solución $\phi_j= A \sin(\b
 \begin{equation*}
      A=A_m=\frac{1}{\sqrt{\sum_{i=1}^{L}\sin^{2}(\beta_m\cdot j)}}
 \end{equation*}
-Con lo cual, llevando esto a la ec.~\eqref{eq:rec}, se deduce que los niveles de energía de una sola partícula están dados por:
+Con lo cual, se evidencia la existencia de un número cuántico asociado, $m \in [0,L]$ y $m\in\mathbb{Z}$. Llevando esto a la ec.~\eqref{eq:rec}, se deduce que los niveles de energía según su número cuántico asociado, $m$, están dados por:
 \begin{equation}\label{eq:resultado}
   E_m=-2J A_m\cos(\beta_m)
 \end{equation}
 \janote{Y aquí ya hay un índice $m$ que etiqueta más de un eigenvalor, pero de dónde salió? En las ecuaciones anteriores a esta lo agregaste sin justificación y no me parece obvio de dónde sale}\snnote{Se introdujo como el número cuántico del cuasimomento discreto.} \janote{Si entiendo bien, igual $m$ va de 1 a $L$, y el resto de eigenvalores??}\snnote{Aparecen según se varíe el cuasimomento $m$.}
-donde el índice $m = 1, \dots, L$ etiqueta los modos normales del sistema (cuasimomentos discretizados). 
-En vista de la ecuación \eqref{eq:resultado}, se ve que el espectro resultante no sigue una distribución una distribución de variables aleatorias independientes.
+donde el índice $m = 1, \dots, L$ etiqueta los numeros cuánticos asociados al sistema. 
+Este hamiltoniano no contempla una interacción entre bosones y por tanto puede considerarse como si fueran partículas que estan en constante tunelaje entre los sitios, independientes una de la otra, sus niveles de energía son independientes unos de los otros.
+En vista de la ecuación \eqref{eq:resultado}, el espectro de energías no sigue una distribución de variables aleatorias independientes pese a ser un sistema integrable (sistema de partículas libres).
 \end{itemize}
 
 \begin{figure}[H]
