@@ -452,18 +452,40 @@ En vista de la ecuación \eqref{eq:resultado}, el espectro de energías no sigue
 \janote{Otra idea que ya no tiene nada que ver con lo que venía antes en el párrafo. Debería ser otro párrafo}\snnote{Pendiente de revisión: Esta idea queda huérfana en este punto del texto, se sugiere mover su discusión de dependencia de tamaño de la red hacia el análisis de las figuras 1-4, o descartarla si desvía el foco de la transición.}
 \section{Conclusiones}
 \janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
+\snnote{Sugiero esta estructura :}
+\begin{itemize}
+    \item La modulación del cociente $J/U$ en el modelo de Bose Hubbard con condiciones de frontera abiertas permite controlar de forma la transición entre las fases de integrabilidad y caos cuántico.
+    
+    \item Mencionar de la metodología usada, de la media del cociente de espaciamientos $\langle r \rangle$ y la divergencia de KL para caracterizar las distribuciones empíricas.
+    
+    \item Especificar que el caos cuántico, visto desde la $\langle r \rangle$, se satura en un intervalo central bien, mientras que los regímenes integrables emergen en los extremos de esta región, en distintos puntos según el tamaño.
+    
+    \item  Señalar que la correspondencia con las estadísticas teóricas mejora al aumentar el tamaño del sistema ($N$ y $L$).
+    
+    \item  Sugerir el uso de indicadores que evalúen correlaciones de orden superior para eludir el problema de las degeneraciones por las simetrías. Finalizar conectando la utilidad de conocer estos intervalos exactos con el diseño de arreglos experimentales basados en átomos ultrafríos.
+\end{itemize}
 
-Mediante los indicadores estadísticos propuestos, \eqref{eq:r} y \eqref{eq:kl_divergence}, es posible observar que el modelo de Bose Hubbard con condiciones de frontera abiertas
-transiciona entre una fase de integrabilidad y una fase caótica a medida que se modula el cociente $J/U$. La región de parámetros para la cual el sistema es 
-cuánticamente caótico se satura en un intervalo definido a medida que el tamaño de la red y el número de partículas aumentan, por lo que se esperaría que en el límite de una red infinita con infinitas partículas,
- la región de parámetros donde se observa caos cuántico sea un intervalo finito y no es concluyente que tal sea el caso si se consideran configuraciones donde el número de párticulas no es el mismo que el número de sitios.
- La transición de integrabilidad a caos no es una transición abrupta, sino que es una transición suave, como es visto en  la figura~\ref{fig:Mean}, además de las figuras \ref{fig:KLGOE} y \ref{fig:KLPoi},
- es concluyente que la correspondencia con las estadísiticas de referencia (GOE y Poisson) es cada vez mejor a medida que el tamaño de la red incrementa
-  y no es claro como es afectada dicha correspondencia a medida que se deje fijo el número de partículas y se aumente el tamaño de la red o viceversa.
-Es de hacer énfasis en el detalle que, para llevar a cabo este análisis espectral, fue necesario estudiar un sector de simetría del hamilotniano, puesto que el
-análisis espectral realizado es sensible a las degeneraciones en el espectro de energías. Esta dificultad puede ser eludida si se emplean otro tipo de indicadores estadísticos, que a diferencia de \eqref{eq:spacings} que es un indicador de correlaciones locales, tomen en cuenta correlaciones de órden superior, como se sugiere en~\cite{delacruz2020quantum}.
-Un trabajo futuro en esta líneas de investigación es estudiar a mayor detalle las regiones de parámetros $J/U$ donde se exhibe integrabilidad y caos a medida que se varía el número de partículas y el número de sitios a considerar, además de estudiar estas regiones para un límite termodinámico del sistema.
-Es de interés clarifcar este último punto en vista de las limitaciones experimentales que existen a la hora de escalar el tamaño del arreglo experimental y resultaría útil tener un conocimiento de una región efectiva que exhiba ya sea integrabilidad o caoticidad.
 
+% Aquí puedes comenzar a redactar los párrafos finales basándote en los puntos de arriba:}
+A partir del análisis de las fluctuaciones espectrales, se verificó que el modelo de Bose-Hubbard unidimensional con condiciones de frontera abiertas experimenta una transición entre una fase integrable y una fase de caos cuántico al modular el cociente $J/U$. 
+Para caracterizar esta transición, resultó necesario restringir el estudio a un sector específico de paridad espacial del hamiltoniano, evitando así la superposición de espectros independientes que introducirían degeneraciones en caso de estudiar el espectro completo del hamiltoniano. 
+Bajo esta restricción, la implementación conjunta del valor esperado del cociente de espaciamientos $\ev{r}$, dado por la ec.~\eqref{eq:r}, y la divergencia de Kullback-Leibler (KL), ec.~\eqref{eq:kl_divergence}, 
+muestra con ser una metodología robusta para comparar las distribuciones empíricas $P(r)$ con las predicciones teóricas del ensamble ortogonal gaussiano (GOE) y la estadística de Poisson,
+siempre y cuando se tenga a disposición el conocimiento de las simetrías presentes en el sistema y los operadores a los que están asociadas las mismas.
+
+Los resultados sugieren que el régimen cuánticamente caótico, 
+caracterizado por repulsión de niveles y una correspondencia con la distribución del ensamble GOE,
+se satura en un intervalo central bien definido, aproximadamente $J/U \in [0.5, 10]$. A medida que el sistema se aleja de este intervalo, el espectro transiciona hacia un regimen integrable,
+ que para $J/U\rightarrow 0$ representa bosones fuertemente localizados en sitios dados de la red y para $J/U \rightarrow \infty$ representa partículas libres tunelando entre los sitios.
+Según se vió mediante el indicador de la divergencia KL, la existencia de configuraciones $J/U$ que mejor se aproximan a las estadísticas respectivas (GOE o Poisson) es de interés ya que sigue una tendencia según el tamaño del sistema y en vista de ello puede ser posible inferir, para tamaños superiores de red y partículas, que configuraciones $J/U$ maximizan una correspondencia con GOE o Poisson.
+
+Sin embargo, el análisis de las distribuciones empíricas en los límites asintóticos revela anomalías importantes para tamaños finitos de la red. 
+Tanto en el límite del aislante estricto sin tunelaje ($J/U \to 0$) como en el límite de partículas libres sin interacción ($J/U \to \infty$), 
+la distribución de los cocientes de espaciamiento no reproduce con exactitud la estadística de Poisson esperada, pese a que el sistema es estrictamente integrable (tiene igual número de cantidades conservadas como grados de libertad).
+Por otro lado, se observó que la correspondencia de las distribuciones numéricas con los modelos estadísticos teóricos mejora significativamente a medida que se incrementa el tamaño del sistema.
+Los resultados obtenidos, para el número de sitios estudiados, sugieren que la región de parámetros correspondiente a la fase caótica converge hacia un intervalo finito; sin embargo,
+  no resulta concluyente cómo se comporta esta transición en un límite termodinámico o en configuraciones donde $N \neq L$.
+
+Como trabajo futuro, resulta pertinente extender esta línea de investigación empleando indicadores estadísticos que involucren correlaciones de orden superior, lo cual permitiría analizar el espectro sin la necesidad de desdoblar el espacio de Hilbert por sectores de simetría~\cite{delacruz2020quantum}. Finalmente, mapear con precisión estos intervalos de integrabilidad y caos posee una relevancia práctica sustancial; dada la complejidad de escalar arreglos experimentales con átomos ultrafríos en redes ópticas, conocer a priori las regiones efectivas de parámetros permite guiar el diseño de experimentos orientados a estudiar fenómenos como la termalización y la localización en sistemas cuánticos aislados.
 \printbibliography
 \end{document}
