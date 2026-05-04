@@ -94,19 +94,30 @@ doi=false
 \end{titlepage}
 \section{Introducción}
 \janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
+\snnote{Estructura propuesta: }
+\begin{itemize}
+    \item Relevancia del caos cuántico en sistemas de muchos cuerpos habilitados por el avance computacional.
+    
+    \item  Introducción de la conjetura de Bohigas-Giannoni-Schmit (BGS) y Berry-Tarbor, contrastando la repulsión de niveles (RMT/GOE) con la agrupación de niveles o en sistemas integrables.
+    
+    \item  Presentación del modelo de Bose Hubbard, destacando su viabilidad experimental mediante átomos ultrafríos en redes ópticas y la modulación del balance energético (tunelaje vs. interacción).
+    
+    \item Propósito de la investigación (caracterizar la transición integrabilidad-caos con condiciones de frontera abiertas) 
+  
+\end{itemize}
+El estudio del caos cuántico en sistemas de muchos cuerpos es un área de investigación que ha sido retomada en los últimos años en vista de una mayor capacidad computacional a disposición; 
+dicho estudio es fundamental para comprender fenómenos como la termalización y la localización en sistemas cuánticos aislados~\cite{Zhang2010}. Las firmas del caos cuántico se buscan en las propiedades estadísticas del espectro de energías del hamiltoniano considerado.
 
-El estudio del caos cuántico en sistemas de muchos cuerpos es un área de investigación que sido retomada en estos últimos años en vista de una mayor capacidad computacional a disposición,
- dicho estudio es importante para comprender fenómenos como la termalización y la localización en sistemas cuánticos aislados~\cite{Zhang2010}. 
- Las firmas del caos cuántico se buscan en las propiedades estadísticas del espectro de energías del sistema hamiltoniano a considerar.
+Según la conjetura de Bohigas-Giannoni-Schmit (BGS), las fluctuaciones espectrales de un sistema cuántico cuyo análogo clásico es caótico exhiben repulsión de niveles, 
+y sus propiedades estadísticas coinciden con las predicciones de la Teoría de Matrices Aleatorias (RMT)~\cite{Bohigas_1984}.
+ Por el contrario, según la conjetura de Berry-Tarbor~\cite{BerryTabor1977}, los sistemas integrables presentan espectros no correlacionados que siguen una estadística de Poisson, permitiendo la agrupación de niveles o \textit{level clustering}.
 
-Según la conjetura de Bohigas-Giannoni-Schmit (BGS), las fluctuaciones espectrales de un sistema cuántico cuyo análogo clásico es caótico exhiben repulsión de niveles y sus propiedades estadísticas coinciden con las predicciones de la Teoría de Matrices Aleatorias (RMT)~\cite{Bohigas_1984}. Por el contrario, los sistemas integrables presentan espectros incorrelacionados que siguen una estadística de Poisson, permitiendo la agrupación de niveles o level clustering~\cite{BerryTabor1977}.
+El modelo de Bose Hubbard sobre una red es un sistema útil en este contexto, ya que además de su relevancia teórica para describir bosones sin espín en una red, este modelo es de interés experimental debido a su realización mediante átomos ultrafríos confinados en redes ópticas~\cite{Jaksch1998,greiner2002quantum}
+ Al modular la profundidad de estas redes, es posible controlar el balance entre la energía cinética (tunelaje) y la energía de interacción de las partículas, permitiendo explorar distintas fases dinámicas~\cite{Jaksch1998,greiner2002quantum}.
 
-El modelo de Bose-Hubbard unidimensional es un sistema útil en este contexto.
- Además de su relevancia teórica para describir bosones sin espín en una red, este modelo es de interés experimental debido a su realización mediante átomos ultrafríos confinados en redes ópticas~\cite{Jaksch1998,greiner2002quantum}. Al modular la profundidad de estas redes, es posible controlar el balance entre la energía cinética (tunelaje) y la energía de interacción de las partículas, permitiendo explorar distintas fases dinámicas~\cite{Jaksch1998,greiner2002quantum}.
-
-El presente trabajo tiene como objetivo caracterizar la transición entre los regímenes de integrabilidad y caos cuántico en el modelo de Bose-Hubbard con condiciones de frontera abiertas.
- Asimismo, para realizar una comparación rigurosa de las distribuciones empíricas frente a las predicciones teóricas de los ensambles ortogonales gaussianos (GOE) y de Poisson, se implementa dos indicadores estadísticos utilizados en la literatura.
-
+El presente trabajo tiene como objetivo caracterizar la transición entre los regímenes de integrabilidad y caos cuántico en el modelo de Bose Hubbard con condiciones de frontera abiertas. 
+Asimismo, para realizar una comparación de las distribuciones empíricas respecto a las predicciones teóricas del ensamble ortogonal gaussiano (GOE) y de la estadística de Poisson,
+se implementan dos indicadores estadísticos utilizados en la literatura.
 \section{Marco Teórico}
 \subsection{El modelo de Bose Hubbard}\label{sec:BH}
 
@@ -288,51 +299,7 @@ entre la distribución empírica de cocientes $P(r)$ y las distribuciones predic
 Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano, fijando $U=1$ y variando $J$.
 Para cada sector, de cada instancia $J/U$, se determinó\janote{Aquí estás usando el tiempo presente y en el enunciado anterior el pasado, cuál va a ser? Cambialo en todos lados para ser consistente con el tiempo verbal}\snnote{Listo. Se unificó al tiempo pasado.} la media del cociente de espaciamientos según la ec.~\eqref{eq:r}
  y la divergencia KL según la ec.~\eqref{eq:kl_divergence} tomando la ec.~\eqref{eq:goe} y la ec.~\eqref{eq:poi} como distribuciones de probabilidad de referencia para GOE y Poisson, respectivamente.
-% \subsection{Para el sector simétrico}
-\janote{Cambio lo dicho con los títulos de las subsecciones. Más bien, no tiene sentido tener subsecciones sólo para mostrar las figuras. Quitá las subsecciones y que todo sea una sóla sección}\snnote{Listo. Se eliminaron las subsecciones.}
 
-\begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    % 1. Colocamos las imágenes dentro de un nodo base
-    \node[anchor=south west, inner sep=0] (mifigura) at (0,0) {
-      \begin{tabular}{c}
-        \includegraphics[width=0.991\textwidth]{./img/KL_Sym.pdf}\hspace{1mm} \\
-        \includegraphics[width=\textwidth]{MeanSpacingBH.pdf}
-      \end{tabular}
-    };
-    % 2. Creamos un sistema de coordenadas relativo (de 0 a 1) sobre el nodo
-    \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
-      \node[anchor=west, black] at (0mm,192mm) {(a)};
-      \node[anchor=west, black] at (0mm,98mm) {(b)};
-    
-    \end{scope}
-  \end{tikzpicture}
-  \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\snnote{Listo.} \janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
-  [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
-  \label{fig:BHSym}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    % 1. Colocamos las imágenes dentro de un nodo base
-    \node[anchor=south west, inner sep=0] (mifigura) at (0,0) {
-      \begin{tabular}{c}
-        \includegraphics[width=0.991\textwidth]{./img/KL_Anti.pdf}\hspace{1mm} \\
-        \includegraphics[width=\textwidth]{MeanSpacingBHAnti.pdf}
-      \end{tabular}
-    };
-    % 2. Creamos un sistema de coordenadas relativo (de 0 a 1) sobre el nodo
-    \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
-      \node[anchor=west, black] at (0mm,192mm) {(a)};
-      \node[anchor=west, black] at (0mm,98mm) {(b)};
-      
-    \end{scope}
-  \end{tikzpicture}
-  \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\snnote{Listo.} \janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
-  [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
-  \label{fig:BHAnti}
-\end{figure}
 Mediante el indicador estadístico $\ev{r}$ es visto que al variar el cociente $J/U$ desde valores cercanos a 0 hasta un valores cercanos a 120,
  el sistema transiciona entre regimenes de integrabilidad y caos.
 Por un lado, para una región de cocientes $J/U$ contenida en el intervalo $[0.5,10]$, para todos los tamaños, el sistema es cuánticamente caótico,
@@ -346,21 +313,7 @@ Tanto para el indicador $\ev{r}$ y la divergencia KL es posible ver que hay valo
 tal y como se ve en Fig.~\ref{fig:Examples}~(d), asi mismo se ve que en los páneles de (a),(b), (c) de Fig.~\ref{fig:Examples}, usando los valores $J/U$ que maximizan la correspondencia con la estadísticas respectivas 
 que sugieren las figuras Fig.~\ref{fig:BHSym} y \ref{fig:BHAnti}, se ve una correspondencia significativa con las predicciones analíticas de cada estadística de referencia.
 
-%Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.5, 10]$, independientemente del tamaño del sistema 
-%y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$;
- %$J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$;
-%$J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$;
-%$J/U \in [0.008, 0.01]$ y
-% $J/U \in [105,110]$ para $N=L=10$.
-
- \janote{Sé preciso, no digas ``valores pequeños'', decí el intervalo según lo que se ve en la figura}\snnote{Listo. Se estructuró indicando intervalos explícitos.} 
- \janote{mismo comentario de antes}\snnote{Listo.} 
- \janote{Es falso lo que estás diciendo. En la Fig.~\ref{fig:Mean} para $J/U<0.01$ yo veo que para todos los tamaños de sistema el valor es menor al de Poisson... Así mismo, estás obviando por completo las regiones de transición...}\snnote{Listo. Se reescribió reflejando transición.}
- \janote{No estás diciendo nada profundamente diferente de lo que ya dijiste en el enunciado anterior. Aquí funcionaría empezar el enunciado diciendo algo como ``\textit{Es decir, juzgando únicamente con la media de los cocientes de espaciamientos se diría que el sistema es caótico en tal intervalo e integrable en tal intervalo}''}\snnote{Listo.} 
-\janote{Qué estás queriendo decir con este párrafo? No entiendo el punto principal}
-\janote{La redacción es confusa. Dijiste en tu marco teórico que integrabilidad $=$ Poisson, pero aquí decís que el sistema es integrable, pero que igual no muestra Poisson... ¿? O sea, el sistema sí es integrable, pero hasta aquí no has discutido los límites... De nuevo, es tu narrativa la que se está contradiciendo, creo que en la cabeza sí tenés claro todo esto}
-\snnote{Lo traté de reescribir mejor.}
- Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia aproximada con la estadística de Poisson. 
+Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia aproximada con la estadística de Poisson. 
  Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
 \begin{itemize}
     \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar la ec.~\eqref{eq:H:BH} cuando $J=0$ y $U\neq0$ y físicamente corresponde a una situación en donde no existe tunelaje entre sitios adyacentes, los bosones están confinados en su sitio inicial. El hamiltoniano resultante es:
@@ -406,6 +359,64 @@ Este hamiltoniano no contempla una interacción entre bosones y por tanto puede 
 En vista de la ecuación \eqref{eq:resultado}, el espectro de energías no sigue una distribución de variables aleatorias independientes pese a ser un sistema integrable (sistema de partículas libres).
 \end{itemize}
 
+ % \subsection{Para el sector simétrico}
+\janote{Cambio lo dicho con los títulos de las subsecciones. Más bien, no tiene sentido tener subsecciones sólo para mostrar las figuras. Quitá las subsecciones y que todo sea una sóla sección}\snnote{Listo. Se eliminaron las subsecciones.}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    % 1. Colocamos las imágenes dentro de un nodo base
+    \node[anchor=south west, inner sep=0] (mifigura) at (0,0) {
+      \begin{tabular}{c}
+        \includegraphics[width=0.91\textwidth]{./img/KL_Sym.pdf}\hspace{1mm} \\
+        \includegraphics[width=0.91\textwidth]{MeanSpacingBH.pdf}
+      \end{tabular}
+    };
+    % 2. Creamos un sistema de coordenadas relativo (de 0 a 1) sobre el nodo
+    \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
+      \node[anchor=west, black] at (0mm,192mm) {(a)};
+      \node[anchor=west, black] at (0mm,98mm) {(b)};
+    
+    \end{scope}
+  \end{tikzpicture}
+  \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\snnote{Listo.} \janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
+  [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
+  \label{fig:BHSym}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    % 1. Colocamos las imágenes dentro de un nodo base
+    \node[anchor=south west, inner sep=0] (mifigura) at (0,0) {
+      \begin{tabular}{c}
+        \includegraphics[width=0.991\textwidth]{./img/KL_Anti.pdf}\hspace{1mm} \\
+        \includegraphics[width=\textwidth]{MeanSpacingBHAnti.pdf}
+      \end{tabular}
+    };
+    % 2. Creamos un sistema de coordenadas relativo (de 0 a 1) sobre el nodo
+    \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
+      \node[anchor=west, black] at (0mm,192mm) {(a)};
+      \node[anchor=west, black] at (0mm,98mm) {(b)};
+      
+    \end{scope}
+  \end{tikzpicture}
+  \caption{\janote{nueva figura que te propongo para el sector simétrico y antisimétrico. Aquí en la caption toca mencionar que los marcadores cerrados corresponden a la KL respecto a GOE y los abiertos respecto a Poisson.}\snnote{Listo.} \janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
+  [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
+  \label{fig:BHAnti}
+\end{figure}
+%Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.5, 10]$, independientemente del tamaño del sistema 
+%y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$;
+ %$J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$;
+%$J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$;
+%$J/U \in [0.008, 0.01]$ y
+% $J/U \in [105,110]$ para $N=L=10$.
+
+ \janote{Sé preciso, no digas ``valores pequeños'', decí el intervalo según lo que se ve en la figura}\snnote{Listo. Se estructuró indicando intervalos explícitos.} 
+ \janote{mismo comentario de antes}\snnote{Listo.} 
+ \janote{Es falso lo que estás diciendo. En la Fig.~\ref{fig:Mean} para $J/U<0.01$ yo veo que para todos los tamaños de sistema el valor es menor al de Poisson... Así mismo, estás obviando por completo las regiones de transición...}\snnote{Listo. Se reescribió reflejando transición.}
+ \janote{No estás diciendo nada profundamente diferente de lo que ya dijiste en el enunciado anterior. Aquí funcionaría empezar el enunciado diciendo algo como ``\textit{Es decir, juzgando únicamente con la media de los cocientes de espaciamientos se diría que el sistema es caótico en tal intervalo e integrable en tal intervalo}''}\snnote{Listo.} 
+\janote{Qué estás queriendo decir con este párrafo? No entiendo el punto principal}
+\janote{La redacción es confusa. Dijiste en tu marco teórico que integrabilidad $=$ Poisson, pero aquí decís que el sistema es integrable, pero que igual no muestra Poisson... ¿? O sea, el sistema sí es integrable, pero hasta aquí no has discutido los límites... De nuevo, es tu narrativa la que se está contradiciendo, creo que en la cabeza sí tenés claro todo esto}
+\snnote{Lo traté de reescribir mejor.}
 \begin{figure}[H]
   \centering
   \begin{subfigure}[b]{0.48\textwidth}
