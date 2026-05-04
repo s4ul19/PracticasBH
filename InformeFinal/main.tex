@@ -93,31 +93,19 @@ doi=false
     \vspace{0.5cm}
 \end{titlepage}
 \section{Introducción}
-\janote{Revisaré esta sección hasta que Marcó teórico y Resultados estén listas}
-\snnote{Estructura propuesta: }
-\begin{itemize}
-    \item Relevancia del caos cuántico en sistemas de muchos cuerpos habilitados por el avance computacional.
-    
-    \item  Introducción de la conjetura de Bohigas-Giannoni-Schmit (BGS) y Berry-Tarbor, contrastando la repulsión de niveles (RMT/GOE) con la agrupación de niveles o en sistemas integrables.
-    
-    \item  Presentación del modelo de Bose Hubbard, destacando su viabilidad experimental mediante átomos ultrafríos en redes ópticas y la modulación del balance energético (tunelaje vs. interacción).
-    
-    \item Propósito de la investigación (caracterizar la transición integrabilidad-caos con condiciones de frontera abiertas) 
-  
-\end{itemize}
-El estudio del caos cuántico en sistemas de muchos cuerpos es un área de investigación que ha sido retomada en los últimos años en vista de una mayor capacidad computacional a disposición; 
-dicho estudio es fundamental para comprender fenómenos como la termalización y la localización en sistemas cuánticos aislados~\cite{Zhang2010}. Las firmas del caos cuántico se buscan en las propiedades estadísticas del espectro de energías del hamiltoniano considerado.
+El estudio del caos cuántico en sistemas de muchos cuerpos es un área de investigación que ha sido retomada en los últimos años en vista de una mayor capacidad computacional a disposición\janote{cita para respaldar el enunciado}; 
+dicho estudio es fundamental para comprender fenómenos como la termalización y la localización en sistemas cuánticos aislados~\cite{Zhang2010}\janote{más citas, quizas en Zhang 2010 podés buscar}. Las firmas del caos cuántico se buscan en las propiedades estadísticas del espectro de energías del hamiltoniano considerado\janote{y en los eigenvectores y también hay medidas dinámicas como la survival probability. Reformulá para dar el panorama general (de eso se trata la intro, aunque el trabajo sólo es sobre el espectro)}. 
 
 Según la conjetura de Bohigas-Giannoni-Schmit (BGS), las fluctuaciones espectrales de un sistema cuántico cuyo análogo clásico es caótico exhiben repulsión de niveles, 
 y sus propiedades estadísticas coinciden con las predicciones de la Teoría de Matrices Aleatorias (RMT)~\cite{Bohigas_1984}.
- Por el contrario, según la conjetura de Berry-Tarbor~\cite{BerryTabor1977}, los sistemas integrables presentan espectros no correlacionados que siguen una estadística de Poisson, permitiendo la agrupación de niveles o \textit{level clustering}.
+ Por el contrario, según la conjetura de Berry-Tarbor~\cite{BerryTabor1977}, los sistemas integrables presentan espectros no correlacionados que siguen una estadística de Poisson, permitiendo la agrupación de niveles o \textit{level clustering}. \janote{agregá un enunciado más hablando de lo mucho que se ha testeado estas conjeturas, con sus respectivas citas}
 
-El modelo de Bose Hubbard sobre una red es un sistema útil en este contexto, ya que además de su relevancia teórica para describir bosones sin espín en una red, este modelo es de interés experimental debido a su realización mediante átomos ultrafríos confinados en redes ópticas~\cite{Jaksch1998,greiner2002quantum}
+El modelo de Bose Hubbard sobre una red es un sistema útil en este contexto, ya que además de su relevancia teórica para describir bosones sin espín en una red, este modelo es de interés experimental debido a su realización mediante átomos ultrafríos confinados en redes ópticas~\cite{Jaksch1998,greiner2002quantum}\janote{por qué es útil? Sé más honesto para presentar al BH: es un buen \textit{testbed} para estudiar caos cuántico porque finalmente depende de un sólo parámetro ($J/U$)}.
  Al modular la profundidad de estas redes, es posible controlar el balance entre la energía cinética (tunelaje) y la energía de interacción de las partículas, permitiendo explorar distintas fases dinámicas~\cite{Jaksch1998,greiner2002quantum}.
 
-El presente trabajo tiene como objetivo caracterizar la transición entre los regímenes de integrabilidad y caos cuántico en el modelo de Bose Hubbard con condiciones de frontera abiertas. 
-Asimismo, para realizar una comparación de las distribuciones empíricas respecto a las predicciones teóricas del ensamble ortogonal gaussiano (GOE) y de la estadística de Poisson,
-se implementan dos indicadores estadísticos utilizados en la literatura.
+El presente trabajo tiene como objetivo caracterizar la transición entre los regímenes de integrabilidad y caos cuántico en el modelo de Bose Hubbard con condiciones de frontera abiertas \janote{y mismo número de bosones que de sitios}. 
+Asimismo\janote{asimismo qué? ahora estás diciendo cómo hicimos la caracterización, reformulá la redacción}, para realizar una comparación de las distribuciones empíricas respecto a las predicciones teóricas del ensamble ortogonal gaussiano (GOE) y de la estadística de Poisson,
+se implementan dos indicadores estadísticos utilizados en la literatura\janote{decí cuáles}. \janote{aquí agregá uno o dos enunciados que hablen de la estructura del documento: ``En la Sección 2, presentamos el marco teórico de... en la sección 3... bla bla''}
 \section{Marco Teórico}
 \subsection{El modelo de Bose Hubbard}\label{sec:BH}
 
