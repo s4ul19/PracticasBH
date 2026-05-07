@@ -253,8 +253,8 @@ La distribución de \janote{de}\snnote{Listo.} Poisson para niveles de energía 
 \end{equation}
 Una de las diferencias más importantes entre estas dos distribuciones es que cuando $r=0$ se observa para el \janote{el}\snnote{Listo.} GOE una repulsión de los valores propios mientras que para Poisson se observa que la densidad de probabilidad de tener dos valores propios iguales es no nula.
 Con estas expresiones es posible extraer un valor promedio, $\ev{r}$, para cada distribución \janote{estás diciendo lo mismo}\snnote{Listo.} de probabilidad de los cocientes de espaciamientos.
-En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{\text{GOE}}=0.5307$ 
-y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629$ \janote{me parece que aquí ya no van las citas. Ya citaste arriba para las distribuciones y estos numéritos se pueden extraer de ahí.}\snnote{Listo se ha quitado}.
+En particular, para el ensamble GOE, dicho valor es de $\ev{r}_{\text{GOE}}=0.5307\label{eq:rGOE}$ 
+y para la distribución de Poisson un valor de $\ev{r}_{\text{\text{Poisson}}}=0.38629\label{eq:rPoi}$ \janote{me parece que aquí ya no van las citas. Ya citaste arriba para las distribuciones y estos numéritos se pueden extraer de ahí.}\snnote{Listo se ha quitado}.
 
 
 
@@ -281,12 +281,11 @@ la divergencia KL compara las distribuciones de probabilidad punto a punto, cons
 En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos en el modelo de Bose Hubbard con condiciones de frontera abiertas~(c.f. Sec.~\ref{sec:BH}) 
 utilizando la media del cociente de espacimientos~(c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL~(c.f. Sec.~\ref{sec:kl_divergence})
 entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por GOE y Poisson.
-
 Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano, fijando $U=1$ y variando $J$.
 Para cada sector, de cada instancia $J/U$, se determinó la media del cociente de espaciamientos según la ec.~\eqref{eq:r}
  y la divergencia KL según la ec.~\eqref{eq:kl_divergence} tomando la ec.~\eqref{eq:goe} y la ec.~\eqref{eq:poi} como distribuciones de probabilidad de referencia para GOE y Poisson, respectivamente.
-
-\janote{Todo lo que está hasta es un único párrafo, unilos} \janote{Te falta decir los tamaños de sistema que estudiaste}
+Los tamaños del sistema que se estudiaron fueron: $N=L=7$, $N=L=8$, $N=L=9$ y $N=L=10$.
+\snnote{Listo.}\janote{Todo lo que está hasta es un único párrafo, unilos} \janote{Te falta decir los tamaños de sistema que estudiaste}
 
 \begin{figure}[H]
   \centering
@@ -305,7 +304,7 @@ Para cada sector, de cada instancia $J/U$, se determinó la media del cociente d
     
     \end{scope}
   \end{tikzpicture}
-  \caption{\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
+  \caption{\snnote{Se ha arreglado la fuente.}{\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}}
   [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
   \label{fig:BHSym}
 \end{figure}
@@ -326,16 +325,20 @@ Para cada sector, de cada instancia $J/U$, se determinó la media del cociente d
       
     \end{scope}
   \end{tikzpicture}
-  \caption{\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}\snnote{Pendiente: Modificar la fuente desde el script que genera el PDF.}
-  [Descripción de la figura unificada]. Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.\janote{Al inset le hacen falta etiquetas de los ejes}}
+  \caption{\snnote{Se ha arreglado la fuente.}\janote{Mirá las etiquetas que puse en rojo de 0.001 y $J/U$: el tamaño de la fuente de tus figuras es ligeramente más pequeño que el del texto, todavía tenés que aumentarlo. La regla es que el tamaño de la fuenta de las figuras tiene que ser \textit{igual o mayor} al tamaño de la fuente del texto}}
   \label{fig:BHAnti}
 \end{figure}
 
-Mediante el indicador estadístico $\ev{r}$ es visto que al variar el cociente $J/U$ desde valores cercanos a 0 hasta un valores cercanos a 120,
- el sistema transiciona entre regimenes de integrabilidad y caos.
-Por un lado, para una región de cocientes $J/U$ contenida en el intervalo $[0.5,10]$, para todos los tamaños, el sistema es cuánticamente caótico\janote{impreciso, lo único que podés decir es que alcanza el mismo valor promedio predicho por GOE y Poisson. Lo mismo en lo que sigue para la integrabilidad},
-por otro lado, el sistema alcanza integrabilidad para regiones de intervalos mucho más pequeños\janote{misma crítica de la ronda anterior de correcciones, cuáles son los intervalos a los que hacés referencia? De hecho, no veo intervalos, es como un único punto donde el sistema alcanza el valor de Poisson y que cambia con el tamaño del sistema} que el intervalo visto para la región caótica, como se puede ver en Fig.~\ref{fig:BHSym}\janote{(b)} y Fig.~\ref{fig:BHAnti}\janote{(b)}.
-\janote{Aquí empieza una nueva idea y, por tanto, debería ser un nuevo párrafo. En lo que está antes te falta mencionar tres cosas: 1) regiones de transición donde el valor es intermedio, 2) los intervalos que se van por debajo del valor de Poisson 3) cuál es el rol del tamaño del sistema visto por la $\ev{r}$?}Si bien desde el indicador de la divergencia KL los intervalos de valores $J/U$ identificados como caóticos e integrables según el indicador $\ev{r}$ son consistentes con mostrar que la distribución $P(r)$ se aproxima suficientemente bien a la estadística de referencia (GOE o Poisson),
+Mediante el indicador estadístico $\ev{r}$, es visto que al variar el cociente $J/U$ desde valores cercanos a 0 hasta un valores cercanos a 120,
+el sistema transiciona primero en una región de parámetros cuyo primer momento $\langle r \rangle$ no se aproxima ni al de de Poisson ni al de GOE, \eqref{eq:rPoi} y \eqref{eq:rGOE} respectivamente.
+
+\janote{misma crítica de la ronda anterior de correcciones, cuáles son los intervalos a los que hacés referencia? De hecho, no veo intervalos, es como un único punto donde el sistema alcanza el valor de Poisson y que cambia con el tamaño del sistema}
+\janote{impreciso, lo único que podés decir es que alcanza el mismo valor promedio predicho por GOE y Poisson. Lo mismo en lo que sigue para la integrabilidad}
+
+\janote{Aquí empieza una nueva idea y, por tanto, debería ser un nuevo párrafo. En lo que está antes te falta mencionar tres cosas: 1) regiones de transición donde el valor es intermedio, 2) los intervalos que se van por debajo del valor de Poisson 3) cuál es el rol del tamaño del sistema visto por la $\ev{r}$?}
+
+como se puede ver en Fig.~\ref{fig:BHSym}\janote{(b)} y Fig.~\ref{fig:BHAnti}\janote{(b)}
+Si bien desde el indicador de la divergencia KL los intervalos de valores $J/U$ identificados como caóticos e integrables según el indicador $\ev{r}$ son consistentes con mostrar que la distribución $P(r)$ se aproxima suficientemente bien a la estadística de referencia (GOE o Poisson),
 los resultados obtenidos sugieren mas bien la existencia de puntos particulares $J/U$ que mejor aproximan a la estadística de GOE y Poisson, mostrando una desviación de las estadísticas respectivas
 a medida que el cociente $J/U$ se aleja de estos puntos particulares. Un detalle importante es que, desde la divergencia KL, se observa para cada tamaño estudiado, tres puntos particulares, 
 dos que maximizan la correspondencia con Poisson y uno que maximiza la correspondencia con el ensamble GOE, para los cuales el punto correspondiente al GOE existe entre los dos puntos correspondendientes a Poisson. 
@@ -344,15 +347,15 @@ Tanto para el indicador $\ev{r}$ y la divergencia KL\janote{Aquí ya estás disc
 tal y como se ve en Fig.~\ref{fig:Examples}~(d), asi mismo se ve que en los páneles de (a),(b), (c) de Fig.~\ref{fig:Examples}\janote{Aquí conviene que hagás referencia a qué punto son en las figuras de la $\ev{r}$ y la KL}, usando los valores $J/U$ que maximizan la correspondencia con la estadísticas respectivas 
 que sugieren las figuras Fig.~\ref{fig:BHSym} y \ref{fig:BHAnti}, se ve una correspondencia significativa con las predicciones analíticas de cada estadística de referencia.
 
-%Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.5, 10]$, independientemente del tamaño del sistema 
-%y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$;
- %$J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$;
-%$J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$;
-%$J/U \in [0.008, 0.01]$ y
-% $J/U \in [105,110]$ para $N=L=10$.
+Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.5, 10]$, independientemente del tamaño del sistema 
+y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$;
+ $J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$;
+$J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$;
+$J/U \in [0.008, 0.01]$ y
+ $J/U \in [105,110]$ para $N=L=10$.
 
 Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito\janote{en tamaño infinito tampoco} no muestran una correspondencia aproximada con la estadística de Poisson. 
-Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito no muestran una correspondencia aproximada con la estadística de Poisson. Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
+Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
 \begin{itemize}
     \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar la ec.~\eqref{eq:H:BH} cuando $J=0$ y $U\neq0$ y físicamente corresponde a una situación en donde no existe tunelaje entre sitios adyacentes, los bosones están confinados en su sitio inicial. El hamiltoniano resultante es:
 \begin{equation}\label{eq:H:BHInt}
@@ -439,17 +442,19 @@ En vista de la ecuación \eqref{eq:resultado}, el espectro de energías no sigue
 \section{Conclusiones}
 \snnote{Sugiero esta estructura :}
 \begin{itemize}
-  \item La modulación del cociente $J/U$ en el modelo de Bose Hubbard con condiciones de frontera abiertas permite controlar de forma la transición entre las fases de integrabilidad y caos cuántico. \janote{El mensaje de este trabajo es más bien al revés: caracterizamos la transición integrabilidad-caos en el BH como función de $J/U$}
-  
-  \item Mencionar de la metodología usada, de la media del cociente de espaciamientos $\langle r \rangle$ y la divergencia de KL para caracterizar las distribuciones empíricas. \janote{Aquí toca volver a remarcar porqué usamos ambos indicadores}
-  
-  \item Especificar que el caos cuántico, visto desde la $\langle r \rangle$, se satura en un intervalo central bien, mientras que los regímenes integrables emergen en los extremos de esta región, en distintos puntos según el tamaño.\janote{sí, esto me parece sumamente importante}
-  
-  \item \janote{Te faltó un punto sobre qué se concluye de la KL}
-  
-  \item  Señalar que la correspondencia con las estadísticas teóricas mejora al aumentar el tamaño del sistema ($N$ y $L$). \janote{De acuerdo, pero es más importante concluir cuáles son los efectos de tamaño finito en tus resultados}
-  
-  \item  Sugerir el uso de indicadores \janote{cuáles, específicamente?} que evalúen correlaciones de orden superior para eludir el problema de las degeneraciones por las simetrías\janote{Lo del SFF que nosotros sabemos no es estándar de la literatura, en todo caso esto aplica para la $r_k$}. Finalizar conectando la utilidad de conocer estos intervalos exactos con el diseño de arreglos experimentales basados en átomos ultrafríos\janote{Antes de escribir cualquier cosa, sé más específico con qué querés decir, cómo vas a conectar con esto?}.
+  \item Se caracterizó la transición integrabilidad-caos en el BH en función del parámetro J/U.
+  \item Mencionar la metodologia empleada en el trabajo  (<r> y la KL) y porque se escogieron emplear estos indicadores.
+  \item Especificar que el caos cuántico, visto desde la <r>, se satura en un intervalo para todos los tamaños, mientras que los regímenes  integrables emergen, luego de una región de transición, en distintos puntos según el tamaño.
+  \item Expandir sobre las conclusiones de la KL, la sugerencia de puntos que maximizan la correspondencia con las estadísticas de referencia.
+  \snnote{La KL permite ver que existen puntos con una mayor correspondencia a GOE o Poisson y alrededor de estos existe una desviación de la estadística respectiva, con los intervalos estudiados, se identificaron 3 puntos de estos, dos poisson, uno de GOE.}\janote{Sé más específico aquí, qué vas a decir? Contame la idea concreta.}
+  \item Señalar cuales son efectos de tamaño finito en los resultados obtenidos. 
+  \snnote{Los puntos/regiones donde hay integrabilidad con estadística de Poisson, dependen del tamaño del sistema, asimismo, visto desde la KL, la correspondencia, tanto con Poisson y GOE, parece hacerse cada vez mejor}\janote{Cuáles son los efectos de tamaño finito?}
+  \item Sugerir el uso de indicadores que evalúen correlaciones de orden superior, SFF principalmente y espaciamiento de orden superior (citar a tekur? \janote{Si} ), en miras de eludir los problemas de las simetrías.
+  \item Finalizar enfatizando la utilidad, teórica y práctica (Atomos ultrafrios), de conocer estos intervalos.
+  \janote{Cuál es la utilidad?}\snnote{Teórica: Se verifica que este modelo, pese a ser simple, exhibe caos cuántico según BGS.
+Práctico: La identificación de que valores de J/U inducen caos cuántico es información valiosa para los experimentales pues ya se tendría una idea de que regímenes de J/U se espera transiciones de fase.}\janote{Qué transiciones de fase? No veo qué tienen que ver aquí las transiciones de fase tipo aislante de Mott-superfluidez. Estoy entendiendo mal? Si no, proporngo que sólo no mencionés nada sobre lo práctico. No hay que hablar cosas de las que no estés seguro}
+\item Sugerir trabajo a futuro, pienso que dirigido en las líneas de entender estas regiones para distintos N y L, en el límite termodinámico, pienso que sugerir esto que nos dio la KL, de poder acaso interpolar para hallar el J/U que maximiza caos para sistemas de tamaño superior
+\janote{ No entiendo, pero creo que mejor lo crictico hasta que lo vea escrito}
 \end{itemize}
 
 
