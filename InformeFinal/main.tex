@@ -329,16 +329,27 @@ Los tamaños del sistema que se estudiaron fueron: $N=L=7$, $N=L=8$, $N=L=9$ y $
   \label{fig:BHAnti}
 \end{figure}
 
-Mediante el indicador estadístico $\ev{r}$, es visto que al variar el cociente $J/U$ desde valores cercanos a 0 hasta un valores cercanos a 120,
-el sistema transiciona primero en una región de parámetros cuyo primer momento $\langle r \rangle$ no se aproxima ni al de de Poisson ni al de GOE, \eqref{eq:rPoi} y \eqref{eq:rGOE} respectivamente.
+Mediante el indicador estadístico $\ev{r}$, en las Figs.~\ref{fig:BHSym}~(b)~y~\ref{fig:BHAnti}~(b), es visto que al variar el cociente $J/U$ empezando desde valores cercanos a 0 hasta valores cercanos a 120,
+tanto para el sector simétrico como antisimétrico, el sistema empieza en una región de parámetros tal que el valor $\ev{r}$ calculado no se aproxima ni al de Poisson ni al de GOE~(c.f. Sec.~\ref{sec:mean:r})
+en los intervalos de $[0, 0.04]$ para $N=L=7$ y $[0,0.007]$ para $N=L=8,9,10$, seguidamente se alcanza un valor cercano al de Poisson para el intervalo $[0.03,0.07]$ para $N=L=7$ y para el intervalo $[0.007,0.01]$ para $N=L=8,9,10$,
+se advierte una región de transición (el valor $\ev{r}$ incrementa a medida que $J/U$ incrementa) que abarca el intervalo $[0.07,0.5]$ para $N=L=7$ y el intervalo $[0.01,0.5]$ para $N=L=8,9,10$,
+hasta llegar a una región que, para todos los tamaños, se alcanza un valor próximo al de GOE para el intervalo $[0.5,10]$,
+nuevamente sucede otra región de transición (el valor $\ev{r}$ decrece a medida que $J/U$ incrementa) que abarca los intervalos de $[10,20]$ para $N=L=7$ y $[10,50]$ para $N=L=8,9,10$
+hasta que se llega nuevamente a un valor cercano a Poisson, ocupando el intervalo de $[20,25]$ para $N=L=7$ y $[50,80]$ para $N=L=8,9,10$, salvo con el detalle que para $N=L=10$, el sistema vuelve a tener un valor cercano a Poisson para $J/U\approx 110$,
+finalmente el valor $\ev{r}$ del sistema decrece, alejándose tanto del valor de referencia de Poisson como el de GOE.
 
+Si bien emplear únicamente el indicador estaístico $\ev{r}$ no permite concluir si el sistema sigue una estadística de Poisson o de GOE, ya que comparar el primer momento de las distribuciones no es suficiente~(c.f. Sec~\ref{sec:kl_divergence}),
+estos resultados sugieren una transición del sistema entre regímenes de integrabilidad y de caos cuántico,
+observando que la región de parámetros que se aproxima a GOE no parece depender del tamaño del sistema
+mientra que las regiones con una mayor correspondencia al valor de Poisson, tanto el ancho de la región como los puntos en donde sucede, parecen depender del tamaño del sistema.
+\snnote{Se ha reescrito esta parte de la sección}
 \janote{misma crítica de la ronda anterior de correcciones, cuáles son los intervalos a los que hacés referencia? De hecho, no veo intervalos, es como un único punto donde el sistema alcanza el valor de Poisson y que cambia con el tamaño del sistema}
 \janote{impreciso, lo único que podés decir es que alcanza el mismo valor promedio predicho por GOE y Poisson. Lo mismo en lo que sigue para la integrabilidad}
 
 \janote{Aquí empieza una nueva idea y, por tanto, debería ser un nuevo párrafo. En lo que está antes te falta mencionar tres cosas: 1) regiones de transición donde el valor es intermedio, 2) los intervalos que se van por debajo del valor de Poisson 3) cuál es el rol del tamaño del sistema visto por la $\ev{r}$?}
 
-como se puede ver en Fig.~\ref{fig:BHSym}\janote{(b)} y Fig.~\ref{fig:BHAnti}\janote{(b)}
-Si bien desde el indicador de la divergencia KL los intervalos de valores $J/U$ identificados como caóticos e integrables según el indicador $\ev{r}$ son consistentes con mostrar que la distribución $P(r)$ se aproxima suficientemente bien a la estadística de referencia (GOE o Poisson),
+Como se puede ver en las Figs.~\ref{fig:BHSym}~(a)~y~\ref{fig:BHAnti}~(a),
+mediante el indicador de la divergencia KL, los intervalos de valores $J/U$ identificados como caóticos e integrables según el indicador $\ev{r}$ son consistentes con mostrar que la distribución $P(r)$ se aproxima suficientemente bien a la estadística de referencia (GOE o Poisson),
 los resultados obtenidos sugieren mas bien la existencia de puntos particulares $J/U$ que mejor aproximan a la estadística de GOE y Poisson, mostrando una desviación de las estadísticas respectivas
 a medida que el cociente $J/U$ se aleja de estos puntos particulares. Un detalle importante es que, desde la divergencia KL, se observa para cada tamaño estudiado, tres puntos particulares, 
 dos que maximizan la correspondencia con Poisson y uno que maximiza la correspondencia con el ensamble GOE, para los cuales el punto correspondiente al GOE existe entre los dos puntos correspondendientes a Poisson. 
@@ -346,13 +357,6 @@ dos que maximizan la correspondencia con Poisson y uno que maximiza la correspon
 Tanto para el indicador $\ev{r}$ y la divergencia KL\janote{Aquí ya estás discutiendo la comparación entre la $\ev{r}$ y la divergencia KL, pero no has discutido los paneles (a) de las Figs. 1 y 2 sólo de la KL} es posible ver que hay valores $J/U$ los cuales no se pueden diferenciar claramente entre una estadísitca de Poisson o una de GOE,
 tal y como se ve en Fig.~\ref{fig:Examples}~(d), asi mismo se ve que en los páneles de (a),(b), (c) de Fig.~\ref{fig:Examples}\janote{Aquí conviene que hagás referencia a qué punto son en las figuras de la $\ev{r}$ y la KL}, usando los valores $J/U$ que maximizan la correspondencia con la estadísticas respectivas 
 que sugieren las figuras Fig.~\ref{fig:BHSym} y \ref{fig:BHAnti}, se ve una correspondencia significativa con las predicciones analíticas de cada estadística de referencia.
-
-Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.5, 10]$, independientemente del tamaño del sistema 
-y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$;
- $J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$;
-$J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$;
-$J/U \in [0.008, 0.01]$ y
- $J/U \in [105,110]$ para $N=L=10$.
 
 Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito\janote{en tamaño infinito tampoco} no muestran una correspondencia aproximada con la estadística de Poisson. 
 Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
