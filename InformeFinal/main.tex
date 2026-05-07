@@ -338,7 +338,7 @@ nuevamente sucede otra región de transición (el valor $\ev{r}$ decrece a medid
 hasta que se llega nuevamente a un valor cercano a Poisson, ocupando el intervalo de $[20,25]$ para $N=L=7$ y $[50,80]$ para $N=L=8,9,10$, salvo con el detalle que para $N=L=10$, el sistema vuelve a tener un valor cercano a Poisson para $J/U\approx 110$,
 finalmente el valor $\ev{r}$ del sistema decrece, alejándose tanto del valor de referencia de Poisson como el de GOE.
 
-Si bien emplear únicamente el indicador estaístico $\ev{r}$ no permite concluir si el sistema sigue una estadística de Poisson o de GOE, ya que comparar el primer momento de las distribuciones no es suficiente~(c.f. Sec~\ref{sec:kl_divergence}),
+Si bien emplear únicamente el indicador estadístico $\ev{r}$ no permite concluir si el sistema sigue una estadística de Poisson o de GOE, ya que comparar el primer momento de las distribuciones no es suficiente~(c.f. Sec~\ref{sec:kl_divergence}),
 estos resultados sugieren una transición del sistema entre regímenes de integrabilidad y de caos cuántico,
 observando que la región de parámetros que se aproxima a GOE no parece depender del tamaño del sistema
 mientra que las regiones con una mayor correspondencia al valor de Poisson, tanto el ancho de la región como los puntos en donde sucede, parecen depender del tamaño del sistema.
@@ -349,14 +349,22 @@ mientra que las regiones con una mayor correspondencia al valor de Poisson, tant
 \janote{Aquí empieza una nueva idea y, por tanto, debería ser un nuevo párrafo. En lo que está antes te falta mencionar tres cosas: 1) regiones de transición donde el valor es intermedio, 2) los intervalos que se van por debajo del valor de Poisson 3) cuál es el rol del tamaño del sistema visto por la $\ev{r}$?}
 
 Como se puede ver en las Figs.~\ref{fig:BHSym}~(a)~y~\ref{fig:BHAnti}~(a),
-mediante el indicador de la divergencia KL, los intervalos de valores $J/U$ identificados como caóticos e integrables según el indicador $\ev{r}$ son consistentes con mostrar que la distribución $P(r)$ se aproxima suficientemente bien a la estadística de referencia (GOE o Poisson),
-los resultados obtenidos sugieren mas bien la existencia de puntos particulares $J/U$ que mejor aproximan a la estadística de GOE y Poisson, mostrando una desviación de las estadísticas respectivas
-a medida que el cociente $J/U$ se aleja de estos puntos particulares. Un detalle importante es que, desde la divergencia KL, se observa para cada tamaño estudiado, tres puntos particulares, 
+mediante el indicador de la divergencia Kullback-Leibler, los intervalos de $J/U$ identificados con una mayor correspondencia con GOE o Poisson, según el indicador $\ev{r}$, 
+son consistentes con mostrar que la distribución $P(r)$ se aproxima a la estadísticas de referencia respectiva.
+Los resultados obtenidos con este indicador sugieren mas bien la existencia de puntos particulares $J/U$ que mejor aproximan a la estadística de GOE o Poisson, mostrando una desviación de las estadísticas respectivas
+a medida que el cociente $J/U$ se aleja de estos puntos particulares.
+Es de notar que, desde la divergencia KL, se observa para cada tamaño estudiado existen tres puntos particulares, 
 dos que maximizan la correspondencia con Poisson y uno que maximiza la correspondencia con el ensamble GOE, para los cuales el punto correspondiente al GOE existe entre los dos puntos correspondendientes a Poisson. 
 
-Tanto para el indicador $\ev{r}$ y la divergencia KL\janote{Aquí ya estás discutiendo la comparación entre la $\ev{r}$ y la divergencia KL, pero no has discutido los paneles (a) de las Figs. 1 y 2 sólo de la KL} es posible ver que hay valores $J/U$ los cuales no se pueden diferenciar claramente entre una estadísitca de Poisson o una de GOE,
-tal y como se ve en Fig.~\ref{fig:Examples}~(d), asi mismo se ve que en los páneles de (a),(b), (c) de Fig.~\ref{fig:Examples}\janote{Aquí conviene que hagás referencia a qué punto son en las figuras de la $\ev{r}$ y la KL}, usando los valores $J/U$ que maximizan la correspondencia con la estadísticas respectivas 
-que sugieren las figuras Fig.~\ref{fig:BHSym} y \ref{fig:BHAnti}, se ve una correspondencia significativa con las predicciones analíticas de cada estadística de referencia.
+\snnote{He agregado una discusión para la $\ev{r}$ al inicio de la sección.}
+\janote{Aquí ya estás discutiendo la comparación entre la $\ev{r}$ y la divergencia KL, pero no has discutido los paneles (a) de las Figs. 1 y 2 sólo de la KL}
+
+Tanto para el indicador $\ev{r}$ como para la divergencia KL es posible ver que hay valores $J/U$ para los cuales no es posible diferenciar claramente entre una estadística de Poisson o una de GOE,
+tal y como se ve en Fig.~\ref{fig:Examples}~(d),
+asimismo se ve que en los páneles de (a) y (c) de la Fig.~\ref{fig:Examples} la distribución de cocientes de espaciamientos, $P(r)$, sigue la predicción analítica de Poisson dada por~\eqref{eq:poi}
+mientras que en el pánel (b) de la misma figura se observa que la $P(r)$ sigue la predicción analítica de GOE según~\eqref{eq:goe}
+\snnote{Esos puntos salen en las caption de las figuras.}\janote{Aquí conviene que hagás referencia a qué punto son en las figuras de la $\ev{r}$ y la KL},
+
 
 Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones empíricas de espaciamiento en estos límites de tamaño finito\janote{en tamaño infinito tampoco} no muestran una correspondencia aproximada con la estadística de Poisson. 
 Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
@@ -433,12 +441,19 @@ En vista de la ecuación \eqref{eq:resultado}, el espectro de energías no sigue
      \includegraphics[width=\textwidth]{PsHighJU.pdf}
      \caption{$J/U \approx 120$}
   \end{subfigure}
-
+  \vspace{0.5cm} 
  \begin{subfigure}[b]{0.48\textwidth}
      \centering
      \includegraphics[width=\textwidth]{IntermediateState.pdf}
      \caption{$J/U \approx 0.11$}
   \end{subfigure}
+
+ \begin{subfigure}[b]{0.48\textwidth}
+     \centering
+     \includegraphics[width=\textwidth]{LowstJU.pdf}
+     \caption{$J/U \approx 0.0003$}
+  \end{subfigure}
+  
   \caption{Distribución empírica del cociente de espaciamientos para puntos representativos de $J/U$, evaluados en el sector simétrico del hamiltoniano de Bose Hubbard con una red de 10 sitios y 10 partículas. \janote{1) El tamaño de la fuente está muy chiquito en las 3 gráficas, 2) Está muy escueta la referencia que hacés dentro del texto a esta figura. Tenés que incorporar mejor la referencia a estas gráficas dentro de la historia qu estás contando en esta sección. 3) Incluí cómo se ve la $P(r)$ en donde no se ve Poisson ni Wigner-Dyson para algún $J/U<0.01$ y para alguno en el que trancisiona entre Poisson y Wigner Dyson. El primero, lo podés mencionar con uno de los límites analíticos y el segundo cuando hablés de la transición }\snnote{Pendiente: (1) Aumentar tamaño de fuente en las imágenes originales. (3) Agregar los nuevos sub-plots de las regiones de transición al grid y a este código. (2) La narrativa textual ya fue expandida arriba para introducir esta figura de forma más natural.}\janote{Uniformizá el formato de las gráficas, la (d) rompe con la estética de las demás gráficas. Además, queda pendiente de revisar lo que hace falta de modificar}}
 \label{fig:Examples}
 \end{figure}
