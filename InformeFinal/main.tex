@@ -278,14 +278,10 @@ la divergencia KL compara las distribuciones de probabilidad punto a punto, cons
 \snnote{Arreglado.}\janote{de nuevo, no es el espectro específicamente, sino la $P(r)$}.
 
 \section{Resultados}
-En esta sección se muestran los resultados de la caracterización de la transición de integrabilidad a caos en el modelo de Bose Hubbard con condiciones de frontera abiertas~(c.f. Sec.~\ref{sec:BH}) 
-utilizando la media del cociente de espacimientos~(c.f. Sec.~\ref{sec:mean:r}) y la divergencia KL~(c.f. Sec.~\ref{sec:kl_divergence})
-entre la distribución empírica de cocientes $P(r)$ y las distribuciones predichas por GOE y Poisson.
-Para distintos cocientes $J/U$ se calcularon los respectivos sectores simétrico y antisimétrico del hamiltoniano, fijando $U=1$ y variando $J$.
-Para cada sector, de cada instancia $J/U$, se determinó la media del cociente de espaciamientos según la ec.~\eqref{eq:r}
- y la divergencia KL según la ec.~\eqref{eq:kl_divergence} tomando la ec.~\eqref{eq:goe} y la ec.~\eqref{eq:poi} como distribuciones de probabilidad de referencia para GOE y Poisson, respectivamente.
-Los tamaños del sistema que se estudiaron fueron: $N=L=7$, $N=L=8$, $N=L=9$ y $N=L=10$.
-\snnote{Listo.}\janote{Todo lo que está hasta es un único párrafo, unilos} \janote{Te falta decir los tamaños de sistema que estudiaste}
+\section{Resultados}
+Se presenta la caracterización de la transición integrabilidad-caos en el modelo de Bose-Hubbard unidimensional con condiciones de frontera abiertas~(Sec.~\ref{sec:BH}). 
+Para comparar la distribución empírica de cocientes de espaciamiento $P(r)$ con las predicciones teóricas del GOE y de Poisson, se emplearon la media de espaciamientos $\ev{r}$~(Sec.~\ref{sec:mean:r}, ec.~\eqref{eq:r}) y la divergencia Kullback-Leibler (KL)~(Sec.~\ref{sec:kl_divergence}, ec.~\eqref{eq:kl_divergence}).
+Fijando $U=1$ y variando $J$, se evaluaron los sectores simétrico y antisimétrico del hamiltoniano para tamaños de sistema $N=L=7, 8, 9, 10$.
 
 \begin{figure}[H]
   \centering
@@ -301,15 +297,15 @@ Los tamaños del sistema que se estudiaron fueron: $N=L=7$, $N=L=8$, $N=L=9$ y $
     \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
       \node[anchor=west, black] at (0mm,192mm) {(a)};
       \node[anchor=west, black] at (0mm,98mm) {(b)};
-    
     \end{scope}
   \end{tikzpicture}
   \caption{
-  Para el sector simétrico del modelo~\eqref{eq:H:BH}, en el primer panel el valor de la divergencia KL según la variación del parámetro $J/U$ respecto a la estadísticas de referencia GOE y Poisson,
-   y en el segundo panel, el valor del indicador $\ev{r}$ según la variación del cociente $J/U$.
-  Los marcadores cerrados corresponden a la divergencia Kullback-Leibler respecto al GOE y los abiertos respecto a la distribución de Poisson.}
+  Para el sector simétrico del modelo~\eqref{eq:H:BH}, en el primer panel se muestra el valor de la divergencia KL en función del parámetro $J/U$ respecto a las estadísticas de referencia GOE y Poisson;
+   en el segundo panel, el valor del indicador $\ev{r}$ en función del cociente $J/U$.
+  Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
   \label{fig:BHSym}
 \end{figure}
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
@@ -324,138 +320,51 @@ Los tamaños del sistema que se estudiaron fueron: $N=L=7$, $N=L=8$, $N=L=9$ y $
     \begin{scope}[x={(mifigura.south east)},y={(mifigura.north west)}]
       \node[anchor=west, black] at (0mm,192mm) {(a)};
       \node[anchor=west, black] at (0mm,98mm) {(b)};
-      
     \end{scope}
   \end{tikzpicture}
   \caption{
-Para el sector antisimétrico del modelo~\eqref{eq:H:BH}, en el primer panel el valor de la divergencia KL según la variación del parámetro $J/U$ respecto a la estadísticas de referencia GOE y Poisson,
-   y en el segundo panel, el valor del indicador $\ev{r}$ según la variación del cociente $J/U$.
-  Los marcadores cerrados corresponden a la divergencia Kullback-Leibler respecto al GOE y los abiertos respecto a la distribución de Poisson.}
+  Para el sector antisimétrico del modelo~\eqref{eq:H:BH}, en el primer panel se muestra el valor de la divergencia KL en función del parámetro $J/U$ respecto a las estadísticas de referencia GOE y Poisson;
+   en el segundo panel, el valor del indicador $\ev{r}$ en función del cociente $J/U$.
+  Los marcadores cerrados corresponden a la divergencia KL respecto al GOE y los abiertos respecto a la distribución de Poisson.}
   \label{fig:BHAnti}
 \end{figure}
 
-Mediante el indicador estadístico $\ev{r}$, en las Figs.~\ref{fig:BHSym}~(b)~y~\ref{fig:BHAnti}~(b), es visto que al variar el cociente $J/U$ empezando desde valores cercanos a 0 hasta valores cercanos a 120,
-tanto para el sector simétrico como antisimétrico, el sistema empieza en una región de parámetros tal que el valor $\ev{r}$ calculado no se aproxima ni al de Poisson ni al de GOE~(c.f. Sec.~\ref{sec:mean:r})
-en los intervalos de $[0, 0.04]$ para $N=L=7$ y $[0,0.007]$ para $N=L=8,9,10$, seguidamente se alcanza un valor cercano al de Poisson para el intervalo $[0.03,0.07]$ para $N=L=7$ y para el intervalo $[0.007,0.01]$ para $N=L=8,9,10$,
-se advierte una región de transición (el valor $\ev{r}$ incrementa a medida que $J/U$ incrementa) que abarca el intervalo $[0.07,0.5]$ para $N=L=7$ y el intervalo $[0.01,0.5]$ para $N=L=8,9,10$,
-hasta llegar a una región que, para todos los tamaños, se alcanza un valor próximo al de GOE para el intervalo $[0.5,10]$,
-nuevamente sucede otra región de transición (el valor $\ev{r}$ decrece a medida que $J/U$ incrementa) que abarca los intervalos de $[10,20]$ para $N=L=7$ y $[10,50]$ para $N=L=8,9,10$
-hasta que se llega nuevamente a un valor cercano a Poisson, ocupando el intervalo de $[20,25]$ para $N=L=7$ y $[50,80]$ para $N=L=8,9,10$, salvo con el detalle que para $N=L=10$, el sistema vuelve a tener un valor cercano a Poisson para $J/U\approx 110$,
-finalmente el valor $\ev{r}$ del sistema decrece, alejándose tanto del valor de referencia de Poisson como el de GOE.
+En las Figs.~\ref{fig:BHSym}~(b) y \ref{fig:BHAnti}~(b) se muestra el comportamiento de $\ev{r}$ al variar $J/U \in (0, 120]$. Inicialmente, empezando desde $J/U$ cercano a 0, el valor de $\ev{r}$ no concuerda con las predicciones de Poisson ni del GOE. Al incrementar $J/U$, se alcanza un valor promedio compatible con Poisson en torno a $J/U \approx 0.05$ para $N=L=7$, y $J/U \approx 0.01$ para $N=L=8,9,10$. Posteriormente, se observa una transición hacia un régimen con una correspondencia al ensamble GOE, donde $\ev{r}$ se estabiliza en el valor dado según \eqref{eq:rGOE} dentro del intervalo $J/U \in [0.5, 10]$, de manera independiente al tamaño del sistema. 
 
-Si bien emplear únicamente el indicador estadístico $\ev{r}$ no permite concluir si el sistema sigue una estadística de Poisson o de GOE, ya que comparar el primer momento de las distribuciones no es suficiente~(c.f. Sec~\ref{sec:kl_divergence}),
-estos resultados sugieren una transición del sistema entre regímenes de integrabilidad y de caos cuántico,
-observando que la región de parámetros que se aproxima a GOE no parece depender del tamaño del sistema
-mientra que las regiones con una mayor correspondencia al valor de Poisson, tanto el ancho de la región como los puntos en donde sucede, parecen depender del tamaño del sistema.
-\snnote{Se ha reescrito esta parte de la sección}
-\janote{misma crítica de la ronda anterior de correcciones, cuáles son los intervalos a los que hacés referencia? De hecho, no veo intervalos, es como un único punto donde el sistema alcanza el valor de Poisson y que cambia con el tamaño del sistema}
-\janote{impreciso, lo único que podés decir es que alcanza el mismo valor promedio predicho por GOE y Poisson. Lo mismo en lo que sigue para la integrabilidad}
+Para valores $J/U > 10$, $\ev{r}$ decrece de nuevo, indicando una segunda transición hacia un regímen con correspondecia con Poisson. El sistema retorna a un valor promedio cercano a \eqref{eq:rPoi} en intervalos dependientes del tamaño ($[20,25]$ para $N=L=7$; $[50,80]$ para $N=L=8,9$; y $J/U \approx 110$ para $N=L=10$). Finalmente, para valores aún mayores, $\ev{r}$ decae alejándose de ambas estadísticas teóricas. Aunque el indicador $\ev{r}$ por sí solo evalúa únicamente el primer momento de la distribución~(Sec.~\ref{sec:kl_divergence}), sugiere una transición de integrabilidad a caos y de nuevo a integrabilidad, donde la región caótica es robusta ante cambios de tamaño, a diferencia de los regímenes integrables.
 
-\janote{Aquí empieza una nueva idea y, por tanto, debería ser un nuevo párrafo. En lo que está antes te falta mencionar tres cosas: 1) regiones de transición donde el valor es intermedio, 2) los intervalos que se van por debajo del valor de Poisson 3) cuál es el rol del tamaño del sistema visto por la $\ev{r}$?}
+La divergencia KL (Figs.~\ref{fig:BHSym}~(a) y \ref{fig:BHAnti}~(a)) corrobora esta tendencia, demostrando que en las regiones identificadas mediante la $\ev{r}$, la $P(r)$ efectivamente se aproxima a las distribuciones de referencia. Sin embargo, la KL revela que no existen intervalos amplios de correspondencia estricta, sino puntos particulares de $J/U$ que minimizan la divergencia. Para cada tamaño, se identifican tres puntos de partículares: dos que maximizan la proximidad con Poisson y uno intermedio que maximiza la correspondencia con el GOE.
 
-Como se puede ver en las Figs.~\ref{fig:BHSym}~(a)~y~\ref{fig:BHAnti}~(a),
-mediante el indicador de la divergencia Kullback-Leibler se puede ver que los intervalos de $J/U$, según el indicador $\ev{r}$, identificados con una mayor correspondencia con GOE o Poisson,
-son consistentes con mostrar que la distribución $P(r)$ se aproxima a la estadísticas de referencia respectiva,
-sin embargoo, los resultados obtenidos con la divergencia KL sugieren más bien la existencia de puntos particulares $J/U$ que mejor aproximan a la estadística de GOE o Poisson, mostrando una desviación de las estadísticas respectivas
-a medida que el cociente $J/U$ se aleja de estos puntos particulares.
-Es de notar que, desde la divergencia KL, se observa para cada tamaño estudiado existen tres puntos particulares, 
-dos que maximizan la correspondencia con Poisson y uno que maximiza la correspondencia con el ensamble GOE, para los cuales el punto correspondiente al GOE existe entre los dos puntos correspondendientes a Poisson. 
+Las distintas configuraciones espectrales se ejemplifican en la Fig.~\ref{fig:Examples}. Los paneles (a) y (c) exhiben valores de $J/U$ donde la $P(r)$ empírica sigue la distribución de Poisson, mientras que el (b) ilustra el régimen caótico descrito por el GOE. En contraste, el panel (d) muestra un estado de transición con estadística intermedia, y el (e) evidencia la desviación respecto a Poisson propia de los regímenes asintóticos extremos.
 
-\snnote{He agregado una discusión para la $\ev{r}$ al inicio de la sección.}
-\janote{Aquí ya estás discutiendo la comparación entre la $\ev{r}$ y la divergencia KL, pero no has discutido los paneles (a) de las Figs. 1 y 2 sólo de la KL}
+Aunque el sistema transiciona a una fase integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones en estos límites no reproducen la estadística de Poisson. Esta aparente contradicción se explica al examinar la estructura espectral en los casos asintóticos:
 
-Tanto para el indicador $\ev{r}$ como para la divergencia KL es posible ver que hay valores $J/U$ para los cuales no es posible diferenciar claramente entre una estadística de Poisson o una de GOE,
-tal y como se ve en Fig.~\ref{fig:Examples}~(d),
-asimismo se ve que en los paneles de (a) y (c) de la Fig.~\ref{fig:Examples} que la distribución de cocientes de espaciamientos, $P(r)$, sigue la predicción analítica de Poisson dada por~\eqref{eq:poi}
-mientras que en el panel (b) de la misma figura se observa que la $P(r)$ sigue la predicción analítica de GOE según~\eqref{eq:goe},
-finalmente en el panel (e) se hace ver como la $P(r)$ se desvía de la predicción analítica de Poisson.
-\snnote{Esos puntos salen en las caption de las figuras.}\janote{Aquí conviene que hagás referencia a qué punto son en las figuras de la $\ev{r}$ y la KL},
-
-
-Aunque el sistema transiciona a un régimen integrable cuando $J/U \rightarrow 0$ y $J/U \rightarrow \infty$, las distribuciones de espaciamiento en estos límites
-\snnote{Se removió la mención de finitud del tamaño, para manterner una generalidad}\janote{en tamaño infinito tampoco} 
-no muestran una correspondencia aproximada con la estadística de Poisson. 
-Para explicar esta aparente contradicción, es necesario examinar la estructura del espectro en ambos casos límite:
 \begin{itemize}
-    \item Cuando $J/U \rightarrow 0$: Este caso es equivalente a estudiar la ec.~\eqref{eq:H:BH} cuando $J=0$ y $U\neq0$ y físicamente corresponde a una situación en donde no existe tunelaje entre sitios adyacentes, los bosones están confinados en su sitio inicial. El hamiltoniano resultante es:
+    \item Límite cuando $J/U \rightarrow 0$: Corresponde al caso $J=0$ y $U\neq0$, representando bosones sin tunelaje confinados en su sitio inicial. El hamiltoniano es:
 \begin{equation}\label{eq:H:BHInt}
 \hat{H} = \frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1).
 \end{equation}
-En vista de la ec.~\eqref{eq:num}, la base de Fock es eigenbase del hamiltoniano en la ec.~\eqref{eq:H:BHInt}, cumpliendo:
-\begin{equation}
-\frac{U}{2}\sum_{i=1}^{L}\hat{n}_i(\hat{n}_i - 1)\ket{n_1,\cdots,n_L}=\frac{U}{2}\sum_{i=1}^{L}n_i(n_i - 1)\ket{n_1,\cdots,n_L}.
-\end{equation}
-Este límite es estrictamente integrable dado que los operadores de número $\hat{n}_i$
-constituyen un conjunto completo de observables que conmutan con $\hat{H}$, por tanto hay tantas cantidades conservadas como número de sitios. 
-Sin embargo, dado que los eigenvalores son múltiplos enteros del parámetro de interacción $U$, el espectro presenta degeneraciones y no está distribuido de manera uniforme. 
-Por tanto, su estadística local difiere de la de variables aleatorias independientes requeridas para reproducir exactamente la distribución de Poisson.
+La base de Fock es eigenbase exacta de este hamiltoniano. El límite es estrictamente integrable al poseer tantas cantidades conservadas (los operadores de número $\hat{n}_i$) como sitios en la red. No obstante, como los eigenvalores son múltiplos enteros de $U$, el espectro exhibe degeneraciones exactas y no se distribuye uniformemente. Por lo tanto, su estadística local carece de la falta de correlación de variables aleatorias independientes requerida para reproducir la distribución de Poisson.
 
-    \item Cuando $J/U \rightarrow \infty$: Este caso equivale a estudiar la ec.~\eqref{eq:H:BH} cuando $U=0$ y $J\neq 0$. El hamiltoniano se reduce al término cinético:
+    \item Límite cuando $J/U \rightarrow \infty$: Equivalente a $U=0$ y $J\neq 0$, reduciendo el sistema a su término cinético:
 \begin{equation}\label{eq:H:BHKin}
 \hat{H} = -J \sum_{i=1}^{L-1} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right).
 \end{equation}
-En este caso, proponiendo un eigenvector de la forma:
-\begin{equation}
-    \ket{\phi}=\sum_{i=1}^{L}\phi_i \hat{a_i}^{\dagger}\ket{0,0,\cdots,0}
-\end{equation}
-pedir\janote{faltan signos de puntuación en la ecuación anterior. Creo que va un punto y seguido, por tanto, mayúscula para ``pedir''} que $\hat{H}\ket{\phi}=E\ket{\phi}$ implica que las amplitudes $\phi_i$ deben satisfacer la relación de recurrencia:
-\begin{equation}
-    -J(\phi_{i-1}+\phi_{i+1})=E\phi_i
-    \label{eq:rec}
-\end{equation}
-donde $\phi_0=\phi_{L+1}=0$. Tomando como ansatz la solución $\phi_j= A \sin(\beta \cdot j )$, se deduce que:
-\begin{equation*}
-\beta=\beta_m=\frac{m\pi}{L+1}
-\end{equation*} 
-\begin{equation*}
-     A=A_m=\frac{1}{\sqrt{\sum_{i=1}^{L}\sin^{2}(\beta_m\cdot j)}}
-\end{equation*}\janote{faltan signos de puntuación en estas dos ecuaciones}
-Con lo cual, se evidencia la existencia de un número cuántico asociado, $m \in [0,L]$ y $m\in\mathbb{Z}$. Llevando esto a la ec.~\eqref{eq:rec}, se deduce que los niveles de energía según su número cuántico asociado, $m$, están dados por:
-\begin{equation}\label{eq:resultado}
-  E_m=-2J A_m\cos(\beta_m)
-\end{equation}
-\janote{Si entiendo bien, igual $m$ va de 1 a $L$, y el resto de eigenvalores??}\snnote{Aparecen según se varíe el cuasimomento $m$.}\janote{No contestaste a mi pregunta, quizás porque no entendiste. Tomá $N=L=2$, la dimensión del espacio total es 3, pero con la ec.~\eqref{eq:resultado} sólo tenemos 2 eigenvalores, y el tercero??}
-donde el índice $m = 1, \dots, L$ etiqueta los numeros cuánticos asociados al sistema. 
-Este hamiltoniano no contempla\janote{innecesariaemtne poético, cambialo por no tiene o algo más directo} una interacción entre bosones y por tanto puede considerarse como si fueran partículas que estan en constante tunelaje entre los sitios, independientes una de la otra, sus niveles de energía son independientes unos de los otros.
-En vista de la ecuación \eqref{eq:resultado}, el espectro de energías no sigue una distribución de variables aleatorias independientes pese a ser un sistema integrable (sistema de partículas libres).
-
-\snnote{Propuesta de sección, pasada por Gemini.}
-\item Cuando $J/U \rightarrow \infty$: Este caso equivale a estudiar la ec.~\eqref{eq:H:BH} cuando $U=0$ y $J\neq 0$. El hamiltoniano se reduce al término cinético:
-\begin{equation}\label{eq:H:BHKin}
-\hat{H} = -J \sum_{i=1}^{L-1} \!\left(\hat{a}_i^{\dagger}\hat{a}_{i+1} + \hat{a}_{i+1}^{\dagger}\hat{a}_i\right).
-\end{equation}
-En este caso, proponiendo un eigenvector de una partícula de la forma:
-\begin{equation}
-    \ket{\phi}=\sum_{i=1}^{L}\phi_i \hat{a}_i^{\dagger}\ket{0,0,\dots,0},
-\end{equation}
-la condición $\hat{H}\ket{\phi}=\epsilon\ket{\phi}$ implica que las amplitudes $\phi_i$ deben satisfacer la relación de recurrencia:
+Al proponer un eigenvector de una partícula $\ket{\phi}=\sum_{i=1}^{L}\phi_i \hat{a}_i^{\dagger}\ket{0,\dots,0}$, la condición $\hat{H}\ket{\phi}=\epsilon\ket{\phi}$ requiere que las amplitudes satisfagan:
 \begin{equation}
     -J(\phi_{i-1}+\phi_{i+1})=\epsilon\phi_i,
     \label{eq:rec}
 \end{equation}
-donde $\phi_0=\phi_{L+1}=0$. Tomando como \textit{ansatz} la solución $\phi_j= A \sin(\beta \cdot j)$, se deduce que:
-\begin{equation*}
-\beta_m=\frac{m\pi}{L+1}, \quad \text{y} \quad A_m=\left(\sum_{j=1}^{L}\sin^{2}(\beta_m\cdot j)\right)^{-1/2}.
-\end{equation*}
-Con lo cual, se evidencia la existencia de un número cuántico asociado $m \in \{1, 2, \dots, L\}$. Llevando esto a la ec.~\eqref{eq:rec}, se deduce que los niveles de energía de una sola partícula según su número cuántico asociado, $m$, están dados por:
+con $\phi_0=\phi_{L+1}=0$. Tomando el \textit{ansatz} $\phi_j= A \sin(\beta \cdot j)$, se obtiene un número cuántico $m \in \{1, 2, \dots, L\}$ y las energías de partícula individual:
 \begin{equation}\label{eq:resultado}
-  \epsilon_m=-2J\cos(\beta_m).
+  \epsilon_m=-2J\cos\left(\frac{m\pi}{L+1}\right).
 \end{equation}
-Este hamiltoniano carece de una interacción entre bosones, por tanto, el sistema se comporta como un gas de partículas libres en constante tunelaje. Las energías totales de los estados de muchos cuerpos se construyen a partir de la suma de las energías de las partículas individuales:
+Sin interacción interpartícula, el sistema se comporta como un gas de bosones libres en tunelaje. Las energías totales de muchos cuerpos son la suma de estos autoestados individuales:
 \begin{equation}
     E_{\{n_m\}} = \sum_{m=1}^{L} n_m \epsilon_m,
 \end{equation}
-sujetas a la restricción de que el número total de partículas es $\sum_{m=1}^L n_m = N$, donde $n_m$ es el número de bosones en el estado con número cuántico $m$. Debido a que el espectro de muchos cuerpos se construye mediante combinaciones lineales de un conjunto reducido de niveles de una sola partícula ($\epsilon_m$), el espectro exhibe una fuerte regularidad aritmética y degeneraciones. En consecuencia, el espectro de energías no sigue una distribución de variables aleatorias independientes, lo que explica la desviación respecto a la estadística de Poisson pese a ser un sistema estrictamente integrable.
+con $\sum_{m=1}^L n_m = N$. Puesto que el espectro global se genera mediante combinaciones lineales de un conjunto muy reducido de niveles $\epsilon_m$, exhibe una fuerte regularidad aritmética y degeneraciones, en consecuencia, se desvía drásticamente de la estadística de Poisson pese a su integrabilidad estricta.
 \end{itemize}
-
-
- % \subsection{Para el sector simétrico}
-%Mediante el indicador estadístico $\ev{r}$ se observa que el sistema es caótico en el intervalo $J/U \in [0.5, 10]$, independientemente del tamaño del sistema 
-%y es integrable en los intervalos $J/U \in [0.02, 0.09]$ y $J/U \in [20, 30]$ para $N=L=7$;
- %$J/U \in [0.01, 0.02]$ y $J/U \in [50, 80]$ para de $N=L=8$;
-%$J/U \in [0.01, 0.02]$ y $J/U\in [80,85]$ para $N=L=9$;
-%$J/U \in [0.008, 0.01]$ y
-% $J/U \in [105,110]$ para $N=L=10$.
 
 \begin{figure}[H]
   \centering
@@ -491,10 +400,9 @@ sujetas a la restricción de que el número total de partículas es $\sum_{m=1}^
      \caption{$J/U \approx 0.0003$}
   \end{subfigure}
   
-  \caption{Distribución empírica del cociente de espaciamientos para puntos representativos de $J/U$, evaluados en el sector simétrico del hamiltoniano de Bose Hubbard con una red de 10 sitios y 10 partículas. \janote{1) El tamaño de la fuente está muy chiquito en las 3 gráficas, 2) Está muy escueta la referencia que hacés dentro del texto a esta figura. Tenés que incorporar mejor la referencia a estas gráficas dentro de la historia qu estás contando en esta sección. 3) Incluí cómo se ve la $P(r)$ en donde no se ve Poisson ni Wigner-Dyson para algún $J/U<0.01$ y para alguno en el que trancisiona entre Poisson y Wigner Dyson. El primero, lo podés mencionar con uno de los límites analíticos y el segundo cuando hablés de la transición }\snnote{Pendiente: (1) Aumentar tamaño de fuente en las imágenes originales. (3) Agregar los nuevos sub-plots de las regiones de transición al grid y a este código. (2) La narrativa textual ya fue expandida arriba para introducir esta figura de forma más natural.}\janote{Uniformizá el formato de las gráficas, la (d) rompe con la estética de las demás gráficas. Además, queda pendiente de revisar lo que hace falta de modificar}}
+  \caption{Distribución empírica del cociente de espaciamientos para puntos representativos de $J/U$, evaluados en el sector simétrico del hamiltoniano de Bose Hubbard con una red de 10 sitios y 10 partículas.}
 \label{fig:Examples}
 \end{figure}
-
 \section{Conclusiones}
 \snnote{Sugiero esta estructura :}
 \begin{itemize}
@@ -513,27 +421,16 @@ Práctico: La identificación de que valores de J/U inducen caos cuántico es in
 \janote{ No entiendo, pero creo que mejor lo crictico hasta que lo vea escrito}
 \end{itemize}
 
+En este trabajo se caracterizó la transición integrabilidad-caos en el modelo de Bose-Hubbard unidimensional con condiciones de frontera abiertas, en función del parámetro $J/U$. Se emplearon dos indicadores estadísticos: la media del cociente de espaciamientos $\ev{r}$ y la divergencia de Kullback-Leibler (KL). El indicador $\ev{r}$ permitió un análisis de las fluctuaciones espectrales sin requerir el procedimiento de \textit{unfolding}. Por su parte, la divergencia KL se utilizó para cuantificar numéricamente la diferencia entre las distribuciones empíricas $P(r)$ y los modelos analíticos correspondientes a la Teoría de Matrices Aleatorias (GOE) y la estadística de Poisson.
 
-% Aquí puedes comenzar a redactar los párrafos finales basándote en los puntos de arriba:}
-A partir del análisis de las fluctuaciones espectrales, se verificó que el modelo de Bose-Hubbard unidimensional con condiciones de frontera abiertas experimenta una transición entre una fase integrable y una fase de caos cuántico al modular el cociente $J/U$. 
-Para caracterizar esta transición, resultó necesario restringir el estudio a un sector específico de paridad espacial del hamiltoniano, evitando así la superposición de espectros independientes que introducirían degeneraciones en caso de estudiar el espectro completo del hamiltoniano. 
-Bajo esta restricción, la implementación conjunta del valor esperado del cociente de espaciamientos $\ev{r}$, dado por la ec.~\eqref{eq:r}, y la divergencia de Kullback-Leibler (KL), ec.~\eqref{eq:kl_divergence}, 
-muestra con ser una metodología robusta para comparar las distribuciones empíricas $P(r)$ con las predicciones teóricas del ensamble ortogonal gaussiano (GOE) y la estadística de Poisson,
-siempre y cuando se tenga a disposición el conocimiento de las simetrías presentes en el sistema y los operadores a los que están asociadas las mismas.
+El indicador $\ev{r}$ mostró que el sistema alcanza un régimen caótico en el intervalo $J/U \in [0.5, 10]$, el cual es independiente del tamaño del sistema para los valores estudiados. En contraste, los regímenes integrables asintóticos se alcanzan tras atravesar regiones de transición y emergen en valores de $J/U$ dependientes del tamaño de la red.
 
-Los resultados sugieren que el régimen cuánticamente caótico, 
-caracterizado por repulsión de niveles y una correspondencia con la distribución del ensamble GOE,
-se satura en un intervalo central bien definido, aproximadamente $J/U \in [0.5, 10]$. A medida que el sistema se aleja de este intervalo, el espectro transiciona hacia un regimen integrable,
- que para $J/U\rightarrow 0$ representa bosones fuertemente localizados en sitios dados de la red y para $J/U \rightarrow \infty$ representa partículas libres tunelando entre los sitios.
-Según se vió mediante el indicador de la divergencia KL, la existencia de configuraciones $J/U$ que mejor se aproximan a las estadísticas respectivas (GOE o Poisson) es de interés ya que sigue una tendencia según el tamaño del sistema y en vista de ello puede ser posible inferir, para tamaños superiores de red y partículas, que configuraciones $J/U$ maximizan una correspondencia con GOE o Poisson.
+La divergencia KL corroboró estas transiciones y evidenció que la correspondencia estadística óptima no ocurre en intervalos amplios, sino en valores específicos de $J/U$ que minimizan la divergencia. Para los tamaños evaluados, se identificaron tres óptimos locales: dos en los extremos que maximizan la proximidad con Poisson, y uno intermedio que maximiza la correspondencia con el GOE.
 
-Sin embargo, el análisis de las distribuciones empíricas en los límites asintóticos revela anomalías importantes para tamaños finitos de la red. 
-Tanto en el límite del aislante estricto sin tunelaje ($J/U \to 0$) como en el límite de partículas libres sin interacción ($J/U \to \infty$), 
-la distribución de los cocientes de espaciamiento no reproduce con exactitud la estadística de Poisson esperada, pese a que el sistema es estrictamente integrable (tiene igual número de cantidades conservadas como grados de libertad).
-Por otro lado, se observó que la correspondencia de las distribuciones numéricas con los modelos estadísticos teóricos mejora significativamente a medida que se incrementa el tamaño del sistema.
-Los resultados obtenidos, para el número de sitios estudiados, sugieren que la región de parámetros correspondiente a la fase caótica converge hacia un intervalo finito; sin embargo,
-  no resulta concluyente cómo se comporta esta transición en un límite termodinámico o en configuraciones donde $N \neq L$.
+Asimismo, se observaron efectos de tamaño finito. La ubicación de los puntos integrables varía según $N$ y $L$, y la correspondencia entre las distribuciones empíricas y los modelos teóricos mejora al incrementar el tamaño del sistema. La tendencia de los mínimos de la KL sugiere que es posible estimar, mediante interpolación, los parámetros $J/U$ que maximizan el caos o la integrabilidad para sistemas de mayor tamaño.
 
-Como trabajo futuro, resulta pertinente extender esta línea de investigación empleando indicadores estadísticos que involucren correlaciones de orden superior, lo cual permitiría analizar el espectro sin la necesidad de desdoblar el espacio de Hilbert por sectores de simetría~\cite{delacruz2020quantum}. Finalmente, mapear con precisión estos intervalos de integrabilidad y caos posee una relevancia práctica sustancial; dada la complejidad de escalar arreglos experimentales con átomos ultrafríos en redes ópticas, conocer a priori las regiones efectivas de parámetros permite guiar el diseño de experimentos orientados a estudiar fenómenos como la termalización y la localización en sistemas cuánticos aislados.
+Para evaluar la estadística espectral correctamente, fue necesario restringir el hamiltoniano a un sector de paridad espacial, evitando así degeneraciones asociadas a simetrías discretas. Como trabajo futuro, se sugiere emplear indicadores basados en correlaciones de orden superior, como el factor de forma espectral (SFF) o los cocientes de espaciamiento de k-ésimo vecino~\cite{tekur2018higher}. Esto permitiría analizar el espectro sin necesidad de separar el espacio de Hilbert por sectores de simetría.
+
+Finalmente, determinar con precisión los intervalos de integrabilidad y caos en el modelo de Bose-Hubbard tiene utilidad teórica. Identificar los valores críticos de $J/U$ proporciona una base cuantitativa para el estudio numérico de fenómenos dinámicos, tales como la termalización y la localización en sistemas cuánticos aislados.
 \printbibliography
 \end{document}
